@@ -1,0 +1,30 @@
+# This is a template .gitignore file for git-managed WordPress projects.
+#
+# Solution: stick this file up your repository root (which it assumes is
+# also the WordPress root directory) and add exceptions for any plugins,
+# themes, and other directories that should be under version control.
+ 
+# Ignore everything in the "wp-content" directory, except the "plugins" and "themes" directories.
+wp-content/*
+!wp-content/plugins/
+!wp-content/themes/
+
+# Configuration
+wp-config.php
+
+# Git auto-deploy.
+gitautodeploy.php
+
+# Log files
+*.log
+
+# htaccess
+.htaccess
+ 
+# Ignore everything in the "plugins" directory, except the plugins you specify (see the commented-out examples for hints on how to do this.)
+# wp-content/plugins/*
+# !wp-content/plugins/my-directory-plugin/
+ 
+# Ignore everything in the "themes" directory, except the themes you specify (see the commented-out example for a hint on how to do this.)
+# wp-content/themes/*
+# !wp-content/themes/my-theme/
