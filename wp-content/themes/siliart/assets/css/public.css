@@ -1,0 +1,100 @@
+input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus,input:-webkit-autofill:active{transition:background-color 9999s ease-in-out 0s;}
+ul.navbar-nav.navbar-reign-panel li .fa-sign-in:before{content:"\f2f6";}
+a.downloadapp{background-color:#ff7129!important;border-radius:60px;box-shadow:0px 10px 20px 0px rgba(0,0,0,0.12);font-size:18px;padding:14px 31px;color:#fff!important;width:auto;display:inline-block;}
+a.downloadapp:hover{background-color:#ff7129!important;border-radius:60px;box-shadow:0px 10px 20px 0px rgba(0,0,0,0.12);font-size:18px;padding:14px 31px;color:#fff!important;}
+.header-top-aside.header-top-right.footerSocialMenu ul{display:flex;align-items:center;align-content:center;margin:0;gap:6px;}
+.header-top-aside.header-top-right.footerSocialMenu ul li a{display:flex;align-items:center;align-content:center;justify-content:center;width:28px;height:28px;background:#fff;border-radius:50%;border:solid 1px #e3e3e3;}
+.header-top-aside.header-top-right.footerSocialMenu ul li i{color:#FF7B54;width:24px;height:24px;font-size:15px;padding:0;display:flex;align-items:center;align-content:center;justify-content:center;}
+.ps-widget__hashtags .ps-hashtag{background-color:rgb(255 111 0 / 20%);color:#ff7129!important;}
+.ps-hashtag--size100{font-size:150%;}
+.single-product .woocommerce-variation-add-to-cart.variations_button button.single_add_to_cart_button.button.alt{width:auto!important;}
+.woo-variation-swatches .variable-items-wrapper.radio-variable-items-wrapper .radio-variable-item input[type='radio']:after{width:12px;height:12px;border-radius:15px;top:4px;left:4px;position:relative;background-color:#d1d3d1;content:'';display:inline-block;visibility:visible;border:2px solid white;}
+.woo-variation-swatches .variable-items-wrapper.radio-variable-items-wrapper .radio-variable-item input[type='radio']:checked:after{width:12px;height:12px;border-radius:15px;top:4px;left:4px;position:relative;content:'';display:inline-block;visibility:visible;border:2px solid #ff7129!important;background:#ff7129!important;}
+#wpforo #wpforo-wrap{font-size:13px;width:100%;padding:10px 0;margin:0px;padding:20px!important;border:1px solid var(--reign-site-border-color);border-radius:var(--reign-global-border-radius);}
+#wpforo #wpforo-wrap *::selection{color:#000000;background:#ff7129!important;}
+#wpforo #wpforo-wrap *::-moz-selection{color:#000000;background:#ff7129!important;}
+#wpforo #wpforo-wrap .wpforo-active,#wpforo #wpforo-wrap #wpforo-menu li.wpforo-active,#wpforo #wpforo-wrap #wpforo-menu li:hover,#wpforo #wpforo-wrap #wpforo-menu li.current-menu-ancestor,#wpforo #wpforo-wrap #wpforo-menu li.current-menu-parent,#wpforo #wpforo-wrap #wpforo-menu li.current_page_item{border-bottom:#ff7129!important 3px solid;}
+#wpforo #wpforo-wrap #wpforo-menu li > ul{background-color:#f5f5f5;}
+#wpforo #wpforo-wrap #wpforo-menu li > ul li{border-bottom:1px solid #f5f5f5;}
+#wpforo #wpforo-wrap #wpforo-menu li > ul li:hover,#wpforo #wpforo-wrap #wpforo-menu li > ul li.current-menu-item{border-bottom:1px solid #ff7129!important;}
+#wpforo-load{color:#ff7129!important;}
+#wpforo-load i{color:#ff7129!important;}
+#wpforo #wpforo-wrap .wpf-search i{color:#ff7129!important;}
+#wpforo #wpforo-wrap .wpf-bar-right .wpf-alerts i:hover{color:#ff7129!important;}
+#wpforo #wpforo-wrap #wpforo-poweredby a{color:#ff7129!important;}
+.wpfcl-b{color:#ff7129!important;}
+.wpfbg-b{background-color:#ff7129!important;}
+.wpfbr-b{border:1px solid #ff7129!important;}
+.contacctbox .wpforms-form .wpforms-submit{background-color:#ff7129!important;border-radius:50rem 50rem 50rem 50rem;box-shadow:0px 10px 20px 0px rgba(0,0,0,0.12);}
+.footer-contacts .address,.footer-contacts .phone,.footer-contacts .email{display:flex;align-items:flex-start;align-content:flex-start;margin:0 0 12px;}
+.search-results .reign-elementor-content{display:-webkit-box;display:-ms-flexbox;display:flex;margin-left:-15px;margin-right:-15px;-ms-flex-wrap:wrap;flex-wrap:wrap;}
+.search-results .reign-elementor-content>*{-webkit-box-flex:1;-ms-flex:1;flex:1;min-width:1px;display:inline-block;list-style:none;}
+.search-results .reign-elementor-content{padding-top:0;padding-bottom:40px;}
+.search-results .reign-elementor-content>:not(.no-gutter){padding-left:15px;padding-right:15px;}
+.footer-contacts .address i,.footer-contacts .phone i,.footer-contacts .email i{margin:2px 7px 0 0;}
+#wpforo #wpforo-wrap .wpforo-category .wpf-button{color:#fff!important;border:1px solid #ff7129!important;}
+#wpforo #wpforo-wrap .wpf-post-starter{color:#ff7129!important;border-bottom:1px solid #ff7129!important;}
+#wpforo #wpforo-wrap .wpforo-post-head .wpf-post-head-top{background-color:#f5f5f5;border-left:3px solid #ff7129!important;}
+#wpforo #wpforo-wrap .wpforo-post-head .wpf-post-head-top .wpf-post-stat .wpf-post-stat-box .wpf-tstat svg{fill:#ff7129!important;}
+#wpforo #wpforo-wrap .wpforo-post-head .wpf-topic-more-info h3{border-bottom:1px dashed #ff7129!important;}
+#wpforo #wpforo-wrap .wpfl-1 .wpforo-category{background-color:#f5f5f5;border-bottom:#ff7129!important 3px solid;}
+#wpforo #wpforo-wrap .wpfl-1 .wpforo-topic-head{border-bottom:#ff7129!important 3px solid;color:#555555;}
+#wpforo #wpforo-wrap .wpfl-1 .wpforo-post .wpf-left{background:#f5f5f5;border-top:#ff7129!important 2px solid;}
+#wpforo #wpforo-wrap .wpfl-2 .wpforo-category{background-color:#f5f5f5;border-bottom:#ff7129!important 3px solid;}
+#wpforo #wpforo-wrap .wpfl-2 .wpforo-topic-head{border-bottom:#ff7129!important 3px solid;color:#555555;}
+#wpforo #wpforo-wrap .wpfl-3 .wpforo-category{background-color:#f5f5f5;border-bottom:#ff7129!important 3px solid;}
+#wpforo #wpforo-wrap .wpfl-3 .wpforo-topic-head{border-bottom:#ff7129!important 3px solid;color:#555555;}
+#wpforo #wpforo-wrap .wpfl-3 .wpf-answer-sep{color:#666666;border-bottom:2px solid #ff7129!important;}
+#wpforo #wpforo-wrap .wpfl-3 .wpf-answer-sep svg{fill:#ff7129!important;}
+#wpforo #wpforo-wrap .wpfl-4 .wpforo-category{background-color:#f5f5f5;border-bottom:3px solid #ff7129!important;}
+#wpforo #wpforo-wrap .wpfl-4.wpf-subforums .wpforo-category{background-color:transparent;border-bottom:3px solid #ff7129!important;}
+#wpforo #wpforo-wrap .wpft-topic .wpfl-4 .wpf-threads-head{background:#ff7129!important;color:#ffffff;border-bottom:2px solid #cccccc;}
+#wpforo #wpforo-wrap .wpfl-4 .wpf-post-replies-bar .wpf-post-replies-info{color:#ff7129!important;}
+#wpforo #wpforo-wrap .wpfl-4 .wpf-child-post .wpf-reply-content .wpf-reply-tree .wpf-tree-item.wpf-starter .avatar{background:#ffffff;border:1px solid #ff7129!important;}
+#wpforo #wpforo-wrap .wpforo-profile .wpforo-profile-head .wpforo-profile-back{background:#ff7129!important;color:#ffffff;}
+#wpforo #wpforo-wrap .wpforo-profile .wpforo-profile-menu .wpf-profile-menu.wpforo-active{color:#ff7129!important;}
+#wpforo-dialog input[type="button"]{background:#ff7129!important;color:#ffffff;border:1px solid #0099cc;}
+#wpforo #wpforo-wrap .wpf-button,.wpf-button{background:#ff7129!important;color:#ffffff!important;border:1px solid #0099cc;}
+#wpforo #wpforo-wrap .wpforo-category .wpf-button{background:#ffffff;color:#ff7129!important;border:1px solid #0099cc;box-shadow:0 0 3px #fff;}
+#wpforo #wpforo-wrap .wpforo-category .wpf-button:hover{background:#ff7129!important;color:#ffffff!important;border:1px solid #0099cc;box-shadow:0 0 10px #fff;}
+#wpforo #wpforo-wrap .wpf-topic-create .quicktags-toolbar input[type="button"]{background:#ff7129!important;color:#ffffff;}
+#wpforo #wpforo-wrap .wpf-post-create .quicktags-toolbar input[type="button"]{background:#ff7129!important;color:#ffffff;}
+#wpforo #wpforo-wrap .wpforo-members .wpforo-member .wpforo-member-social a:hover{color:#ff7129!important;fill:#ff7129!important;}
+#wpforo #wpforo-wrap .wpforo-login-wrap .wpforo-login-content{border-top:#ff7129!important 1px solid;border-bottom:#cccccc 1px solid;padding:40px 1%;}
+#wpforo #wpforo-wrap .wpforo-register-wrap .wpforo-register-content{border-top:#ff7129!important 1px solid;border-bottom:#cccccc 1px solid;padding:40px 1%;}
+#wpforo #wpforo-wrap .wpforo-search-wrap .wpforo-search-content .wpf-htr{background-color:#ff7129!important;color:#ffffff;}
+#wpforo #wpforo-wrap .wpforo-recent-wrap .wpforo-recent-content .wpf-htr{border-bottom:#ff7129!important 3px solid;color:#777777;}
+#wpforo #wpforo-wrap .wpf-navi .wpf-navi-wrap .wpf-prev-button{background:#ff7129!important;color:#ffffff;}
+#wpforo #wpforo-wrap .wpf-navi .wpf-navi-wrap .wpf-next-button{background:#ff7129!important;color:#ffffff;}
+#wpforo #wpforo-wrap #wpforo-stat-header .wpf-footer-title{border-bottom:3px solid #ff7129!important;margin-bottom:-2px;}
+.ui-dialog .ui-widget-header{background-color:#ff7129!important;border-bottom:#cccccc 1px solid!important;}
+.ui-widget input[type="submit"]{background:#ff7129!important;color:#ffffff;border:1px solid #0099cc;}
+#wpforo #wpforo-wrap .wpforo-topic-badges i.fa,#wpforo #wpforo-wrap .wpforo-topic-badges i.fas,#wpforo #wpforo-wrap .wpforo-topic-badges i.fab,#wpforo #wpforo-wrap .wpforo-topic-badges i.far,#wpforo #wpforo-wrap .wpforo-topic-badges i.fal{color:#ff7129!important;}
+#wpf_multi_quote .wpf-multi-quote{color:#ffffff;background:#ff7129!important;}
+#wpf-msg-box > p{color:#ffffff!important;background-color:#ff7129!important;background:-moz-linear-gradient(#ff7129!important);background:-o-linear-gradient(#ff7129!important);background:linear-gradient(#ff7129!important);}
+#wpf-msg-box > p:after{border-color:transparent #ff7129!important;}
+#wpf_multi_quote .wpf-multi-quote{color:#ffffff;background:#ff7129!important;}
+#wpforo #wpforo-wrap .wpf-add-topic-title{border:1px dashed #ff7129!important;color:#ff7129!important;border-right:none;border-left:none;}
+#wpforo #wpforo-wrap .wpf-acp-header{border-bottom:1px dashed #ff7129!important;}
+#wpforo #wpforo-wrap .wpf-acp-header .wpf-acp-toggle i{color:#ff7129!important;}
+#wpforo #wpforo-wrap .wpf-tools .wpf-tool-tabs .wpf-tool-tab.wpf-tt-active{border-bottom-color:#ff7129!important;color:#ff7129!important;}
+#wpforo #wpforo-wrap .wpf-sb-2{color:#ff7129!important;background-color:#f5f5f5;}
+#wpforo #wpforo-wrap .wpf-sb-3{color:#cccccc;background-color:transparent;}
+#wpforo #wpforo-wrap .wpf-sb-4{color:#ff7129!important;background-color:transparent;}
+#wpforo #wpforo-wrap .wpf-sb .wpf-sb-buttons i{color:#cccccc;}
+#wpforo #wpforo-wrap .wpf-sb .wpf-sb-toggle .wpfsa{color:#ff7129!important;}
+#wpforo #wpforo-wrap .wpforo-revisions-wrap *{border-color:#ff7129!important;}
+body #wpforo #wpforo-wrap .wpforo-category .wpf-button{color:#fff!important;}
+#wpforo #wpforo-wrap .wpforo-active,#wpforo #wpforo-wrap #wpforo-menu li.wpforo-active,#wpforo #wpforo-wrap #wpforo-menu li:hover,#wpforo #wpforo-wrap #wpforo-menu li.current-menu-ancestor,#wpforo #wpforo-wrap #wpforo-menu li.current-menu-parent,#wpforo #wpforo-wrap #wpforo-menu li.current_page_item{border-bottom:#ff7129 3px solid!important;}
+#wpforo #wpforo-wrap .wpf-breadcrumb div.active{background:#f5f5f5;color:#ff7129!important;}
+.wc-proceed-to-checkout a.checkout-button.button.alt.wc-forward {margin-bottom: 15px;}
+
+
+.select2-container--default .select2-results__option--highlighted[aria-selected],.select2-container--default .select2-results__option--highlighted[data-selected]{background-color:#ff7129;color:#fff;}
+.woocommerce-info,.woocommerce-message{border-top-color:#ff7129}
+.woocommerce-info::before,.woocommerce-message::before{color:#ff7129;}
+@media screen and (min-width:960px){
+    ul.navbar-reign-panel li.menu-item a:hover{background:var(--reign-left-panel-menu-bg-hover-color);color:var(--reign-left-panel-menu-font-color);}
+    ul.navbar-reign-panel li.menu-item a img._mi{padding:13px;}
+}
+

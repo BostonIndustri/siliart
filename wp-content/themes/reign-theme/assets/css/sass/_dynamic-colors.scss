@@ -1,0 +1,166 @@
+/**
+ * Define colors
+ */
+:root {
+
+    --reign-color-black: #000;
+    --reign-color-white: #fff;
+    --reign-color-gray: #666;
+
+    --reign-color-info: #1c86f2;
+    --reign-color-loading: #f7ba45;
+    --reign-color-success: #1cd991;
+    --reign-color-error: #ef3e46;
+
+    --reign-header-topbar-bg-color: #1d76da;
+    --reign-header-topbar-text-color: #fff;
+    --reign-header-topbar-text-hover-color: #153045;
+    --reign-header-bg-color: #fff;
+    --reign-header-nav-bg-color: #f5f5f5;
+    --reign-title-tagline-typography: #153045;
+    --reign-header-main-menu-font: #153045;
+    --reign-header-main-menu-text-hover-color: #1d76da;
+    --reign-header-main-menu-text-active-color: #1d76da;
+    --reign-header-main-menu-bg-hover-color: #1d76da;
+    --reign-header-main-menu-bg-active-color: #1d76da;
+    --reign-header-sub-menu-bg-color: #fff;
+    --reign-header-sub-menu-font: #153045;
+    --reign-header-sub-menu-text-hover-color: #fff;
+    --reign-header-sub-menu-bg-hover-color: #1d76da;
+    --reign-header-icon-color: #153045;
+    --reign-header-icon-hover-color: #153045;
+    --reign-mobile-menu-bg-color: #fff;
+    --reign-mobile-menu-color: #153045;
+    --reign-mobile-menu-hover-color: #1d76da;
+    --reign-mobile-menu-active-color: #1d76da;
+    --reign-mobile-menu-active-bg-color: rgba(var(--reign-mobile-menu-active-color-rgb), 0.1);
+    --reign-left-panel-bg-color: #fff;
+    --reign-left-panel-toggle-color: #1d76da;
+    --reign-left-panel-menu-font-color: #153045;
+    //--reign-left-panel-menu-active-color: #1d76da;
+    --reign-left-panel-menu-bg-active-color: #1d76da;
+    --reign-left-panel-menu-icon-active-color: #ffffff;
+    --reign-left-panel-menu-bg-hover-color: rgba(var(--reign-left-panel-menu-bg-active-color-rgb), 0.1);
+    --reign-left-panel-menu-hover-color: var(--reign-left-panel-menu-font-color);
+    --reign-left-panel-tooltip-bg-color: #383a45;
+	--reign-left-panel-tooltip-color: #ffffff;
+    --reign-site-body-bg-color: #fafbfd;
+    --reign-site-body-text-color: #515b67;
+    --reign-site-alternate-text-color: #767676;
+    --reign-site-sections-bg-color: #fff;
+    --reign-site-secondary-bg-color: #f6f6f6;
+    --reign-colors-theme: #1d76da;
+    --reign-site-headings-color: #303030;
+    --reign-site-link-color: #153045;
+    --reign-site-link-hover-color: #1d76da;
+    --reign-accent-color: #1d76da;
+    --reign-accent-hover-color: #3c8ce6;
+    --reign-site-button-text-color: #fff;
+    --reign-site-button-text-hover-color: #fff;
+    --reign-site-button-bg-color: #1d76da;
+    --reign-site-button-bg-hover-color: #3c8ce6;
+    --reign-site-border-color: #e3e3e3;
+    --reign-site-hr-color: #e3e3e3;
+    --reign-footer-widget-area-bg-color: #fff;
+    --reign-footer-widget-title-color: #153045;
+    --reign-footer-widget-text-color: #515b67;
+    --reign-footer-widget-link-color: #153045;
+    --reign-footer-widget-link-hover-color: #1d76da;
+    --reign-footer-copyright-bg-color: #fff;
+    --reign-footer-copyright-text-color: #153045;
+    --reign-footer-copyright-link-color: #153045;
+    --reign-footer-copyright-link-hover-color: #1d76da;
+
+    // Form Colors
+    --reign-form-text-color: #111111;
+    --reign-form-background-color: #ffffff;
+    --reign-form-border-color: #e3e3e3;
+    --reign-form-placeholder-color: #666666;
+    --reign-form-focus-text-color: #000000;
+    --reign-form-focus-background-color: #fdfdfd;
+    --reign-form-focus-border-color: #1d76da;
+    --reign-form-focus-placeholder-color: #333333;
+
+    // Box Shadow
+    --reign-more-options-box-shadow: 0 2px 7px 1px rgba(0, 0, 0, 0.05), 0 6px 32px 0 rgba(18, 43, 70, 0.1);
+
+    // Global border radiuss
+    --reign-global-border-radius: 8px;
+    --reign-global-border-radius-inner: calc(var(--reign-global-border-radius) - 4px);
+    --reign-global-button-radius: 6px;
+    --reign-global-form-radius: 6px;
+}
+
+.dark-mode {
+    --reign-header-topbar-bg-color: #18191a !important;
+    --reign-header-topbar-text-color: #b0b3b8 !important;
+    --reign-header-topbar-text-hover-color: #3772ff !important;
+    --reign-header-bg-color: #1a2028 !important;
+    --reign-header-nav-bg-color: #161b21 !important;
+    --reign-title-tagline-typography: #e4e6eb !important;
+    --reign-header-main-menu-font: #ffffff !important;
+    --reign-header-main-menu-text-hover-color: #013a9a !important;
+    --reign-header-main-menu-text-active-color: #013a9a !important;
+    --reign-header-main-menu-bg-hover-color: #013a9a !important;
+    --reign-header-main-menu-bg-active-color: #013a9a !important;
+    --reign-header-sub-menu-bg-color: #1A2028 !important;
+    --reign-header-sub-menu-font: #ffffff !important;
+    --reign-header-sub-menu-text-hover-color: #ffffff !important;
+    --reign-header-sub-menu-bg-hover-color: #2B323C !important;
+    --reign-header-icon-color: #b0b3b8 !important;
+    --reign-header-icon-hover-color: #e4e6eb !important;
+    --reign-mobile-menu-bg-color: #161b21 !important;
+    --reign-mobile-menu-color: #ffffff !important;
+    --reign-mobile-menu-hover-color: #013a9a !important;
+    --reign-mobile-menu-active-color: #013a9a !important;
+    --reign-mobile-menu-active-bg-color: rgba(var(--reign-mobile-menu-active-color-rgb), 0.1) !important;
+    --reign-left-panel-bg-color: #1a2028 !important;
+    --reign-left-panel-toggle-color: #e4e6eb !important;
+    --reign-left-panel-menu-font-color: #ffffff !important;
+    //--reign-left-panel-menu-active-color: var(--reign-left-panel-menu-font-color) !important;
+    --reign-left-panel-menu-bg-active-color: #013a9a !important;
+    --reign-left-panel-menu-icon-active-color: #ffffff !important;
+    --reign-left-panel-menu-bg-hover-color: rgba(var(--reign-left-panel-menu-bg-active-color-rgb), 0.1);
+    --reign-left-panel-menu-hover-color: var(--reign-left-panel-menu-font-color);
+    --reign-left-panel-tooltip-bg-color: #383a45 !important;
+	--reign-left-panel-tooltip-color: #ffffff !important;
+    --reign-site-body-bg-color: #23262f !important;
+    --reign-site-body-text-color: #bfbfbf !important;
+    --reign-site-alternate-text-color: #a7a7a7 !important;
+    --reign-site-sections-bg-color: #1a2028 !important;
+    --reign-site-secondary-bg-color: #2B323C !important;
+    --reign-colors-theme: #3772ff !important;
+    --reign-site-headings-color: #ffffff !important;
+    --reign-site-link-color: #ffffff !important;
+    --reign-site-link-hover-color: #013a9a !important;
+    --reign-accent-color: #ffffff !important;
+    --reign-accent-hover-color: #013a9a !important;
+    --reign-site-button-text-color: #ffffff !important;
+    --reign-site-button-text-hover-color: #ffffff !important;
+    --reign-site-button-bg-color: #2b58c5 !important;
+    --reign-site-button-bg-hover-color: #013a9a !important;
+    --reign-site-border-color: #262e38 !important;
+    --reign-site-hr-color: #262e38 !important;
+    --reign-footer-widget-area-bg-color: #1a2028 !important;
+    --reign-footer-widget-title-color: #e4e6eb !important;
+    --reign-footer-widget-text-color: #b0b3b8 !important;
+    --reign-footer-widget-link-color: #e4e6eb !important;
+    --reign-footer-widget-link-hover-color: #3772ff !important;
+    --reign-footer-copyright-bg-color: #1a2028 !important;
+    --reign-footer-copyright-text-color: #ababab !important;
+    --reign-footer-copyright-link-color: #e4e6eb !important;
+    --reign-footer-copyright-link-hover-color: #3772ff !important;
+
+    // Form Colors
+    --reign-form-text-color: #515b67 !important;
+    --reign-form-background-color: #1a2028 !important;
+    --reign-form-border-color: #262e38 !important;
+    --reign-form-placeholder-color: #666666 !important;
+    --reign-form-focus-text-color: #515b67 !important;
+    --reign-form-focus-background-color: #1a2028 !important;
+    --reign-form-focus-border-color: #3772ff !important;
+    --reign-form-focus-placeholder-color: #333333 !important;
+
+    // Box Shadow
+    --reign-more-options-box-shadow: 0 2px 7px 1px rgba(255, 255, 255, 0.05), 0 6px 32px 0 rgba(79, 164, 255, 0.1);
+}

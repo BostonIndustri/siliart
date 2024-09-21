@@ -1,0 +1,242 @@
+.select2-dropdown {
+    background: var(--reign-form-background-color);
+    color: var(--reign-form-text-color);
+    border: 1px solid var(--reign-form-border-color);
+    border-radius: var(--reign-global-form-radius);
+
+    &:focus {
+        background: var(--reign-form-focus-background-color);
+        color: var(--reign-form-focus-text-color);
+        border: 1px solid var(--reign-form-focus-border-color);
+    }
+}
+
+.select2-close-mask {
+    background: var(--reign-form-background-color);
+    color: var(--reign-form-text-color);
+    border: 1px solid var(--reign-form-border-color);
+
+    &:focus {
+        background: var(--reign-form-focus-background-color);
+        color: var(--reign-form-focus-text-color);
+        border: 1px solid var(--reign-form-focus-border-color);
+    }
+}
+
+.select2-container--default .select2-selection--single {
+    background: var(--reign-form-background-color);
+    color: var(--reign-form-text-color);
+    border: 1px solid var(--reign-form-border-color);
+
+    &:focus {
+        background: var(--reign-form-focus-background-color);
+        color: var(--reign-form-focus-text-color);
+        border: 1px solid var(--reign-form-focus-border-color);
+    }
+}
+
+.select2-container--default:not(.select2-container--open) .select2-selection--single {
+    border-radius: var(--reign-global-form-radius);
+}
+
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: var(--reign-form-text-color);
+}
+
+.select2-container--default .select2-selection--single .select2-selection__placeholder {
+    color: #999;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+    border-color: #888 transparent transparent transparent;
+    border-style: solid;
+    border-width: 5px 4px 0 4px;
+}
+
+.select2-container--default.select2-container--disabled .select2-selection--single {
+    background-color: #eee;
+}
+
+.select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
+    border-color: transparent transparent #888 transparent;
+}
+
+.select2-container--default .select2-selection--multiple {
+    background: var(--reign-form-background-color);
+    color: var(--reign-form-text-color);
+    border: 1px solid var(--reign-form-border-color);
+    border-radius: var(--reign-global-form-radius);
+
+    &:focus {
+        background: var(--reign-form-focus-background-color);
+        color: var(--reign-form-focus-text-color);
+        border: 1px solid var(--reign-form-focus-border-color);
+    }
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background: var(--reign-form-background-color);
+    color: var(--reign-form-text-color);
+    border: 1px solid var(--reign-form-border-color);
+    border-radius: var(--reign-global-form-radius);
+
+    &:focus {
+        background: var(--reign-form-focus-background-color);
+        color: var(--reign-form-focus-text-color);
+        border: 1px solid var(--reign-form-focus-border-color);
+    }
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    border-right: 1px solid var(--reign-site-border-color);
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    color: #999;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover,
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove:focus {
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+.select2-container--default[dir="rtl"] .select2-selection--multiple .select2-selection__choice__remove {
+    border-left: 1px solid var(--reign-site-border-color);
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+    border-color: var(--reign-site-border-color);
+}
+
+.select2-container--default.select2-container--disabled .select2-selection--multiple {
+    background-color: #eee;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    border: 1px solid var(--reign-site-border-color);
+}
+
+.select2-container--open .select2-dropdown.select2-dropdown--below {
+    border-color: var(--reign-site-border-color);
+}
+
+.select2-container--default .select2-results__option--disabled {
+    color: #999;
+}
+
+.select2-container--default .select2-results__option--selected {
+    background-color: #ddd;
+}
+
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+    background-color: var(--reign-colors-theme);
+    color: white;
+}
+
+.select2-container--classic .select2-selection--single {
+    background: var(--reign-form-background-color);
+    color: var(--reign-form-text-color);
+    border: 1px solid var(--reign-form-border-color);
+    border-radius: var(--reign-global-form-radius);
+
+    &:focus {
+        background: var(--reign-form-focus-background-color);
+        color: var(--reign-form-focus-text-color);
+        border: 1px solid var(--reign-form-focus-border-color);
+    }
+}
+
+.select2-container--classic .select2-selection--single:focus {
+    border: 1px solid var(--reign-colors-theme);
+}
+
+.select2-container--classic .select2-selection--single .select2-selection__rendered {
+    color: var(--reign-form-text-color);
+}
+
+.select2-container--classic .select2-selection--single .select2-selection__placeholder {
+    color: #999;
+}
+
+.select2-container--classic .select2-selection--single .select2-selection__arrow {
+    background-color: #ddd;
+    border-left: 1px solid var(--reign-site-border-color);
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.select2-container--classic .select2-selection--single .select2-selection__arrow b {
+    border-color: #888 transparent transparent transparent;
+}
+
+.select2-container--classic[dir="rtl"] .select2-selection--single .select2-selection__arrow {
+    border-right: 1px solid var(--reign-site-border-color);
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.select2-container--classic.select2-container--open .select2-selection--single {
+    border: 1px solid var(--reign-colors-theme);
+}
+
+.select2-container--classic.select2-container--open .select2-selection--single .select2-selection__arrow b {
+    border-color: transparent transparent #888 transparent;
+}
+
+.select2-container--classic .select2-selection--multiple {
+    background: var(--reign-form-background-color);
+    color: var(--reign-form-text-color);
+    border: 1px solid var(--reign-form-border-color);
+    border-radius: var(--reign-global-form-radius);
+
+    &:focus {
+        background: var(--reign-form-focus-background-color);
+        color: var(--reign-form-focus-text-color);
+        border: 1px solid var(--reign-form-focus-border-color);
+    }
+}
+
+.select2-container--classic .select2-selection--multiple:focus {
+    border: 1px solid var(--reign-colors-theme);
+}
+
+.select2-container--classic .select2-selection--multiple .select2-selection__choice {
+    background: var(--reign-form-background-color);
+    color: var(--reign-form-text-color);
+    border: 1px solid var(--reign-form-border-color);
+    border-radius: var(--reign-global-form-radius);
+
+    &:focus {
+        background: var(--reign-form-focus-background-color);
+        color: var(--reign-form-focus-text-color);
+        border: 1px solid var(--reign-form-focus-border-color);
+    }
+}
+
+.select2-container--classic.select2-container--open .select2-selection--multiple {
+    border: 1px solid var(--reign-colors-theme);
+}
+
+.select2-container--classic .select2-search--dropdown .select2-search__field {
+    border: 1px solid var(--reign-site-border-color);
+}
+
+.select2-container--classic .select2-dropdown {
+    background: var(--reign-form-background-color);
+
+    &:focus {
+        background: var(--reign-form-focus-background-color);
+    }
+}
+
+.select2-container--classic .select2-results__option--highlighted.select2-results__option--selectable {
+    background-color: var(--reign-colors-theme);
+    color: white;
+}
+
+.select2-container--classic.select2-container--open .select2-dropdown {
+    border-color: var(--reign-colors-theme);
+}

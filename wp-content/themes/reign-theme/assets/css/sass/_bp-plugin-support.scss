@@ -1,0 +1,1251 @@
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Buddypress Private Community Pro
+# BuddyPress Member Type
+# BP Friend Follow
+# BP Moderation
+# BP Checkins Pro
+# BP Member Blog
+# BP Activity Share
+# BP Activity Share Pro
+# MediaPress
+# GamiPress
+# BP Business Profile
+# BuddyPress Docs
+# BuddyPress Schedule Activity
+# BuddyPress Resume Manager
+# BuddyPress Contact Me
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+# Buddypress Private Community Pro
+--------------------------------------------------------------*/
+body.buddypress article.page>.entry-header:not(.alignwide):not(.alignfull) .entry-title {
+    color: var(--reign-site-headings-color);
+}
+
+.bplock-locked-message {
+    margin-bottom: 30px;
+}
+
+.bplock-locked-message {
+    background-color: var(--reign-site-sections-bg-color);
+}
+
+ul.bplock-login-shortcode-tabs li {
+    color: var(--reign-site-headings-color);
+    border-color: var(--reign-site-border-color);
+}
+
+.dark-mode,
+.dark-scheme {
+    ul.bplock-login-shortcode-tabs li {
+
+        .sign-in-icon,
+        .register-icon {
+            filter: invert(1);
+        }
+    }
+}
+
+ul.bplock-login-shortcode-tabs li.current {
+    color: var(--reign-colors-theme);
+    border-bottom: 2px solid var(--reign-colors-theme);
+}
+
+/*--------------------------------------------------------------
+# BuddyPress Member Type
+--------------------------------------------------------------*/
+
+body.buddypress.bp-user .buddypress-wrap .users-header .bp-member-type-list {
+    font-size: 14px;
+    color: inherit;
+}
+
+body.buddypress.bp-user .buddypress-wrap .users-header .wbtm-cover-header-type-1 .bp-member-type-list,
+body.buddypress.bp-user .buddypress-wrap .users-header .wbtm-cover-header-type-2 .bp-member-type-list,
+body.buddypress.bp-user .buddypress-wrap .users-header .wbtm-cover-header-type-1 .bp-member-type-list a,
+body.buddypress.bp-user .buddypress-wrap .users-header .wbtm-cover-header-type-2 .bp-member-type-list a {
+    color: #fff;
+}
+
+/*--------------------------------------------------------------
+# BP Friend Follow
+--------------------------------------------------------------*/
+
+.widget_bp_friend_follow_suggestion_widget .item-meta ul {
+    margin: 0;
+}
+
+.single-headers a.button.follow,
+.single-headers a.button.unfollow {
+    margin: 0;
+}
+
+/*--------------------------------------------------------------
+# BP Moderation
+--------------------------------------------------------------*/
+
+.bmpro_moderation_content .item-body aside {
+    display: none;
+}
+
+#bmpro-modal .bmpro-modal .bmpro-content-form textarea#bmpro-activity_description {
+    border: 1px solid var(--reign-site-border-color);
+}
+
+/*--------------------------------------------------------------
+# BP Checkins Pro
+--------------------------------------------------------------*/
+.bpchk-checkins-column {
+    background: var(--reign-site-sections-bg-color);
+    border-color: var(--reign-site-border-color);
+    border-radius: var(--reign-global-border-radius) !important;
+}
+
+body:not(.members-proximity-search-enable):not(.groups-proximity-search-enable) .buddypress-wrap .bp-search:not(.activity-search) form.bp-dir-search-form button.members-search-clear,
+body:not(.members-proximity-search-enable):not(.groups-proximity-search-enable) .buddypress-wrap .bp-search:not(.activity-search) form.bp-dir-search-form button.groups-search-clear {
+    border-radius: var(--reign-global-button-radius);
+}
+
+/*--------------------------------------------------------------
+# BP Member Blog
+--------------------------------------------------------------*/
+.bp-member-blog-container>div.bp_members,
+.bp-member-blog-container form#bp-member-post,
+.bp-member-blog-container .bpmb-blog-post {
+    border: 1px solid var(--reign-site-border-color);
+    background: var(--reign-site-sections-bg-color);
+}
+
+.bp-member-blog-container .post-categories a {
+    background: var(--reign-site-secondary-bg-color);
+}
+
+.bp-member-blog-field-container {
+    background: var(--reign-site-secondary-bg-color);
+}
+
+#bp-member-post input#bp_member_blog_post_tag,
+#bp-member-post input[type="text"],
+.bp-member-blog-post-form .selectize-input,
+.bp-member-blog-post-form .selectize-dropdown {
+    background: var(--reign-form-background-color);
+    color: var(--reign-form-text-color);
+    border: 1px solid var(--reign-form-border-color);
+    border-radius: var(--reign-global-form-radius) !important;
+
+    &:focus {
+        background: var(--reign-form-focus-background-color);
+        color: var(--reign-form-focus-text-color);
+        border: 1px solid var(--reign-form-focus-border-color);
+    }
+}
+
+.selectize-control.single .selectize-input.input-active {
+    background: var(--reign-form-focus-background-color);
+    color: var(--reign-form-focus-text-color);
+}
+
+.bp-member-blog-post-form .selectize-input.focus {
+    box-shadow: inset 0 1px 1px var(--reign-form-border-color);
+}
+
+.selectize-input.dropdown-active::before {
+    background: var(--reign-form-border-color);
+}
+
+.bp-member-blog-post-form .selectize-dropdown .active,
+.bp-member-blog-container.bpmb-blog-posts span.page-numbers.current {
+    background-color: var(--reign-colors-theme);
+    color: #fff;
+    border-color: var(--reign-colors-theme);
+}
+
+.selectize-dropdown [data-selectable] {
+    color: var(--reign-site-body-text-color);
+}
+
+.bp-member-blog-featured-image-wrapper,
+.bp-member-blog-container.bpmb-blog-posts .page-numbers {
+    background: var(--reign-site-secondary-bg-color);
+    border-color: var(--reign-site-border-color);
+}
+
+#wp-bp_member_blog_post_content-media-buttons button#insert-media-button,
+.selectize-control.multi .selectize-input>div,
+.add-bpmb-cat-row {
+    background: var(--reign-site-secondary-bg-color);
+    color: var(--reign-site-body-text-color);
+    border-color: var(--reign-site-border-color);
+}
+
+button#bp_member_blog_post_content-html,
+button#bp_member_blog_post_content-tmce,
+button#bp_member_blog_custom_fieldcustom_text_editor-html {
+    border-radius: 0;
+}
+
+.buddypress-wrap .bp-member-blog-container .wp-editor-container textarea {
+    border-radius: 0 !important;
+}
+
+.selectize-control.plugin-remove_button [data-value] .remove {
+    border-color: var(--reign-site-border-color);
+}
+
+.bp-member-blog-post-category-wrapper a.add-bpmb-category {
+    background-color: var(--reign-site-button-bg-color);
+    color: var(--reign-site-button-text-color);
+
+    &:hover,
+    &:focus {
+        background-color: var(--reign-site-button-bg-hover-color);
+        color: var(--reign-site-button-text-hover-color);
+    }
+}
+
+
+/*--------------------------------------------------------------
+# BP Activity Share
+--------------------------------------------------------------*/
+.activity ul li .activity-meta .service-buttons {
+    margin-top: 10px;
+    order: 10;
+}
+
+/*--------------------------------------------------------------
+# BP Activity Share Pro
+--------------------------------------------------------------*/
+.activity-content .bp-activity-reshare-icon {
+    margin-right: 4px;
+}
+
+.activity-share-modal.modal .modal-content {
+    border-radius: var(--reign-global-border-radius);
+}
+
+.activity-share-modal .modal-header {
+    border-top-left-radius: var(--reign-global-border-radius);
+    border-top-right-radius: var(--reign-global-border-radius);
+}
+
+span.bp-activity-reshare-icon i {
+    font-size: 18px;
+}
+
+.activity-share-modal .activity-list .activity-content .activity-inner img:not(.avatar),
+.activity-list .activity-content .activity-inner .activity-reshare-item-container img:not(.avatar) {
+    max-width: 100%;
+    margin: 0 0 15px;
+}
+
+.activity-share-modal .activity-list .activity-content .activity-inner .bb-post-title,
+.activity-list .activity-content .activity-inner .activity-reshare-item-container .reign-post-title {
+    display: block;
+    font-size: 20px;
+    margin: 0 0 10px;
+}
+
+.activity-list .activity-item .activity-content .bp-generic-meta.action .bp-activity-share-button .reshare-count {
+    display: none;
+}
+
+.activity-share-modal .select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: var(--reign-site-body-text-color);
+}
+
+body.modal-open.modal-open .select2-dropdown {
+    border-color: var(--reign-site-border-color);
+}
+
+.bp-activity-share-post-footer-actions .button {
+    background-color: var(--reign-site-button-bg-color);
+    color: var(--reign-site-button-text-color);
+    border-radius: var(--reign-global-button-radius);
+
+    &:hover {
+        background-color: var(--reign-site-button-bg-hover-color);
+        color: var(--reign-site-button-text-hover-color);
+    }
+}
+
+.bp-activity-share-dropdown-menu {
+    background: var(--reign-site-sections-bg-color);
+    border-color: var(--reign-site-border-color);
+    box-shadow: var(--reign-more-options-box-shadow);
+}
+
+.bp-activity-share-dropdown-toggle .bp-activity-share-dropdown-menu .bp-activity-share-btn:hover,
+.bp-activity-share-dropdown-toggle .bp-activity-share-dropdown-menu .bp-share-wrapper:hover {
+    background: var(--reign-site-secondary-bg-color);
+}
+
+.bp-share-activity-share-to-wrapper {
+    border-color: var(--reign-site-border-color);
+}
+
+@media screen and (max-width: 750px) {
+    .bp-activity-share-dropdown-toggle .bp-activity-share-dropdown-menu .bp-share-activity-share-to-wrapper .bp-share-wrapper {
+        border-radius: var(--reign-global-button-radius);
+    }
+}
+
+/*--------------------------------------------------------------
+# MediaPress
+--------------------------------------------------------------*/
+.reign-mediapress .mejs-button>button {
+    background: transparent url(../img/svg/mejs-controls.svg) !important;
+    padding: 0 !important;
+    width: 20px !important;
+}
+
+.reign-mediapress .mejs-play>button {
+    background-position: 0 0 !important;
+}
+
+.reign-mediapress .mejs-pause>button {
+    background-position: -20px 0 !important;
+}
+
+.reign-mediapress .mejs-replay>button {
+    background-position: -160px 0 !important;
+}
+
+.reign-mediapress .mejs-fullscreen-button>button {
+    background-position: -80px 0 !important;
+}
+
+.reign-mediapress .mejs-unfullscreen>button {
+    background-position: -100px 0 !important;
+}
+
+.reign-mediapress .mejs-mute>button {
+    background-position: -60px 0 !important;
+}
+
+.reign-mediapress .mejs-unmute>button {
+    background-position: -40px 0 !important;
+}
+
+.reign-mediapress .mejs-captions-button>button {
+    background-position: -140px 0 !important;
+}
+
+.reign-mediapress .mejs-chapters-button>button {
+    background-position: -180px 0 !important;
+}
+
+.activity-list .mpp-media-list-view-grid.mpp-activity-media-list {
+    display: flex;
+    flex-flow: row wrap;
+
+    a {
+        margin: 2px;
+    }
+
+    a img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .activity-list .mpp-media-list-view-grid.mpp-activity-media-list a {
+        width: calc(50% - 4px);
+
+        img {
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+    }
+}
+
+/* MediaPress Pagination */
+.mpp-paginator ul li {
+    padding: 0;
+}
+
+.mpp-paginator ul .page-numbers {
+    margin: 0 5px 5px 0;
+    padding: 0.5em 1em;
+    background: transparent !important;
+    color: #565a62 !important;
+    display: inline-block;
+    font-size: 1em;
+    float: none;
+    line-height: 1.5;
+    border-radius: 2px;
+    transition: background-color ease-in-out 0.1s;
+}
+
+.mpp-paginator ul .page-numbers:hover {
+    background: #e6e6e6 !important;
+    color: #565a62 !important;
+}
+
+.mpp-paginator ul .page-numbers.current {
+    background: #e6e6e6 !important;
+    color: #565a62 !important;
+}
+
+/* MPP Form */
+.mpp-form input[type="text"],
+.mpp-form input[type="password"],
+.mpp-form input[type="email"],
+.mpp-form input[type="url"],
+.mpp-form input[type="date"],
+.mpp-form input[type="month"],
+.mpp-form input[type="time"],
+.mpp-form input[type="datetime"],
+.mpp-form input[type="datetime-local"],
+.mpp-form input[type="week"],
+.mpp-form input[type="number"],
+.mpp-form input[type="search"],
+.mpp-form input[type="tel"],
+.mpp-form input[type="color"],
+.mpp-form select,
+.mpp-form textarea {
+    box-shadow: none;
+}
+
+/*--------------------------------------------------------------
+# GamiPress
+--------------------------------------------------------------*/
+.users-header .gamipress-buddypress-points,
+.users-header .gamipress-buddypress-achievements .gamipress-buddypress-achievement,
+.users-header .gamipress-buddypress-ranks .gamipress-buddypress-rank,
+.users-header .gamipress-buddypress-user-achievements,
+.users-header .gamipress-buddypress-ranks {
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;
+    margin: 10px 0 0;
+}
+
+@media screen and (max-width: 782px) {
+
+    .users-header .gamipress-buddypress-points,
+    .users-header .gamipress-buddypress-achievements .gamipress-buddypress-achievement,
+    .users-header .gamipress-buddypress-ranks .gamipress-buddypress-rank,
+    .users-header .gamipress-buddypress-user-achievements,
+    .users-header .gamipress-buddypress-ranks {
+        justify-content: center;
+    }
+}
+
+.users-header .wbtm-cover-header-type-2 {
+
+    .gamipress-buddypress-points,
+    .gamipress-buddypress-achievements .gamipress-buddypress-achievement,
+    .gamipress-buddypress-ranks .gamipress-buddypress-rank,
+    .gamipress-buddypress-user-achievements,
+    .gamipress-buddypress-ranks {
+        justify-content: center;
+    }
+
+    .gamipress-buddypress-achievement-title,
+    .gamipress-buddypress-rank-title {
+        color: var(--reign-color-white);
+    }
+}
+
+.users-header .wbtm-cover-header-type-1 {
+
+    .gamipress-buddypress-achievement-title,
+    .gamipress-buddypress-rank-title {
+        color: var(--reign-color-white);
+    }
+}
+
+@media screen and (max-width: 782px) {
+
+    .users-header .gamipress-buddypress-points,
+    .users-header .gamipress-buddypress-achievements .gamipress-buddypress-achievement,
+    .users-header .gamipress-buddypress-ranks .gamipress-buddypress-rank {
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+}
+
+.users-header .center-view .gamipress-buddypress-points,
+.users-header .center-view .gamipress-buddypress-achievements .gamipress-buddypress-achievement,
+.users-header .center-view .gamipress-buddypress-ranks .gamipress-buddypress-rank {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.users-header .gamipress-buddypress-achievements .gamipress-buddypress-achievement,
+.users-header .gamipress-buddypress-ranks .gamipress-buddypress-rank {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.users-header .gamipress-buddypress-points-type {
+    margin: 0 10px 0 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.users-header .gamipress-buddypress-points img.gamipress-points-thumbnail {
+    border-radius: 100%;
+    margin-right: 5px;
+}
+
+body #buddypress #item-header-cover-image span.activity {
+    font-size: 14px;
+}
+
+.gamipress-buddypress-points .activity,
+.gamipress-buddypress-achievements .activity,
+.gamipress-buddypress-ranks .activity {
+    margin-bottom: 10px;
+}
+
+.users-header .gamipress-buddypress-achievements .gamipress-buddypress-achievement-type-label {
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.users-header .gamipress-buddypress-achievements .gamipress-buddypress-achievement-type-label {
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.users-header .gamipress-buddypress-achievement-title {
+    font-size: 14px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.users-header .gamipress-buddypress-achievements img.gamipress-achievement-thumbnail {
+    border-radius: 100%;
+    margin-right: 5px;
+}
+
+.users-header .gamipress-buddypress-ranks {
+    margin-bottom: 10px;
+}
+
+.users-header .gamipress-buddypress-ranks .gamipress-buddypress-rank-label {
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.users-header .gamipress-buddypress-ranks .gamipress-buddypress-rank a.activity {
+    font-size: 14px;
+}
+
+.users-header .gamipress-buddypress-ranks img.gamipress-rank-thumbnail {
+    border-radius: 100%;
+    margin-right: 5px;
+}
+
+.users-header .gamipress-buddypress-rank-title {
+    margin-right: 10px;
+}
+
+.gamipress-user-points:not(.gamipress-layout-none) .gamipress-points {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+    background-color: var(--reign-site-sections-bg-color);
+    border: 1px solid var(--reign-site-border-color);
+    border-radius: var(--reign-global-border-radius);
+    padding-bottom: 20px;
+    overflow: visible;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+
+@media (max-width: 1200px) {
+    .gamipress-user-points:not(.gamipress-layout-none) .gamipress-points {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .gamipress-user-points:not(.gamipress-layout-none) .gamipress-points {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+.gamipress-user-points-image {
+    margin-right: 15px;
+    min-width: 50px;
+}
+
+.gamipress-user-points:not(.gamipress-layout-none) .gamipress-points .gamipress-user-points-description span {
+    display: block;
+    margin-top: 0;
+}
+
+.gamipress-open-close-switch {
+    text-align: left;
+    padding: 5px 0;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+#gamipress-achievements-container[class*="gamipress-columns"]>.gamipress-achievement,
+.gamipress-user-points[class*="gamipress-columns"]>.gamipress-points,
+.gamipress-points-types[class*="gamipress-columns"]>.gamipress-points-type,
+.gamipress-ranks-container[class*="gamipress-columns"] .gamipress-rank {
+    background: var(--reign-site-sections-bg-color);
+    border: 1px solid var(--reign-site-border-color);
+    border-radius: var(--reign-global-border-radius);
+}
+
+.gamipress-achievements-list .gamipress-achievements-container .gamipress-achievement-description>h4,
+.gamipress-ranks-list .gamipress-ranks-container .gamipress-rank-description>h4 {
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+table#gamipress-earnings-table thead,
+table#gamipress-earnings-table tbody {
+    background: var(--reign-site-sections-bg-color);
+}
+
+table#gamipress-earnings-table thead tr th,
+table#gamipress-earnings-table tbody tr td {
+    padding: 10px;
+}
+
+input#gamipress-achievements-search-input {
+    height: 44px;
+    vertical-align: middle;
+}
+
+.gamipress-logs-list .gamipress-log {
+    margin: 5px 0;
+    padding: 5px 0;
+    border-bottom: 1px solid var(--reign-site-border-color);
+}
+
+.gamipress-logs-list .gamipress-log:first-child {
+    border-top: 1px solid var(--reign-site-border-color);
+}
+
+#gamipress-achievements-filter select {
+    margin-left: 0;
+}
+
+#gamipress-achievements-search {
+    margin-right: 0;
+}
+
+.gamipress_achievements_widget #gamipress-achievements-search {
+    width: 100%;
+}
+
+.gamipress_achievements_widget #gamipress-achievements-search label {
+    display: block;
+}
+
+.gamipress_achievements_widget input#gamipress-achievements-search-input {
+    height: 42px;
+    display: block;
+    float: left;
+}
+
+.activity-list .activity-item .activity-content .gamipress-rank,
+.activity-list .activity-item .activity-content .gamipress-points-award,
+.activity-list .activity-item .activity-content .gamipress-achievement {
+    align-items: center;
+    margin: 15px 0;
+    padding: 15px;
+    border: 1px solid var(--reign-site-border-color);
+    border-radius: 6px !important;
+}
+
+.activity-content .gamipress-achievement.user-has-earned .gamipress-achievement-image {
+    margin-right: 15px;
+}
+
+.widget .gamipress-buddypress-user-details {
+    display: none;
+}
+
+/* Members directory */
+
+.acomment-content .gamipress-buddypress-user-details-activity,
+.activity-content .gamipress-buddypress-user-details-activity,
+.item-avatar .gamipress-buddypress-user-details-listing {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 10px 0 0 0;
+}
+
+.item-avatar .gamipress-buddypress-user-details-listing {
+    justify-content: center;
+}
+
+.acomment-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-achievement,
+.acomment-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-points-type,
+.acomment-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-rank,
+.activity-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-achievement,
+.activity-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-points-type,
+.activity-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-rank,
+.item-avatar .gamipress-buddypress-user-details-listing .gamipress-buddypress-achievement,
+.item-avatar .gamipress-buddypress-user-details-listing .gamipress-buddypress-points-type,
+.item-avatar .gamipress-buddypress-user-details-listing .gamipress-buddypress-rank {
+    margin-bottom: 4px;
+}
+
+.acomment-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-achievements .activity,
+.acomment-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-points .activity,
+.acomment-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-ranks .activity,
+.activity-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-achievements .activity,
+.activity-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-points .activity,
+.activity-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-ranks .activity,
+.item-avatar .gamipress-buddypress-user-details-listing .gamipress-buddypress-achievements .activity,
+.item-avatar .gamipress-buddypress-user-details-listing .gamipress-buddypress-points .activity,
+.item-avatar .gamipress-buddypress-user-details-listing .gamipress-buddypress-ranks .activity {
+    margin-bottom: 0;
+}
+
+.acomment-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-achievements,
+.acomment-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-points,
+.acomment-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-ranks,
+.activity-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-achievements,
+.activity-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-points,
+.activity-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-ranks,
+.item-avatar .gamipress-buddypress-user-details-listing .gamipress-buddypress-achievements,
+.item-avatar .gamipress-buddypress-user-details-listing .gamipress-buddypress-points,
+.item-avatar .gamipress-buddypress-user-details-listing .gamipress-buddypress-ranks {
+    display: flex;
+    vertical-align: middle;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.activity-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-achievements,
+.activity-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-points,
+.activity-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-ranks {
+    justify-content: flex-start;
+}
+
+.acomment-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-achievement,
+.acomment-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-points>div,
+.acomment-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-ranks .gamipress-buddypress-rank,
+.activity-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-achievement,
+.activity-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-points>div,
+.activity-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-ranks .gamipress-buddypress-rank,
+.item-avatar .gamipress-buddypress-user-details-listing .gamipress-buddypress-achievement,
+.item-avatar .gamipress-buddypress-user-details-listing .gamipress-buddypress-points>div,
+.item-avatar .gamipress-buddypress-user-details-listing .gamipress-buddypress-ranks .gamipress-buddypress-rank {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--reign-site-border-color);
+    padding: 3px 9px 3px 4px;
+    box-shadow: 0 1px 2px rgba(18, 43, 70, 0.12);
+    font-size: 13px;
+    color: inherit;
+    background-color: var(--reign-site-sections-bg-color);
+    line-height: 1.5;
+    border-radius: 6px !important;
+    transition: all ease .3s;
+}
+
+.item-avatar .gamipress-buddypress-user-details-listing .gamipress-buddypress-achievement,
+.item-avatar .gamipress-buddypress-user-details-listing .gamipress-buddypress-points>div,
+.item-avatar .gamipress-buddypress-user-details-listing .gamipress-buddypress-ranks .gamipress-buddypress-rank {
+    img {
+        width: 20px;
+    }
+}
+
+.acomment-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-achievement .gamipress-buddypress-achievement-thumbnail,
+.acomment-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-points>div .gamipress-buddypress-points-thumbnail,
+.acomment-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-ranks .gamipress-buddypress-rank .gamipress-buddypress-rank-thumbnail,
+.activity-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-achievement .gamipress-buddypress-achievement-thumbnail,
+.activity-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-points>div .gamipress-buddypress-points-thumbnail,
+.activity-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-ranks .gamipress-buddypress-rank .gamipress-buddypress-rank-thumbnail,
+.item-avatar .gamipress-buddypress-user-details-listing .gamipress-buddypress-achievement .gamipress-buddypress-achievement-thumbnail,
+.item-avatar .gamipress-buddypress-user-details-listing .gamipress-buddypress-points>div .gamipress-buddypress-points-thumbnail,
+.item-avatar .gamipress-buddypress-user-details-listing .gamipress-buddypress-ranks .gamipress-buddypress-rank .gamipress-buddypress-rank-thumbnail {
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 100px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.13);
+    margin-right: 5px !important;
+    width: 20px;
+}
+
+.acomment-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-achievements,
+.acomment-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-points>div,
+.acomment-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-ranks .gamipress-buddypress-rank,
+.acomment-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-user-points,
+.activity-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-achievements,
+.activity-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-points>div,
+.activity-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-ranks .gamipress-buddypress-rank,
+.activity-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-user-points,
+.item-avatar .gamipress-buddypress-user-details-listing .gamipress-buddypress-achievements,
+.item-avatar .gamipress-buddypress-user-details-listing .gamipress-buddypress-points>div,
+.item-avatar .gamipress-buddypress-user-details-listing .gamipress-buddypress-ranks .gamipress-buddypress-rank,
+.item-avatar .gamipress-buddypress-user-details-listing .gamipress-buddypress-user-points {
+    margin-right: 4px !important;
+}
+
+.acomment-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-achievement .gamipress-buddypress-achievement-title,
+.acomment-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-ranks .gamipress-buddypress-rank .gamipress-buddypress-rank-title,
+.activity-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-achievement .gamipress-buddypress-achievement-title,
+.activity-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-ranks .gamipress-buddypress-rank .gamipress-buddypress-rank-title,
+.item-avatar .gamipress-buddypress-user-details-listing .gamipress-buddypress-achievement .gamipress-buddypress-achievement-title,
+.item-avatar .gamipress-buddypress-user-details-listing .gamipress-buddypress-ranks .gamipress-buddypress-rank .gamipress-buddypress-rank-title {
+    margin-left: 5px !important;
+}
+
+.acomment-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-achievement .gamipress-buddypress-achievement-thumbnail,
+.acomment-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-ranks .gamipress-buddypress-rank .gamipress-buddypress-rank-thumbnail,
+.activity-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-achievement .gamipress-buddypress-achievement-thumbnail,
+.activity-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-ranks .gamipress-buddypress-rank .gamipress-buddypress-rank-thumbnail,
+.item-avatar .gamipress-buddypress-user-details-listing .gamipress-buddypress-achievement .gamipress-buddypress-achievement-thumbnail,
+.item-avatar .gamipress-buddypress-user-details-listing .gamipress-buddypress-ranks .gamipress-buddypress-rank .gamipress-buddypress-rank-thumbnail {
+    margin-right: 0 !important;
+}
+
+.acomment-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-achievement:last-child,
+.activity-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-achievement:last-child,
+.item-avatar .gamipress-buddypress-user-details-listing .gamipress-buddypress-achievement:last-child {
+    margin-right: 0;
+}
+
+.acomment-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-achievements .gamipress-buddypress-user-achievements .gamipress-buddypress-achievement:last-child,
+.activity-content .gamipress-buddypress-user-details-activity .gamipress-buddypress-achievements .gamipress-buddypress-user-achievements .gamipress-buddypress-achievement:last-child,
+.item-avatar .gamipress-buddypress-user-details-listing .gamipress-buddypress-achievements .gamipress-buddypress-user-achievements .gamipress-buddypress-achievement:last-child {
+    margin-right: 5px;
+}
+
+.gamipress-achievement,
+.gamipress-rank,
+.single .single-achievement,
+.single-rank {
+    padding: 20px;
+    background-color: var(--reign-site-sections-bg-color);
+    border: 1px solid var(--reign-site-border-color);
+    font-size: 14px;
+    line-height: 24px;
+    border-radius: var(--reign-global-border-radius);
+}
+
+.gamipress-progress-map-item {
+    .gamipress-achievement-points>img {
+        max-width: 30px;
+    }
+}
+
+.gamipress-ranks-list h2.gamipress-rank-title {
+    margin-top: 0 !important;
+}
+
+/* Popup */
+.buddypress.widget {
+    .GamiPress-data-popup {
+        display: none;
+
+        &.is_active {
+            display: flex;
+            align-items: center;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            justify-content: center;
+            position: fixed;
+            background-color: rgba(250, 251, 253, 0.9);
+            z-index: 999901;
+
+            .gamipress-buddypress-user-details-listing {
+                display: block !important;
+                background-color: var(--reign-site-sections-bg-color);
+                padding: 20px 20px 10px 20px;
+                border: 1px solid var(--reign-global-border-radius);
+                box-shadow: 0 6px 24px 0 rgba(18, 43, 70, 0.1);
+                position: relative;
+                border-radius: var(--reign-global-border-radius);
+                max-width: 90%;
+
+                .hideGamipressData {
+                    font-size: 18px;
+                    position: absolute;
+                    right: 5px;
+                    top: 5px;
+                    opacity: 0.8;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .gamipress-buddypress-user-details-listing {
+        display: none;
+    }
+
+    span.activity.gamipress-buddypress-user-points,
+    span.activity.gamipress-buddypress-points-label {
+        display: inline-block;
+    }
+
+    .showGamipressData {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background-color: var(--reign-site-sections-bg-color);
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 17px;
+        width: 17px;
+        cursor: pointer;
+
+        img {
+            height: 14px !important;
+            width: 14px !important;
+        }
+
+        .far {
+            font-size: 12px;
+        }
+    }
+}
+
+/*--------------------------------------------------------------
+# BP Business Profile
+--------------------------------------------------------------*/
+.bp-profile-setting-loader,
+.bp-business-settings-content .bp-business-section-container {
+    background-color: var(--reign-site-sections-bg-color);
+}
+
+.dark-mode,
+.dark-scheme {
+    #buddypress.buddypress-wrap.bp-business-single #cover-image-container:after {
+        background: linear-gradient(to top, var(--reign-site-sections-bg-color), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0));
+    }
+}
+
+.dark-mode {
+
+    .buddypress-wrap .bp-feedback,
+    .widget-error .bp-feedback,
+    .buddypress-wrap .item-body .bp-feedback,
+    #bp-businesses-content .business-search .bp-dir-search-form,
+    .buddypress-wrap .bp-businesses-content .select-wrap,
+    #bp-business-main-object-nav .hideshow .sub-menu,
+    #buddypress.buddypress-wrap:not(.bp-single-vert-nav) .business-main-nav.bp-navs,
+    #buddypress.buddypress-wrap:not(.bp-single-vert-nav) .business-main-nav.bp-navs>ul,
+    .bp-business-list-wrap,
+    #business-create-body,
+    #buddypress.buddypress-wrap.bp-business-single #cover-image-container,
+    #buddypress.buddypress-wrap.bp-business-single .desc-wrap,
+    .bp-business-settings-content>.widget-area .widget,
+    .bp-business-settings-content .buddypress-wrap,
+    .bp-profile-settings .item-body-inner,
+    #bp-profile-settings-tabs-nav,
+    .bp-business-tribe-wrapper>article .bp-business-single-tribe-events-col-last,
+    .bp-business-jobs-content-box .job_listings .job-details-wrapper {
+        background-color: var(--reign-site-sections-bg-color);
+    }
+}
+
+/*--------------------------------------------------------------
+# BuddyPress Docs
+--------------------------------------------------------------*/
+body.archive article.bp_doc {
+    border: 0 !important;
+}
+
+ul.component-navigation.bp-docs-nav {
+    margin-left: 0;
+    display: flex;
+    flex-flow: wrap;
+
+    a#bp-create-doc-button {
+        margin-left: auto;
+        margin-right: 0;
+    }
+}
+
+div.doc-permissions.doc-permissions {
+    padding: 15px;
+}
+
+#doc-permissions-summary.doc-public {
+    color: #333;
+
+    a {
+        color: inherit;
+    }
+}
+
+div.doc-permissions.doc-permissions,
+div.doc-content.doc-content {
+    background: var(--reign-site-sections-bg-color);
+}
+
+div.docs-info-header.docs-info-header {
+    margin-bottom: 15px;
+    padding: 15px;
+}
+
+div.docs-info-header.docs-info-header,
+div.doc-tabs li a,
+div.entry-content p.toggle-switch,
+p.toggle-switch {
+    background: var(--reign-site-secondary-bg-color);
+}
+
+div.entry-content p.toggle-switch a,
+p.toggle-switch a {
+    color: var(--reign-site-headings-color);
+}
+
+
+div.docs-filters>p,
+div.docs-filter-section {
+    color: var(--reign-site-alternate-text-color);
+}
+
+div.doc-tabs li.current a {
+    background: var(--reign-site-sections-bg-color);
+    color: var(--reign-colors-theme);
+}
+
+div.doc-permissions.doc-permissions,
+div.doc-content.doc-content,
+div#doc-meta,
+div.doc-meta,
+div.docs #comments,
+div.entry-content p.toggle-switch,
+p.toggle-switch,
+div.toggle-content,
+div.docs-filter-section {
+    border-color: var(--reign-site-border-color);
+}
+
+div.docs-info-header.docs-info-header {
+    border: 1px solid var(--reign-site-border-color);
+}
+
+input#docs-search {
+    min-height: 38px;
+    background: var(--reign-form-background-color);
+    color: var(--reign-form-text-color);
+    border: 1px solid var(--reign-form-border-color);
+    outline: none;
+    border-radius: var(--reign-global-form-radius) !important;
+    font-family: inherit;
+
+    &:focus {
+        background: var(--reign-form-focus-background-color);
+        color: var(--reign-form-focus-text-color);
+        border: 1px solid var(--reign-form-focus-border-color);
+    }
+}
+
+div#doc-submit-options input {
+    margin: 0 10px 5px 0;
+}
+
+div.entry-content p.toggle-switch a,
+p.toggle-switch a {
+    height: auto;
+}
+
+div#buddypress table.doctable tr:nth-child(n) {
+    background-color: var(--reign-site-sections-bg-color);
+}
+
+div#buddypress table.doctable tr:nth-child(2n) {
+    background-color: var(--reign-site-secondary-bg-color);
+}
+
+div.row-actions a {
+    color: var(--reign-site-alternate-text-color);
+}
+
+div.row-actions a:hover {
+    color: var(--reign-colors-theme);
+}
+
+.doc-content-wrapper div#doc-content-title,
+.doc-content-wrapper div#doc-content-permalink {
+    margin: 0 0 15px;
+}
+
+input#doc-permalink {
+    margin-top: 20px;
+}
+
+p.comments-closed {
+    background: var(--reign-site-secondary-bg-color);
+}
+
+div#doc-meta,
+div.doc-meta,
+div.docs #comments {
+    border-color: var(--reign-site-border-color);
+}
+
+.bp-docs table th {
+    color: var(--reign-site-headings-color);
+    padding: 10px;
+}
+
+.bp-docs table td {
+    padding: 10px;
+}
+
+.reign-nav-iconic #bp-create-doc-button:before {
+    content: "\f067";
+    color: inherit;
+    margin-right: 6px;
+    display: inline-block;
+    font-family: $font__icon;
+    font-size: inherit;
+    text-rendering: auto;
+    min-width: 20px;
+    text-align: center;
+}
+
+/*--------------------------------------------------------------
+# BuddyPress Schedule Activity
+--------------------------------------------------------------*/
+.bp-activity-schedule-post-dropdown-list,
+.bp-activity-schedule-model-wrap .modal-container,
+.bp-schedule-activity-posted .bp-schedule-item-list {
+    background: var(--reign-site-sections-bg-color);
+    border-color: var(--reign-site-border-color);
+    box-shadow: var(--reign-more-options-box-shadow);
+}
+
+.bp-activity-schedule-post-dropdown-list ul li>a {
+    color: var(--reign-site-body-text-color);
+
+    &:hover {
+        color: var(--reign-site-body-text-color);
+        background: var(--reign-site-secondary-bg-color);
+    }
+}
+
+.bp-activity-schedule-post-dropdown-list ul li>a>i {
+    color: var(--reign-site-alternate-text-color);
+}
+
+.bp-activity-schedule-model-wrap .modal-container .bp-model-header {
+    background: var(--reign-site-secondary-bg-color);
+    border-color: var(--reign-site-border-color);
+}
+
+.bp-activity-schedule-model-wrap .modal-container .bp-model-footer {
+    border-color: var(--reign-site-border-color);
+}
+
+.bp-activity-schedule-model-wrap .modal-container .bp-modal-content .input-field [class*=dashicons] {
+    color: var(--reign-site-alternate-text-color);
+}
+
+#buddypress .bp-activity-schedule-model-wrap .modal-container .bp-model-footer .button.button-outline {
+    color: var(--reign-site-alternate-text-color);
+
+    &:hover {
+        background-color: var(--reign-site-button-bg-color);
+        color: var(--reign-site-button-text-color);
+        border-color: var(--reign-site-button-bg-color) !important;
+    }
+}
+
+.bp-activity-schedule-model-wrap .modal-container .bp-modal-content .input-field-inline .bp-schedule-activity-meridian-wrap label span {
+    background: var(--reign-site-sections-bg-color);
+    color: var(--reign-site-headings-color);
+    border-color: var(--reign-site-border-color);
+}
+
+.bp-activity-schedule-model-wrap .modal-container .bp-modal-content .input-field-inline .bp-schedule-activity-meridian-wrap label input:checked+span {
+    background: var(--reign-colors-theme);
+    border-color: var(--reign-colors-theme);
+}
+
+.bp-schedule-activity-posted .bp-schedule-item-list .bp-schedule-messages-content span {
+    color: var(--reign-site-body-text-color);
+}
+
+.bp-schedule-activity-posted .bp-schedule-item-list .bp-schedule-messages-content span.title {
+    color: var(--reign-site-headings-color);
+}
+
+/*--------------------------------------------------------------
+# BuddyPress Resume Manager
+--------------------------------------------------------------*/
+.buddypress-wrap .item-body .group-separator-block .screen-heading {
+    font-size: 1.5rem;
+    font-weight: 500;
+    border: 0;
+}
+
+.bp-profile-wrapper.need-separator .group-separator-block h3 {
+    margin-top: 0;
+}
+
+/*--------------------------------------------------------------
+# BuddyPress Contact Me
+--------------------------------------------------------------*/
+.contact-me.buddypress .bp-member-blog-post-form {
+    background: var(--reign-site-sections-bg-color);
+    border-color: var(--reign-site-border-color);
+    border-radius: var(--reign-global-border-radius) !important;
+}
+
+div#fieldset-captchasum .captchasum {
+    background: var(--reign-site-secondary-bg-color);
+}
+
+table.bp_contact-me-messages {
+    background: var(--reign-site-sections-bg-color);
+}
+
+.bp_contact-me-messages thead {
+    background: var(--reign-site-secondary-bg-color);
+}
+
+.bp_contact-me-messages th,
+.bp_contact-me-messages td {
+    border-color: var(--reign-site-border-color);
+}
+
+.swal2-container .swal2-popup {
+    background: var(--reign-site-sections-bg-color);
+    color: var(--reign-site-body-text-color);
+    box-shadow: var(--reign-more-options-box-shadow);
+}
+
+body.wbcom-bp-contact .bp-contact-me-popup-message {
+    border-color: var(--reign-site-border-color);
+}
+
+body.wbcom-bp-contact .bp-contact-me-popup-message li:nth-child(2n+2) {
+    background: var(--reign-site-secondary-bg-color);
+}

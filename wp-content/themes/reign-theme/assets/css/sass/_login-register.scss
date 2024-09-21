@@ -1,0 +1,812 @@
+#buddypress #register-page {
+    form#signup_form {
+        padding: 0;
+
+        &>p {
+            font-size: $font__size_22;
+            background: #3a9cfc;
+            color: var(--reign-color-white);
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .standard-form button {
+            padding: 0;
+        }
+    }
+}
+
+#buddypress #commentform input[type=text],
+#buddypress #commentform textarea,
+#buddypress .form-allowed-tags,
+#buddypress .standard-form#signup_form input[type=text],
+#buddypress .standard-form input[type=email],
+#buddypress .standard-form#signup_form textarea,
+#buddypress .standard-form #basic-details-section input[type=password],
+#buddypress .standard-form #blog-details-section input#signup_blog_url {
+    width: 100%;
+    border-radius: 0;
+}
+
+#buddypress #signup-form.standard-form select {
+    width: 100%;
+    margin: 0;
+    height: 38px;
+    border-radius: var(--reign-global-form-radius);
+}
+
+.register-page .signup-form .field_type_datebox fieldset {
+    margin: 20px 0 0;
+}
+
+#buddypress #signup-form.standard-form p.description {
+    font-size: $font__size-extrasmall;
+    margin: 0 0 12px;
+    background: 0 0;
+    color: var(--reign-site-alternate-text-color);
+}
+
+#buddypress #signup-form.standard-form label,
+#buddypress #signup-form.standard-form legend {
+    color: var(--reign-site-headings-color);
+}
+
+/* Login/Register Popup */
+
+.reign-window-popup {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    z-index: 999999;
+    overflow-y: auto;
+    outline: none;
+    background: rgba(0, 0, 0, .6);
+    opacity: 0;
+    backface-visibility: hidden;
+    visibility: hidden;
+    transition: all 0.3s ease-out;
+}
+
+.reign-window-popup.reign-window-popup-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+body .modal-dialog {
+    margin-top: 100px;
+}
+
+.window-popup,
+.modal-dialog {
+    max-width: calc(100% - 30px);
+}
+
+.registration-login-form-popup .icon-close {
+    opacity: 1;
+    margin-top: 0;
+    margin-right: 0;
+    font-size: 24px;
+
+    .far {
+        font-size: inherit;
+        font-family: $font__icon;
+    }
+}
+
+.registration-login-form .icon {
+    fill: #888da8;
+    float: right;
+    margin-top: 7px;
+    padding: 0;
+}
+
+.registration-login-form .input-group-addon .icon {
+    margin-top: 0;
+}
+
+.registration-login-form .form-group {
+    margin: 1rem 0;
+    position: relative;
+}
+
+.registration-login-form .form-group.with-button button {
+    width: 50px;
+    border-radius: 0 5px 5px 0;
+}
+
+.registration-login-form .form-group label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.close {
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+.icon-close {
+    position: absolute;
+    top: -25px;
+    right: -25px;
+    color: #fff;
+    color: #fff;
+}
+
+.icon-close:hover {
+    color: #1d76da;
+}
+
+.registration-login-form-popup {
+    width: 520px;
+}
+
+.registration-login-form-popup .registration-login-form {
+    margin-bottom: 0;
+}
+
+.registration-login-form-popup .modal-content {
+    border: none;
+}
+
+.registration-login-form-popup .modal-body {
+    margin: 0;
+    padding: 0;
+    border-radius: var(--reign-global-border-radius);
+    overflow: hidden;
+}
+
+.window-popup {
+    position: relative;
+    margin: auto;
+    border-radius: 5px;
+    width: 520px;
+    max-width: calc(100% - 30px);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
+    z-index: 999999;
+    height: max-content;
+}
+
+.modal-active {
+    overflow: hidden;
+}
+
+.modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: var(--reign-site-sections-bg-color);
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: var(--reign-global-border-radius);
+    outline: 0;
+}
+
+.register-page .signup-form .error {
+    color: var(--reign-color-error);
+}
+
+.registration-login-form-popup form#signup-form {
+    margin: 0;
+    padding: 25px;
+
+    fieldset {
+        border: 0;
+        margin: 15px 0;
+        padding: 0;
+
+        legend {
+            margin: 15px 0 5px;
+            color: var(--reign-site-headings-color);
+        }
+    }
+
+    label,
+    span.label {
+        display: block;
+        margin: 15px 0 5px;
+        width: auto;
+        color: var(--reign-site-headings-color);
+    }
+
+    .password-input-wrapper {
+        display: flex;
+        gap: 10px;
+
+        input {
+            width: 100%;
+        }
+    }
+
+    select {
+        width: 100%;
+    }
+
+    select[multiple] {
+        overflow: auto;
+        background-image: none;
+        min-height: 85px;
+        padding: 0 12px;
+    }
+
+    &.signup-form .editfield {
+        margin: 0;
+    }
+
+    [type=checkbox],
+    [type=radio] {
+        margin-right: 5px;
+    }
+
+    .field-visibility-settings-toggle button.visibility-toggle-link {
+        padding: 2px 5px;
+        font-size: 12px;
+    }
+
+    .field-visibility-settings-open {
+        background-color: var(--reign-site-secondary-bg-color);
+
+        fieldset,
+        legend {
+            margin-top: 0;
+        }
+    }
+
+    .submit {
+
+        input#submit,
+        input#signup_submit {
+            margin-top: 20px;
+            padding: 12px;
+            font-size: .875rem;
+            line-height: 1.5;
+            border-radius: var(--reign-global-button-radius);
+            position: relative;
+            width: 100%;
+        }
+    }
+
+    a.clear-value {
+        font-size: 13px;
+    }
+}
+
+
+/*================= Responsive Mode ============*/
+
+@media (max-width: 1080px) {
+
+    .icon-close,
+    .window-popup .icon-close {
+        right: 50%;
+        margin-right: -9px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .icon-close,
+    .window-popup .icon-close {
+        right: 50%;
+        margin-right: -9px;
+    }
+}
+
+.registration-login-form {
+    overflow: hidden;
+    position: relative;
+    border-radius: var(--reign-global-border-radius);
+    border: 1px solid var(--reign-site-border-color);
+    background-color: var(--reign-site-sections-bg-color);
+    margin-bottom: 20px;
+    min-height: 550px;
+}
+
+.registration-login-form.selected-forms-single {
+    padding-left: 0;
+    min-height: unset;
+}
+
+.registration-login-form .nav-tabs {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+
+.registration-login-form .nav-tabs span.icon-title {
+    width: 100%;
+    text-align: center;
+}
+
+.registration-login-form .nav-item {
+    margin-bottom: 0;
+    height: 50%;
+    width: 100%;
+}
+
+.registration-login-form .nav-link {
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid var(--reign-site-border-color);
+    border-right: 1px solid var(--reign-site-border-color);
+    padding: 22px;
+    color: #c0c4d8;
+    background-color: var(--reign-site-sections-bg-color);
+    height: 100%;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.registration-login-form .nav-link.active {
+    color: var(--reign-colors-theme);
+    background-color: var(--reign-site-sections-bg-color);
+    border-bottom: 2px solid;
+}
+
+.registration-login-form .tab-content {
+    overflow: hidden;
+}
+
+.registration-login-form .content {
+    padding: 25px;
+}
+
+.registration-login-form .content .col>p {
+    margin-top: 15px;
+}
+
+.registration-login-form .title {
+    padding: 25px;
+    border-bottom: 1px solid var(--reign-site-border-color);
+    margin-bottom: 0;
+}
+
+.reign-sign-form-register-fields h6 {
+    margin-top: 1rem;
+    margin-bottom: 5px;
+}
+
+.registration-login-form p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+
+.registration-login-form .checkbox-acceptance-description {
+    margin-top: 5px;
+}
+
+.registration-login-form .remember {
+    margin: 20px 0 5px;
+}
+
+.registration-login-form.can-not-register {
+    min-height: unset;
+}
+
+.registration-login-form.can-not-register .nav-item {
+    height: 100%;
+}
+
+.registration-login-form .modal-content {
+    border: none;
+}
+
+.registration-login-form .logy-social-buttons .logy-social-title {
+    border-bottom: 1px solid #e6ecf5;
+}
+
+.registration-login-form .logy-social-buttons .logy-social-title span {
+    color: #888da8;
+}
+
+.registration-login-form .logy-social-buttons.logy-only-icons ul {
+    padding-left: 0;
+}
+
+.registration-login-form .logy-social-buttons.logy-only-icons ul li a {
+    display: block;
+    color: #fff;
+    font-size: 18px;
+}
+
+.remember {
+    margin-bottom: 1rem;
+}
+
+.remember .checkbox {
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+.remember a {
+    margin-top: 15px;
+    line-height: 2;
+}
+
+#registration-login-form-popup .remember .forgot {
+    float: right;
+}
+
+.or {
+    position: relative;
+    width: 100%;
+    height: 1px;
+    margin: 1rem 0 2rem 0;
+    background-color: #e6ecf5;
+}
+
+.or:after {
+    content: 'OR';
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 0 25px;
+    font-size: 10px;
+    z-index: 5;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.registration-login-form .form-control {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 12px;
+    line-height: 1;
+}
+
+.password-eye-wrap {
+    position: relative;
+}
+
+.password-eye-wrap .password-eye {
+    text-decoration: none;
+    font-size: 16px;
+    color: #888da8;
+    position: absolute;
+    right: 15px;
+    top: 3rem;
+    transform: translate(0, -50%);
+    z-index: 9;
+}
+
+.registration-login-submit {
+    margin: 15px 0 0;
+    padding: 12px;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    border-radius: var(--reign-global-button-radius);
+    position: relative;
+}
+
+.reign-sign-form .icon-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background-image: url("../img/svg/preloader.svg");
+    background-repeat: no-repeat;
+    background-size: 30px;
+    background-position: 50% 50%;
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s ease;
+}
+
+.reign-sign-form.loading .btn {
+    min-height: 50px;
+}
+
+.reign-sign-form.loading .btn span {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.reign-sign-form.loading .btn span.icon-loader {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/*================= Responsive Mode ============*/
+
+@media (max-width: 1023px) {
+    .registration-login-form {
+        padding-left: 0;
+        min-height: unset;
+    }
+
+    .registration-login-form .title {
+        font-size: 14px;
+    }
+
+    .registration-login-form.selected-forms-single {
+        padding-top: 0;
+    }
+
+    .registration-login-form .nav-tabs {
+        -ms-flex-direction: row;
+        flex-direction: row;
+        bottom: auto;
+        width: 100%;
+        height: auto;
+    }
+
+    .registration-login-form .nav-item {
+        display: block;
+        text-align: center;
+    }
+
+    .registration-login-form .nav-link {
+        display: block;
+    }
+
+    .registration-login-form .nav-item:last-child .nav-link {
+        border-bottom: 1px solid var(--reign-site-border-color);
+        border-right: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .registration-login-form .title {
+        padding: 15px 25px;
+    }
+
+    .registration-login-form .content {
+        padding: 20px 25px;
+    }
+
+    .registration-login-form .nav-link {
+        padding: 10px 22px;
+    }
+
+    .registration-login-submit {
+        padding: 1rem;
+    }
+}
+
+
+/* Animation */
+
+.window-popup {
+    transform: translate(0, -50px);
+    transition: all .3s;
+    opacity: 0;
+}
+
+.modal-active .window-popup {
+    transform: none;
+    border-radius: 0 0 3px 3px;
+    opacity: 1;
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+
+/* Form validation */
+
+.invalid-feedback {
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #dc3545;
+}
+
+.form-control.is-invalid {
+    border-color: #dc3545;
+}
+
+.reign-sign-form-messages {
+    margin-left: 0;
+    padding-left: 0;
+    list-style: none;
+    font-size: 13px;
+}
+
+.reign-sign-form-messages li {
+    border-left: 4px solid;
+    padding: 8px 15px !important;
+    border-radius: 5px 0 0 5px;
+    background-color: #f6f6f6;
+}
+
+.reign-sign-form-messages.woocommerce-error {
+    background: transparent;
+    margin: 0;
+    padding: 0 !important;
+    border: 0;
+    box-shadow: none;
+
+    &::before {
+        content: none;
+    }
+}
+
+/* Extra plugin support */
+
+.modal-body.reign-custom-shortcode {
+    padding: 35px 25px;
+}
+
+
+/* Login Widget */
+
+.user-welcomeback {
+    background-color: var(--reign-site-sections-bg-color);
+    border-radius: var(--reign-global-border-radius);
+    border: 1px solid var(--reign-site-border-color);
+    text-align: center;
+    overflow: hidden;
+}
+
+.user-welcomeback .featured-background {
+    height: 80px;
+    background-size: cover;
+    background-position: center;
+    background-color: #555;
+}
+
+.user-welcomeback .user-active {
+    border-top: 1px solid var(--reign-site-border-color);
+}
+
+.user-welcomeback .author-thumb {
+    display: inline-block;
+    border-radius: 100%;
+    border: 4px solid #fff;
+    overflow: hidden;
+    width: 98px;
+    height: 98px;
+    background-color: #fdfbee;
+    margin-top: -50px;
+    margin-bottom: 15px;
+}
+
+.user-welcomeback .author-thumb img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+}
+
+.user-welcomeback .author-content {
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.user-welcomeback .author-content .author-name {
+    color: var(--reign-colors-theme);
+}
+
+.user-welcomeback .links {
+    margin: 0 -2px 0 -1px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.user-welcomeback .link-item {
+    display: inline-flex;
+    flex-direction: column;
+    width: 50%;
+    border: 1px solid var(--reign-site-border-color);
+    padding: 20px;
+    align-items: center;
+    margin-bottom: -1px;
+    margin-right: -1px;
+}
+
+.user-welcomeback .link-item i.link-item-icon {
+    font-family: $font__icon;
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+    margin-bottom: 10px;
+    transition: all .3s ease;
+}
+
+.user-welcomeback .link-item .title {
+    transition: all .3s ease;
+}
+
+.user-welcomeback .link-item .sup-title {
+    font-size: 13px;
+    color: #888da8;
+}
+
+.reign-block-content {
+    padding: 24px 23px 23px;
+}
+
+body .reign-block-content .button {
+    padding: 12px;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    border-radius: 0.3rem;
+    position: relative;
+}
+
+// #registration-login-form-popup .remember .register {
+//     display: none;
+// }
+
+/* Login Widget */
+.registar-lostpass-wrap {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: wrap;
+}
+
+ul.reign-sign-form-messages:empty {
+    display: none;
+}
+
+.widget_rign_bp_login_widget,
+.elementor-widget-wp-widget-bp_reign_bp_login_widget {
+
+    .remember .forgot,
+    .remember .register {
+        float: none;
+        display: block;
+        font-size: 15px;
+        line-height: normal;
+    }
+
+    .registration-login-form .content {
+        padding: 20px;
+    }
+}
+
+.widget-area .widget.widget_rign_bp_login_widget,
+.widget-area-inner .widget.widget_rign_bp_login_widget {
+    padding: 0;
+    border: 0;
+}
+
+.widget_rign_bp_login_widget {
+
+    .registration-login-form .title,
+    .registration-login-form .content {
+        padding: 15px;
+    }
+
+    .registration-login-form .form-group {
+        margin: 10px 0;
+    }
+
+    .registration-login-form .remember {
+        margin: 15px 0;
+    }
+
+    .registration-login-submit {
+        margin: 5px 0 0;
+    }
+}
+
+.reign-sign-form-login .row {
+    margin: 0;
+}

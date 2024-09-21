@@ -1,0 +1,492 @@
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+textarea,
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="week"],
+input[type="number"],
+input[type="tel"],
+input[type="color"] {
+    /* Remove First */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: var(--reign-form-background-color);
+    color: var(--reign-form-text-color);
+    border: 1px solid var(--reign-form-border-color);
+    outline: none;
+    border-radius: var(--reign-global-form-radius) !important;
+    font-family: inherit;
+
+    &:focus {
+        background: var(--reign-form-focus-background-color);
+        color: var(--reign-form-focus-text-color);
+        border: 1px solid var(--reign-form-focus-border-color);
+    }
+}
+
+textarea {
+    border-radius: 6px !important;
+}
+
+input,
+textarea {
+    &::placeholder {
+        color: var(--reign-form-text-color) !important;
+    }
+
+    &:focus::placeholder {
+        color: var(--reign-form-focus-text-color) !important;
+    }
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="week"],
+input[type="number"],
+input[type="tel"],
+input[type="color"] {
+    font-size: $font__size-small;
+    width: 100%;
+    height: 42px;
+    padding: 10px 15px;
+}
+
+input[type="tel"] {
+    border-width: 1px;
+    border-style: solid;
+    padding: 10px 15px;
+}
+
+form.woocommerce-product-search,
+#buddypress form.woocommerce-product-search,
+#buddypress .widget_search,
+form.search-form,
+.search-wrap .rg-search-form-wrap form.searchform,
+#bbpress-forums div.bbp-search-form,
+#bbp-search-form,
+.widget_product_search .woocommerce-product-search {
+    position: relative;
+
+    input.search-field,
+    #bbp_search {
+        border-radius: var(--reign-global-form-radius);
+        padding-left: 15px;
+        height: 42px;
+    }
+
+    input[type="submit"],
+    button[type="submit"] {
+        position: absolute;
+        right: 5px;
+        top: 4px;
+        height: 30px;
+        width: 30px;
+        background: transparent url(../img/svg/search.svg) no-repeat 7px;
+        background-size: 18px;
+        background-color: unset !important;
+        border: 0 !important;
+        border-radius: 100%;
+        cursor: pointer;
+        text-indent: -9999em;
+
+        &:hover {
+            border-radius: 100%;
+            border: 0 !important;
+        }
+    }
+}
+
+.dark-mode,
+.dark-scheme {
+
+    form.woocommerce-product-search,
+    #buddypress form.woocommerce-product-search,
+    #buddypress .widget_search,
+    form.search-form,
+    .search-wrap .rg-search-form-wrap form.searchform,
+    #bbpress-forums div.bbp-search-form,
+    #bbp-search-form,
+    .widget_product_search .woocommerce-product-search {
+
+        input[type="submit"],
+        button[type="submit"] {
+            background: transparent url(../img/svg/search-white.svg) no-repeat 7px;
+            background-size: 18px;
+            background-color: unset !important;
+        }
+    }
+}
+
+select,
+.buddypress-wrap .select-wrap select,
+body #buddypress.buddypress-wrap form#whats-new-form #whats-new-options select,
+.buddypress-wrap #notification-select,
+.buddypress-wrap .standard-form select,
+#bbpress-forums fieldset.bbp-form select,
+select.dokan-form-control {
+    display: inline-block;
+    font-family: inherit;
+    font-style: inherit;
+    font-size: $font__size-small;
+    height: 42px;
+    outline: none;
+    vertical-align: middle;
+    color: var(--reign-site-body-text-color);
+    background-color: var(--reign-site-sections-bg-color);
+    border: 1px solid var(--reign-site-border-color);
+    border-radius: var(--reign-global-border-radius);
+    box-shadow: none;
+    margin: 0;
+    padding: 0 12px;
+    -webkit-appearance: none;
+    background-image: url("../img/svg/arrow-down.svg");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 40px;
+}
+
+.dark-mode,
+.dark-scheme {
+
+    select,
+    .buddypress-wrap .select-wrap select,
+    .buddypress-wrap #notification-select,
+    .buddypress-wrap .standard-form select,
+    #bbpress-forums fieldset.bbp-form select,
+    select.dokan-form-control {
+        background-image: url("../img/svg/arrow-down-white.svg");
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        padding-right: 40px;
+    }
+}
+
+body.dark-scheme #buddypress.buddypress-wrap form#whats-new-form #whats-new-options select {
+    background-image: url("../img/svg/arrow-down-white.svg");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 40px;
+}
+
+textarea {
+    overflow: auto;
+    /* Remove default vertical scrollbar in IE 8/9/10/11. */
+    font-size: $font__size-small;
+    padding: 10px 15px;
+    width: 100%;
+    resize: vertical;
+}
+
+.wp-element-button,
+.wp-block-button__link,
+.post.post .entry-content .wp-element-button,
+.post.post .entry-content .wp-block-button__link,
+a.btn,
+button,
+input[type=button],
+input[type=reset],
+input[type=submit],
+a.rg-action.button,
+#buddypress .comment-reply-link,
+#buddypress .generic-button a,
+#buddypress .standard-form button,
+#buddypress a.button,
+#buddypress input[type=button],
+#buddypress input[type=reset],
+#buddypress input[type=submit],
+.buddypress .buddypress-wrap .button-nav li.current a,
+.buddypress .buddypress-wrap .button-nav li a:hover,
+.buddypress .buddypress-wrap .button-nav li a:focus,
+a.bp-title-button,
+#buddypress form#whats-new-form #whats-new-submit input,
+#buddypress #profile-edit-form ul.button-nav li.current a,
+#buddypress div.generic-button a,
+#buddypress .item-list.rg-group-list div.action a,
+#buddypress div#item-header #item-header-content1 div.generic-button a,
+body #buddypress .activity-list li.load-more a,
+body #buddypress .activity-list li.load-newest a,
+.media .rtm-load-more a#rtMedia-galary-next,
+.rg-group-section .item-list.rg-group-list div.action a,
+.field-wrap button,
+.field-wrap input[type=button],
+.field-wrap input[type=submit],
+a.read-more.button,
+.rg-login-btn-wrap .button,
+.rg-register-btn-wrap .button,
+.form-submit #submit,
+form.woocommerce-product-search input[type="submit"],
+#buddypress form.woocommerce-product-search input[type="submit"],
+#buddypress .widget_search input[type="submit"],
+form.search-form input[type="submit"],
+button#bbp_topic_submit,
+.nav-links>div,
+.woocommerce #respond input#submit,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button,
+.woocommerce #respond input#submit.disabled,
+.woocommerce #respond input#submit:disabled,
+.woocommerce #respond input#submit:disabled[disabled],
+.woocommerce a.button.disabled,
+.woocommerce a.button:disabled,
+.woocommerce a.button:disabled[disabled],
+.woocommerce button.button.disabled,
+.woocommerce button.button:disabled,
+.woocommerce button.button:disabled[disabled],
+.woocommerce input.button.disabled,
+.woocommerce input.button:disabled,
+.woocommerce input.button:disabled[disabled],
+.woocommerce .cart .button,
+.woocommerce .cart input.button,
+.woocommerce div.product form.cart .button,
+.woocommerce #respond input#submit.alt,
+.woocommerce a.button.alt,
+.woocommerce button.button.alt,
+.woocommerce input.button.alt,
+.rg-woocommerce_mini_cart .button {
+    float: none;
+    display: inline-block;
+    background-color: var(--reign-site-button-bg-color);
+    color: var(--reign-site-button-text-color);
+    padding: 10px 20px;
+    border: 1px solid var(--reign-site-button-bg-color);
+    font-size: $font__size-small;
+    font-weight: normal;
+    line-height: 1.5;
+    border-radius: var(--reign-global-button-radius);
+    text-transform: none;
+    transition: all .3s;
+    cursor: pointer;
+    font-weight: 400;
+    text-shadow: none;
+    font-family: inherit;
+
+    &:hover,
+    &:focus {
+        background-color: var(--reign-site-button-bg-hover-color);
+        color: var(--reign-site-button-text-hover-color);
+        border: 1px solid var(--reign-site-button-bg-hover-color);
+    }
+}
+
+input.search-field {
+    width: 100%;
+}
+
+.mc4wp-form-fields p {
+    margin-bottom: 10px;
+
+    input[type="email"] {
+        width: 100%;
+        margin-bottom: 0;
+    }
+}
+
+
+/*--------------------------------------------------------------
+# Media Modal
+--------------------------------------------------------------*/
+
+.media-router .media-menu-item {
+    font-size: 14px;
+    background: transparent !important;
+}
+
+.media-router .media-menu-item:hover,
+.media-router .media-menu-item:active {
+    color: #2271b1 !important;
+}
+
+.media-router .active,
+.media-router .media-menu-item.active:last-child {
+    background: #fff !important;
+}
+
+.media-router button,
+.media-router .active,
+.media-router .active:hover {
+    color: #1d2327 !important;
+}
+
+.media-modal-close {
+    background: none !important;
+    color: #646970 !important;
+    border: 1px solid transparent !important;
+}
+
+.media-modal-close:hover,
+.media-modal-close:active {
+    color: #135e96 !important;
+    background: transparent !important;
+    border: 1px solid transparent !important;
+}
+
+.media-modal .delete-attachment,
+.media-modal .trash-attachment,
+.media-modal .untrash-attachment {
+    color: #d63638 !important;
+    background: transparent !important;
+}
+
+
+/*--------------------------------------------------------------
+# Site Text Editor
+--------------------------------------------------------------*/
+
+.wp-editor-container button {
+    background-color: inherit !important;
+    border-color: inherit !important;
+}
+
+.wp-editor-wrap .wp-switch-editor.switch-tmce,
+.wp-editor-wrap .wp-switch-editor.switch-html {
+    background: #f5f5f5;
+    border-color: #e2e2e2;
+    color: #555;
+}
+
+.wp-editor-wrap.html-active .switch-tmce {
+    border-color: #e2e2e2;
+    border-radius: 0;
+}
+
+.wp-editor-wrap.tmce-active .switch-tmce {
+    border-color: #e2e2e2;
+    border-radius: 0;
+}
+
+.mce-container iframe,
+.wp-editor-container textarea.wp-editor-area {
+    min-height: 100px !important;
+}
+
+.mce-toolbar .mce-btn-group .mce-btn.mce-active,
+.mce-toolbar .mce-btn-group .mce-btn:active,
+.qt-dfw.active {
+    border-color: inherit !important;
+    box-shadow: none !important;
+}
+
+#buddypress .mce-toolbar .mce-btn-group .mce-btn.mce-listbox,
+.mce-toolbar .mce-btn-group .mce-btn.mce-listbox {
+    border: 1px transparent solid !important;
+}
+
+.mce-toolbar .mce-listbox button:hover {
+    color: #595959;
+}
+
+.mce-toolbar .mce-btn-group .mce-btn button {
+    background: inherit;
+    border-color: inherit;
+    border: 1px transparent solid !important;
+}
+
+.mce-toolbar .mce-btn-group .mce-btn button:hover {
+    background: transparent !important;
+    border: 1px solid transparent !important;
+}
+
+button.media-menu-item {
+    color: #72777c !important;
+}
+
+.media-router .media-menu-item:hover {
+    background: 0 0 !important;
+    border: 0 !important;
+}
+
+.mce-btn.mce-active,
+.mce-btn.mce-active button,
+.mce-btn.mce-active:hover button,
+.mce-btn.mce-active i,
+.mce-btn.mce-active:hover i {
+    color: inherit !important;
+}
+
+/* Print */
+@media print {
+    * {
+        background: transparent !important;
+        color: black !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    h2,
+    h3,
+    h4 {
+        page-break-after: avoid;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    .reign-header-top,
+    .rg-dark__scheme-toggle,
+    nav,
+    aside.widget-area,
+    .sidebar,
+    .content-ads,
+    .make-comment,
+    .author-bio,
+    .heading,
+    .related-posts,
+    #breadcrumbs,
+    .footer-wrap,
+    .post-byline,
+    .meta-single,
+    .site-title img,
+    .post-tags,
+    .readability,
+    .moderation-popup {
+        display: none !important;
+    }
+}

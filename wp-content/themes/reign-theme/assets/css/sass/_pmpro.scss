@@ -1,0 +1,743 @@
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Global
+# Membership Levels
+# Login Form
+# Membership Checkout
+# Membership Confirmation
+# Membership Invoice
+# Membership Billing
+# Your Profile
+# Membership Account
+# Membership Cancel
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+# Global
+--------------------------------------------------------------*/
+
+.dark-mode .pmpro_message a,
+.pmpro_message a {
+    color: #245269;
+    text-decoration: underline;
+}
+
+#pmpro_form .pmpro_btn.pmpro_btn-cancel {
+    background: #ea1808;
+    color: #fff;
+    border-color: #ea1808;
+    text-decoration: none;
+}
+
+#pmpro_form .pmpro_btn.pmpro_btn-cancel:hover {
+    color: var(--reign-color-white);
+}
+
+#pmpro_invoices_table {
+
+    th,
+    td {
+        padding: 10px;
+        border-top: 1px solid var(--reign-site-border-color);
+        border-bottom: 1px solid var(--reign-site-border-color);
+        border-left: 1px solid var(--reign-site-border-color);
+    }
+
+    th:last-child,
+    td:last-child {
+        border-right: 1px solid var(--reign-site-border-color);
+    }
+}
+
+.pmpro_a-print {
+    margin: -25px 0 0;
+}
+
+.pmpro-confirmation h3.prpro_confirmation_title {
+    font-size: $font__size_22;
+    margin: 0px;
+}
+
+
+/*--------------------------------------------------------------
+# Membership Levels
+--------------------------------------------------------------*/
+
+#pmpro_levels_table .rtm_pmpro_levels_plan {
+    display: flex;
+    flex-flow: wrap;
+    margin: 0 -15px;
+
+    .rtm_pmpro_levels_section {
+        position: relative;
+        background: var(--reign-site-sections-bg-color);
+        margin: 15px;
+        padding: 0;
+        border: 1px solid var(--reign-site-border-color);
+        border-radius: var(--reign-global-border-radius) !important;
+        transition: all .3s;
+
+        &:hover {
+            box-shadow: 15px 15px 20px rgba(58, 46, 68, 0.08);
+        }
+    }
+
+    .rtm_pmpro_levels_section.price_table_column_3,
+    .rtm_pmpro_levels_section.price_table_column_4 {
+        width: 100%;
+    }
+
+    @media (min-width: 768px) {
+
+        .rtm_pmpro_levels_section.price_table_column_3,
+        .rtm_pmpro_levels_section.price_table_column_4 {
+            width: calc(50% - 30px);
+        }
+    }
+
+    @media (min-width: 992px) {
+
+        .rtm_pmpro_levels_section.price_table_column_3,
+        .rtm_pmpro_levels_section.price_table_column_4 {
+            width: calc(33.333333% - 30px);
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .rtm_pmpro_levels_section.price_table_column_4 {
+            width: calc(25% - 30px);
+        }
+    }
+
+    .rtm_pmpro_price {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        border-radius: var(--reign-global-border-radius) !important;
+        overflow: hidden;
+    }
+
+    .rtm_pmpro_price_top {
+        text-align: center;
+        padding: 20px;
+
+        h2 {
+            font-size: $font__size-medium;
+            margin: 0px;
+            padding: 0 0 15px;
+            border-bottom: 1px solid var(--reign-site-border-color);
+            text-transform: uppercase;
+            font-weight: normal;
+        }
+
+        .rtm_levels_table_price {
+            font-size: $font__size-extrasmall;
+            margin-top: 10px;
+
+            .rtm-pmpro-now-price {
+                font-size: $font__size_50;
+                line-height: 50px;
+                padding: 20px 0 0;
+            }
+
+            strong {
+                color: var(--reign-color-black);
+                font-weight: normal;
+            }
+        }
+
+        .rtm-pmpro-recurring-price {
+            margin: 10px 0 0;
+            font-weight: 500;
+        }
+    }
+
+    .rtm_levels_table_des {
+        margin: 0;
+        padding: 20px;
+        font-size: 90%;
+        max-width: 300px;
+        margin: 0 auto;
+
+        ul {
+            list-style: none;
+            display: block;
+            margin: 0px;
+            padding: 0px;
+            position: relative;
+
+            li {
+                position: relative;
+                padding: 5px 2px;
+                padding-left: 24px;
+
+                &:before {
+                    content: '\f058';
+                    font-family: $font__icon;
+                    margin: 0;
+                    padding: 0;
+                    font-size: $font__size-extrasmall;
+                    width: 20px;
+                    position: absolute;
+                    left: 0;
+                    top: 5px;
+                    opacity: .5;
+                }
+            }
+        }
+
+        ol li {
+            padding: 3px;
+        }
+
+        img {
+            margin: 0 0 15px;
+            display: block;
+        }
+    }
+
+    .rtm_levels_table_button {
+        text-align: center;
+        margin: 0 20px 20px;
+        margin-top: auto;
+        padding-top: 20px;
+        display: block;
+        border-top: 1px solid var(--reign-site-border-color);
+
+        .pmpro_btn {
+            margin: 0;
+            padding: 10px 20px;
+            font-size: $font__size-extrasmall;
+            letter-spacing: 0.02em;
+            font-weight: normal;
+            background-color: var(--reign-site-button-bg-color);
+            color: var(--reign-site-button-text-color);
+            border-radius: var(--reign-global-button-radius);
+            border: 1px solid transparent;
+
+            &:hover {
+                background-color: var(--reign-site-button-bg-hover-color);
+                color: var(--reign-site-button-text-hover-color);
+                border-radius: var(--reign-global-button-radius);
+            }
+        }
+    }
+
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+nav#nav-below {
+    display: block;
+    margin: 10px 0;
+
+    .nav-next a:after,
+    .nav-previous a:before {
+        content: none;
+    }
+
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+
+/*--------------------------------------------------------------
+# Login Form
+--------------------------------------------------------------*/
+
+.pmpro_login_wrap,
+.pmpro_lost_password_wrap,
+.pmpro_reset_password_wrap,
+.pmpro_logged_in_welcome_wrap {
+    position: relative;
+    background: var(--reign-site-sections-bg-color);
+    margin: 0;
+    padding: 15px;
+    border: 1px solid var(--reign-site-border-color);
+    border-radius: var(--reign-global-border-radius) !important;
+
+    hr {
+        margin: 15px 0;
+    }
+}
+
+form.pmpro_form .input,
+form.pmpro_form textarea,
+#loginform input[type=text],
+#loginform input[type=password] {
+    display: inline-block;
+    width: 100%;
+    max-width: 100%;
+    min-height: 1.5rem;
+}
+
+form.pmpro_form label,
+#loginform label {
+    margin: 0 0 5px;
+}
+
+.pmpro_actions_nav {
+    margin: 0;
+}
+
+
+/*--------------------------------------------------------------
+# Membership Checkout
+--------------------------------------------------------------*/
+
+#pmpro_form .pmpro_checkout {
+    margin: 15px 0;
+    padding: 15px;
+    background: var(--reign-site-sections-bg-color);
+    border: 1px solid var(--reign-site-border-color);
+    border-radius: var(--reign-global-border-radius) !important;
+    overflow: hidden;
+
+    h2 {
+        margin-top: 0;
+    }
+
+    hr {
+        display: none;
+    }
+
+    .input,
+    textarea,
+    select {
+        width: 100%;
+        height: 40px;
+        padding: 10px 15px;
+    }
+
+    label {
+        font-size: $font__size-extrasmall;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+    .pmpro_checkout-field-bcity_state_zip .input {
+        max-width: 29%;
+    }
+
+    h3 {
+        margin: 0;
+        padding: 7px 15px;
+        border-bottom: 1px solid var(--reign-site-border-color);
+        font-size: $font__size_20;
+        text-transform: uppercase;
+
+        span.pmpro_checkout-h3-name {
+            margin: 0;
+        }
+
+        span.pmpro_checkout-h3-msg {
+            font-weight: normal;
+            font-size: $font__size-smallest;
+        }
+    }
+
+    .input {
+        display: inline-block;
+        width: 90%;
+    }
+
+    .pmpro_payment-expiration select {
+        width: 130px;
+        display: inline-block;
+    }
+
+    .pmpro_checkout-fields {
+
+        &::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    }
+
+    @media (min-width: 576px) {
+        .pmpro_checkout-fields .pmpro_checkout-field {
+            width: 50%;
+            float: left;
+        }
+    }
+
+    .pmpro_asterisk {
+        color: #ff0101;
+    }
+}
+
+form.pmpro_form .pmpro_submit hr {
+    display: none;
+}
+
+input#pmpro_btn-submit {
+    color: var(--reign-color-white);
+}
+
+
+/*--------------------------------------------------------------
+# Membership Confirmation
+--------------------------------------------------------------*/
+
+.pmpro-confirmation .pmpro-has-access>.entry-content {
+    position: relative;
+    background: var(--reign-site-sections-bg-color);
+    margin: 0;
+    padding: 15px;
+    border-radius: var(--reign-global-border-radius) !important;
+    border: 1px solid var(--reign-site-border-color);
+
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+.pmpro_invoice_details {
+    gap: 15px; 
+}
+
+.pmpro_invoice_details>div {
+    margin: 0 0 15px;
+    padding: 15px;
+    border-radius: var(--reign-global-border-radius) !important;
+    border: 1px solid var(--reign-site-border-color);
+
+    >strong {
+        margin: 0 0 15px;
+        padding: 0 0 15px;
+        display: block;
+        border-bottom: 1px solid var(--reign-site-border-color);
+    }
+
+    .pmpro_price_part-total {
+        border-top: 0;
+    }
+}
+
+
+/*--------------------------------------------------------------
+# Membership Invoice
+--------------------------------------------------------------*/
+
+.pmpro-invoice .pmpro-has-access>.entry-content {
+    position: relative;
+    background: var(--reign-site-sections-bg-color);
+    margin: 0;
+    padding: 15px;
+    border-radius: var(--reign-global-border-radius) !important;
+    border: 1px solid var(--reign-site-border-color);
+
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    @media (max-width: 575px) {
+        overflow: hidden;
+        overflow-x: auto;
+    }
+
+    hr {
+        display: none;
+    }
+}
+
+
+/*--------------------------------------------------------------
+# Membership Billing
+--------------------------------------------------------------*/
+
+ul.pmpro_billing_info_list {
+    margin: 0px 0 20px !important;
+    padding: 5px 0px;
+    list-style: none;
+    position: relative;
+    display: block;
+    background: var(--reign-site-sections-bg-color);
+    border: 1px solid var(--reign-site-border-color);
+    border-radius: var(--reign-global-border-radius);
+
+    li {
+        padding: 2px 10px 10px;
+        margin: 5px 0;
+        font-size: $font__size-extrasmall;
+        border-bottom: 1px solid var(--reign-site-border-color);
+    }
+
+    li:last-child {
+        border: 0;
+        padding-bottom: 0;
+    }
+
+    li:before {
+        content: "";
+        font-family: $font__icon;
+        text-align: center;
+        font-size: $font__size_18;
+        color: var(--reign-colors-theme);
+        margin: 0px 10px 0 0;
+        vertical-align: middle;
+        width: 30px;
+        display: inline-block
+    }
+
+    li.level:before {
+        content: "\f1d8";
+    }
+
+    li.level_fee:before {
+        content: "\f155";
+    }
+
+    li.level_duration:before {
+        content: "\f073";
+    }
+
+    li.level_user_info:before {
+        content: "\f2bd";
+    }
+
+    li.level_dicount:before {
+        content: "\f06b";
+    }
+
+    li strong {
+        text-transform: uppercase;
+        min-width: 120px;
+    }
+}
+
+
+/*--------------------------------------------------------------
+# Your Profile
+--------------------------------------------------------------*/
+
+.pmpro_member_profile_edit_wrap,
+.pmpro_change_password_wrap {
+    position: relative;
+    background: var(--reign-site-sections-bg-color);
+    margin: 0;
+    padding: 15px;
+    border-radius: var(--reign-global-border-radius) !important;
+    border: 1px solid var(--reign-site-border-color);
+
+    .pmpro_asterisk {
+        color: #ff0101;
+    }
+}
+
+form.pmpro_form .lite {
+    font-size: $font__size-smaller;
+    margin-top: 5px;
+}
+
+form.pmpro_form .pmpro_change_password-fields input {
+    width: 95%;
+}
+
+
+/*--------------------------------------------------------------
+# Membership Account
+--------------------------------------------------------------*/
+
+#pmpro_account .pmpro_box {
+    background: var(--reign-site-sections-bg-color);
+    margin: 0 0 20px;
+    padding: 15px;
+    border: 1px solid var(--reign-site-border-color);
+    border-radius: var(--reign-global-border-radius);
+
+    h3 {
+        font-size: $font__size_20;
+        padding: 5px 10px;
+        margin: 0;
+        display: block;
+        border-bottom: 1px solid var(--reign-site-border-color);
+    }
+
+    table {
+        font-size: $font__size-extrasmall;
+        margin: 0px;
+
+        th,
+        td {
+            padding: 10px;
+            border-right: 1px solid var(--reign-site-border-color);
+        }
+
+        td:last-child,
+        th:last-child {
+            border-right: 0px;
+        }
+    }
+
+    .pmpro_actionlinks {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-flow: wrap;
+        margin: 0;
+        padding: 0;
+
+        a {
+            display: inline-block;
+            overflow: hidden;
+            padding: 5px 20px;
+            border-radius: var(--reign-global-border-radius);
+            margin: 5px;
+            font-size: $font__size-smallest;
+            font-weight: bold;
+            line-height: 1.5;
+            text-transform: uppercase;
+            color: var(--reign-color-white);
+        }
+    }
+
+    table .pmpro_actionlinks {
+        justify-content: flex-start;
+
+        a {
+            margin: 0 5px;
+            padding: 0;
+            font-size: $font__size_11;
+            text-transform: none;
+            font-weight: normal;
+            border: none;
+            background: none;
+            color: #828282;
+
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+#pmpro_account-profile .pmpro_actionlinks {
+    border-top: 1px solid var(--reign-site-border-color);
+    margin: 10px 0 0;
+}
+
+#pmpro_account #pmpro_account-profile {
+    p {
+        font-size: $font__size-medium;
+        text-transform: capitalize;
+        font-weight: 600;
+        margin: 10px 0;
+        padding: 0 10px;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: block;
+        position: relative;
+
+        li {
+            padding: 5px 0;
+            position: relative;
+            font-size: $font__size-extrasmall;
+        }
+
+        li:before {
+            content: "\f013";
+            font-family: $font__icon;
+            text-align: center;
+            font-size: $font__size-small;
+            width: 30px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        li:first-child:before {
+            content: "\f007";
+        }
+
+        li:nth-child(2n):before {
+            content: "\f0e0";
+        }
+
+        li strong {
+            font-weight: normal;
+        }
+    }
+}
+
+
+/*--------------------------------------------------------------
+# Membership Cancel
+--------------------------------------------------------------*/
+
+#pmpro_cancel {
+    margin: 15px 0;
+    padding: 15px;
+    background: var(--reign-site-sections-bg-color);
+    border: 1px solid var(--reign-site-border-color);
+    border-radius: var(--reign-global-border-radius)!important;
+
+    .pmpro_actionlinks {
+        display: flex;
+        align-items: center;
+        flex-flow: wrap;
+        margin: 0;
+        padding: 0;
+
+        a {
+            display: inline-block;
+            overflow: hidden;
+            padding: 5px 20px;
+            border-radius: var(--reign-global-border-radius);
+            margin: 5px;
+            font-size: $font__size-smallest;
+            font-weight: bold;
+            line-height: 1.5;
+            text-transform: uppercase;
+            color: var(--reign-color-white);
+        }
+    }
+
+    hr {
+        display: none;
+    }
+}
+
+/* Theme Color */
+.rtm_pmpro_levels_plan .rtm_pmpro_featured .rtm_pmpro_price_top,
+#pmpro_account-membership .pmpro_actionlinks a,
+#pmpro_account-profile .pmpro_actionlinks a,
+#pmpro_cancel .pmpro_actionlinks a,
+#pmpro_form .pmpro_btn {
+    background: var(--reign-colors-theme);
+}
+
+.rtm_pmpro_levels_plan .rtm_pmpro_featured .rtm_pmpro_price_top,
+#pmpro_account-membership .pmpro_actionlinks a,
+#pmpro_account-profile .pmpro_actionlinks a,
+#pmpro_cancel .pmpro_actionlinks a,
+#pmpro_form .pmpro_btn {
+    border-color: var(--reign-colors-theme);
+}
+
+/* Border Radius */
+.pmpro-confirmation .pmpro-has-access>.entry-content,
+.pmpro_invoice_details>div,
+.pmpro-invoice .pmpro-has-access>.entry-content,
+.pmpro_member_profile_edit_wrap,
+.pmpro_change_password_wrap {
+    border-radius: var(--reign-global-border-radius) !important;
+}

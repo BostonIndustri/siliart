@@ -1,0 +1,18 @@
+.fa,
+.fas,
+.far,
+.fal,
+.fad,
+.fab {
+    font-size: 16px;
+}
+
+.site .far {
+    font-family: $font__icon;
+}
+
+.elementor-icon [class^=fa-]:before,
+.elementor-icon [class*=" fa-"]:before {
+    margin-left: 0;
+    margin-right: 0;
+}
