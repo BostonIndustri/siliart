@@ -286,3 +286,25 @@ if ( ! function_exists( 'siliart_peepso_register_form_fields_callback' ) ) {
 }
 
 add_filter( 'peepso_register_form_fields', 'siliart_peepso_register_form_fields_callback' );
+
+/**
+ * If the function, `siliart_peepso_register_new_user_callback` isn't defined.
+ */
+if ( ! function_exists( 'siliart_peepso_register_new_user_callback' ) ) {
+	/**
+	 * Update the new user's first name and last name into the database.
+	 *
+	 * @param object $$user_id Newly registered user ID.
+	 *
+	 * @since 1.0.0
+	 */
+	function siliart_peepso_register_new_user_callback( $user_id ) {
+		$first_name = filter_input( INPUT_POST, 'firstname', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
+		$last_name  = filter_input( INPUT_POST, 'lastname', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
+
+		update_user_meta( $user_id, 'first_name', $first_name );
+		update_user_meta( $user_id, 'last_name', $last_name );
+	}
+}
+
+add_action( 'peepso_register_new_user', 'siliart_peepso_register_new_user_callback' );
