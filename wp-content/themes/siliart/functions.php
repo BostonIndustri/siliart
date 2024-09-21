@@ -229,3 +229,60 @@ if ( ! function_exists( 'siliart_manage_users_sortable_columns_callback' ) ) {
 }
 
 add_filter( 'manage_users_sortable_columns', 'siliart_manage_users_sortable_columns_callback' );
+
+/**
+ * If the function, `siliart_peepso_register_form_fields_callback` isn't defined.
+ */
+if ( ! function_exists( 'siliart_peepso_register_form_fields_callback' ) ) {
+	/**
+	 * Manage the peepso registration form fields.
+	 *
+	 * @param array $fields Registration form fields.
+	 *
+	 * @return array
+	 *
+	 * @since 1.0.0
+	 */
+	function siliart_peepso_register_form_fields_callback( $fields = array() ) {
+		$input      = new PeepSoInput();
+		$new_fields = array();
+
+		// Add first name to the form if it doesn't exist already.
+		if ( ! array_key_exists( 'firstname', $fields ) ) {
+			$new_fields['firstname'] = array(
+				'label'             => __( 'First Name', 'siliart' ),
+				'descript'          => __( 'Enter your first name', 'siliart' ),
+				'value'             => $input->value( 'firstname', '', FALSE ), // SQL Safe
+				'required'          => 1,
+				'row_wrapper_class' => 'ps-form__row--half',
+				'validation'        => array(
+					'name-utf8',
+					'minlen:' . PeepSoUser::FIRSTNAME_MINLEN,
+					'maxlen:' . PeepSoUser::FIRSTNAME_MAXLEN,
+				),
+				'type'              => 'text',
+			);
+		}
+
+		// Add last name to the form if it doesn't exist already.
+		if ( ! array_key_exists( 'lastname', $fields ) ) {
+			$new_fields['lastname'] = array(
+				'label'             => __( 'Last Name', 'siliart' ),
+				'descript'          => __( 'Enter your last name', 'siliart' ),
+				'value'             => $input->value( 'lastname', '', FALSE ), // SQL Safe
+				'required'          => 1,
+				'row_wrapper_class' => 'ps-form__row--half',
+				'validation'        => array(
+					'name-utf8',
+					'minlen:' . PeepSoUser::LASTNAME_MINLEN,
+					'maxlen:' . PeepSoUser::LASTNAME_MAXLEN,
+				),
+				'type'              => 'text',
+			);
+		}
+
+		return array_merge( $new_fields, $fields );
+	}
+}
+
+add_filter( 'peepso_register_form_fields', 'siliart_peepso_register_form_fields_callback' );
