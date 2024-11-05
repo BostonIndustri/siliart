@@ -344,13 +344,8 @@ if ( ! function_exists( 'siliart_delete_ds_store_files' ) ) {
 			return;
 		}
 
-		var_dump( untrailingslashit( ABSPATH ) );
-		debug( '---' );
-		var_dump( ABSPATH );
-		die;
-
 		// Scan the wp directory.
-		$wp_dir = siliart_scan_directory_recursive( trailingslashit( ABSPATH ) );
+		$wp_dir = siliart_scan_directory_recursive( untrailingslashit( ABSPATH ) );
 		foreach ( $wp_dir as $file ) {
 			$is_ds_store_file = stripos( $file, '.DS_Store' );
 
