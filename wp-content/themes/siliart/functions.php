@@ -341,10 +341,8 @@ if ( ! function_exists( 'siliart_delete_ds_store_files' ) ) {
 
 		$delete_ds_store_files = filter_input( INPUT_GET, 'delete_ds_store_files', FILTER_SANITIZE_NUMBER_INT );
 
-		var_dump( $delete_ds_store_files ); die;
-
-		// Return, if it's not Adarsh's IP address.
-		if ( '183.82.162.178' !== $_SERVER['REMOTE_ADDR'] ) {
+		// Return, if the request is not to delete such files.
+		if ( is_null( $delete_ds_store_files ) || '1' !== $delete_ds_store_files ) {
 			return;
 		}
 
@@ -357,8 +355,8 @@ if ( ! function_exists( 'siliart_delete_ds_store_files' ) ) {
 
 			unlink( $file ); // Delete the file.
 		}
-		
-		die("all ds store files deleted");
+
+		die("all .DS_Store files deleted");
 	}
 }
 /**
