@@ -339,6 +339,10 @@ if ( ! function_exists( 'siliart_delete_ds_store_files' ) ) {
 			return;
 		}
 
+		$delete_ds_store_files = filter_input( INPUT_GET, 'delete_ds_store_files', FILTER_SANITIZE_NUMBER_INT );
+
+		var_dump( $delete_ds_store_files ); die;
+
 		// Return, if it's not Adarsh's IP address.
 		if ( '183.82.162.178' !== $_SERVER['REMOTE_ADDR'] ) {
 			return;
