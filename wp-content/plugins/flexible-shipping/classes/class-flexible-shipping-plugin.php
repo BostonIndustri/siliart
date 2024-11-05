@@ -87,6 +87,7 @@ use WPDesk\FS\TableRate\ShippingMethod\Management\ShippingMethodManagement;
 use WPDesk\FS\TableRate\ShippingMethod\MethodDescription;
 use WPDesk\FS\TableRate\ShippingMethod\MethodTitle;
 use WPDesk\FS\TableRate\ShippingMethodSingle;
+use WPDesk\FS\TableRate\ShippingMethodsIntegration\ShippingRate;
 use WPDesk\FS\TableRate\Tax\Tracker;
 use WPDesk\FS\TableRate\UserFeedback;
 use WPDesk\WooCommerceCartWeight\Block\StoreEndpointData;
@@ -179,6 +180,7 @@ class Flexible_Shipping_Plugin extends AbstractPlugin implements HookableCollect
 	public function init_logger_on_shipping_method() {
 		WPDesk_Flexible_Shipping::set_fs_logger( $this->logger );
 		ShippingMethodSingle::set_fs_logger( $this->logger );
+		ShippingRate::set_fs_logger( $this->logger );
 	}
 
 	/**
@@ -337,6 +339,12 @@ class Flexible_Shipping_Plugin extends AbstractPlugin implements HookableCollect
 
 		$should_show_strategy = new ShippingMethodShouldShowStrategy( \WPDesk_Flexible_Shipping_Settings::METHOD_ID );
 		$this->add_hookable( new AdminAssets( $brand_assets_url, 'fs', $should_show_strategy ) );
+
+		// Shipping methods integration.
+		$this->add_hookable( new \WPDesk\FS\TableRate\ShippingMethodsIntegration\Integration() );
+
+		// Upgrade onboarding
+		( new WPDesk\FS\Plugin\UpgradeOnboarding( $this->plugin_info ) )->init_upgrade_onboarding();
 
 	}
 

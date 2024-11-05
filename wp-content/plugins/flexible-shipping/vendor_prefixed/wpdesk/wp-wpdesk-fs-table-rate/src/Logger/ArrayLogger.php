@@ -15,7 +15,7 @@ use FSVendor\WPDesk\View\Resolver\DirResolver;
 /**
  * Can log to array.
  */
-class ArrayLogger implements \Psr\Log\LoggerInterface
+class ArrayLogger implements LoggerInterface
 {
     use LoggerTrait;
     /**
@@ -27,7 +27,7 @@ class ArrayLogger implements \Psr\Log\LoggerInterface
      * @param string $message .
      * @param array $context .
      */
-    public function log($level, $message, array $context = array()) : void
+    public function log($level, $message, array $context = array()): void
     {
         $this->messages[] = array('level' => $level, 'message' => $message, 'context' => $context);
     }

@@ -129,3 +129,18 @@ jQuery(function($) {
 
 	fs_toggle_prices_include_tax();
 });
+
+jQuery(function($) {
+	function fs_toggle_costs_calculation() {
+		$('.fs-costs-calculation-enabled').each(function(){
+			jQuery('tr.flexible_shipping_method_rules').toggle(jQuery(this).prop('checked'));
+			jQuery('tr.flexible-shipping-method-rules-settings').toggle(jQuery(this).prop('checked'));
+		});
+	}
+
+	$( document ).on( 'change', '.fs-costs-calculation-enabled', function () {
+		fs_toggle_costs_calculation();
+	} );
+
+	fs_toggle_costs_calculation();
+});

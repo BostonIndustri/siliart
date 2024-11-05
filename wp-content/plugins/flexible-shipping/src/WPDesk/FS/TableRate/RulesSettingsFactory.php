@@ -21,6 +21,10 @@ class RulesSettingsFactory {
 	public static function create_from_array( $settings_array ) {
 		$rules_settings = new self();
 
+		if ( ! is_array( $settings_array ) ) {
+			return $rules_settings;
+		}
+
 		foreach ( $settings_array as $single_rule_settings_row ) {
 			$rules_settings->add_single_rule_settings( new SingleRuleSettings( $single_rule_settings_row ) );
 		}

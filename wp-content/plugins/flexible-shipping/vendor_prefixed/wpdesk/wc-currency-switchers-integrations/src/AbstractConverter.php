@@ -12,7 +12,7 @@ use Psr\Log\LoggerAwareTrait;
 /**
  * Abstract class for converters.
  */
-abstract class AbstractConverter implements \FSVendor\WPDesk\WooCommerce\CurrencySwitchers\SwitcherConverter, \Psr\Log\LoggerAwareInterface
+abstract class AbstractConverter implements SwitcherConverter, LoggerAwareInterface
 {
     use LoggerAwareTrait;
     /**

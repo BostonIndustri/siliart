@@ -1,4 +1,4 @@
-/*! elementor - v3.24.0 - 18-09-2024 */
+/*! elementor - v3.25.0 - 03-11-2024 */
 "use strict";
 (self["webpackChunkelementor"] = self["webpackChunkelementor"] || []).push([["video"],{
 

@@ -47,6 +47,11 @@ class CostsCalculator {
 	private $is_triggered = false;
 
 	/**
+	 * @var bool
+	 */
+	private bool $is_cancel = false;
+
+	/**
 	 * @var Rule\Condition\Condition[]
 	 */
 	private $available_conditions;
@@ -125,9 +130,9 @@ class CostsCalculator {
 	/**
 	 * .
 	 */
-	public function process_rules() {
+	public function process_rules( $calculated_cost = null ) {
 		$this->shipping_contents->set_weight_rounding_precision( $this->calculate_weight_rounding_precision( $this->prepared_rules ) );
-		$this->calculated_cost = $this->calculate_cost();
+		$this->calculated_cost = $this->calculate_cost( $calculated_cost );
 	}
 
 	/**
@@ -178,9 +183,7 @@ class CostsCalculator {
 	/**
 	 * @return float
 	 */
-	private function calculate_cost() {
-		$calculated_cost = null;
-
+	private function calculate_cost( $calculated_cost = null ) {
 		/**
 		 * Rules calculation function.
 		 * Default rules calculation is sum.
@@ -224,6 +227,7 @@ class CostsCalculator {
 					break;
 				}
 				if ( $special_action->is_cancel() ) {
+					$this->is_cancel = true;
 					$this->is_triggered = false;
 					break;
 				}
@@ -267,6 +271,13 @@ class CostsCalculator {
 	 */
 	public function is_triggered() {
 		return $this->is_triggered;
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function is_cancel() {
+		return $this->is_cancel;
 	}
 
 }

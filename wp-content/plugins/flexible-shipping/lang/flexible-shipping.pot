@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Flexible Shipping plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Flexible Shipping 4.25.8\n"
+"Project-Id-Version: Flexible Shipping 5.0.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/flexible-shipping\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-09-01T23:06:07+00:00\n"
+"POT-Creation-Date: 2024-10-30T18:33:02+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: flexible-shipping\n"
@@ -21,7 +21,7 @@ msgstr ""
 #: classes/table-rate/class-wpdesk-flexible-shipping-multilingual.php:54
 #: classes/table-rate/class-wpdesk-flexible-shipping-multilingual.php:57
 #: classes/table-rate/settings/flexible-shipping.php:16
-#: classes/table-rate/settings/flexible-shipping.php:31
+#: classes/table-rate/settings/flexible-shipping.php:32
 #: classes/table-rate/shipping-method.php:97
 #: src/WPDesk/FS/TableRate/ShippingMethod/CommonMethodSettings.php:168
 #: src/WPDesk/FS/TableRate/ShippingMethod/Duplicate/DuplicateAction.php:76
@@ -51,23 +51,23 @@ msgstr ""
 msgid "https://octol.io/fs-author"
 msgstr ""
 
-#: classes/class-flexible-shipping-plugin.php:563
+#: classes/class-flexible-shipping-plugin.php:571
 #: vendor_prefixed/octolize/wp-shipping-extensions/src/ShippingExtensions/Plugin/PluginFactory.php:20
 #: vendor_prefixed/wpdesk/wp-wpdesk-fs-compatibility/src/PluginCompatibilityChecker.php:97
 msgid "Flexible Shipping PRO"
 msgstr ""
 
 #. Translators: link.
-#: classes/class-flexible-shipping-plugin.php:777
+#: classes/class-flexible-shipping-plugin.php:785
 msgid "How can We make Flexible Shipping better for you? %1$sJust write to us.%2$s"
 msgstr ""
 
-#: classes/class-flexible-shipping-plugin.php:860
+#: classes/class-flexible-shipping-plugin.php:868
 #: vendor_prefixed/wpdesk/wp-builder/src/Plugin/AbstractPlugin.php:198
 msgid "Settings"
 msgstr ""
 
-#: classes/class-flexible-shipping-plugin.php:868
+#: classes/class-flexible-shipping-plugin.php:876
 msgid "Buy PRO"
 msgstr ""
 
@@ -134,49 +134,49 @@ msgstr ""
 msgid "See how to %1$sconfigure Flexible Shipping%2$s."
 msgstr ""
 
-#: classes/table-rate/settings/flexible-shipping.php:22
+#: classes/table-rate/settings/flexible-shipping.php:23
 #: classes/table-rate/shipping-method.php:88
 #: src/WPDesk/FS/TableRate/ShippingMethod/CommonMethodSettings.php:54
 msgid "Enable/Disable"
 msgstr ""
 
-#: classes/table-rate/settings/flexible-shipping.php:24
+#: classes/table-rate/settings/flexible-shipping.php:25
 msgid "Enable Flexible Shipping"
 msgstr ""
 
-#: classes/table-rate/settings/flexible-shipping.php:28
+#: classes/table-rate/settings/flexible-shipping.php:29
 msgid "Shipping title"
 msgstr ""
 
-#: classes/table-rate/settings/flexible-shipping.php:30
+#: classes/table-rate/settings/flexible-shipping.php:31
 msgid "Visible only to admin in WooCommerce settings."
 msgstr ""
 
-#: classes/table-rate/settings/flexible-shipping.php:35
-#: src/WPDesk/FS/TableRate/ShippingMethod/SingleMethodSettings.php:55
+#: classes/table-rate/settings/flexible-shipping.php:36
+#: src/WPDesk/FS/TableRate/ShippingMethod/SingleMethodSettings.php:56
 msgid "Tax Status"
 msgstr ""
 
-#: classes/table-rate/settings/flexible-shipping.php:38
-#: src/WPDesk/FS/TableRate/ShippingMethod/SingleMethodSettings.php:62
+#: classes/table-rate/settings/flexible-shipping.php:39
+#: src/WPDesk/FS/TableRate/ShippingMethod/SingleMethodSettings.php:63
 msgid "If you select to apply the tax, the plugin will use the tax rates defined in the WooCommerce settings at <strong>WooCommerce → Settings → Tax</strong>."
-msgstr ""
-
-#: classes/table-rate/settings/flexible-shipping.php:40
-#: src/WPDesk/FS/TableRate/ShippingMethod/SingleMethodSettings.php:59
-#: vendor_prefixed/wpdesk/wp-wpdesk-fs-table-rate/src/Settings/MethodSettingsImplementation.php:279
-msgid "Taxable"
 msgstr ""
 
 #: classes/table-rate/settings/flexible-shipping.php:41
 #: src/WPDesk/FS/TableRate/ShippingMethod/SingleMethodSettings.php:60
 #: vendor_prefixed/wpdesk/wp-wpdesk-fs-table-rate/src/Settings/MethodSettingsImplementation.php:279
+msgid "Taxable"
+msgstr ""
+
+#: classes/table-rate/settings/flexible-shipping.php:42
+#: src/WPDesk/FS/TableRate/ShippingMethod/SingleMethodSettings.php:61
+#: vendor_prefixed/wpdesk/wp-wpdesk-fs-table-rate/src/Settings/MethodSettingsImplementation.php:279
 msgctxt "Tax status"
 msgid "None"
 msgstr ""
 
-#: classes/table-rate/settings/flexible-shipping.php:45
-#: classes/table-rate/settings/flexible-shipping.php:50
+#: classes/table-rate/settings/flexible-shipping.php:46
+#: classes/table-rate/settings/flexible-shipping.php:51
 #: src/WPDesk/FS/Info/WooCommerceABC.php:41
 msgid "Shipping Methods"
 msgstr ""
@@ -282,7 +282,7 @@ msgstr ""
 
 #: classes/table-rate/views/html-shipping-method-settings.php:17
 #: src/WPDesk/FS/Shipment/views/html-orders-filter-form.php:13
-#: src/WPDesk/FS/TableRate/ShippingMethod/CommonMethodSettings.php:194
+#: src/WPDesk/FS/TableRate/ShippingMethod/CommonMethodSettings.php:196
 #: vendor_prefixed/wpdesk/wp-wpdesk-fs-shipment/src/WPDesk/FS/Shipment/Manifest/CustomPostType.php:101
 #: vendor_prefixed/wpdesk/wp-wpdesk-fs-shipment/src/WPDesk/FS/Shipment/Manifest/views/filter-form.php:14
 msgid "Integration"
@@ -362,7 +362,7 @@ msgid "More resources"
 msgstr ""
 
 #: classes/table-rate/views/html-shipping-settings-advanced.php:45
-#: src/WPDesk/FS/TableRate/ShippingMethod/CommonMethodSettings.php:209
+#: src/WPDesk/FS/TableRate/ShippingMethod/CommonMethodSettings.php:211
 msgid "General Settings"
 msgstr ""
 
@@ -627,7 +627,7 @@ msgid "Shipping configuration"
 msgstr ""
 
 #: src/WPDesk/FS/Info/WooCommerceABCPL.php:45
-#: src/WPDesk/FS/TableRate/ShippingMethod/CommonMethodSettings.php:217
+#: src/WPDesk/FS/TableRate/ShippingMethod/CommonMethodSettings.php:220
 msgid "Free Shipping"
 msgstr ""
 
@@ -730,6 +730,23 @@ msgstr ""
 msgid "Support"
 msgstr ""
 
+#: src/WPDesk/FS/Plugin/UpgradeOnboarding.php:27
+msgid "We've added integration with Live Rates"
+msgstr ""
+
+#. Translators: %1$s - <br/><br/>, %2$s - <a href="https://octol.io/fs-tr-adv-live-rates-popup-lr" target="_blank">, %3$s - </a>.
+#: src/WPDesk/FS/Plugin/UpgradeOnboarding.php:30
+msgid "You can now take advantage of automatically calculated Live Rates and adjust shipping costs using the shipping cost calculation rules. Precisely define additional charges or discounts based on specific conditions.%1$sCheck out the integration by installing one of our %2$sLive Rates%3$s plugins."
+msgstr ""
+
+#: src/WPDesk/FS/Plugin/UpgradeOnboarding.php:43
+msgid "We’ve added integration with any shipping method in WooCommerce"
+msgstr ""
+
+#: src/WPDesk/FS/Plugin/UpgradeOnboarding.php:44
+msgid "The new feature allows the use of shipping cost calculation rules for all shipping methods available in WooCommerce, including Flat Rate and those added by other plugins. This provides greater control over delivery costs and allows you to take advantage of the existing features of other methods."
+msgstr ""
+
 #. Translators: strong, version, /strong, strong, /strong, link, link.
 #: src/WPDesk/FS/ProVersion/ProVersionUpdateReminder.php:53
 msgid "The %1$sFlexible Shipping PRO %2$s%3$s version you are currently using is severely %4$soutdated%5$s. Its further use may result in onward %4$scompatibility issues%5$s. In order to perform the update, please copy your plugin API key from %6$sMy Account / API keys%7$s tab and activate it in your store. If your subscription expired and you don’t own an active one at the moment, please %8$srenew the subscription →%9$s"
@@ -825,7 +842,7 @@ msgstr ""
 
 #: src/WPDesk/FS/Shipment/ModifyOrderTable.php:164
 #: src/WPDesk/FS/Shipment/ModifyStatuses.php:31
-#: vendor_prefixed/wpdesk/wp-wpdesk-fs-shipment/src/WPDesk/FS/Shipment/Metabox/Ajax.php:50
+#: vendor_prefixed/wpdesk/wp-wpdesk-fs-shipment/src/WPDesk/FS/Shipment/Metabox/Ajax.php:47
 msgid "Created"
 msgstr ""
 
@@ -961,7 +978,6 @@ msgstr ""
 msgid "No shipping method handled by Flexible Shipping found in the %1$s shipping zone. %2$sAdd shipping method →%3$s"
 msgstr ""
 
-#. Translators: amount with currency or number of items.
 #. Translators: amount with currency.
 #: src/WPDesk/FS/TableRate/FreeShipping/FreeShippingNoticeGenerator.php:175
 #: src/WPDesk/FS/TableRate/FreeShipping/NoticeTextSettings.php:44
@@ -976,7 +992,6 @@ msgstr ""
 msgid "LFFS notice text"
 msgstr ""
 
-#. Translators: amount with currency.
 #: src/WPDesk/FS/TableRate/FreeShipping/NoticeTextSettings.php:45
 #: src/WPDesk/FS/TableRate/ShippingMethod/CommonMethodSettings.php:111
 msgid "Display the notice with the amount left for free shipping"
@@ -1346,7 +1361,7 @@ msgid "Enter shipment cost for this rule."
 msgstr ""
 
 #. Translators: rule cost.
-#: src/WPDesk/FS/TableRate/Rule/CostsCalculator.php:218
+#: src/WPDesk/FS/TableRate/Rule/CostsCalculator.php:221
 msgid "Calculated rule cost: %1$s %2$s"
 msgstr ""
 
@@ -1381,7 +1396,6 @@ msgstr ""
 msgid "   Matched items weight: %1$s"
 msgstr ""
 
-#. Translators: items weight.
 #: src/WPDesk/FS/TableRate/Rule/Rule.php:166
 msgid "Rule costs:"
 msgstr ""
@@ -1392,7 +1406,7 @@ msgid "Rule %1$s:"
 msgstr ""
 
 #: src/WPDesk/FS/TableRate/Rule/SpecialAction/None.php:19
-#: src/WPDesk/FS/TableRate/ShippingMethod/CommonMethodSettings.php:186
+#: src/WPDesk/FS/TableRate/ShippingMethod/CommonMethodSettings.php:187
 #: vendor_prefixed/wpdesk/wp-wpdesk-fs-table-rate/src/BasedOnOptions.php:20
 #: vendor_prefixed/wpdesk/wp-wpdesk-fs-table-rate/src/Settings/IntegrationSettingsImplementation.php:40
 msgid "None"
@@ -1482,52 +1496,53 @@ msgid "Enable FS debug mode to verify the shipping methods' configuration, check
 msgstr ""
 
 #: src/WPDesk/FS/TableRate/ShippingMethod/CommonMethodSettings.php:165
+#: src/WPDesk/FS/TableRate/ShippingMethodsIntegration/SettingsFields.php:120
 msgid "Shipping Cost Calculation Rules"
 msgstr ""
 
-#: src/WPDesk/FS/TableRate/ShippingMethod/CommonMethodSettings.php:190
+#: src/WPDesk/FS/TableRate/ShippingMethod/CommonMethodSettings.php:191
 msgid "Shipping Integration"
 msgstr ""
 
 #. Translators: strong and link.
-#: src/WPDesk/FS/TableRate/ShippingMethod/CommonMethodSettings.php:221
+#: src/WPDesk/FS/TableRate/ShippingMethod/CommonMethodSettings.php:224
 msgid "Specify when the free shipping should be available to your customers. You can use the %1$sFree shipping threshold%2$s option below or/and you can also set up the free shipping resulting directly from the Flexible Shipping cost calculation rules. %3$sLearn how to configure the free shipping coming from the cost calculation rules &rarr;%4$s"
 msgstr ""
 
-#: src/WPDesk/FS/TableRate/ShippingMethod/CommonMethodSettings.php:231
+#: src/WPDesk/FS/TableRate/ShippingMethod/CommonMethodSettings.php:235
 msgid "Free Shipping Requires"
 msgstr ""
 
-#: src/WPDesk/FS/TableRate/ShippingMethod/CommonMethodSettings.php:234
+#: src/WPDesk/FS/TableRate/ShippingMethod/CommonMethodSettings.php:238
 msgid "Minimum order value"
 msgstr ""
 
-#: src/WPDesk/FS/TableRate/ShippingMethod/CommonMethodSettings.php:235
+#: src/WPDesk/FS/TableRate/ShippingMethod/CommonMethodSettings.php:239
 msgid "Minimum item quantity (PRO)"
 msgstr ""
 
-#: src/WPDesk/FS/TableRate/ShippingMethod/CommonMethodSettings.php:236
+#: src/WPDesk/FS/TableRate/ShippingMethod/CommonMethodSettings.php:240
 msgid "Free shipping coupon (PRO)"
 msgstr ""
 
-#: src/WPDesk/FS/TableRate/ShippingMethod/CommonMethodSettings.php:237
+#: src/WPDesk/FS/TableRate/ShippingMethod/CommonMethodSettings.php:241
 msgid "Free shipping coupon or minimum order amount (PRO) "
 msgstr ""
 
-#: src/WPDesk/FS/TableRate/ShippingMethod/CommonMethodSettings.php:238
+#: src/WPDesk/FS/TableRate/ShippingMethod/CommonMethodSettings.php:242
 msgid "Free shipping coupon and minimum order amount (PRO)"
 msgstr ""
 
 #. Translators: link.
-#: src/WPDesk/FS/TableRate/ShippingMethod/CommonMethodSettings.php:242
+#: src/WPDesk/FS/TableRate/ShippingMethod/CommonMethodSettings.php:246
 msgid "Compare the %1$sdifferences between Flexible Shipping FREE and PRO &rarr;%2$s"
 msgstr ""
 
-#: src/WPDesk/FS/TableRate/ShippingMethod/CommonMethodSettings.php:253
+#: src/WPDesk/FS/TableRate/ShippingMethod/CommonMethodSettings.php:257
 msgid "Cost Calculation"
 msgstr ""
 
-#: src/WPDesk/FS/TableRate/ShippingMethod/CommonMethodSettings.php:260
+#: src/WPDesk/FS/TableRate/ShippingMethod/CommonMethodSettings.php:265
 msgid "Advanced Options"
 msgstr ""
 
@@ -1642,19 +1657,19 @@ msgstr ""
 msgid "Adjust shipping taxes for this shipping method. Determine its tax status and whether you want to enter shipping costs with or without taxes.%1$sNeed more information? Read our %2$scomprehensive guide about WooCommerce shipping taxes →%3$s"
 msgstr ""
 
-#: src/WPDesk/FS/TableRate/ShippingMethod/SingleMethodSettings.php:65
+#: src/WPDesk/FS/TableRate/ShippingMethod/SingleMethodSettings.php:66
 msgid "Tax included in shipping cost"
 msgstr ""
 
-#: src/WPDesk/FS/TableRate/ShippingMethod/SingleMethodSettings.php:69
+#: src/WPDesk/FS/TableRate/ShippingMethod/SingleMethodSettings.php:70
 msgid "Yes, I will enter the shipping cost inclusive of tax"
 msgstr ""
 
-#: src/WPDesk/FS/TableRate/ShippingMethod/SingleMethodSettings.php:70
+#: src/WPDesk/FS/TableRate/ShippingMethod/SingleMethodSettings.php:71
 msgid "No, I will enter the shipping cost exclusive of tax"
 msgstr ""
 
-#: src/WPDesk/FS/TableRate/ShippingMethod/SingleMethodSettings.php:72
+#: src/WPDesk/FS/TableRate/ShippingMethod/SingleMethodSettings.php:73
 msgid "Choose whether the shipping cost defined in the rules table should be inclusive or exclusive of tax."
 msgstr ""
 
@@ -1665,6 +1680,27 @@ msgstr ""
 #. Translators: docs link.
 #: src/WPDesk/FS/TableRate/ShippingMethodSingle.php:68
 msgid "A single Flexible Shipping method. Learn %1$show to configure FS shipping method &rarr;%2$s"
+msgstr ""
+
+#: src/WPDesk/FS/TableRate/ShippingMethodsIntegration/OrderMetaData.php:38
+msgid "Shipping Costs"
+msgstr ""
+
+#. Translators: %1$s - Original cost, %2$s - Additional cost.
+#: src/WPDesk/FS/TableRate/ShippingMethodsIntegration/OrderMetaData.php:58
+msgid "Base: %1$s, Additional: %2$s"
+msgstr ""
+
+#: src/WPDesk/FS/TableRate/ShippingMethodsIntegration/SettingsFields.php:109
+msgid "Additional costs by Flexible Shipping Table Rate"
+msgstr ""
+
+#: src/WPDesk/FS/TableRate/ShippingMethodsIntegration/SettingsFields.php:113
+msgid "Additional Costs"
+msgstr ""
+
+#: src/WPDesk/FS/TableRate/ShippingMethodsIntegration/SettingsFields.php:115
+msgid "Enable Flexible Shipping Rules Table"
 msgstr ""
 
 #: src/WPDesk/FS/TableRate/views/shipping-method-settings-rules.php:43
@@ -1922,6 +1958,31 @@ msgstr ""
 
 #: vendor_prefixed/octolize/wp-octolize-tracker/src/OptInNotice/views/html-notice.php:22
 msgid "Allow"
+msgstr ""
+
+#: vendor_prefixed/octolize/wp-onboarding/src/Onboarding/PluginUpgrade/MessageFactory/LiveRatesFsRulesTable.php:10
+msgid "We've added integration with Flexible Shipping Table Rate"
+msgstr ""
+
+#. Translators: %1$s - <br/><br/>, %2$s - <a href="https://octol.io/fs-tr-adv-live-rates-popup-free" target="_blank">, %3$s - </a>, %4$s - <a href="https://octol.io/fs-tr-adv-live-rates-popup-pro" target="_blank">, %5$s - </a>.
+#: vendor_prefixed/octolize/wp-onboarding/src/Onboarding/PluginUpgrade/MessageFactory/LiveRatesFsRulesTable.php:12
+msgid "The new feature allows you to combine Live Rates and Table Rate, providing the ability to use automatically calculated Live Rates while also adjusting shipping costs using Table Rate with the free version of %1$sFlexible Shipping%2$s or %3$sFlexible Shipping PRO%4$s.%5$sThis way, you can now have greater control over the final delivery cost, precisely defining additional charges or discounts for each shipping method."
+msgstr ""
+
+#: vendor_prefixed/octolize/wp-onboarding/src/Onboarding/PluginUpgrade/PluginUpgradeOnboardingFactory.php:105
+msgid "Thank you for updating %1$s!"
+msgstr ""
+
+#: vendor_prefixed/octolize/wp-onboarding/src/Onboarding/PluginUpgrade/PluginUpgradeOnboardingFactory.php:105
+msgid "It is really important to keep the plugins up to date. We have implemented some improvements and new functionalities. Find out what has changed:"
+msgstr ""
+
+#: vendor_prefixed/octolize/wp-onboarding/src/Onboarding/PluginUpgrade/PluginUpgradeOnboardingFactory.php:128
+msgid "I'm not interested"
+msgstr ""
+
+#: vendor_prefixed/octolize/wp-onboarding/src/Onboarding/PluginUpgrade/PluginUpgradeOnboardingFactory.php:128
+msgid "Thanks for letting me know"
 msgstr ""
 
 #: vendor_prefixed/octolize/wp-shipping-extensions/src/ShippingExtensions/Page.php:47
@@ -2471,19 +2532,19 @@ msgstr ""
 msgid "Nonce verification error! Invalid request."
 msgstr ""
 
-#: vendor_prefixed/wpdesk/wp-wpdesk-fs-shipment/src/WPDesk/FS/Shipment/Metabox/Ajax.php:22
+#: vendor_prefixed/wpdesk/wp-wpdesk-fs-shipment/src/WPDesk/FS/Shipment/Metabox/Ajax.php:21
 msgid "Insufficient user permissions!"
 msgstr ""
 
-#: vendor_prefixed/wpdesk/wp-wpdesk-fs-shipment/src/WPDesk/FS/Shipment/Metabox/Ajax.php:26
+#: vendor_prefixed/wpdesk/wp-wpdesk-fs-shipment/src/WPDesk/FS/Shipment/Metabox/Ajax.php:24
 msgid "No shipment id!"
 msgstr ""
 
-#: vendor_prefixed/wpdesk/wp-wpdesk-fs-shipment/src/WPDesk/FS/Shipment/Metabox/Ajax.php:30
+#: vendor_prefixed/wpdesk/wp-wpdesk-fs-shipment/src/WPDesk/FS/Shipment/Metabox/Ajax.php:27
 msgid "No data!"
 msgstr ""
 
-#: vendor_prefixed/wpdesk/wp-wpdesk-fs-shipment/src/WPDesk/FS/Shipment/Metabox/Ajax.php:47
+#: vendor_prefixed/wpdesk/wp-wpdesk-fs-shipment/src/WPDesk/FS/Shipment/Metabox/Ajax.php:44
 msgid "Saved"
 msgstr ""
 

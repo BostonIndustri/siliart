@@ -196,8 +196,12 @@ class RulesSettingsField {
 	/**
 	 * @return array
 	 */
-	private function get_field_value() {
-		return ! isset( $this->value ) ? $this->settings['default'] : $this->value;
+	private function get_field_value(): array {
+		$value = ! isset( $this->value ) ? ( $this->settings['default'] ?? [] ) : $this->value;
+		if ( ! is_array( $value ) ) {
+			$value = [];
+		}
+		return $value;
 	}
 
 	/**
@@ -214,6 +218,7 @@ class RulesSettingsField {
 					$settings[ $rule_key ]['conditions'][ $condition_key ] = $available_conditions[ $condition['condition_id'] ]->prepare_settings( $condition );
 				}
 			}
+			$settings[ $rule_key ]['conditions'] = array_values( $settings[ $rule_key ]['conditions'] );
 		}
 
 		return $settings;

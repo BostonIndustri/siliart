@@ -4,7 +4,7 @@ Donate link: https://octol.io/fs-repo-up
 Tags: woocommerce shipping, table rate shipping, woocommerce table rate shipping, advanced shipping, flexible shipping woocommerce
 Requires at least: 5.8
 Tested up to: 6.6
-Stable tag: 4.25.8
+Stable tag: 5.0.3
 Requires PHP: 7.4
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -17,7 +17,7 @@ Table Rate shipping plugin for WooCommerce. Easily define shipping calculation r
 
 Flexible Shipping is the most advanced shipping plugin for WooCommerce stores, allowing you to calculate the shipping costs based on weight and/or cart total. Combine it with the PRO version and it will become the only WooCommerce shipping plugin you'll ever need.
 
-[youtube https://www.youtube.com/watch?v=Fk0mF0s6W8w]
+[youtube https://www.youtube.com/watch?v=UPumLCbqjZA]
 
 > **Upgrade to Flexible Shipping PRO**<br />
 > Upgrade to [Flexible Shipping PRO now](https://octol.io/fs-repo-up) to get the priority e-mail support and gain an access to all the PRO features!
@@ -73,6 +73,10 @@ These are only a few examples of the Flexible Shipping usage, however, sky is th
 * Free shipping coupons support
 
 [Upgrade to PRO Now &rarr;](https://octol.io/fs-repo-up)
+
+= Table rate available for all shipping methods =
+
+We’ve added integration with any shipping method in WooCommerce. The new feature allows the use of shipping cost calculation rules for all shipping methods available in WooCommerce, including Flat Rate and those added by other plugins. This provides greater control over delivery costs and allows you to take advantage of the existing features of other methods. We encourage you to give it a try with one of our live rates plugins listed below in Useful free WooCommerce shipping plugins from Octolize section.
 
 = Flexible Shipping Box Packing WooCommerce =
 
@@ -233,6 +237,26 @@ We provide a limited support for the free version of our Flexible Shipping plugi
 If you are upgrading from the old Flexible Shipping version (1.3.2, woo-flexible-shipping) make sure to completely delete the old version first. If you install the new version without deleting the old one it may break your WordPress installation.
 
 == Changelog ==
+
+= 5.0.3 - 2024-10-30 =
+* Fixed compatibility with Mondial Relay – InPost Official (mondialrelay_official_shipping) by removing rules table from the shipping method settings
+
+= 5.0.2 - 2024-10-28 =
+* Fixed rules table settings fatal error after PRO version deactivation
+* Fixed compatibility with Box Now Delivery Plugin by removing rules table from the shipping method settings
+
+= 5.0.1 - 2024-10-24 =
+* Fixed PHP notices in shipping method settings
+* Fixed PHP notices on PHP 8
+
+= 5.0.0 - 2024-10-22 =
+* Added ability to use Rules Table in other shipping methods
+* Changed plugin video
+
+= 4.25.9 - 2024-10-14 =
+* Added support for WooCommerce 9.4
+* Added support for WordPress 6.7
+* Fixed fatal error on order creation via REST API
 
 = 4.25.8 - 2024-09-01 =
 * Added support for WooCommerce 9.3

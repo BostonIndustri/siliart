@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit16091d93d270f324104caad3defe4797
+class ComposerStaticInitc4a9beaaa9a7655906b8d36e2b300ca5
 {
     public static $prefixLengthsPsr4 = array (
         'W' => 
@@ -156,6 +156,23 @@ class ComposerStaticInit16091d93d270f324104caad3defe4797
         'FSVendor\\Octolize\\Brand\\UpsellingBox\\ShippingMethodAndConstantDisplayStrategy' => __DIR__ . '/../..' . '/vendor_prefixed/octolize/wp-octolize-brand-assets/src/Brand/UpsellingBox/ShippingMethodAndConstantDisplayStrategy.php',
         'FSVendor\\Octolize\\Brand\\UpsellingBox\\ShippingMethodInstanceShouldShowStrategy' => __DIR__ . '/../..' . '/vendor_prefixed/octolize/wp-octolize-brand-assets/src/Brand/UpsellingBox/ShippingMethodInstanceShouldShowStrategy.php',
         'FSVendor\\Octolize\\Brand\\UpsellingBox\\ShippingMethodShouldShowStrategy' => __DIR__ . '/../..' . '/vendor_prefixed/octolize/wp-octolize-brand-assets/src/Brand/UpsellingBox/ShippingMethodShouldShowStrategy.php',
+        'FSVendor\\Octolize\\Onboarding\\Field\\Html' => __DIR__ . '/../..' . '/vendor_prefixed/octolize/wp-onboarding/src/Onboarding/Field/Html.php',
+        'FSVendor\\Octolize\\Onboarding\\Onboarding' => __DIR__ . '/../..' . '/vendor_prefixed/octolize/wp-onboarding/src/Onboarding/Onboarding.php',
+        'FSVendor\\Octolize\\Onboarding\\OnboardingAjax' => __DIR__ . '/../..' . '/vendor_prefixed/octolize/wp-onboarding/src/Onboarding/OnboardingAjax.php',
+        'FSVendor\\Octolize\\Onboarding\\OnboardingButton' => __DIR__ . '/../..' . '/vendor_prefixed/octolize/wp-onboarding/src/Onboarding/OnboardingButton.php',
+        'FSVendor\\Octolize\\Onboarding\\OnboardingDeactivationData' => __DIR__ . '/../..' . '/vendor_prefixed/octolize/wp-onboarding/src/Onboarding/OnboardingDeactivationData.php',
+        'FSVendor\\Octolize\\Onboarding\\OnboardingOption' => __DIR__ . '/../..' . '/vendor_prefixed/octolize/wp-onboarding/src/Onboarding/OnboardingOption.php',
+        'FSVendor\\Octolize\\Onboarding\\OnboardingShouldShowAlwaysStrategy' => __DIR__ . '/../..' . '/vendor_prefixed/octolize/wp-onboarding/src/Onboarding/OnboardingShouldShowAlwaysStrategy.php',
+        'FSVendor\\Octolize\\Onboarding\\OnboardingShouldShowGetParametersStrategy' => __DIR__ . '/../..' . '/vendor_prefixed/octolize/wp-onboarding/src/Onboarding/OnboardingShouldShowGetParametersStrategy.php',
+        'FSVendor\\Octolize\\Onboarding\\OnboardingShouldShowNeverStrategy' => __DIR__ . '/../..' . '/vendor_prefixed/octolize/wp-onboarding/src/Onboarding/OnboardingShouldShowNeverStrategy.php',
+        'FSVendor\\Octolize\\Onboarding\\OnboardingShouldShowStrategy' => __DIR__ . '/../..' . '/vendor_prefixed/octolize/wp-onboarding/src/Onboarding/OnboardingShouldShowStrategy.php',
+        'FSVendor\\Octolize\\Onboarding\\OnboardingStep' => __DIR__ . '/../..' . '/vendor_prefixed/octolize/wp-onboarding/src/Onboarding/OnboardingStep.php',
+        'FSVendor\\Octolize\\Onboarding\\OnboardingTrackerData' => __DIR__ . '/../..' . '/vendor_prefixed/octolize/wp-onboarding/src/Onboarding/OnboardingTrackerData.php',
+        'FSVendor\\Octolize\\Onboarding\\PluginUpgrade\\MessageFactory\\LiveRatesFsRulesTable' => __DIR__ . '/../..' . '/vendor_prefixed/octolize/wp-onboarding/src/Onboarding/PluginUpgrade/MessageFactory/LiveRatesFsRulesTable.php',
+        'FSVendor\\Octolize\\Onboarding\\PluginUpgrade\\PluginUpgradeAjax' => __DIR__ . '/../..' . '/vendor_prefixed/octolize/wp-onboarding/src/Onboarding/PluginUpgrade/PluginUpgradeAjax.php',
+        'FSVendor\\Octolize\\Onboarding\\PluginUpgrade\\PluginUpgradeMessage' => __DIR__ . '/../..' . '/vendor_prefixed/octolize/wp-onboarding/src/Onboarding/PluginUpgrade/PluginUpgradeMessage.php',
+        'FSVendor\\Octolize\\Onboarding\\PluginUpgrade\\PluginUpgradeOnboardingFactory' => __DIR__ . '/../..' . '/vendor_prefixed/octolize/wp-onboarding/src/Onboarding/PluginUpgrade/PluginUpgradeOnboardingFactory.php',
+        'FSVendor\\Octolize\\Onboarding\\PluginUpgrade\\PluginUpgradeWatcher' => __DIR__ . '/../..' . '/vendor_prefixed/octolize/wp-onboarding/src/Onboarding/PluginUpgrade/PluginUpgradeWatcher.php',
         'FSVendor\\Octolize\\ShippingExtensions\\AdminPage' => __DIR__ . '/../..' . '/vendor_prefixed/octolize/wp-shipping-extensions/src/ShippingExtensions/AdminPage.php',
         'FSVendor\\Octolize\\ShippingExtensions\\Assets' => __DIR__ . '/../..' . '/vendor_prefixed/octolize/wp-shipping-extensions/src/ShippingExtensions/Assets.php',
         'FSVendor\\Octolize\\ShippingExtensions\\Page' => __DIR__ . '/../..' . '/vendor_prefixed/octolize/wp-shipping-extensions/src/ShippingExtensions/Page.php',
@@ -507,6 +524,7 @@ class ComposerStaticInit16091d93d270f324104caad3defe4797
         'WPDesk\\FS\\Onboarding\\TableRate\\Tracker' => __DIR__ . '/../..' . '/src/WPDesk/FS/Onboarding/TableRate/Tracker.php',
         'WPDesk\\FS\\Plugin\\PluginActivation' => __DIR__ . '/../..' . '/src/WPDesk/FS/Plugin/PluginActivation.php',
         'WPDesk\\FS\\Plugin\\PluginLinks' => __DIR__ . '/../..' . '/src/WPDesk/FS/Plugin/PluginLinks.php',
+        'WPDesk\\FS\\Plugin\\UpgradeOnboarding' => __DIR__ . '/../..' . '/src/WPDesk/FS/Plugin/UpgradeOnboarding.php',
         'WPDesk\\FS\\ProFeatures\\Tracker\\AjaxTracker' => __DIR__ . '/../..' . '/src/WPDesk/FS/ProFeatures/Tracker/AjaxTracker.php',
         'WPDesk\\FS\\ProFeatures\\Tracker\\Tracker' => __DIR__ . '/../..' . '/src/WPDesk/FS/ProFeatures/Tracker/Tracker.php',
         'WPDesk\\FS\\ProFeatures\\Tracker\\TrackingData' => __DIR__ . '/../..' . '/src/WPDesk/FS/ProFeatures/Tracker/TrackingData.php',
@@ -639,6 +657,11 @@ class ComposerStaticInit16091d93d270f324104caad3defe4797
         'WPDesk\\FS\\TableRate\\ShippingMethod\\SettingsDisplayPreparer' => __DIR__ . '/../..' . '/src/WPDesk/FS/TableRate/ShippingMethod/SettingsDisplayPreparer.php',
         'WPDesk\\FS\\TableRate\\ShippingMethod\\SettingsProcessor' => __DIR__ . '/../..' . '/src/WPDesk/FS/TableRate/ShippingMethod/SettingsProcessor.php',
         'WPDesk\\FS\\TableRate\\ShippingMethod\\SingleMethodSettings' => __DIR__ . '/../..' . '/src/WPDesk/FS/TableRate/ShippingMethod/SingleMethodSettings.php',
+        'WPDesk\\FS\\TableRate\\ShippingMethodsIntegration\\Integration' => __DIR__ . '/../..' . '/src/WPDesk/FS/TableRate/ShippingMethodsIntegration/Integration.php',
+        'WPDesk\\FS\\TableRate\\ShippingMethodsIntegration\\OrderMetaData' => __DIR__ . '/../..' . '/src/WPDesk/FS/TableRate/ShippingMethodsIntegration/OrderMetaData.php',
+        'WPDesk\\FS\\TableRate\\ShippingMethodsIntegration\\SettingsFields' => __DIR__ . '/../..' . '/src/WPDesk/FS/TableRate/ShippingMethodsIntegration/SettingsFields.php',
+        'WPDesk\\FS\\TableRate\\ShippingMethodsIntegration\\ShippingRate' => __DIR__ . '/../..' . '/src/WPDesk/FS/TableRate/ShippingMethodsIntegration/ShippingRate.php',
+        'WPDesk\\FS\\TableRate\\ShippingMethodsIntegration\\Tracker' => __DIR__ . '/../..' . '/src/WPDesk/FS/TableRate/ShippingMethodsIntegration/Tracker.php',
         'WPDesk\\FS\\TableRate\\SingleRuleSettings' => __DIR__ . '/../..' . '/src/WPDesk/FS/TableRate/SingleRuleSettings.php',
         'WPDesk\\FS\\TableRate\\Tax\\TaxCalculator' => __DIR__ . '/../..' . '/src/WPDesk/FS/TableRate/Tax/TaxCalculator.php',
         'WPDesk\\FS\\TableRate\\Tax\\Tracker' => __DIR__ . '/../..' . '/src/WPDesk/FS/TableRate/Tax/Tracker.php',
@@ -664,9 +687,9 @@ class ComposerStaticInit16091d93d270f324104caad3defe4797
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit16091d93d270f324104caad3defe4797::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit16091d93d270f324104caad3defe4797::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit16091d93d270f324104caad3defe4797::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitc4a9beaaa9a7655906b8d36e2b300ca5::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitc4a9beaaa9a7655906b8d36e2b300ca5::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitc4a9beaaa9a7655906b8d36e2b300ca5::$classMap;
 
         }, null, ClassLoader::class);
     }

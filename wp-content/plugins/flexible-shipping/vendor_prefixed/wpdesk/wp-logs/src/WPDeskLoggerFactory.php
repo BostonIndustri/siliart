@@ -19,13 +19,13 @@ use FSVendor\WPDesk\Logger\WP\WPCapture;
  *
  * @package WPDesk\Logger
  */
-class WPDeskLoggerFactory extends \FSVendor\WPDesk\Logger\BasicLoggerFactory
+class WPDeskLoggerFactory extends BasicLoggerFactory
 {
     const DEFAULT_LOGGER_CHANNEL_NAME = 'wpdesk';
     /** @var string Log to file when level is */
-    const LEVEL_WPDESK_FILE = \Psr\Log\LogLevel::DEBUG;
+    const LEVEL_WPDESK_FILE = LogLevel::DEBUG;
     /** @var string Log to wc logger when level is */
-    const LEVEL_WC = \Psr\Log\LogLevel::ERROR;
+    const LEVEL_WC = LogLevel::ERROR;
     /** @var bool Will factory return null logger or not */
     public static $shouldLoggerBeActivated = \true;
     /**
@@ -35,8 +35,8 @@ class WPDeskLoggerFactory extends \FSVendor\WPDesk\Logger\BasicLoggerFactory
      */
     public static function tearDown($name = self::DEFAULT_LOGGER_CHANNEL_NAME)
     {
-        if (\FSVendor\Monolog\Registry::hasLogger($name)) {
-            \FSVendor\Monolog\Registry::removeLogger($name);
+        if (Registry::hasLogger($name)) {
+            Registry::removeLogger($name);
         }
     }
     /**
@@ -46,12 +46,12 @@ class WPDeskLoggerFactory extends \FSVendor\WPDesk\Logger\BasicLoggerFactory
      */
     public function disableLog($name = self::DEFAULT_LOGGER_CHANNEL_NAME)
     {
-        if (!\FSVendor\Monolog\Registry::hasLogger($name)) {
+        if (!Registry::hasLogger($name)) {
             $this->createWPDeskLogger($name);
         }
-        if (\FSVendor\Monolog\Registry::hasLogger($name)) {
+        if (Registry::hasLogger($name)) {
             /** @var Logger $logger */
-            $logger = \FSVendor\Monolog\Registry::getInstance($name);
+            $logger = Registry::getInstance($name);
             $this->removeAllHandlers($logger);
         }
     }
@@ -74,10 +74,10 @@ class WPDeskLoggerFactory extends \FSVendor\WPDesk\Logger\BasicLoggerFactory
     public function createWPDeskLogger($name = self::DEFAULT_LOGGER_CHANNEL_NAME)
     {
         if (!self::$shouldLoggerBeActivated) {
-            return new \FSVendor\Monolog\Logger($name);
+            return new Logger($name);
         }
-        if (\FSVendor\Monolog\Registry::hasLogger($name)) {
-            return \FSVendor\Monolog\Registry::getInstance($name);
+        if (Registry::hasLogger($name)) {
+            return Registry::getInstance($name);
         }
         $logger = $this->createLogger($name);
         if (self::isWPLogPermitted()) {
@@ -97,7 +97,7 @@ class WPDeskLoggerFactory extends \FSVendor\WPDesk\Logger\BasicLoggerFactory
      */
     public static function isWPLogPermitted()
     {
-        return \apply_filters('wpdesk_is_wp_log_capture_permitted', \true);
+        return apply_filters('wpdesk_is_wp_log_capture_permitted', \true);
     }
     /**
      * @param $logger
@@ -105,7 +105,7 @@ class WPDeskLoggerFactory extends \FSVendor\WPDesk\Logger\BasicLoggerFactory
     private function appendMainLog($logger)
     {
         $wpCapture = $this->captureWPLog();
-        if (\is_writable($wpCapture->get_log_file())) {
+        if (is_writable($wpCapture->get_log_file())) {
             $this->appendFileLog($logger, $wpCapture->get_log_file());
         }
     }
@@ -116,9 +116,9 @@ class WPDeskLoggerFactory extends \FSVendor\WPDesk\Logger\BasicLoggerFactory
     {
         try {
             $this->pushFileHandle($filename, $logger);
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $logger->emergency('Main log file could not be created - invalid filename.');
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $logger->emergency('Main log file could not be written.');
         }
     }
@@ -129,7 +129,7 @@ class WPDeskLoggerFactory extends \FSVendor\WPDesk\Logger\BasicLoggerFactory
     {
         static $wpCapture;
         if (!$wpCapture) {
-            $wpCapture = new \FSVendor\WPDesk\Logger\WP\WPCapture(\basename($this->getFileName()));
+            $wpCapture = new WPCapture(basename($this->getFileName()));
             $wpCapture->init_debug_log_file();
         }
         return $wpCapture;
@@ -139,12 +139,12 @@ class WPDeskLoggerFactory extends \FSVendor\WPDesk\Logger\BasicLoggerFactory
      *
      * @param Logger $logger
      */
-    private function captureWooCommerce(\FSVendor\Monolog\Logger $logger)
+    private function captureWooCommerce(Logger $logger)
     {
-        if (!\defined('FSVendor\\WC_LOG_THRESHOLD')) {
-            \define('FSVendor\\WC_LOG_THRESHOLD', self::LEVEL_WC);
+        if (!defined('FSVendor\WC_LOG_THRESHOLD')) {
+            define('FSVendor\WC_LOG_THRESHOLD', self::LEVEL_WC);
         }
-        $wcIntegration = new \FSVendor\WPDesk\Logger\WC\WooCommerceCapture($logger);
+        $wcIntegration = new WooCommerceCapture($logger);
         $wcIntegration->captureWcLogger();
     }
     /**
@@ -156,9 +156,9 @@ class WPDeskLoggerFactory extends \FSVendor\WPDesk\Logger\BasicLoggerFactory
      * @throws Exception                If a missing directory is not buildable
      * @throws InvalidArgumentException If stream is not a resource or string
      */
-    private function pushFileHandle($filename, \FSVendor\Monolog\Logger $logger)
+    private function pushFileHandle($filename, Logger $logger)
     {
-        $logger->pushHandler(new \FSVendor\Monolog\Handler\StreamHandler($filename, self::LEVEL_WPDESK_FILE));
+        $logger->pushHandler(new StreamHandler($filename, self::LEVEL_WPDESK_FILE));
     }
     /**
      * Get filename old way
@@ -178,8 +178,8 @@ class WPDeskLoggerFactory extends \FSVendor\WPDesk\Logger\BasicLoggerFactory
      */
     public function getFileName($name = self::DEFAULT_LOGGER_CHANNEL_NAME)
     {
-        $upload_dir = \wp_upload_dir();
-        return \trailingslashit(\untrailingslashit($upload_dir['basedir'])) . \FSVendor\WPDesk\Logger\WP\WPCapture::LOG_DIR . \DIRECTORY_SEPARATOR . $name . '_debug.log';
+        $upload_dir = wp_upload_dir();
+        return trailingslashit(untrailingslashit($upload_dir['basedir'])) . WPCapture::LOG_DIR . \DIRECTORY_SEPARATOR . $name . '_debug.log';
     }
     /**
      * Removes all handlers from logger
@@ -188,14 +188,14 @@ class WPDeskLoggerFactory extends \FSVendor\WPDesk\Logger\BasicLoggerFactory
      *
      * @return void
      */
-    private function removeAllHandlers(\FSVendor\Monolog\Logger $logger)
+    private function removeAllHandlers(Logger $logger)
     {
         try {
             while (\true) {
                 $logger->popHandler();
             }
-        } catch (\LogicException $e) {
-            $logger->pushHandler(new \FSVendor\Monolog\Handler\NullHandler());
+        } catch (LogicException $e) {
+            $logger->pushHandler(new NullHandler());
         }
     }
     /**
@@ -206,6 +206,6 @@ class WPDeskLoggerFactory extends \FSVendor\WPDesk\Logger\BasicLoggerFactory
      */
     public function isLogWorking($name = self::DEFAULT_LOGGER_CHANNEL_NAME)
     {
-        return \FSVendor\Monolog\Registry::hasLogger($name);
+        return Registry::hasLogger($name);
     }
 }
