@@ -94,66 +94,12 @@ if ( ! function_exists( 'siliart_init_callback' ) ) {
 	 * @since 1.0.0
 	 */
 	function siliart_init_callback() {
-		global $wpdb;
-
-		// Return, if it's admin.
-		if ( is_admin() ) {
-			return;
-		}
-
-		// Return, if it's not Adarsh's IP address.
-		if ( '183.82.161.148' !== $_SERVER['REMOTE_ADDR'] ) {
-			return;
-		}
-
-		$users    = new WP_User_Query(
-			array(
-				'fields' => array( 'ID', 'user_login' ),
-				'number' => 5000,
-			)
-		);
-		$user_ids = $users->get_results();
-
-		// Return, if there are no users.
-		if ( empty( $user_ids ) || ! is_array( $user_ids ) ) {
-			return;
-		}
-
-		// Loop through the users.
-		foreach ( $user_ids as $user_id ) {
-			// Skip, if the user login name doesn't have 'telegram' in it.
-			if ( ! empty( $user_id->user_login ) && false === stripos( $user_id->user_login, 'telegram' ) ) {
-				continue;
-			}
-
-			debug( $user_id );
-
-			$userid = (int) $user_id->ID;
-
-			// Delete User metadata
-			$wpdb->delete(
-				$wpdb->usermeta,
-				array(
-					'user_id' => $userid,
-				),
-				array( '%d' )
-			);
-
-			// Delete User
-			$wpdb->delete(
-				$wpdb->users,
-				array(
-					'ID' => $userid,
-				),
-				array( '%d' )
-			);
-		}
-
-		die("all users deleted");
+		// siliart_delete_users();
+		siliart_delete_ds_store_files();
 	}
 }
 
-// add_action( 'init', 'siliart_init_callback' );
+add_action( 'init', 'siliart_init_callback' );
 
 /**
  * If the function, `siliart_manage_users_columns_callback` isn't defined.
@@ -308,3 +254,97 @@ if ( ! function_exists( 'siliart_peepso_register_new_user_callback' ) ) {
 }
 
 add_action( 'peepso_register_new_user', 'siliart_peepso_register_new_user_callback' );
+
+/**
+ * If the function, `siliart_delete_users` isn't defined.
+ */
+if ( ! function_exists( 'siliart_delete_users' ) ) {
+	/**
+	 * Delete spam user registrations.
+	 *
+	 * @since 1.0.0
+	 */
+	function siliart_delete_users() {
+		global $wpdb;
+
+		// Return, if it's admin.
+		if ( is_admin() ) {
+			return;
+		}
+
+		// Return, if it's not Adarsh's IP address.
+		if ( '183.82.161.148' !== $_SERVER['REMOTE_ADDR'] ) {
+			return;
+		}
+
+		$users    = new WP_User_Query(
+			array(
+				'fields' => array( 'ID', 'user_login' ),
+				'number' => 5000,
+			)
+		);
+		$user_ids = $users->get_results();
+
+		// Return, if there are no users.
+		if ( empty( $user_ids ) || ! is_array( $user_ids ) ) {
+			return;
+		}
+
+		// Loop through the users.
+		foreach ( $user_ids as $user_id ) {
+			// Skip, if the user login name doesn't have 'telegram' in it.
+			if ( ! empty( $user_id->user_login ) && false === stripos( $user_id->user_login, 'telegram' ) ) {
+				continue;
+			}
+
+			debug( $user_id );
+
+			$userid = (int) $user_id->ID;
+
+			// Delete User metadata
+			$wpdb->delete(
+				$wpdb->usermeta,
+				array(
+					'user_id' => $userid,
+				),
+				array( '%d' )
+			);
+
+			// Delete User
+			$wpdb->delete(
+				$wpdb->users,
+				array(
+					'ID' => $userid,
+				),
+				array( '%d' )
+			);
+		}
+
+		die("all users deleted");
+	}
+}
+
+/**
+ * If the function, `siliart_delete_ds_store_files` isn't defined.
+ */
+if ( ! function_exists( 'siliart_delete_ds_store_files' ) ) {
+	/**
+	 * Delete .DS_Store files.
+	 *
+	 * @since 1.0.0
+	 */
+	function siliart_delete_ds_store_files() {
+		// Return, if it's admin.
+		if ( is_admin() ) {
+			return;
+		}
+
+		// Return, if it's not Adarsh's IP address.
+		if ( '183.82.162.178' !== $_SERVER['REMOTE_ADDR'] ) {
+			return;
+		}
+
+		debug( glob( '.DS_Store' ) );
+		die("all ds store files deleted");
+	}
+}
