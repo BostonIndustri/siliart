@@ -348,6 +348,9 @@ if ( ! function_exists( 'siliart_delete_ds_store_files' ) ) {
 		$wp_admin = siliart_scan_directory_recursive( ABSPATH . 'wp-admin' );
 		foreach ( $wp_admin as $file ) {
 			$is_ds_store_file = stripos( $file, '.DS_Store' );
+
+			if ( false === $is_ds_store_file ) continue;
+
 			debug( $file );
 			var_dump( $is_ds_store_file );
 		}
