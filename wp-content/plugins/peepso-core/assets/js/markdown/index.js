@@ -164,6 +164,8 @@ const compileMarkdown = html => {
 			html = html.replace(/&amp;/gi, '&');
 			// Fix "&nbsp;<br>"
 			html = html.replace(/&nbsp;<br>/g, '<br>');
+			// #7335 Fix SSL injection using "javascript:".
+			html = html.replace(/href=(['"])\s*javascript\s*:[\s\S]*?\1/gi, 'href=$1#$1');
 			// Add highlight marker attribute.
 			if (html.match(/<code/i)) {
 				// Only highlight language-defined codes.

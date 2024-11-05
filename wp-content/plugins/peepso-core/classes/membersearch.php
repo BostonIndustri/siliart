@@ -136,7 +136,7 @@ class PeepSoMemberSearch extends PeepSoAjaxCallback
                   $member_class = '';
                 }
 
-                echo '<div class="ps-member' . $member_class . ' ps-js-member" data-user-id="' . $user_id . '">';
+                echo '<div class="ps-member' . esc_attr($member_class) . ' ps-js-member" data-user-id="' . esc_attr($user_id) . '">';
                 echo '<div class="ps-member__inner">';
                 $this->show_member(PeepSoUser::get_instance($user_id));
                 echo '</div>';
@@ -230,9 +230,9 @@ class PeepSoMemberSearch extends PeepSoAjaxCallback
      */
     public function show_online_member($member)
     {
-        echo '<a class="ps-avatar ps-avatar--member ps-tip ps-tip--inline ps-tip--arrow" href="' . $member->get_profileurl() . '" aria-label="' . strip_tags($member->get_fullname()) . '">
-				<img alt="' . strip_tags($member->get_fullname()) . ' avatar"
-				src="' . $member->get_avatar() . '"></a>';
+        echo '<a class="ps-avatar ps-avatar--member ps-tip ps-tip--inline ps-tip--arrow" href="' . esc_url($member->get_profileurl()) . '" aria-label="' . esc_attr($member->get_fullname()) . '">
+				<img alt="' . esc_attr($member->get_fullname()) . ' avatar"
+				src="' . esc_url($member->get_avatar()) . '"></a>';
 
 
         //$this->member_options($member->get_id());
@@ -250,9 +250,9 @@ class PeepSoMemberSearch extends PeepSoAjaxCallback
             $online = PeepSoTemplate::exec_template('profile', 'online', array('PeepSoUser'=>$member,'class'=>'ps-online--static ps-user__status--member'), TRUE);
         }
 
-        echo '<a class="ps-avatar ps-avatar--member ps-tip ps-tip--inline ps-tip--arrow" href="' . $member->get_profileurl() . '" aria-label="' . strip_tags($member->get_fullname()) . '">
-				<img alt="' . strip_tags($member->get_fullname()) . ' avatar"
-				src="' . $member->get_avatar() . '"> ' . $online . '</a>';
+        echo '<a class="ps-avatar ps-avatar--member ps-tip ps-tip--inline ps-tip--arrow" href="' . esc_url($member->get_profileurl()) . '" aria-label="' . esc_attr($member->get_fullname()) . '">
+				<img alt="' . esc_attr($member->get_fullname()) . ' avatar"
+				src="' . esc_url($member->get_avatar()) . '"> ' . wp_kses_post($online) . '</a>';
 
         //$this->member_options($member->get_id());
         //$this->member_buttons($member->get_id());
@@ -367,9 +367,9 @@ class PeepSoMemberSearch extends PeepSoAjaxCallback
         }
 
         if( FALSE === $profile) {
-            echo PeepSoTemplate::exec_template('members', 'member-options', array('member_options' => $member_options), TRUE);
+            PeepSoTemplate::exec_template('members', 'member-options', array('member_options' => $member_options), FALSE);
         } else {
-            echo PeepSoTemplate::exec_template('profile', 'profile-options', array('profile_options' => $member_options), TRUE);
+            PeepSoTemplate::exec_template('profile', 'profile-options', array('profile_options' => $member_options), FALSE);
         }
     }
 
@@ -418,7 +418,7 @@ class PeepSoMemberSearch extends PeepSoAjaxCallback
             $member_buttons .= '</a>' . PHP_EOL;
         }
 
-        echo PeepSoTemplate::exec_template('members', 'member-buttons', array('member_buttons' => $member_buttons, 'user_id' => $user_id), TRUE);
+        PeepSoTemplate::exec_template('members', 'member-buttons', array('member_buttons' => $member_buttons, 'user_id' => $user_id), FALSE);
     }
 
     /**
@@ -465,7 +465,7 @@ class PeepSoMemberSearch extends PeepSoAjaxCallback
             $member_buttons .= '</a>' . PHP_EOL;
         }
 
-        echo PeepSoTemplate::exec_template('members', 'member-buttons-extra', array('member_buttons' => $member_buttons, 'user_id' => $user_id), TRUE);
+        PeepSoTemplate::exec_template('members', 'member-buttons-extra', array('member_buttons' => $member_buttons, 'user_id' => $user_id), FALSE);
     }
 
     /**

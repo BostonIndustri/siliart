@@ -9,7 +9,7 @@ if( count($fields) ) {
 				<?php
 				if(!isset($field::$user_hide_title)) :
 				?>
-				<label id="peepso_user_field_first_namemsg" for="peepso_user_field_first_name" class="ps-form__label"><?php echo __($field->title, 'peepso-core');
+				<label id="peepso_user_field_first_namemsg" for="peepso_user_field_first_name" class="ps-form__label"><?php echo esc_attr__($field->title, 'peepso-core');
 
 					if( 1 == $field->prop('meta','validation','required' ))
 					{

@@ -42,14 +42,14 @@ class PeepSoFollower {
         $follow_title = __('Click to follow this user', 'peepso-core');
         $class = 'ps-member__action ps-member__action--follow ps-focus__cover-action ps-js-friend-follow';
         $icon = 'eye-off';
-        $extra = ' data-user-id="' . $passive_user_id . '" data-text-hover="' . esc_attr( __('Start following', 'peepso-core') ) . '"';
+        $extra = ' data-user-id="' . $passive_user_id . '" data-text-hover="' . esc_attr__('Start following', 'peepso-core') . '"';
 
         if ($PeepSoUserFollower->follow) {
             $follow_label = __('Following', 'peepso-core');
             $follow_title = __('Click to unfollow this user', 'peepso-core');
             $class = 'ps-member__action ps-member__action--following ps-focus__cover-action ps-js-friend-unfollow';
             $icon = 'eye';
-            $extra = ' data-user-id="' . $passive_user_id . '" data-text-hover="' . esc_attr( __('Stop following', 'peepso-core') ) . '"';
+            $extra = ' data-user-id="' . $passive_user_id . '" data-text-hover="' . esc_attr__('Stop following', 'peepso-core') . '"';
         }
 
         $ret['follow'] = array(
@@ -138,7 +138,7 @@ class PeepSoFollower {
         ]);
 		wp_enqueue_script('peepso-page-followers');
 
-		echo PeepSoTemplate::exec_template('followers', 'followers', array('view_user_id' => $view_user_id, 'current' => $current), TRUE);
+		PeepSoTemplate::exec_template('followers', 'followers', array('view_user_id' => $view_user_id, 'current' => $current), FALSe);
     }
 }
 

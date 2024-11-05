@@ -90,11 +90,11 @@ class PeepSoWidgetAjax extends PeepSoAjaxCallback
                     PeepSo3_Mayfly::set($mayfly_member_count, $total_member_value, 300);
                 }
 
-                echo sprintf("<div class=\"psw-members__count\">" . __('Members count', 'peepso-core') . ": %s</div>", $total_member_value);
+                echo sprintf("<div class=\"psw-members__count\">" . esc_attr(__('Members count', 'peepso-core')) . ": %s</div>", esc_attr($total_member_value));
             }
 
         } else { ?>
-            <div class="psw-members__info"><?php echo __('No latest members', 'peepso-core'); ?></div>
+            <div class="psw-members__info"><?php echo esc_attr(__('No latest members', 'peepso-core')); ?></div>
         <?php }
 
         $resp->success(TRUE);
@@ -189,7 +189,7 @@ class PeepSoWidgetAjax extends PeepSoAjaxCallback
                     $total_online_member_value = count($list);
                 }
 
-                echo sprintf("<div class=\"psw-members__count\">" . _n('%d member online','%d members online', $total_online_member_value, 'peepso-core') . "</div>", $total_online_member_value);
+                echo sprintf("<div class=\"psw-members__count\">" . esc_attr(_n('%d member online','%d members online', $total_online_member_value, 'peepso-core')) . "</div>", esc_attr($total_online_member_value));
             }
 
 
@@ -211,11 +211,11 @@ class PeepSoWidgetAjax extends PeepSoAjaxCallback
                     PeepSo3_Mayfly::set($mayfly_member_count, $total_member_value, 300);
                 }
 
-                echo sprintf("<div class=\"psw-members__count\">" . __('%d members total', 'peepso-core') . "</div>", $total_member_value);
+                echo sprintf("<div class=\"psw-members__count\">" . esc_attr__('%d members total', 'peepso-core') . "</div>", esc_attr($total_member_value));
             }
 
         } else { ?>
-            <span class='ps-text--muted'><?php echo __('No online members', 'peepso-core');?></span>
+            <span class='ps-text--muted'><?php echo esc_attr(__('No online members', 'peepso-core'));?></span>
         <?php }
 
         $resp->success(TRUE);

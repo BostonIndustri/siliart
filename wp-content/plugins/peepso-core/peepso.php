@@ -5,7 +5,7 @@
  * Description: PeepSo Foundation - The Next Generation Social Networking Plugin for WordPress. <strong>📱 <a href="https://PeepSo.com/app" target="_blank">Now with Mobile App for Your Community.</a></strong>
  * Author: PeepSo
  * Author URI: https://peepso.com
- * Version: 6.4.6.0
+ * Version: 6.4.6.2
  * Copyright: (c) 2015 PeepSo, Inc. All Rights Reserved.
  * License: GPLv2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -28,7 +28,7 @@ class PeepSoSystemRequirements {
 
     const MEMORY_REQUIRED = '64M';
 
-    const RELEASE_DATE = '2024-08-13';
+    const RELEASE_DATE = '2024-10-14';
 
     const DEMO_SITES = [
         'demo.peepso.com',
@@ -47,7 +47,7 @@ class PeepSo
 {
     const MODULE_ID = 0;
 
-    const PLUGIN_VERSION = '6.4.6.0';
+    const PLUGIN_VERSION = '6.4.6.2';
     const PLUGIN_RELEASE = ''; //ALPHA1, RC1 etc, '' for STABLE
 
     const PLUGIN_NAME = 'PeepSo';
@@ -205,7 +205,7 @@ class PeepSo
                 ?>
                 <div class="error" id="peepso_php_warning">
                     <h1>Read carefully - your website might be in danger!</h1>
-                    <?php echo $message;?><br/>
+                    <?php echo wp_kses_post($message);?><br/>
                     Please update your PHP version for better performance and security. <strong>Old PHP versions can be vulnerable to attacks!</strong><br/><br/>
                     We encourage you to <a href="https://Peep.So/PHP" target="_blank">learn more about the consequences of using old PHP versions</a>.
 
@@ -604,8 +604,8 @@ class PeepSo
                         if(strlen($error)) {
 
                             echo '<div class="error peepso">';
-                            echo __('PeepSo can\'t locate all required shortcodes.','peepso-core');
-                            echo ' <a href="' . admin_url('admin.php?page=peepso_config&tab=navigation') . '">' . __('Review your navigation settings','peepso-core') . '</a>.';
+                            echo esc_html(__('PeepSo can\'t locate all required shortcodes.','peepso-core'));
+                            echo ' <a href="' . esc_url(admin_url('admin.php?page=peepso_config&tab=navigation')) . '">' . esc_html(__('Review your navigation settings','peepso-core')) . '</a>.';
                             echo '</div>';
                             break;
                         }
@@ -658,12 +658,13 @@ class PeepSo
                 // Do nothing for demo pages
                 if(PeepSoSystemRequirements::is_demo_site()) { return; }
 
-                $major_version = explode('.',PeepSo::PLUGIN_VERSION);
-                while(count($major_version) > 2) {
-                    array_pop($major_version);
-                }
-                $major_version = implode('',$major_version);
-
+//                $major_version = explode('.',PeepSo::PLUGIN_VERSION);
+//                while(count($major_version) > 2) {
+//                    array_pop($major_version);
+//                }
+//                $major_version = implode('',$major_version);
+                
+                $major_version = PeepSo::PLUGIN_VERSION;
                 $option_name = 'peepso_hide_installer_'.$major_version;
 
                 if(isset($_GET['page']) && 'peepso-installer' == $_GET['page']) {
@@ -701,7 +702,7 @@ class PeepSo
                     <div class="notice notice-warning peepso peepso-new-addon ps-notice">
 
                         <h3>There is a new PeepSo add-on available!</h3>
-                        <?php echo sprintf(__('PeepSo released a new add-on! Check out the <a href="%s" aria-label="PeepSo installer!">Installer</a> to learn more.', 'peepso-core'), admin_url('admin.php?page=peepso-installer')); ?>
+                        <?php echo sprintf(esc_html(__('PeepSo released a new add-on! Check out the <a href="%s" aria-label="PeepSo installer!">Installer</a> to learn more.', 'peepso-core')), esc_url(admin_url('admin.php?page=peepso-installer'))); ?>
 
                         <p>
                             <a href="#" class="ps-notice__dismiss peepso-dismiss-new-addon">
@@ -814,10 +815,10 @@ class PeepSo
                             PeepSoTemplate::exec_template('admin','admin_notice_help',[],TRUE),
                         ];
 
-                        echo str_ireplace($from,$to, $notice_content); ?>
+                        echo wp_kses_post(str_ireplace($from,$to, $notice_content)); ?>
                     </p>
                     <p>
-                        <a href="#" class="ps-notice__dismiss peepso-dismiss-old-version" data-month="<?php echo $current_month; ?>">
+                        <a href="#" class="ps-notice__dismiss peepso-dismiss-old-version" data-month="<?php echo esc_html($current_month); ?>">
                             <i class="gcir gci-times-circle"></i>
                         </a>
                     </p>
@@ -947,12 +948,16 @@ class PeepSo
             add_filter('pre_user_login', function($login){
 
                 // if the username might be an email
-                if(strpos($login, '@') !== FALSE) {
+                if(strpos($login, '@') !== FALSE || strpos($login, '.') !== FALSE) {
                     $old_login = $login;
 
                     // only grab the fist part
-                    $login = explode('@', $login);
-                    $login = $login[0];
+                    if(strpos($login, '@') !== FALSE) {
+                        $login = explode('@', $login);
+                        $login = $login[0];
+                    }
+
+                    $login = str_replace('.','_', $login);
 
                     // if the first part is empty or too short, generate a random one
                     if(strlen($login) < 3) {
@@ -1288,10 +1293,10 @@ class PeepSo
         add_action('wp_ajax_peepso_preview_email', function() {
             $override = PeepSo::get_option('emails_override_entire_html','');
             if(strlen($override)) {
-                echo stripslashes($override);
+                echo esc_html(stripslashes($override));
             } else {
                 // load the general email template
-                echo PeepSoTemplate::exec_template('general', 'email', NULL, TRUE);
+                PeepSoTemplate::exec_template('general', 'email', NULL, FALSE);
             }
             die();
         });
@@ -1927,8 +1932,8 @@ class PeepSo
                 do_action('peepso_action_render_user_name_after', $author->get_id());
                 $after_fullname = ob_get_clean();
 
-                printf(__('via %s', 'peepso-core'),
-                    '<a href="' . $author->get_profileurl() . '">' . $before_fullname . $author->get_fullname() . $after_fullname . '</a>');
+                printf(esc_html(__('via %s', 'peepso-core')),
+                    '<a href="' . esc_url($author->get_profileurl()) . '">' . wp_kses_post($before_fullname) . esc_html($author->get_fullname()) . wp_kses_post($after_fullname) . '</a>');
             }
 
             $extras[] = ob_get_clean();
@@ -2421,7 +2426,7 @@ class PeepSo
         if (apply_filters('peepso_permissions_reactions_create', TRUE)) {
             add_action('peepso_activity_post_actions', array(&$this, 'reactions_post_actions'), 1);
         }
-        add_filter('peepso_post_inside_actions', array(&$this, 'reactions_before_comments'));
+        add_action('peepso_post_inside_actions', array(&$this, 'reactions_before_comments'));
         //add_filter('peepso_post_before_comments', array(&$this, 'reactions_before_comments'));
         add_filter('peepso_modal_before_comments', array(&$this, 'reactions_before_comments'));
 
@@ -2819,7 +2824,9 @@ class PeepSo
     {
         $field = '<div class="peepso_captcha_field_div"></div>';
 
-        echo $field;
+        echo wp_kses($field, [array(
+            'div' => array()
+        )]);
     }
 
     public function login_footer()
@@ -3028,8 +3035,8 @@ class PeepSo
                     if(empty($ban_date)) {
                         wp_logout();
                         echo "<script type=text/javascript>"
-                            ." alert('" . __('Your account has been suspended indefinitely', 'peepso-core') . "');"
-                            . "window.location.replace('" . PeepSo::get_page('activity') . "');"
+                            ." alert('" . esc_html(__('Your account has been suspended indefinitely', 'peepso-core')) . "');"
+                            . "window.location.replace('" . esc_url(PeepSo::get_page('activity')) . "');"
                             . "</script>";
                         die();
                     } else {
@@ -3041,8 +3048,8 @@ class PeepSo
                         {
                             wp_logout();
                             echo "<script type=text/javascript>"
-                                ." alert('" . sprintf(__('Your account has been suspended until %s.', 'peepso-core') , date_i18n(get_option('date_format'), $ban_date)) ."');"
-                                . "window.location.replace('" . PeepSo::get_page('activity') . "');"
+                                ." alert('" . sprintf(esc_html(__('Your account has been suspended until %s.', 'peepso-core')) , esc_html(date_i18n(get_option('date_format')), $ban_date)) ."');"
+                                . "window.location.replace('" . esc_url(PeepSo::get_page('activity')) . "');"
                                 . "</script>";
                             die();
                         } else {
@@ -3192,7 +3199,7 @@ class PeepSo
                         get_admin_url(get_current_blog_id()) . 'options-permalink.php');
                     ?>
                     <div class="error" id="peepso_php_warning">
-                        <?php echo $msg;?><br/>
+                        <?php echo wp_kses_post($msg);?><br/>
                     </div>
                     <?php
                 });
@@ -3781,7 +3788,7 @@ class PeepSo
 
         global $wpdb;
 
-        $sql = "SELECT id as ID, post_content, post_title FROM $wpdb->posts WHERE post_type='page' AND post_status='publish' AND (post_content LIKE '%[{$sc}]%' OR post_content LIKE '%<!-- wp:{$sc}%')";
+        $sql = "SELECT id as ID, post_content, post_title FROM $wpdb->posts WHERE post_type='page' AND post_status='publish' AND (post_content LIKE '%[{$sc}%' OR post_content LIKE '%<!-- wp:{$sc}%')";
         $pages = $wpdb->get_results($sql);
 
         if (count($pages)) {
@@ -5270,7 +5277,7 @@ class PeepSo
 
     public static function third_party_warning($name, $url, $url_class, $ver_min, $peepso_name, $extra ='') {
         $data = compact('name', 'url', 'url_class', 'ver_min','peepso_name','extra');
-        echo PeepSoTemplate::exec_template('admin', 'third-party-warning', $data);
+        PeepSoTemplate::exec_template('admin', 'third-party-warning', $data, FALSE);
     }
     /**
      * Check if PeepSo is not older than the minimum required version
@@ -5412,8 +5419,8 @@ class PeepSo
         PeepSo3_Mayfly::set('peepso_has_displayed_license_warning', 1, HOUR_IN_SECONDS);
 
         if($forced) {
-            echo '<div class="error peepso" id="error_' . $plugin_slug . '" style="' . $style . '">';
-            echo '<strong>', $message, '</strong>';
+            echo '<div class="error peepso" id="error_' . esc_attr($plugin_slug) . '" style="' . esc_attr($style) . '">';
+            echo '<strong>', wp_kses_post($message), '</strong>';
             echo '</div>';
         } else {
             global $peepso_has_displayed_license_warning;
@@ -5427,7 +5434,7 @@ class PeepSo
 
 
                 echo '<div class="error peepso" id="peepso_license_error_combined">';
-                echo $message;
+                echo wp_kses_post($message);
                 echo '</div>';
             }
         }
@@ -5437,7 +5444,7 @@ class PeepSo
     {
         wp_schedule_event(current_time('timestamp'), 'five_minutes', PeepSo::CRON_MAILQUEUE);
         echo '<div class="error peepso">' .
-            sprintf(__('It looks like %s were not processing properly. We just tried to fix it automatically.<br><small>If you see this message repeatedly, there might be something wrong with your WordPress Cron. Consider deactivating and re-activating PeepSo or contacting Support.</small>', 'peepso-core'),__('PeepSo emails', 'peepso-core'))
+            sprintf(wp_kses_post(__('It looks like %s were not processing properly. We just tried to fix it automatically.<br><small>If you see this message repeatedly, there might be something wrong with your WordPress Cron. Consider deactivating and re-activating PeepSo or contacting Support.</small>', 'peepso-core')),esc_attr(__('PeepSo emails', 'peepso-core')))
             .'</strong></div>';
     }
 
@@ -5445,7 +5452,7 @@ class PeepSo
     {
         wp_schedule_event(current_time('timestamp'), 'five_minutes', PeepSo::CRON_MAINTENANCE_EVENT);
         echo '<div class="error peepso">' .
-            sprintf(__('It looks like %s were not processing properly. We just tried to fix it automatically.<br><small>If you see this message repeatedly, there might be something wrong with your WordPress Cron. Consider deactivating and re-activating PeepSo or contacting Support.</small>', 'peepso-core'),__('PeepSo Maintenance Scripts', 'peepso-core'))
+            sprintf(wp_kses_post(__('It looks like %s were not processing properly. We just tried to fix it automatically.<br><small>If you see this message repeatedly, there might be something wrong with your WordPress Cron. Consider deactivating and re-activating PeepSo or contacting Support.</small>', 'peepso-core')),esc_attr(__('PeepSo Maintenance Scripts', 'peepso-core')))
             .'</strong></div>';
     }
 
@@ -5453,7 +5460,7 @@ class PeepSo
     {
         wp_schedule_event(current_time('timestamp'), 'five_minutes', PeepSo::CRON_GDPR_EXPORT_DATA);
         echo '<div class="error peepso">' .
-            sprintf(__('It looks like %s were not processing properly. We just tried to fix it automatically.<br><small>If you see this message repeatedly, there might be something wrong with your WordPress Cron. Consider deactivating and re-activating PeepSo or contacting Support.</small>', 'peepso-core'),__('PeepSo GDPR Scripts', 'peepso-core'))
+            sprintf(wp_kses_post(__('It looks like %s were not processing properly. We just tried to fix it automatically.<br><small>If you see this message repeatedly, there might be something wrong with your WordPress Cron. Consider deactivating and re-activating PeepSo or contacting Support.</small>', 'peepso-core')),esc_attr(__('PeepSo GDPR Scripts', 'peepso-core')))
             .'</strong></div>';
     }
 
@@ -5494,7 +5501,7 @@ class PeepSo
                     $foundation_version.=' ('.PeepSo::PLUGIN_RELEASE.')';
                 }
 
-                echo sprintf(__('The following PeepSo add-on plugins are incompatible with PeepSo Foundation %s. Please update PeepSo Foundation and the add-on plugins to avoid conflicts and issues.','peepso_core'), $foundation_version);?></strong>
+                echo sprintf(esc_html(__('The following PeepSo add-on plugins are incompatible with PeepSo Foundation %s. Please update PeepSo Foundation and the add-on plugins to avoid conflicts and issues.','peepso_core')), esc_attr($foundation_version));?></strong>
 
             <?php
             $prev_cat = '';
@@ -5506,13 +5513,13 @@ class PeepSo
                 $cat = $cat[0];
 
                 if($cat!=$prev_cat) {
-                    echo "<br/><strong>$cat:</strong>";
+                    echo wp_kses_post("<br/><strong>$cat:</strong>");
                 } else {
                     echo ', ';
                 }
                 ?>
 
-                <?php echo str_replace(array($cat,':'),'',$plugin->name);?> <small style="opacity:0.5">(<?php echo $plugin->version_check['ver_self']; ?>)</small><?php
+                <?php echo esc_html(str_replace(array($cat,':'),'',$plugin->name));?> <small style="opacity:0.5">(<?php echo esc_html($plugin->version_check['ver_self']); ?>)</small><?php
 
                 $prev_cat = $cat;
             } ?>
@@ -5544,31 +5551,31 @@ class PeepSo
             <?php
 
             // PeepSo Plugin X.Y.Z
-            printf('<strong>PeepSo %s %s</strong> ',$plugin_name, $version_check['ver_self']);
+            printf('<strong>PeepSo %s %s</strong> ',esc_attr($plugin_name), esc_attr($version_check['ver_self']));
 
             if($version_lock) {
-                printf(__('is not fully compatible with <strong>PeepSo %s</strong>. ', 'peepso-core'), $version_check['ver_core']);
+                printf(wp_kses_post(__('is not fully compatible with <strong>PeepSo %s</strong>. ', 'peepso-core')), esc_html($version_check['ver_core']));
             }else {
                 if ( -1 == $version_check['compat'] ) {
                     // was only tested up to PeepSo X.Y.Z
                     printf(
-                        __('was only tested up to <strong>PeepSo %s</strong>. ', 'peepso-core'), $version_check['ver_max']);
+                        wp_kses_post(__('was only tested up to <strong>PeepSo %s</strong>. ', 'peepso-core')), esc_html($version_check['ver_max']));
                 } else {
                     // requires PeepSo X.Y.Z
-                    printf(__('has been disabled because it requires <strong>PeepSo %s</strong>. ', 'peepso-core'), $version_check['ver_min']);
+                    printf(wp_kses_post(__('has been disabled because it requires <strong>PeepSo %s</strong>. ', 'peepso-core')), esc_html($version_check['ver_min']));
                 }
 
-                printf(__('You are running PeepSo %s.', 'peepso-core'), $version_check['ver_core']);
+                printf(esc_html(__('You are running PeepSo %s.', 'peepso-core')), esc_html($version_check['ver_core']));
             }
 
 
 
             if($version_lock) {
                 // Please upgrade
-                printf(__('Please upgrade PeepSo %s and PeepSo. ', 'peepso-core'), $plugin_name);
+                printf(esc_html(__('Please upgrade PeepSo %s and PeepSo. ', 'peepso-core')), esc_html($plugin_name));
 
                 // Upgrade link
-                printf(' <a href="%s" target="_blank" style="float:right">%s</a>', self::PEEPSOCOM_LICENSES, __('Upgrade now!', 'peepso-core'));
+                printf(' <a href="%s" target="_blank" style="float:right">%s</a>', esc_url(self::PEEPSOCOM_LICENSES), esc_html(__('Upgrade now!', 'peepso-core')));
             }
             ?>
         </div>
@@ -5578,16 +5585,16 @@ class PeepSo
     public function email_notif_user_profile_fields($user)
     {
         ?>
-        <h3><?php echo __('PeepSo Email Notifications', 'peepso-core');?></h3>
+        <h3><?php echo esc_html(__('PeepSo Email Notifications', 'peepso-core'));?></h3>
         <table class="form-table">
             <tbody>
                 <tr>
-                    <th scope="row"><?php echo __('Email preferences', 'peepso-core'); ?></th>
+                    <th scope="row"><?php echo esc_html(__('Email preferences', 'peepso-core')); ?></th>
                     <td id="ps-js-unsub-email">
-                        <label for="peepso_unsub_email_notification"><button name="peepso_unsub_email_notification" id="peepso_unsub_email_notification" class="button"><?php echo __('Unsubscribe this user from all email notifications', 'peepso-core');?></button></label>
-                        <input type="hidden" name="peepso_unsub_user_id" value="<?php echo $user->ID ?>">
-                        <input type="hidden" name="peepso_unsub_nonce" value="<?php echo wp_create_nonce('peepso-user-unsubscribe-emails');?>" />
-                        <span class="ps-loading ps-js-loading" style="display: none"><img src="<?php echo PeepSo::get_asset('images/ajax-loader.gif');?>"><i class="gcis gci-check" style="color:green;display:none"></i></span>
+                        <label for="peepso_unsub_email_notification"><button name="peepso_unsub_email_notification" id="peepso_unsub_email_notification" class="button"><?php echo esc_html(__('Unsubscribe this user from all email notifications', 'peepso-core'));?></button></label>
+                        <input type="hidden" name="peepso_unsub_user_id" value="<?php echo esc_attr($user->ID); ?>">
+                        <input type="hidden" name="peepso_unsub_nonce" value="<?php echo esc_attr(wp_create_nonce('peepso-user-unsubscribe-emails'));?>" />
+                        <span class="ps-loading ps-js-loading" style="display: none"><img src="<?php echo esc_url(PeepSo::get_asset('images/ajax-loader.gif'));?>"><i class="gcis gci-check" style="color:green;display:none"></i></span>
                         <div id="ps-js-unsub-message"></div>
                     </td>
                 </tr>
@@ -5750,7 +5757,7 @@ class PeepSo
             die();
         }
 
-        echo '<script>window.location.replace("'.$url.'");</script>';
+        echo '<script>window.location.replace("'.esc_url($url).'");</script>';
         die();
     }
 
@@ -5764,6 +5771,8 @@ class PeepSo
     public static function do_parsedown($content)
     {
         $content = '<div class="peepso-markdown">' . html_entity_decode($content) .' </div>';
+        // Prevent XSS.
+        $content = preg_replace('/<(\/?)script/', '&lt;$1script', $content);
         return $content;
     }
 // Blogposts
@@ -5849,16 +5858,16 @@ class PeepSo
         ob_start();
         ?>
         .ps-blogposts__post-image {
-        height: <?php echo $image_height;?>px;
+        height: <?php echo esc_attr($image_height);?>px;
         }
 
         .ps-blogposts__post-image--left,
         .ps-blogposts__post-image--right {
-        width: <?php echo $image_height;?>px;
+        width: <?php echo esc_attr($image_height);?>px;
         }
 
         .ps-blogposts__post {
-        height: <?php echo $box_height;?>px;
+        height: <?php echo esc_attr($box_height);?>px;
         }
         <?php
         $css = ob_get_clean();
@@ -5983,7 +5992,7 @@ class PeepSo
             // probably it was deleted and there is orphan data in peepso_activities and postmeta
             if(!$post) {
                 ob_start();
-                echo ' <br/><br/> '.__('Can\'t load comments and likes. Try refreshing the page or contact the Administrators.','peepso-core');
+                echo ' <br/><br/> '.esc_attr(__('Can\'t load comments and likes. Try refreshing the page or contact the Administrators.','peepso-core'));
 
                 $wpdb->delete($wpdb->prefix.'postmeta', array('meta_value'=>$act_external_id, 'meta_key'=>self::BLOGPOSTS_SHORTCODE));
                 $wpdb->delete($wpdb->prefix.PeepSoActivity::TABLE_NAME, array('act_external_id'=>$act_external_id, 'act_module_id'=>self::BLOGPOSTS_MODULE_ID));
@@ -6043,14 +6052,14 @@ class PeepSo
             // show "no comments yet" only if the user can't make a new one
             if(!strlen($comments) && !$show_commentsbox) {
                 ?>
-                <div class="ps-no-comments-container--<?php echo $act_id; ?>">
-                    <?php echo __('No comments yet', 'peepso-core');?>
+                <div class="ps-no-comments-container--<?php echo esc_attr($act_id); ?>">
+                    <?php echo esc_html(__('No comments yet', 'peepso-core'));?>
                 </div>
                 <?php
             }
 
             ?>
-            <div class="ps-comments--blogpost ps-comment-container ps-js-comment-container ps-js-comment-container--<?php echo $act_id; ?>" data-act-id="<?php echo $act_id; ?>">
+            <div class="ps-comments--blogpost ps-comment-container ps-js-comment-container ps-js-comment-container--<?php echo esc_attr($act_id); ?>" data-act-id="<?php echo esc_attr($act_id); ?>">
                 <?php echo $comments;  ?>
             </div>
             <?php
@@ -6062,19 +6071,19 @@ class PeepSo
                     $PeepSoUser = PeepSoUser::get_instance();
                     ?>
 
-                    <div id="act-new-comment-<?php echo $act_id; ?>" class="ps-comments__reply ps-comments__reply--blogposts ps-comment-reply cstream-form stream-form wallform ps-js-newcomment-<?php echo $act_id; ?> ps-js-comment-new" data-type="stream-newcomment" data-formblock="true">
-                        <a class="ps-avatar cstream-avatar cstream-author" href="<?php echo $PeepSoUser->get_profileurl(); ?>">
-                            <img data-author="<?php echo $post->post_author; ?>" src="<?php echo $PeepSoUser->get_avatar(); ?>" alt="" />
+                    <div id="act-new-comment-<?php echo esc_attr($act_id); ?>" class="ps-comments__reply ps-comments__reply--blogposts ps-comment-reply cstream-form stream-form wallform ps-js-newcomment-<?php echo esc_attr($act_id); ?> ps-js-comment-new" data-type="stream-newcomment" data-formblock="true">
+                        <a class="ps-avatar cstream-avatar cstream-author" href="<?php echo esc_url($PeepSoUser->get_profileurl()); ?>">
+                            <img data-author="<?php echo esc_attr($post->post_author); ?>" src="<?php echo esc_url($PeepSoUser->get_avatar()); ?>" alt="" />
                         </a>
                         <div class="ps-comments__input-wrapper ps-textarea-wrapper cstream-form-input">
 				<textarea
-                        data-act-id="<?php echo $act_id;?>"
+                        data-act-id="<?php echo esc_attr($act_id);?>"
                         class="ps-comments__input ps-textarea cstream-form-text"
                         name="comment"
                         oninput="return activity.on_commentbox_change(this);"
                         onfocus="activity.on_commentbox_focus(this);"
                         onblur="activity.on_commentbox_blur(this);"
-                        placeholder="<?php echo __('Write a comment...', 'peepso-core');?>"></textarea>
+                        placeholder="<?php echo esc_attr(__('Write a comment...', 'peepso-core'));?>"></textarea>
                             <?php
                             // call function to add button addons for comments
                             $PeepSoActivity->show_commentsbox_addons();
@@ -6082,19 +6091,19 @@ class PeepSo
                         </div>
                         <div class="ps-comments__reply-send ps-comment-send cstream-form-submit" style="display:none;">
                             <div class="ps-comment-loading" style="display:none;">
-                                <img src="<?php echo PeepSo::get_asset('images/ajax-loader.gif'); ?>" alt="" />
+                                <img src="<?php echo esc_url(PeepSo::get_asset('images/ajax-loader.gif')); ?>" alt="" />
                                 <div> </div>
                             </div>
                             <div class="ps-comments__reply-actions ps-comment-actions" style="display:none;">
-                                <button onclick="return activity.comment_cancel(<?php echo $act_id; ?>);" class="ps-btn ps-button-cancel"><?php echo __('Clear', 'peepso-core'); ?></button>
-                                <button onclick="return activity.comment_save(<?php echo $act_id; ?>, this);" class="ps-btn ps-btn--action ps-btn-primary ps-button-action" disabled><?php echo __('Post', 'peepso-core'); ?></button>
+                                <button onclick="return activity.comment_cancel(<?php echo esc_attr($act_id); ?>);" class="ps-btn ps-button-cancel"><?php echo esc_attr(__('Clear', 'peepso-core')); ?></button>
+                                <button onclick="return activity.comment_save(<?php echo esc_attr($act_id); ?>, this);" class="ps-btn ps-btn--action ps-btn-primary ps-button-action" disabled><?php echo esc_attr(__('Post', 'peepso-core')); ?></button>
                             </div>
                         </div>
                     </div>
 
                 <?php } else { ?>
                     <div class="ps-comments__closed ps-js-comments-closed">
-                        <i class="fas fa-lock"></i> <?php echo __('Comments are closed', 'peepso-core');?>
+                        <i class="fas fa-lock"></i> <?php echo esc_html(__('Comments are closed', 'peepso-core'));?>
                     </div>
                     <?php
                 }
@@ -6183,12 +6192,12 @@ class PeepSo
                     return $permalink . $PeepSoUrlSegments->get(1) . '/' . $PeepSoUrlSegments->get(2) . '/' . $PeepSoUrlSegments->get(3) . '/';
                 }, 99, 3);
 
-                echo PeepSoTemplate::exec_template('blogposts', 'blogposts_create', array('view_user_id' => $this->view_user_id, 'create_tab' => TRUE), TRUE);
+                PeepSoTemplate::exec_template('blogposts', 'blogposts_create', array('view_user_id' => esc_attr($this->view_user_id), 'create_tab' => TRUE), FALSE);
                 return;
             }
         }
 
-        echo PeepSoTemplate::exec_template('blogposts', 'blogposts', array('view_user_id' => $this->view_user_id), TRUE);
+        PeepSoTemplate::exec_template('blogposts', 'blogposts', array('view_user_id' => esc_attr($this->view_user_id)), FALSE);
     }
 
     /**
@@ -6851,7 +6860,7 @@ class PeepSo
                 $field->value=FALSE;
                 ?>
                 <div class="ps-members__filter ps-members__filter--custom ps-js-filter-extended">
-                    <label class="ps-members__filter-label"><?php echo $field->prop('title'); ?></label>
+                    <label class="ps-members__filter-label"><?php echo wp_kses_post($field->prop('title')); ?></label>
                     <?php $field->render_input(); ?>
                 </div>
                 <?php
@@ -6884,7 +6893,7 @@ class PeepSo
             $params['data']['checked'] = 'checked';
         }
 
-        echo PeepSoTemplate::exec_template('admin','profiles_field_config_field', $params);
+        PeepSoTemplate::exec_template('admin','profiles_field_config_field', $params, FALSE);
 
         if( $field instanceof PeepSoFieldSelectSingle && !($field instanceof PeepSoFieldSelectMulti) && 0 == $field->prop('meta','is_core')) {
             /** SHOW IN SEARCH **/
@@ -6908,7 +6917,7 @@ class PeepSo
                 $params['data']['checked'] = 'checked';
             }
 
-            echo PeepSoTemplate::exec_template('admin', 'profiles_field_config_field', $params);
+            PeepSoTemplate::exec_template('admin', 'profiles_field_config_field', $params, FALSE);
         }
 
         /** SHOW IN REGISTRATION **/
@@ -6932,7 +6941,7 @@ class PeepSo
             $params['data']['checked'] = 'checked';
         }
 
-        echo PeepSoTemplate::exec_template('admin','profiles_field_config_field', $params);
+        PeepSoTemplate::exec_template('admin','profiles_field_config_field', $params, FALSE);
 
         /** REGISTRATION ONLY **/
         if($field->prop('admin_registration_only')) {
@@ -6959,7 +6968,7 @@ class PeepSo
                 $params['data']['checked'] = 'checked';
             }
 
-            echo PeepSoTemplate::exec_template( 'admin', 'profiles_field_config_field', $params );
+            PeepSoTemplate::exec_template( 'admin', 'profiles_field_config_field', $params, FALSE );
         }
 
         /**  ADMIN ONLY **/
@@ -6990,7 +6999,7 @@ class PeepSo
                 $params['data']['checked'] = 'checked';
             }
 
-            PeepSoTemplate::exec_template('admin', 'profiles_field_config_field', $params);
+            PeepSoTemplate::exec_template('admin', 'profiles_field_config_field', $params, FALSE);
             // Admin Visible Only
             $params = array(
                 'type' => 'checkbox',
@@ -7015,7 +7024,7 @@ class PeepSo
                 $params['data']['checked'] = 'checked';
             }
 
-            PeepSoTemplate::exec_template('admin', 'profiles_field_config_field', $params);
+            PeepSoTemplate::exec_template('admin', 'profiles_field_config_field', $params, FALSE);
         }
     }
 
@@ -7036,7 +7045,7 @@ class PeepSo
             'label_after'	=> '<b>domain.com</b> without http(s):// or trailing slash',
         );
 
-        echo PeepSoTemplate::exec_template('admin','profiles_field_config_field', $params);
+        PeepSoTemplate::exec_template('admin','profiles_field_config_field', $params, FALSE);
 
         $params = array(
             'type'			=> 'text',
@@ -7054,7 +7063,7 @@ class PeepSo
             'label_after'	=> 'For example <b>@</b> for instagram and <b>/u/</b> for Reddit',
         );
 
-        echo PeepSoTemplate::exec_template('admin','profiles_field_config_field', $params);
+        PeepSoTemplate::exec_template('admin','profiles_field_config_field', $params, FALSE);
     }
 
     public function add_fieldtext_admin_privacy_option($field) {
@@ -7078,7 +7087,7 @@ class PeepSo
             $params['data']['checked'] = 'checked';
         }
 
-        echo PeepSoTemplate::exec_template('admin','profiles_field_config_field', $params);
+        PeepSoTemplate::exec_template('admin','profiles_field_config_field', $params, FALSE);
 
         $params = array(
             'type'			=> 'text',
@@ -7096,7 +7105,7 @@ class PeepSo
             'label_after'	=> '',
         );
 
-        echo PeepSoTemplate::exec_template('admin','profiles_field_config_field', $params);
+        PeepSoTemplate::exec_template('admin','profiles_field_config_field', $params, FALSE);
     }
 
     public function register_form_fields($fields) {
@@ -7150,7 +7159,7 @@ class PeepSo
             }
         }
 
-        echo PeepSoTemplate::exec_template('profile', 'profile-register', array('fields' => $fields));
+        PeepSoTemplate::exec_template('profile', 'profile-register', array('fields' => $fields), FALSE);
     }
 
     public function valid_extended_fields($ret, $input) {
@@ -7272,7 +7281,7 @@ class PeepSo
 
     public function action_admin_profiles_field_title_after($field)
     {
-        echo str_ireplace('peepso','',self::PLUGIN_NAME) . ': ' . $field::$admin_label;
+        echo esc_html(str_ireplace('peepso','',self::PLUGIN_NAME) . ': ' . $field::$admin_label);
     }
 
     public function filter_profile_fields_query_limit( $limit )
@@ -7284,8 +7293,8 @@ class PeepSo
     {
         if(0 == $field->prop('meta','is_core')) { ?>
             <div class="ps-settings__action">
-                <a data-id="<?php echo $field->prop('id'); ?>" href="#" class="ps-js-field-duplicate"><i class="fa fa-copy"></i><?php echo __('Duplicate', 'peepso-core');?></a>
-                <a data-id="<?php echo $field->prop('id'); ?>" href="#" class="ps-js-field-delete"><i class="fa fa-trash"></i></a>
+                <a data-id="<?php echo esc_attr($field->prop('id')); ?>" href="#" class="ps-js-field-duplicate"><i class="fa fa-copy"></i><?php echo esc_attr(__('Duplicate', 'peepso-core'));?></a>
+                <a data-id="<?php echo esc_attr($field->prop('id')); ?>" href="#" class="ps-js-field-delete"><i class="fa fa-trash"></i></a>
             </div>
             <?php
         }

@@ -71,12 +71,12 @@ $stats = $user->profile_fields->profile_fields_stats;
 						<?php if( $can_edit ) { ?>
 						<div class="ps-profile__about-header">
 							<div class="ps-profile__about-header-title">
-								<?php echo __('Profile fields', 'peepso-core'); ?>
+								<?php echo esc_attr__('Profile fields', 'peepso-core'); ?>
 							</div>
 
 							<div class="ps-profile__about-header-actions">
-								<button class="ps-btn ps-btn--sm ps-btn--app ps-js-btn-edit-all"><i class="gcis gci-user-edit"></i><?php echo __('Edit All', 'peepso-core'); ?></button>
-								<button class="ps-btn ps-btn ps-btn--sm ps-btn--action ps-js-btn-save-all" style="display:none"><?php echo __('Save All', 'peepso-core'); ?></button>
+								<button class="ps-btn ps-btn--sm ps-btn--app ps-js-btn-edit-all"><i class="gcis gci-user-edit"></i><?php echo esc_attr__('Edit All', 'peepso-core'); ?></button>
+								<button class="ps-btn ps-btn ps-btn--sm ps-btn--action ps-js-btn-save-all" style="display:none"><?php echo esc_attr__('Save All', 'peepso-core'); ?></button>
 							</div>
 						</div>
 						<?php } ?>
@@ -106,7 +106,7 @@ $stats = $user->profile_fields->profile_fields_stats;
 													<?php $field->render_access(); ?>
 													<button class="ps-btn ps-btn--xs ps-btn--app ps-js-btn-edit"
 														aria-label="<?php echo esc_attr(__('Edit ' . $field->title, 'peepso-core')) ?>">
-														<?php echo __('Edit', 'peepso-core'); ?>
+														<?php echo esc_attr__('Edit', 'peepso-core'); ?>
 													</button>
 												</div>
 												<?php endif; ?>
@@ -114,11 +114,11 @@ $stats = $user->profile_fields->profile_fields_stats;
 												<div class="ps-profile__about-field-actions ps-list-info-content-form" style="display:none">
 													<button id="btn-cancel-<?php echo $field->id; ?>" class="ps-btn ps-btn--xs ps-btn--app ps-js-btn-cancel"
 														role="button" aria-labelledby="btn-cancel-<?php echo $field->id; ?> field-title-<?php echo $field->id; ?>">
-														<?php echo __('Cancel', 'peepso-core'); ?>
+														<?php echo esc_attr__('Cancel', 'peepso-core'); ?>
 													</button>
 													<button id="btn-save-<?php echo $field->id; ?>" class="ps-btn ps-btn--xs ps-btn--action ps-js-btn-save"
 														role="button" aria-labelledby="btn-save-<?php echo $field->id; ?> field-title-<?php echo $field->id; ?>">
-														<?php echo __('Save', 'peepso-core'); ?>
+														<?php echo esc_attr__('Save', 'peepso-core'); ?>
 														<img src="<?php echo PeepSo::get_asset('images/ajax-loader.gif'); ?>" style="display:none" />
 													</button>
 												</div>
@@ -161,8 +161,8 @@ $stats = $user->profile_fields->profile_fields_stats;
 						<?php if( $can_edit ) { ?>
 						<div class="ps-profile__about-footer">
 							<div class="ps-profile__about-footer-actions">
-								<button class="ps-btn ps-btn--sm ps-btn--app ps-js-btn-edit-all"><i class="gcis gci-user-edit"></i><?php echo __('Edit All', 'peepso-core'); ?></button>
-								<button class="ps-btn ps-btn ps-btn--sm ps-btn--action ps-js-btn-save-all" style="display:none"><?php echo __('Save All', 'peepso-core'); ?></button>
+								<button class="ps-btn ps-btn--sm ps-btn--app ps-js-btn-edit-all"><i class="gcis gci-user-edit"></i><?php echo esc_attr__('Edit All', 'peepso-core'); ?></button>
+								<button class="ps-btn ps-btn ps-btn--sm ps-btn--action ps-js-btn-save-all" style="display:none"><?php echo esc_attr__('Save All', 'peepso-core'); ?></button>
 							</div>
 						</div>
 						<?php } ?>

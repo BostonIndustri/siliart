@@ -24,13 +24,13 @@ PeepSoMemberSearch::get_instance();
     <div class="ps-widget__header--external"><?php
         if (trim($title)) {
             echo isset($widget_instance['before_title']) ? $widget_instance['before_title'] : '<h2>';
-            echo $title;
+            echo esc_attr($title);
             echo isset($widget_instance['after_title']) ? $widget_instance['after_title'] : '</h2>';
         }
     ?></div>
     <div class="ps-widget__body--external">
-        <div class="psw-members ps-js-widget-content" id="<?php echo $id; ?>">
-            <img src="<?php echo PeepSo::get_asset('images/ajax-loader.gif'); ?>">
+        <div class="psw-members ps-js-widget-content" id="<?php echo esc_attr($id); ?>">
+            <img src="<?php echo esc_url(PeepSo::get_asset('images/ajax-loader.gif')); ?>">
         </div>
     </div>
 </div>

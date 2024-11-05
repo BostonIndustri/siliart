@@ -11,24 +11,24 @@ $confirmation_message = apply_filters('peepso_uninstall_confirmation_message', '
 		var modalHtml =
 				'<div class="ps-dialog__wrapper <?php echo empty($confirmation_message) ? ' no-confirmation-message' : ''; ?>">'
 				+ '	<div class="ps-dialog">'
-				+ '     <h2 class="ps-dialog__title"><?php echo __('Plugin Usage Feedback', 'peepso-core'); ?></h2>'
+				+ '     <h2 class="ps-dialog__title"><?php echo esc_attr__('Plugin Usage Feedback', 'peepso-core'); ?></h2>'
 				+ '		<div class="ps-dialog__body">'
 				+ '			<div class="ps-dialog__panel" data-panel-id="confirm"><?php echo $confirmation_message; ?></div>'
 				+ '			<div class="ps-dialog__panel active" data-panel-id="reasons">'
-				+ '			<h3 class="ps-dialog__subtitle"><?php echo __('Please tell us how can we make this plugin better for you?', 'peepso-core'); ?></h3>'
+				+ '			<h3 class="ps-dialog__subtitle"><?php echo esc_attr__('Please tell us how can we make this plugin better for you?', 'peepso-core'); ?></h3>'
 				+ '			<select name="peepso-deactivation-reason-dropdown">'
 				+ '				<option>Select Reason</option>'
-				+ '				<option value="not_for_me"><?php echo __("It\'s not what I\'m looking for", 'peepso-core'); ?></option>'
-				+ '				<option value="found_alternative"><?php echo __("I Found a better alternative", 'peepso-core'); ?></option>'
-				+ '				<option value="technical_problems"><?php echo __("It didn\'t work for me, technical problems", 'peepso-core'); ?></option>'
-				+ '				<option value="other"><?php echo __("Other", 'peepso-core'); ?></option>'
+				+ '				<option value="not_for_me"><?php echo esc_attr__("It\'s not what I\'m looking for", 'peepso-core'); ?></option>'
+				+ '				<option value="found_alternative"><?php echo esc_attr__("I Found a better alternative", 'peepso-core'); ?></option>'
+				+ '				<option value="technical_problems"><?php echo esc_attr__("It didn\'t work for me, technical problems", 'peepso-core'); ?></option>'
+				+ '				<option value="other"><?php echo esc_attr__("Other", 'peepso-core'); ?></option>'
 				+ '			</select>'
 				+ '			<textarea name="peepso-deactivation-reason-textarea" rows="5"></textarea>'
 				+ '			<input name="plugin-slug" type="hidden" />'
 				+ '			<input name="peepso-deactivation-reason" type="hidden" />'
-				+ '			<p><?php echo __("If you\'re experiencing technical problems please consider contacting our support. You can open a support ticket here: ", 'peepso-core'); ?>'
+				+ '			<p><?php echo esc_attr__("If you\'re experiencing technical problems please consider contacting our support. You can open a support ticket here: ", 'peepso-core'); ?>'
 				+ '			<a href="https://peepso.com/contact/" target="_blank" style="text-decoration:none;">https://PeepSo.com/contact/</a></p>'
-				+ '			<span class="ps-form__helper"><?php echo __('Your feedback will only be used to improve this plugin', 'peepso-core'); ?></span>'
+				+ '			<span class="ps-form__helper"><?php echo esc_attr__('Your feedback will only be used to improve this plugin', 'peepso-core'); ?></span>'
 				+ '			</div>'
 				+ '		</div>'
 				+ '		<div class="ps-dialog__footer">'
@@ -186,9 +186,9 @@ $confirmation_message = apply_filters('peepso_uninstall_confirmation_message', '
 
 			// Reset the deactivate button's text.
 			if ('confirm' === peepsoGetCurrentPanel()) {
-				$deactivateButton.text('<?php echo __('Yes - Deactivate', 'peepso-core'); ?>');
+				$deactivateButton.text('<?php echo esc_attr__('Yes - Deactivate', 'peepso-core'); ?>');
 			} else {
-				$deactivateButton.text('<?php echo __('Deactivate', 'peepso-core'); ?>');
+				$deactivateButton.text('<?php echo esc_attr__('Deactivate', 'peepso-core'); ?>');
 			}
 		}
 

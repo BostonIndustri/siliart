@@ -17,7 +17,7 @@ class PeepSoFieldTestDateagemin extends PeepSoFieldTestAbstract
 
 		if( $age < $this->args) {
 
-			$this->error = sprintf( __('Minimum age: %s', 'peepso-core'), $this->args);
+			$this->error = sprintf( esc_attr__('Minimum age: %s', 'peepso-core'), $this->args);
 
 			return FALSE;
 		}

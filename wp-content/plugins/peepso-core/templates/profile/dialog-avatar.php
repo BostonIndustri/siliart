@@ -5,18 +5,18 @@
         <div class="psm-avatar__manage">
             <a href="#" class="ps-btn ps-btn--sm ps-btn--abort ps-js-remove">
                 <i class="gcis gci-times"></i>
-                <span><?php echo __('Delete', 'peepso-core'); ?></span>
+                <span><?php echo esc_attr__('Delete', 'peepso-core'); ?></span>
                 <img src="<?php echo PeepSo::get_asset('images/ajax-loader.gif'); ?>" alt="loading" style="display:none" />
             </a>
             <a href="#" class="ps-btn ps-btn--sm ps-btn--app ps-js-upload">
                 <i class="gcis gci-upload"></i>
-                <span><?php echo __('Upload new', 'peepso-core'); ?></span>
+                <span><?php echo esc_attr__('Upload new', 'peepso-core'); ?></span>
                 <img src="<?php echo PeepSo::get_asset('images/ajax-loader.gif'); ?>" alt="loading" style="display:none" />
             </a>
             <?php if ( PeepSo::get_option('avatars_gravatar_enable') == 1 ) { ?>
                 <a href="#" class="ps-btn ps-btn--sm ps-btn--warning ps-js-gravatar">
                     <i class="gcis gci-image"></i>
-                    <span><?php echo __('Use Gravatar', 'peepso-core'); ?></span>
+                    <span><?php echo esc_attr__('Use Gravatar', 'peepso-core'); ?></span>
                     <img src="<?php echo PeepSo::get_asset('images/ajax-loader.gif'); ?>" alt="loading" style="display:none" />
                 </a>
             <?php } ?>
@@ -24,11 +24,11 @@
 
         <div class="psm-avatar__crop ps-js-has-avatar">
             <div class="psm-avatar__crop-title">
-                <?php echo __('Uploaded Photo', 'peepso-core'); ?>
+                <?php echo esc_attr__('Uploaded Photo', 'peepso-core'); ?>
             </div>
 
             <div class="psm-avatar__crop-box">
-                <img alt="<?php echo __('Automatically Generated. (Maximum width: 160px)', 'peepso-core'); ?>"
+                <img alt="<?php echo esc_attr__('Automatically Generated. (Maximum width: 160px)', 'peepso-core'); ?>"
                      class="ps-image-preview ps-name-tips ps-js-original" />
                 <div class="ps-avatar__loading ps-js-avatar-loading" style="display:none;">
                     <div class="ps-avatar__loading-inner">
@@ -39,7 +39,7 @@
 
             <div class="psm-avatar__crop-actions">
                 <a href="#" class="ps-btn ps-btn--sm ps-btn--app ps-js-btn-crop">
-                    <?php echo __('Crop', 'peepso-core'); ?>
+                    <?php echo esc_attr__('Crop', 'peepso-core'); ?>
                 </a>
 
                 <a href="#" class="ps-btn ps-btn--sm ps-btn--app ps-js-btn-rotate-l">
@@ -53,11 +53,11 @@
 
                 <a href="#" class="ps-btn ps-btn--sm ps-btn--app ps-js-btn-crop-cancel">
                     <i class="gcis gci-times"></i>
-                    <?php echo __('Cancel', 'peepso-core'); ?>
+                    <?php echo esc_attr__('Cancel', 'peepso-core'); ?>
                 </a>
                 <a href="#" class="ps-btn ps-btn--sm ps-btn--app ps-js-btn-crop-save" style="display:none">
                     <i class="gcis gci-check"></i>
-                    <span><?php echo __('Confirm', 'peepso-core'); ?></span>
+                    <span><?php echo esc_attr__('Confirm', 'peepso-core'); ?></span>
                     <img src="<?php echo PeepSo::get_asset('images/ajax-loader.gif'); ?>" alt="loading" style="display:none" />
                 </a>
 
@@ -65,15 +65,15 @@
         </div>
 
         <div class="ps-js-no-avatar">
-            <div class="ps-alert ps-alert--neutral"><?php echo __('No avatar uploaded. Use the button above to select and upload one.', 'peepso-core'); ?></div>
+            <div class="ps-alert ps-alert--neutral"><?php echo esc_attr__('No avatar uploaded. Use the button above to select and upload one.', 'peepso-core'); ?></div>
         </div>
     </div>
     <div class="psm-avatar__preview show-avatar show-thumbnail">
         <div class="psm-avatar__preview-title">
-            <?php echo __('Preview', 'peepso-core'); ?>
+            <?php echo esc_attr__('Preview', 'peepso-core'); ?>
         </div>
         <div class="ps-avatar ps-avatar--large">
-            <img src="<?php echo $data['img_avatar'] ?>" alt="<?php echo __('Avatar Preview', 'peepso-core'); ?>"
+            <img src="<?php echo $data['img_avatar'] ?>" alt="<?php echo esc_attr__('Avatar Preview', 'peepso-core'); ?>"
                  class="ps-js-preview" />
         </div>
         <div class="psm-avatar__preview-desc">

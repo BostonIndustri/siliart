@@ -27,14 +27,14 @@ $no_cover = $no_cover ?? FALSE;
         <div class="ps-landing__content">
           <div class="ps-landing__title">
             <?php if($activated) : ?>
-              <?php echo __('Thank you', 'peepso-core');?>
+              <?php echo esc_attr__('Thank you', 'peepso-core');?>
             <?php else : ?>
               <?php echo PeepSo::get_option('site_registration_header', __('Get Connected!', 'peepso-core')); ?>
             <?php endif; ?>
           </div>
           <div class="ps-landing__text">
             <?php if($activated) : ?>
-              <?php echo __('Your email address was confirmed. You can now log in.','peepso-core');?>
+              <?php echo esc_attr__('Your email address was confirmed. You can now log in.','peepso-core');?>
             <?php else : ?>
               <?php echo PeepSo::get_option('site_registration_callout', __('Come and join our community. Expand your network and get to know new people!', 'peepso-core')); ?>
             <?php endif; ?>

@@ -17,7 +17,7 @@ class PeepSoFieldTestDateagemax extends PeepSoFieldTestAbstract
 
 		if( $age > $this->args) {
 
-			$this->error = sprintf( __('Maximum age: %s', 'peepso-core'), $this->args);
+			$this->error = sprintf( esc_attr__('Maximum age: %s', 'peepso-core'), $this->args);
 
 			return FALSE;
 		}

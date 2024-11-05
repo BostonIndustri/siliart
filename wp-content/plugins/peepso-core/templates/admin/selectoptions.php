@@ -3,7 +3,7 @@
 $options = $field->get_options();
 ?>
 
-<h3 class="ps-settings__title"><?php echo __('Select Options');?></h3>
+<h3 class="ps-settings__title"><?php echo esc_attr__('Select Options');?></h3>
 <div style="position:relative">
 	<div class="ps-js-options">
 		<a href="#" class="ps-js-focusguard" data-tag="first"></a>
@@ -28,7 +28,7 @@ $options = $field->get_options();
                 }elseif(is_string($k) && in_array($k,['m','f'])) {
                     // Special case: PeepSo Gender
 					echo "<small>";
-					echo __('Default PeepSo Gender:', 'peepso-core');
+					echo esc_attr__('Default PeepSo Gender:', 'peepso-core');
 					echo ' ' ;
 					echo ('m' == $k) ? __('male','peepso-core') : __('female','peepso-core');
 					echo "</small>";
@@ -103,7 +103,7 @@ $options = $field->get_options();
 		<a href="#" class="ps-js-focusguard" data-tag="last"></a>
 	</div>
     <?php if($field->admin_can_add_delete_options) { ?>
-	<button class="button ps-js-option-new"><?php echo __('Add new option', 'peepso-core'); ?></button>
+	<button class="button ps-js-option-new"><?php echo esc_attr__('Add new option', 'peepso-core'); ?></button>
     <?php } ?>
 	<div class="ps-settings__loading ps-js-loading"></div>
 </div>

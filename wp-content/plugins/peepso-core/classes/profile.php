@@ -922,7 +922,7 @@ class PeepSoProfile extends PeepSoAjaxCallback
         $curr_date = date('U', current_time('timestamp', 0));
 
         echo '<span title="', esc_attr($data['not_timestamp'], ' ', $data['not_timestamp']), '">';
-        echo PeepSoTemplate::time_elapsed($post_date, $curr_date), '</span>';
+        echo esc_attr(PeepSoTemplate::time_elapsed($post_date, $curr_date)), '</span>';
     }
 
     /*
@@ -936,7 +936,7 @@ class PeepSoProfile extends PeepSoAjaxCallback
             return $id;
         }
 
-        echo $id;
+        echo esc_attr($id);
     }
 
     /*
@@ -1032,7 +1032,7 @@ class PeepSoProfile extends PeepSoAjaxCallback
                         $post_content .= __('your comment', 'peepso-core');
                     }
 
-                    echo $post_content;
+                    echo esc_attr($post_content);
                 }
 
                 $print_link = ob_get_clean();
@@ -1086,13 +1086,13 @@ class PeepSoProfile extends PeepSoAjaxCallback
                 // Print the bits only for legacy pre-translated notifications
                 if(!strlen($data['not_message_args'])) {
                     if (!in_array($data['not_type'], array('like_post', 'like_comment')) && $activity_type['type'] == 'post') {
-                        echo ' ' . __('on', 'peepso-core') . ' ';
+                        echo ' ' . esc_attr(__('on', 'peepso-core')) . ' ';
 
                         if (intval($parent_post->post_author) === $current_user_id) {
-                            echo sprintf(__('your post', 'peepso-core'), $activity_type['text']);
+                            echo esc_attr(sprintf(__('your post', 'peepso-core'), $activity_type['text']));
                         } else {
                             $post_content = sprintf(__('a %s', 'peepso-core'), $activity_type['text']);
-                            echo __('a post you follow', 'peepso-core');
+                            echo esc_attr(__('a post you follow', 'peepso-core'));
                         }
                     }
                 }
@@ -1117,7 +1117,7 @@ class PeepSoProfile extends PeepSoAjaxCallback
                 ob_start();
                 // Print the bits only for legacy pre-translated notifications
                 if(!strlen($data['not_message_args'])) {
-                    echo ' ', sprintf(__('your %s', 'peepso-core'), $activity_type['text']);
+                    echo ' ', esc_attr(sprintf(__('your %s', 'peepso-core'), $activity_type['text']));
                 }
                 $print_link = ob_get_clean();
             }
@@ -1126,9 +1126,9 @@ class PeepSoProfile extends PeepSoAjaxCallback
         $print_link = apply_filters('peepso_modify_link_item_notification', array($print_link, $link), $data);
 
         if(is_array($print_link)) {
-            echo $print_link[0];
+            echo wp_kses_post($print_link[0]);
         } else {
-            echo $print_link;
+            echo wp_kses_post($print_link);
         }
     }
 
@@ -1139,7 +1139,7 @@ class PeepSoProfile extends PeepSoAjaxCallback
     public function notification_message()
     {
         $message =  PeepSoNotifications::parse($this->note_data);
-        echo $message;
+        echo wp_kses_post($message);
     }
 
     public function notification_human_friendly($override = FALSE, $forced=FALSE) {
@@ -1179,7 +1179,7 @@ class PeepSoProfile extends PeepSoAjaxCallback
         if(!is_array($preview) && strlen($preview)) {
             ?>
             <div class="ps-notification__desc-quote">
-                <span><?php echo $icon;?><?php echo trim(truncateHtml($preview, PeepSo::get_option('notification_preview_length',50), PeepSo::get_option('notification_preview_ellipsis','...'), false, FALSE)); ?></span>
+                <span><?php echo wp_kses_post($icon);?><?php echo wp_kses_post(trim(truncateHtml($preview, PeepSo::get_option('notification_preview_length',50), PeepSo::get_option('notification_preview_ellipsis','...'), false, FALSE))); ?></span>
             </div>
             <?php
         }
@@ -1190,7 +1190,7 @@ class PeepSoProfile extends PeepSoAjaxCallback
      */
     public function notification_timestamp()
     {
-        echo $this->note_data['not_timestamp'];
+        echo wp_kses_post($this->note_data['not_timestamp']);
     }
 
     /*
@@ -1198,7 +1198,7 @@ class PeepSoProfile extends PeepSoAjaxCallback
      */
     public function notification_type()
     {
-        echo $this->note_data['not_type'];
+        echo wp_kses_post($this->note_data['not_type']);
     }
 
 
@@ -1246,14 +1246,14 @@ class PeepSoProfile extends PeepSoAjaxCallback
                 echo ' onclick="', esc_js($data['click']), '" ';
 
             if (isset($data['extra']))
-                echo $data['extra'];
+                echo wp_kses_post($data['extra']);
             echo '>';
             if (isset($data['icon']))
-                echo '<i class="' . $data['icon'] . '"></i> ';
+                echo '<i class="' . esc_attr($data['icon']) . '"></i> ';
             if (isset($data['label']))
-                echo'<span>' . $data['label'] . '</span>';
+                echo'<span>' . esc_attr($data['label']) . '</span>';
 
-            echo '<img class="ps-loading" src="', PeepSo::get_asset('images/ajax-loader.gif'), '" style="display: none"></a>', PHP_EOL;
+            echo '<img class="ps-loading" src="', esc_url(PeepSo::get_asset('images/ajax-loader.gif')), '" style="display: none"></a>', PHP_EOL;
         }
 
         if (is_user_logged_in()) {
@@ -1280,14 +1280,14 @@ class PeepSoProfile extends PeepSoAjaxCallback
                 echo ' onclick="', esc_js($data['click']), '" ';
 
             if (isset($data['extra']))
-                echo $data['extra'];
+                echo wp_kses_post($data['extra']);
             echo '>';
             if (isset($data['icon']))
-                echo '<i class="' . $data['icon'] . '"></i> ';
+                echo '<i class="' . esc_attr($data['icon']) . '"></i> ';
             if (isset($data['label']))
-                echo'<span>' . $data['label'] . '</span>';
+                echo'<span>' . esc_attr($data['label']) . '</span>';
 
-            echo '<img class="ps-loading" src="', PeepSo::get_asset('images/ajax-loader.gif'), '" style="display: none"></a>', PHP_EOL;
+            echo '<img class="ps-loading" src="', esc_url(PeepSo::get_asset('images/ajax-loader.gif')), '" style="display: none"></a>', PHP_EOL;
         }
     }
 
@@ -1541,8 +1541,8 @@ class PeepSoProfile extends PeepSoAjaxCallback
 
             if ($has_onclick || $has_href) {
                 echo "<a ";
-                if($has_onclick) { echo "href=\"#\" onclick=\"$click; return false;\" ";}
-                if($has_href)    { echo "href=\"$href\" "; }
+                if($has_onclick) { echo "href=\"#\" onclick=\"" . esc_js($click) . "; return false;\" ";}
+                if($has_href)    { echo "href=\"" . esc_url($href) . "\" "; }
 
                 echo " $title $class >" . PHP_EOL;
             } else {
@@ -1550,7 +1550,7 @@ class PeepSoProfile extends PeepSoAjaxCallback
             }
 
             if($icon!=$previous_icon || $has_linebreak) {
-                echo "<i class=\"$icon\"></i>";
+                echo "<i class=\"".$icon."\"></i>";
                 $previous_icon = $icon;
             }
 
@@ -1563,9 +1563,9 @@ class PeepSoProfile extends PeepSoAjaxCallback
                     $count = '';
                 }
 
-                echo "<span id=\"$section-count\"><strong>$count</strong>$label</span>";
+                echo "<span id=\"".esc_attr($section)."-count\"><strong>".esc_attr($count)."</strong>".esc_attr($label)."</span>";
             } else {
-                echo "<span>$label</span>";
+                echo "<span>".esc_attr($label)."</span>";
             }
 
             echo ( ($has_onclick || $has_href) ? '</a>' : '</span>'), PHP_EOL;
@@ -1820,7 +1820,7 @@ class PeepSoProfile extends PeepSoAjaxCallback
     public function block_username()
     {
         $PeepSoUser = PeepSoUser::get_instance($this->block_data['blk_blocked_id']);
-        echo $PeepSoUser->get_fullname();
+        echo esc_attr($PeepSoUser->get_fullname());
     }
 
     /**************** UTILITIES - EDIT ACCOUNT ****************/
@@ -2637,18 +2637,19 @@ class PeepSoProfile extends PeepSoAjaxCallback
 
         $custom_field .= '<div class="ps-profile__notification-checkbox ps-preferences__checkbox">';
         foreach ($field['fields'] as $value) {
+
             $custom_field .= '<span data-type="' . esc_attr($value['label']) . '">';
             if ('checkbox' === $value['type']) {
                 if (isset($field['section']))
                     $custom_field .= '
-						<div class="ps-checkbox">
+						<div class="ps-checkbox"'. ('alsp_email' == $value['name'] ? ' style="opacity:0;cursor:default" ' : '' ).'>
 							<input type="checkbox" aria-labelledby="' . $name . '" class="ps-checkbox__input" id="' . esc_attr($value['name']) . '" onclick="ps_alerts.toggle(\'' . esc_attr($value['name']) . '\', this.checked)" >
 							<label class="ps-checkbox__label" for="' . esc_attr($value['name']) . '"></label>
 						</div>';
                 else {
                     $checked = (1 === $value['value'])? 'checked="checked"' : '';
                     $custom_field .= '
-						<div class="ps-checkbox">
+						<div class="ps-checkbox"'. ('alsp_email' == $value['name'] ? ' style="opacity:0;cursor:default;z-index:-999" ' : '' ).'>
 							<input type="checkbox" aria-labelledby="' . $name . ' ' . esc_attr($value['label']) . '" id="' . esc_attr($value['name']) . '" name="' . esc_attr($value['name']) . '" value="1" ' . $checked . ' class="ps-checkbox__input ' . esc_attr($value['group_key']) . '" />
 							<label class="ps-checkbox__label" for="' . esc_attr($value['name']) . '"></label>
 						</div>';

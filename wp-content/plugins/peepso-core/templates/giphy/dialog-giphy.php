@@ -1,7 +1,7 @@
 <div class="ps-giphy ps-giphy--slider ps-js-giphy-container">
 	<div class="ps-giphy__search">
 		<input type="text" class="ps-input ps-input--sm ps-giphy__input ps-js-giphy-query"
-		placeholder="<?php echo __('Search...', 'peepso-core') ?>" style="display:none" />
+		placeholder="<?php echo esc_attr__('Search...', 'peepso-core') ?>" style="display:none" />
 		<div class="ps-giphy__powered">
 			<a href="https://giphy.com/" target="_blank"></a>
 		</div>

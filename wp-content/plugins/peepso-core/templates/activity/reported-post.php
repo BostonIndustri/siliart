@@ -15,7 +15,7 @@ if(PeepSo::is_admin() && $reported) {
 
     <div class="ps-post ps-js-activity <?php echo (TRUE == $pinned) ? 'ps-post--pinned ps-js-activity-pinned' : ''?> <?php echo (TRUE == $unpublished) ? 'ps-post--unpublished ps-js-activity-unpublished' : ''?>   ps-js-activity--<?php echo $act_id; ?> <?php do_action('peepso_action_post_classes');?>"
          data-id="<?php echo $act_id; ?>" data-post-id="<?php echo $ID; ?>" data-author="<?php echo $post_author ?>"
-         data-module-id="<?php echo $act_module_id ?>" ps-data-pinned="<?php echo __('Pinned', 'peepso-core');?>">
+         data-module-id="<?php echo $act_module_id ?>" ps-data-pinned="<?php echo esc_attr__('Pinned', 'peepso-core');?>">
 
         <?php if($reported) PeepSoTemplate::exec_template('activity','post-reports', ['post_id'=>$ID, 'module_id'=>$act_module_id, 'type'=>'post', 'reported'=>$reported, 'reports'=>$reports,'context'=>$PeepSoActivity->post_link(FALSE),'unpublished'=>$unpublished]); ?>
 
@@ -40,7 +40,7 @@ if(PeepSo::is_admin() && $reported) {
 
                     <a class="ps-post__date ps-js-timestamp" href="<?php $PeepSoActivity->post_link(); ?>" data-timestamp="<?php $PeepSoActivity->post_timestamp(); ?>"><?php $PeepSoActivity->post_age(); ?></a>
                     <?php if (apply_filters('peepso_activity_has_privacy', TRUE)) { ?>
-                        <div class="ps-post__privacy ps-dropdown ps-dropdown--privacy ps-js-dropdown ps-js-privacy--<?php echo $act_id; ?>" title="<?php echo __('Post privacy', 'peepso-core');?>">
+                        <div class="ps-post__privacy ps-dropdown ps-dropdown--privacy ps-js-dropdown ps-js-privacy--<?php echo $act_id; ?>" title="<?php echo esc_attr__('Post privacy', 'peepso-core');?>">
                             <a href="#" data-value="" class="ps-post__privacy-toggle ps-dropdown__toggle ps-js-dropdown-toggle">
                                 <div class="ps-post__privacy-label dropdown-value">
                                     <?php $PeepSoActivity->post_access(); ?>

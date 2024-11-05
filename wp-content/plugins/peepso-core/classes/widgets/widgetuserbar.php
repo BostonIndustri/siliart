@@ -92,10 +92,10 @@ class PeepSoWidgetUserBar extends WP_Widget
         ?>
 
         <?php foreach ($toolbar as $item => $data) { ?>
-          <div class="ps-notif <?php echo $data['class'];?>">
-            <a class="ps-notif__toggle" href="<?php echo $data['href'];?>" title="<?php echo esc_attr($data['label']);?>">
-              <i class="<?php echo $data['icon'];?>"></i>
-              <span class="ps-notif__bubble js-counter ps-js-counter"><?php echo ($data['count'] > 0) ? $data['count'] : '';?></span>
+          <div class="ps-notif <?php echo esc_attr($data['class']);?>">
+            <a class="ps-notif__toggle" href="<?php echo esc_url($data['href']);?>" title="<?php echo esc_attr($data['label']);?>">
+              <i class="<?php echo esc_attr($data['icon']);?>"></i>
+              <span class="ps-notif__bubble js-counter ps-js-counter"><?php echo ($data['count'] > 0) ? esc_attr($data['count']) : '';?></span>
             </a>
           </div>
         <?php } ?>
@@ -153,101 +153,101 @@ class PeepSoWidgetUserBar extends WP_Widget
 
         ?>
         <p>
-            <label for="<?php echo $this->get_field_id('content_position'); ?>">
-                <?php echo __('Content Position', 'peepso-core'); ?>
-                <select class="widefat" id="<?php echo $this->get_field_id('content_position'); ?>"
-                        name="<?php echo $this->get_field_name('content_position'); ?>">
-                    <option value="left" <?php if('left' === $content_position) echo ' selected="selected" ';?>><?php echo __('Left', 'peepso-core'); ?></option>
-                    <option value="right" <?php if('right' === $content_position) echo ' selected="selected" ';?>><?php echo __('Right', 'peepso-core'); ?></option>
-                    <option value="center" <?php if('center' === $content_position) echo ' selected="selected" ';?>><?php echo __('Center', 'peepso-core'); ?></option>
-                    <option value="space" <?php if('space' === $content_position) echo ' selected="selected" ';?>><?php echo __('Space Between', 'peepso-core'); ?></option>
+            <label for="<?php echo esc_attr($this->get_field_id('content_position')); ?>">
+                <?php echo esc_attr(__('Content Position', 'peepso-core')); ?>
+                <select class="widefat" id="<?php echo esc_attr($this->get_field_id('content_position')); ?>"
+                        name="<?php echo esc_attr($this->get_field_name('content_position')); ?>">
+                    <option value="left" <?php if('left' === $content_position) echo ' selected="selected" ';?>><?php echo esc_attr(__('Left', 'peepso-core')); ?></option>
+                    <option value="right" <?php if('right' === $content_position) echo ' selected="selected" ';?>><?php echo esc_attr(__('Right', 'peepso-core')); ?></option>
+                    <option value="center" <?php if('center' === $content_position) echo ' selected="selected" ';?>><?php echo esc_attr(__('Center', 'peepso-core')); ?></option>
+                    <option value="space" <?php if('space' === $content_position) echo ' selected="selected" ';?>><?php echo esc_attr(__('Space Between', 'peepso-core')); ?></option>
                 </select>
             </label>
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id('guest_behavior'); ?>">
-                <?php echo __('Guest view', 'peepso-core'); ?>
-                <select class="widefat" id="<?php echo $this->get_field_id('guest_behavior'); ?>"
-                        name="<?php echo $this->get_field_name('guest_behavior'); ?>">
-                    <option value="login"><?php echo __('Log-in link', 'peepso-core'); ?></option>
-                    <option value="hide" <?php if('hide' === $guest_behavior) echo ' selected="selected" ';?>><?php echo __('Hide', 'peepso-core'); ?></option>
+            <label for="<?php echo esc_attr($this->get_field_id('guest_behavior')); ?>">
+                <?php echo esc_attr(__('Guest view', 'peepso-core')); ?>
+                <select class="widefat" id="<?php echo esc_attr($this->get_field_id('guest_behavior')); ?>"
+                        name="<?php echo esc_attr($this->get_field_name('guest_behavior')); ?>">
+                    <option value="login"><?php echo esc_attr(__('Log-in link', 'peepso-core')); ?></option>
+                    <option value="hide" <?php if('hide' === $guest_behavior) echo ' selected="selected" ';?>><?php echo esc_attr(__('Hide', 'peepso-core')); ?></option>
                 </select>
             </label>
         </p>
-        <b><?php echo __('Name style', 'peepso-core');?></b>
+        <b><?php echo esc_attr(__('Name style', 'peepso-core'));?></b>
         <p>
-          <label for="<?php echo $this->get_field_id('show_name'); ?>">
-              <select class="widefat" id="<?php echo $this->get_field_id('show_name'); ?>"
-                      name="<?php echo $this->get_field_name('show_name'); ?>">
-                  <option value="0"><?php echo __('Hidden', 'peepso-core'); ?></option>
-                  <option value="1" <?php if(1 === $show_name) echo ' selected="selected" ';?>><?php echo __('Short name', 'peepso-core'); ?></option>
-                  <option value="2" <?php if(2 === $show_name) echo ' selected="selected" ';?>><?php echo __('Full name', 'peepso-core'); ?></option>
+          <label for="<?php echo esc_attr($this->get_field_id('show_name')); ?>">
+              <select class="widefat" id="<?php echo esc_attr($this->get_field_id('show_name')); ?>"
+                      name="<?php echo esc_attr($this->get_field_name('show_name')); ?>">
+                  <option value="0"><?php echo esc_attr(__('Hidden', 'peepso-core')); ?></option>
+                  <option value="1" <?php if(1 === $show_name) echo ' selected="selected" ';?>><?php echo esc_attr(__('Short name', 'peepso-core')); ?></option>
+                  <option value="2" <?php if(2 === $show_name) echo ' selected="selected" ';?>><?php echo esc_attr(__('Full name', 'peepso-core')); ?></option>
               </select>
           </label>
         </p>
-        <b><?php echo __('Compact mode', 'peepso-core');?> <abbr title='When enabled, the Userbar is hidden under a profile icon toggle. "Disabled" will only work properly on mobile if there are no other widgets and elements (like logo) next to the widget. This setting has no effect when previewing the widget in a block editor.'><i class="gcis gci-question-circle"></i></abbr></b>
+        <b><?php echo esc_attr(__('Compact mode', 'peepso-core'));?> <abbr title='When enabled, the Userbar is hidden under a profile icon toggle. "Disabled" will only work properly on mobile if there are no other widgets and elements (like logo) next to the widget. This setting has no effect when previewing the widget in a block editor.'><i class="gcis gci-question-circle"></i></abbr></b>
         <p>
-            <label for="<?php echo $this->get_field_id('compact_mode'); ?>">
-                <select class="widefat" id="<?php echo $this->get_field_id('compact_mode'); ?>"
-                        name="<?php echo $this->get_field_name('compact_mode'); ?>">
-                    <option value="0"><?php echo __('Disable', 'peepso-core'); ?></option>
-                    <option value="1" <?php if(1 === $compact_mode) echo ' selected="selected" ';?>><?php echo __('Mobile', 'peepso-core'); ?></option>
-                    <option value="2" <?php if(2 === $compact_mode) echo ' selected="selected" ';?>><?php echo __('Desktop', 'peepso-core'); ?></option>
-                    <option value="3" <?php if(3 === $compact_mode) echo ' selected="selected" ';?>><?php echo __('Always', 'peepso-core'); ?></option>
+            <label for="<?php echo esc_attr($this->get_field_id('compact_mode')); ?>">
+                <select class="widefat" id="<?php echo esc_attr($this->get_field_id('compact_mode')); ?>"
+                        name="<?php echo esc_attr($this->get_field_name('compact_mode')); ?>">
+                    <option value="0"><?php echo esc_attr(__('Disable', 'peepso-core')); ?></option>
+                    <option value="1" <?php if(1 === $compact_mode) echo ' selected="selected" ';?>><?php echo esc_attr(__('Mobile', 'peepso-core')); ?></option>
+                    <option value="2" <?php if(2 === $compact_mode) echo ' selected="selected" ';?>><?php echo esc_attr(__('Desktop', 'peepso-core')); ?></option>
+                    <option value="3" <?php if(3 === $compact_mode) echo ' selected="selected" ';?>><?php echo esc_attr(__('Always', 'peepso-core')); ?></option>
                 </select>
             </label>
         </p>
-        <b><?php echo __('Other elements', 'peepso-core');?></b>
+        <b><?php echo esc_attr(__('Other elements', 'peepso-core'));?></b>
         <p>
-            <input name="<?php echo $this->get_field_name('show_avatar'); ?>" class="ace ace-switch ace-switch-2"
-                   id="<?php echo $this->get_field_id('show_avatar'); ?>" type="checkbox" value="1"
+            <input name="<?php echo esc_attr($this->get_field_name('show_avatar')); ?>" class="ace ace-switch ace-switch-2"
+                   id="<?php echo esc_attr($this->get_field_id('show_avatar')); ?>" type="checkbox" value="1"
                 <?php if(1 === $show_avatar) echo ' checked="" ';?>>
-            <label class="lbl" for="<?php echo $this->get_field_id('show_avatar'); ?>">
-                <?php echo __('Avatar', 'peepso-core'); ?>
+            <label class="lbl" for="<?php echo esc_attr($this->get_field_id('show_avatar')); ?>">
+                <?php echo esc_attr(__('Avatar', 'peepso-core')); ?>
             </label>
         </p>
         <p>
-            <input name="<?php echo $this->get_field_name('show_notifications'); ?>" class="ace ace-switch ace-switch-2"
-                   id="<?php echo $this->get_field_id('show_notifications'); ?>" type="checkbox" value="1"
+            <input name="<?php echo esc_attr($this->get_field_name('show_notifications')); ?>" class="ace ace-switch ace-switch-2"
+                   id="<?php echo esc_attr($this->get_field_id('show_notifications')); ?>" type="checkbox" value="1"
                 <?php if(1 === $show_notifications) echo ' checked="" ';?>>
-            <label class="lbl" for="<?php echo $this->get_field_id('show_notifications'); ?>">
-                <?php echo __('Notifications', 'peepso-core'); ?>
+            <label class="lbl" for="<?php echo esc_attr($this->get_field_id('show_notifications')); ?>">
+                <?php echo esc_attr(__('Notifications', 'peepso-core')); ?>
             </label>
         </p>
         <p>
-            <input name="<?php echo $this->get_field_name('show_usermenu'); ?>" class="ace ace-switch ace-switch-2"
-                   id="<?php echo $this->get_field_id('show_usermenu'); ?>" type="checkbox" value="1"
+            <input name="<?php echo esc_attr($this->get_field_name('show_usermenu')); ?>" class="ace ace-switch ace-switch-2"
+                   id="<?php echo esc_attr($this->get_field_id('show_usermenu')); ?>" type="checkbox" value="1"
                 <?php if(1 === $show_usermenu) echo ' checked="" ';?>>
-            <label class="lbl" for="<?php echo $this->get_field_id('show_usermenu'); ?>">
-                <?php echo __('User dropdown menu', 'peepso-core'); ?>
+            <label class="lbl" for="<?php echo esc_attr($this->get_field_id('show_usermenu')); ?>">
+                <?php echo esc_attr(__('User dropdown menu', 'peepso-core')); ?>
             </label>
         </p>
         <p>
-            <input name="<?php echo $this->get_field_name('show_logout'); ?>" class="ace ace-switch ace-switch-2"
-                   id="<?php echo $this->get_field_id('show_logout'); ?>" type="checkbox" value="1"
+            <input name="<?php echo esc_attr($this->get_field_name('show_logout')); ?>" class="ace ace-switch ace-switch-2"
+                   id="<?php echo esc_attr($this->get_field_id('show_logout')); ?>" type="checkbox" value="1"
                 <?php if(1 === $show_logout) echo ' checked="" ';?>>
-            <label class="lbl" for="<?php echo $this->get_field_id('show_logout'); ?>">
-                <?php echo __('Logout icon', 'peepso-core'); ?>
+            <label class="lbl" for="<?php echo esc_attr($this->get_field_id('show_logout')); ?>">
+                <?php echo esc_attr(__('Logout icon', 'peepso-core')); ?>
             </label>
         </p>
         <?php if (class_exists('PeepSoVIP')) {?>
         <p>
-            <input name="<?php echo $this->get_field_name('show_vip'); ?>" class="ace ace-switch ace-switch-2"
-                   id="<?php echo $this->get_field_id('show_vip'); ?>" type="checkbox" value="1"
+            <input name="<?php echo esc_attr($this->get_field_name('show_vip')); ?>" class="ace ace-switch ace-switch-2"
+                   id="<?php echo esc_attr($this->get_field_id('show_vip')); ?>" type="checkbox" value="1"
                 <?php if(1 === $show_vip) echo ' checked="" ';?>>
-            <label class="lbl" for="<?php echo $this->get_field_id('show_vip'); ?>">
-                <?php echo __('VIP icons', 'peepso-core'); ?>
+            <label class="lbl" for="<?php echo esc_attr($this->get_field_id('show_vip')); ?>">
+                <?php echo esc_attr(__('VIP icons', 'peepso-core')); ?>
             </label>
         </p>
         <?php
         }
         if (class_exists('BadgeOS_PeepSo')) {?>
         <p>
-            <input name="<?php echo $this->get_field_name('show_badges'); ?>" class="ace ace-switch ace-switch-2"
-                   id="<?php echo $this->get_field_id('show_badges'); ?>" type="checkbox" value="1"
+            <input name="<?php echo esc_attr($this->get_field_name('show_badges')); ?>" class="ace ace-switch ace-switch-2"
+                   id="<?php echo esc_attr($this->get_field_id('show_badges')); ?>" type="checkbox" value="1"
                 <?php if(1 === $show_badges) echo ' checked="" ';?>>
-            <label class="lbl" for="<?php echo $this->get_field_id('show_badges'); ?>">
-                <?php echo __('Badges', 'peepso-core'); ?>
+            <label class="lbl" for="<?php echo esc_attr($this->get_field_id('show_badges')); ?>">
+                <?php echo esc_attr(__('Badges', 'peepso-core')); ?>
             </label>
         </p>
         <?php

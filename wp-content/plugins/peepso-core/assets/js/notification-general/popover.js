@@ -231,6 +231,22 @@ export default class NotificationPopoverGeneral extends NotificationPopover {
 			openedInNewWindow = true;
 		}
 
+		// Handle mobile app behavior.
+		if (!isUnread && 'object' === typeof ReactNativeWebView) {
+			$link.off('click').on('click', function (e) {
+				e.preventDefault();
+				e.stopPropagation();
+			});
+
+			ReactNativeWebView.postMessage(
+				JSON.stringify({
+					clickedLink: $link.attr('href'),
+					preferredTab: 'home'
+				})
+			);
+			return;
+		}
+
 		// Handle behavior for already read notification.
 		if (!isUnread) {
 			if (!openedInNewWindow) {
@@ -260,6 +276,17 @@ export default class NotificationPopoverGeneral extends NotificationPopover {
 			.then(() => {
 				$item.data('unread', false);
 				$btn.remove();
+
+				// Handle mobile app behavior.
+				if ('object' === typeof ReactNativeWebView) {
+					ReactNativeWebView.postMessage(
+						JSON.stringify({
+							clickedLink: $link.attr('href'),
+							preferredTab: 'home'
+						})
+					);
+					return;
+				}
 
 				// Follow  URL if link is not opened in a new window.
 				if (!openedInNewWindow) {

@@ -4,7 +4,7 @@
 
 <div class="ps-giphy ps-giphy--slider ps-giphy--chat ps-giphy__popover ps-js-giphy-container">
 	<div class="ps-giphy__search ps-giphy__search--popover">
-		<input type="text" class="ps-input ps-input--sm ps-giphy__input ps-js-giphy-query" placeholder="<?php echo __('Search...', 'peepso-core'); ?>">
+		<input type="text" class="ps-input ps-input--sm ps-giphy__input ps-js-giphy-query" placeholder="<?php echo esc_attr__('Search...', 'peepso-core'); ?>">
 		<div class="ps-giphy__powered ps-giphy__powered--chat">
 			<a href="https://giphy.com/" target="_blank"></a>
 		</div>

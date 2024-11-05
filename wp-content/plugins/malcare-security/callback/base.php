@@ -5,21 +5,21 @@ if (!class_exists('BVCallbackBase')) :
 
 class BVCallbackBase {
 
-	public static $wing_infos = array("MANAGE_WING_VERSION" => '1.6',
+	public static $wing_infos = array("MANAGE_WING_VERSION" => '1.7',
 		"ACTLOG_WING_VERSION" => '1.0',
 		"DYNSYNC_WING_VERSION" => '1.0',
 		"UPGRADER_WING_VERSION" => '1.1',
 		"BRAND_WING_VERSION" => '1.1',
 		"DB_WING_VERSION" => '1.3',
 		"ACCOUNT_WING_VERSION" => '1.2',
-		"MISC_WING_VERSION" => '1.3',
+		"MISC_WING_VERSION" => '1.4',
 		"FS_WING_VERSION" => '1.2',
-		"INFO_WING_VERSION" => '2.4',
-		"WATCH_WING_VERSION" => '1.4',
+		"INFO_WING_VERSION" => '2.6',
+		"WATCH_WING_VERSION" => '1.5',
 		"FS_WRITE_WING_VERSION" => '1.0',
 		"IPSTORE_WING_VERSION" => '1.4',
 		"PROTECT_WING_VERSION" => '1.2',
-		"SECURITY_WING_VERSION" => '1.2',
+		"SECURITY_WING_VERSION" => '1.3',
 		);
 
 	public function objectToArray($obj) {

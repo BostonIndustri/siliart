@@ -16,10 +16,10 @@ if($submissions) {
         <div class="ps-blogposts__tabs">
           <div class="ps-blogposts__tabs-inner">
             <div class="ps-blogposts__tab <?php if (!$create_tab) echo "ps-blogposts__tab--active"; ?>"><a
-                 href="<?php echo $PeepSoUser->get_profileurl() . 'blogposts/'; ?>"><?php echo __('View', 'peepso-core'); ?></a>
+                 href="<?php echo $PeepSoUser->get_profileurl() . 'blogposts/'; ?>"><?php echo esc_attr__('View', 'peepso-core'); ?></a>
             </div>
             <div class="ps-blogposts__tab <?php if ($create_tab) echo "ps-blogposts__tab--active"; ?>"><a
-                 href="<?php echo $PeepSoUser->get_profileurl() . 'blogposts/create/'; ?>"><?php echo __('Create', 'peepso-core'); ?></a>
+                 href="<?php echo $PeepSoUser->get_profileurl() . 'blogposts/create/'; ?>"><?php echo esc_attr__('Create', 'peepso-core'); ?></a>
             </div>
           </div>
         </div>

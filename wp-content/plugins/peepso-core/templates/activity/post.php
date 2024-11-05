@@ -25,7 +25,7 @@ $unpublished = 'pending' == $post_status;
 
 <div class="ps-post ps-js-activity <?php echo (TRUE == $pinned) ? 'ps-post--pinned ps-js-activity-pinned' : ''?> <?php echo (TRUE == $unpublished) ? 'ps-post--unpublished ps-js-activity-unpublished' : ''?>  ps-js-activity--<?php echo $act_id; ?> <?php do_action('peepso_action_post_classes');?>"
 	data-id="<?php echo $act_id; ?>" data-post-id="<?php echo $ID; ?>" data-author="<?php echo $post_author ?>"
-	data-module-id="<?php echo $act_module_id ?>" ps-data-pinned="<?php echo __('Pinned', 'peepso-core');?>">
+	data-module-id="<?php echo $act_module_id ?>" ps-data-pinned="<?php echo esc_attr__('Pinned', 'peepso-core');?>">
 
 	<?php
 	// if post is pinned and it's visibility is limited, display a warning
@@ -58,7 +58,7 @@ $unpublished = 'pending' == $post_status;
 				?>
         <a class="ps-post__date ps-js-timestamp" href="<?php $PeepSoActivity->post_link(); ?>" data-timestamp="<?php $PeepSoActivity->post_timestamp(); ?>"><?php $PeepSoActivity->post_age(); ?></a>
 				<?php if (($post_author == get_current_user_id() || PeepSo::is_admin()) && apply_filters('peepso_activity_has_privacy', TRUE)) { ?>
-				<div class="ps-post__privacy ps-dropdown ps-dropdown--privacy ps-js-dropdown ps-js-privacy--<?php echo $act_id; ?>" title="<?php echo __('Post privacy', 'peepso-core');?>">
+				<div class="ps-post__privacy ps-dropdown ps-dropdown--privacy ps-js-dropdown ps-js-privacy--<?php echo $act_id; ?>" title="<?php echo esc_attr__('Post privacy', 'peepso-core');?>">
 					<a href="#" data-value="" class="ps-post__privacy-toggle ps-dropdown__toggle ps-js-dropdown-toggle">
 						<div class="ps-post__privacy-label dropdown-value">
 							<?php $PeepSoActivity->post_access(); ?>
@@ -140,7 +140,7 @@ $unpublished = 'pending' == $post_status;
 
 		        <?php if(is_user_logged_in() && !$comments_open) { ?>
 		        <div class="ps-comments__closed ps-js-comments-closed">
-		            <i class="fas fa-lock"></i> <?php echo __('Comments are closed', 'peepso-core');?>
+		            <i class="fas fa-lock"></i> <?php echo esc_attr__('Comments are closed', 'peepso-core');?>
 		        </div>
 		        <?php }  ?>
 
@@ -158,7 +158,7 @@ $unpublished = 'pending' == $post_status;
 							oninput="return activity.on_commentbox_change(this);"
 							onfocus="activity.on_commentbox_focus(this);"
 							onblur="activity.on_commentbox_blur(this);"
-							placeholder="<?php echo __('Write a comment...', 'peepso-core');?>"></textarea>
+							placeholder="<?php echo esc_attr__('Write a comment...', 'peepso-core');?>"></textarea>
 						<?php
 						// call function to add button addons for comments
 						$PeepSoActivity->show_commentsbox_addons();
@@ -170,8 +170,8 @@ $unpublished = 'pending' == $post_status;
 							<div> </div>
 						</div>
 						<div class="ps-comments__reply-actions ps-comment-actions" style="display:none;">
-							<button onclick="return activity.comment_cancel(<?php echo $act_id; ?>);" class="ps-btn ps-button-cancel"><?php echo __('Clear', 'peepso-core'); ?></button>
-							<button onclick="return activity.comment_save(<?php echo $act_id; ?>, this);" class="ps-btn ps-btn--action ps-btn-primary ps-button-action" disabled><?php echo __('Post', 'peepso-core'); ?></button>
+							<button onclick="return activity.comment_cancel(<?php echo $act_id; ?>);" class="ps-btn ps-button-cancel"><?php echo esc_attr__('Clear', 'peepso-core'); ?></button>
+							<button onclick="return activity.comment_save(<?php echo $act_id; ?>, this);" class="ps-btn ps-btn--action ps-btn-primary ps-button-action" disabled><?php echo esc_attr__('Post', 'peepso-core'); ?></button>
 						</div>
 					</div>
 				</div>
@@ -184,12 +184,12 @@ $unpublished = 'pending' == $post_status;
 							$disable_registration = intval(PeepSo::get_option('site_registration_disabled', 0));
 
 							if (0 === $disable_registration) { ?>
-								<?php echo sprintf( __('%sRegister%s or %sLogin%s to react or comment on this post.', 'peepso-core'),
+								<?php echo sprintf( esc_attr__('%sRegister%s or %sLogin%s to react or comment on this post.', 'peepso-core'),
 										'<a href="' . PeepSo::get_page('register') . '">', '</a>',
 									 	'<a href="javascript:" onClick="pswindow.show( peepsodata.login_dialog_title, peepsodata.login_dialog );">', '</a>');
 										?>
 							<?php } else { ?>
-								<?php echo sprintf( __('%sLogin%s to react or comment on this post.', 'peepso-core'),
+								<?php echo sprintf( esc_attr__('%sLogin%s to react or comment on this post.', 'peepso-core'),
 										 '<a href="javascript:" onClick="pswindow.show( peepsodata.login_dialog_title, peepsodata.login_dialog );">', '</a>');
 										?>
 							<?php } ?>

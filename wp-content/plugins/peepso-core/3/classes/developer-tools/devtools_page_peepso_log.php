@@ -42,7 +42,7 @@ class PeepSo3_Developer_Tools_Page_PeepSo_Log extends PeepSo3_Developer_Tools_Pa
             <pre id="tail" style="width:100%;height:800px;overflow:scroll"></pre>
             <?php
         } else {
-            echo __('PeepSo needs to be installed and activated', 'peepso_debug');
+            echo esc_attr__('PeepSo needs to be installed and activated', 'peepso_debug');
         }
         $this->page_end();
     }

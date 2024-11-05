@@ -18,7 +18,7 @@ $PeepSoUser = PeepSoUser::get_instance();
 				oninput="return activity.on_commentbox_change(this);"
 				onfocus="activity.on_commentbox_focus(this);"
 				onblur="activity.on_commentbox_blur(this);"
-				placeholder="<?php echo __('Write a reply...', 'peepso-core'); ?>"></textarea>
+				placeholder="<?php echo esc_attr__('Write a reply...', 'peepso-core'); ?>"></textarea>
 				<?php
 				// call function to add button addons for comments
 				$PeepSoActivity->show_commentsbox_addons();
@@ -30,8 +30,8 @@ $PeepSoUser = PeepSoUser::get_instance();
 				<div> </div>
 			</div>
 			<div class="ps-comments__reply-actions ps-comment-actions" style="display:none;">
-				<button onclick="return activity.comment_cancel(<?php echo $act_id; ?>);" class="ps-btn ps-button-cancel"><?php echo __('Clear', 'peepso-core'); ?></button>
-				<button onclick="return activity.comment_save(<?php echo $act_id; ?>, this);" class="ps-btn ps-btn--action ps-button-action" disabled><?php echo __('Post', 'peepso-core'); ?></button>
+				<button onclick="return activity.comment_cancel(<?php echo $act_id; ?>);" class="ps-btn ps-button-cancel"><?php echo esc_attr__('Clear', 'peepso-core'); ?></button>
+				<button onclick="return activity.comment_save(<?php echo $act_id; ?>, this);" class="ps-btn ps-btn--action ps-button-action" disabled><?php echo esc_attr__('Post', 'peepso-core'); ?></button>
 			</div>
 		</div>
 	</div>

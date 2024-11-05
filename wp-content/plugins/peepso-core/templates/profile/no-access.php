@@ -45,11 +45,11 @@ $PeepSoUser = $PeepSoProfile->user;
 					<div class="ps-main ps-main-full">
 						<!-- js_profile_feed_top -->
 						<div class="activity-stream-front ps-page ps-text--center">
-							<div id="ps-no-posts"><?php echo __('This user has decided to keep their profile private.', 'peepso-core'); ?></div>
+							<div id="ps-no-posts"><?php echo esc_attr__('This user has decided to keep their profile private.', 'peepso-core'); ?></div>
 							<div class="ps-gap"></div>
-							<a href="#" class="ps-btn ps-btn-primary" onclick="jQuery(window).trigger('peepso_auth_required', [ true ]); return false;"><?php echo __('Login', 'peepso-core'); ?></a>
+							<a href="#" class="ps-btn ps-btn-primary" onclick="jQuery(window).trigger('peepso_auth_required', [ true ]); return false;"><?php echo esc_attr__('Login', 'peepso-core'); ?></a>
 							<span class="ps-text--muted">or</span>
-							<a href="<?php echo PeepSo::get_page('register'); ?>" class="ps-btn ps-btn-success"><?php echo __('Register', 'peepso-core'); ?></a>
+							<a href="<?php echo PeepSo::get_page('register'); ?>" class="ps-btn ps-btn-success"><?php echo esc_attr__('Register', 'peepso-core'); ?></a>
 						</div><!-- end activity-stream-front -->
 					</div><!--end col-->
 				</div><!-- end row -->

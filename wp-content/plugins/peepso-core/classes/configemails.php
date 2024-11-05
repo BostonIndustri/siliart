@@ -112,8 +112,8 @@ class PeepSoConfigEmails
 
 
 
-		echo '<form action="', admin_url('admin.php?page=peepso_config&tab=email'), '" method="post" >';
-		echo '<input type="hidden" name="peepso-email-nonce" value="', wp_create_nonce('peepso-email-nonce'), '"/>';
+		echo '<form action="', esc_url(admin_url('admin.php?page=peepso_config&tab=email')), '" method="post" >';
+		echo '<input type="hidden" name="peepso-email-nonce" value="', esc_attr(wp_create_nonce('peepso-email-nonce')), '"/>';
         $language = NULL;
 
         if(PeepSo::is_dev_mode('trp_emails') && PeepSo3_Third_Party::has_multilingual_trp()) {
@@ -134,7 +134,7 @@ class PeepSoConfigEmails
                     $bold = $bold_style;
                 }
 
-                echo '<ul><li><a style="'.$bold.'" href="' . admin_url('admin.php?page=peepso_config&tab=email').'">Default</a></li>';
+                echo '<ul><li><a style="'.esc_attr($bold).'" href="' . esc_url(admin_url('admin.php?page=peepso_config&tab=email')).'">Default</a></li>';
 
                 foreach($trp_languages as $trp_language) {
                     $bold ='';
@@ -145,7 +145,7 @@ class PeepSoConfigEmails
                     if(is_array($wp_languages) && array_key_exists($trp_language, $wp_languages)) {
                         $label = $wp_languages[$trp_language]['english_name'];
                     }
-                    echo '<li><a style="'.$bold.'" href="' . admin_url('admin.php?page=peepso_config&tab=email&language='.strtolower($trp_language)).'">'.$label.'</a></li>';
+                    echo '<li><a style="'.esc_attr($bold).'" href="' . esc_url(admin_url('admin.php?page=peepso_config&tab=email&language='.strtolower($trp_language))).'">'.esc_attr($label).'</a></li>';
                 }
                 echo '</ul>';
             }
@@ -164,17 +164,17 @@ class PeepSoConfigEmails
 		<div id="tokens" class="meta-box-sortables col-xs-4 col-sm-4" style="float:right; margin-right:0">
 			<div class="postbox">
 				<div class="inside">
-					<h3><?php echo __('Reset all emails', 'peepso-core');?></h3>
+					<h3><?php echo esc_attr(__('Reset all emails', 'peepso-core'));?></h3>
 					<p>
 					<?php
-					echo __('This will  reset all email templates to default values', 'peepso-core');
+					echo esc_attr(__('This will  reset all email templates to default values', 'peepso-core'));
 					#echo ' v'.PeepSo::PLUGIN_VERSION;
 					?>
 					</p>
 
 					<p>
 						<label>
-							<input type="checkbox" id="reset-check" /> <?php echo __('Yes, I\'m sure!', 'peepso-core');?>
+							<input type="checkbox" id="reset-check" /> <?php echo esc_attr(__('Yes, I\'m sure!', 'peepso-core'));?>
 						</label>
 					</p>
 					<button disabled id="reset-do">Reset all emails to default</button>
@@ -182,35 +182,35 @@ class PeepSoConfigEmails
 			</div>
 			<div class="postbox">
 				<div class="inside">
-					<h3><?php echo __('Allowed Tokens', 'peepso-core');?></h3>
+					<h3><?php echo esc_attr(__('Allowed Tokens', 'peepso-core'));?></h3>
 
-					<?php echo __('The following tokens can be used within the content of emails:', 'peepso-core');?>
+					<?php echo esc_attr(__('The following tokens can be used within the content of emails:', 'peepso-core'));?>
 					<ul>
-						<li>{date} - <?php echo __('Current date in the format that WordPress displays dates.', 'peepso-core');?></li>
-						<li>{datetime} - <?php echo __('Current date and time in the format that WordPress displays dates with time.', 'peepso-core');?></li>
-						<li>{sitename} - <?php echo __('Name of your site from the WordPress title configuration.', 'peepso-core');?></li>
-						<li>{siteurl} - <?php echo __('URL of your site.', 'peepso-core');?></li>
-						<li>{unsubscribeurl} - <?php echo __('URL to receiving user\'s Alert Configuration page.', 'peepso-core');?></li>
-						<li>{year} - <?php echo __('The current four digit year.', 'peepso-core');?></li>
-						<li>{permalink} - <?php echo __('Link to the post, comment or other item referenced; context specific.', 'peepso-core');?></li>
-						<li>{thatuseremail} - <?php echo __('Pending user\'s email address.', 'peepso-core');?></li>
+						<li>{date} - <?php echo esc_attr(__('Current date in the format that WordPress displays dates.', 'peepso-core'));?></li>
+						<li>{datetime} - <?php echo esc_attr(__('Current date and time in the format that WordPress displays dates with time.', 'peepso-core'));?></li>
+						<li>{sitename} - <?php echo esc_attr(__('Name of your site from the WordPress title configuration.', 'peepso-core'));?></li>
+						<li>{siteurl} - <?php echo esc_attr(__('URL of your site.', 'peepso-core'));?></li>
+						<li>{unsubscribeurl} - <?php echo esc_attr(__('URL to receiving user\'s Alert Configuration page.', 'peepso-core'));?></li>
+						<li>{year} - <?php echo esc_attr(__('The current four digit year.', 'peepso-core'));?></li>
+						<li>{permalink} - <?php echo esc_attr(__('Link to the post, comment or other item referenced; context specific.', 'peepso-core'));?></li>
+						<li>{thatuseremail} - <?php echo esc_attr(__('Pending user\'s email address.', 'peepso-core'));?></li>
 					</ul>
 
-					<?php echo __('These are referring to the user causing the alert, such as "{fromlogin} liked your post...":', 'peepso-core');?>
+					<?php echo esc_attr(__('These are referring to the user causing the alert, such as "{fromlogin} liked your post...":', 'peepso-core'));?>
 					<ul>
-						<li>{fromemail} - <?php echo __('Message sender\'s email address.', 'peepso-core');?></li>
-						<li>{fromfullname} - <?php echo __('Message sender\'s full name.', 'peepso-core');?></li>
-						<li>{fromfirstname} - <?php echo __('Message sender\'s first name.', 'peepso-core');?></li>
-						<li>{fromlogin} - <?php echo __('Message sender\'s username.', 'peepso-core');?></li>
+						<li>{fromemail} - <?php echo esc_attr(__('Message sender\'s email address.', 'peepso-core'));?></li>
+						<li>{fromfullname} - <?php echo esc_attr(__('Message sender\'s full name.', 'peepso-core'));?></li>
+						<li>{fromfirstname} - <?php echo esc_attr(__('Message sender\'s first name.', 'peepso-core'));?></li>
+						<li>{fromlogin} - <?php echo esc_attr(__('Message sender\'s username.', 'peepso-core'));?></li>
 					</ul>
 
-					<?php echo __('These are referring to the receiving user on all messages, such as "Welcome {userfirstname}...":', 'peepso-core');?><br/>
+					<?php echo esc_attr(__('These are referring to the receiving user on all messages, such as "Welcome {userfirstname}...":', 'peepso-core'));?><br/>
 					<ul>
-						<li>{useremail} - <?php echo __('Message recipient\'s email address.', 'peepso-core');?></li>
-						<li>{userfullname} - <?php echo __('Message recipient\'s full name', 'peepso-core');?></li>
-						<li>{userfirstname} - <?php echo __('Message recipient\'s first name', 'peepso-core');?></li>
-						<li>{userlogin} - <?php echo __('Message recipient\'s username', 'peepso-core');?></li>
-						<li>{userpassword} - <?php echo __('Message recipient\'s password', 'peepso-core');?></li>
+						<li>{useremail} - <?php echo esc_attr(__('Message recipient\'s email address.', 'peepso-core'));?></li>
+						<li>{userfullname} - <?php echo esc_attr(__('Message recipient\'s full name', 'peepso-core'));?></li>
+						<li>{userfirstname} - <?php echo esc_attr(__('Message recipient\'s first name', 'peepso-core'));?></li>
+						<li>{userlogin} - <?php echo esc_attr(__('Message recipient\'s username', 'peepso-core'));?></li>
+						<li>{userpassword} - <?php echo esc_attr(__('Message recipient\'s password', 'peepso-core'));?></li>
 					</ul>
 				</div>
 			</div>
@@ -223,11 +223,11 @@ class PeepSoConfigEmails
 			echo '<div class="postbox">', PHP_EOL;
 
 			echo '<div class="handlediv" title="Click to toggle"><br></div>', PHP_EOL;
-			echo '<h3 class="hndle"><span>', $aData['title'], '</span></h3>', PHP_EOL;
+			echo '<h3 class="hndle"><span>', esc_attr($aData['title']), '</span></h3>', PHP_EOL;
 			echo	'<div class="inside">', PHP_EOL;
 			echo		'<div class="form-group">', PHP_EOL;
-			echo			'<p>', $aData['description'], '</p>', PHP_EOL;
-			echo			'<label id="', $name, '-label" for="', $name, '" class="form-label  control-label col-sm-3">', $aData['title'], ':</label>', PHP_EOL;
+			echo			'<p>', wp_kses_post($aData['description']), '</p>', PHP_EOL;
+			echo			'<label id="', esc_attr($name), '-label" for="', esc_attr($name), '" class="form-label  control-label col-sm-3">', esc_attr($aData['title']), ':</label>', PHP_EOL;
 			echo			'<div class="form-field controls col-sm-8">', PHP_EOL;
 
 			$data = 'Email contents';

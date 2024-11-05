@@ -1,11 +1,11 @@
 <div class="ps-post__background ps-js-post-background">
   <div class="ps-post__background-inner">
     <div>
-      <div class="ps-post__background-text ps-js-post-background-text" contenteditable="true" data-placeholder="<?php echo __('Say what is on your mind...', 'peepso-core'); ?>"></div>
+      <div class="ps-post__background-text ps-js-post-background-text" contenteditable="true" data-placeholder="<?php echo esc_attr__('Say what is on your mind...', 'peepso-core'); ?>"></div>
     </div>
   </div>
   <div class="ps-js-activity-background-warning" style="display:none; position:absolute; bottom:70px; left:0; right:0; text-align:center">
-    <span style="display:inline-block; background:white; color:red; font-size:70%; padding:5px; margin:5px; border-radius:5px"><?php echo __('Please shorten the text or change the post type', 'peepso-core') ?></span>
+    <span style="display:inline-block; background:white; color:red; font-size:70%; padding:5px; margin:5px; border-radius:5px"><?php echo esc_attr__('Please shorten the text or change the post type', 'peepso-core') ?></span>
   </div>
 </div>
 <div class="ps-postbox__backgrounds peepso-backgrounds">

@@ -21,7 +21,7 @@ abstract class PeepSoAjaxCallback
 		}
 
 		if (strpos($_SERVER['REQUEST_URI'], '/peepsoajax/') !== FALSE && !wp_verify_nonce($_SERVER['HTTP_X_PEEPSO_NONCE'], 'peepso-nonce')) {
-			die(__('Invalid security challenge code.', 'peepso-core'));
+			die(esc_attr(__('Invalid security challenge code.', 'peepso-core')));
 		}
 	}
 

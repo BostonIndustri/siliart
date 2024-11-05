@@ -106,27 +106,27 @@ class PeepSoWidgetHashtags extends WP_Widget
         ?>
 
         <p>
-            <select name="<?php echo $this->get_field_name('displaystyle');?>" id="<?php echo $this->get_field_id('displaystyle');?>">
-                <option value="0" <?php if (0 === $displaystyle ) { echo ' selected '; }?>><?php echo __('Cloud','peepso-core');?></option>
-                <option value="1" <?php if (1 === $displaystyle ) { echo ' selected '; }?>><?php echo __('List','peepso-core');?></option>
-                <option value="2" <?php if (2 === $displaystyle ) { echo ' selected '; }?>><?php echo __('Mixed','peepso-core');?></option>
+            <select name="<?php echo esc_attr($this->get_field_name('displaystyle'));?>" id="<?php echo esc_attr($this->get_field_id('displaystyle'));?>">
+                <option value="0" <?php if (0 === $displaystyle ) { echo ' selected '; }?>><?php echo esc_attr(__('Cloud','peepso-core'));?></option>
+                <option value="1" <?php if (1 === $displaystyle ) { echo ' selected '; }?>><?php echo esc_attr(__('List','peepso-core'));?></option>
+                <option value="2" <?php if (2 === $displaystyle ) { echo ' selected '; }?>><?php echo esc_attr(__('Mixed','peepso-core'));?></option>
             </select>
 
-            <select name="<?php echo $this->get_field_name('sortby');?>" id="<?php echo $this->get_field_id('sortby');?>">
-                <option value="0" <?php if (0 === $sortby ) { echo ' selected '; }?>><?php echo __('Sorted by name','peepso-core');?></option>
-                <option value="1" <?php if (1 === $sortby ) { echo ' selected '; }?>><?php echo __('Sorted by size','peepso-core');?></option>
+            <select name="<?php echo esc_attr($this->get_field_name('sortby'));?>" id="<?php echo esc_attr($this->get_field_id('sortby'));?>">
+                <option value="0" <?php if (0 === $sortby ) { echo ' selected '; }?>><?php echo esc_attr(__('Sorted by name','peepso-core'));?></option>
+                <option value="1" <?php if (1 === $sortby ) { echo ' selected '; }?>><?php echo esc_attr(__('Sorted by size','peepso-core'));?></option>
             </select>
 
-            <select name="<?php echo $this->get_field_name('sortorder');?>" id="<?php echo $this->get_field_id('sortorder');?>">
-                <option value="0" <?php if (0 === $sortorder ) { echo ' selected '; }?>><?php echo __('&uarr;','peepso-core');?></option>
-                <option value="1" <?php if (1 === $sortorder ) { echo ' selected '; }?>><?php echo __('&darr;','peepso-core');?></option>
+            <select name="<?php echo esc_attr($this->get_field_name('sortorder'));?>" id="<?php echo esc_attr($this->get_field_id('sortorder'));?>">
+                <option value="0" <?php if (0 === $sortorder ) { echo ' selected '; }?>><?php echo esc_attr(__('&uarr;','peepso-core'));?></option>
+                <option value="1" <?php if (1 === $sortorder ) { echo ' selected '; }?>><?php echo esc_attr(__('&darr;','peepso-core'));?></option>
             </select>
 
 
-            <label for="<?php echo $this->get_field_id('minsize');?>"><?php echo __('Minimum post count','peepso-core');?>:</label>
-            <select name="<?php echo $this->get_field_name('minsize');?>" id="<?php echo $this->get_field_id('minsize');?>">
+            <label for="<?php echo esc_attr($this->get_field_id('minsize'));?>"><?php echo esc_attr(__('Minimum post count','peepso-core'));?>:</label>
+            <select name="<?php echo esc_attr($this->get_field_name('minsize'));?>" id="<?php echo esc_attr($this->get_field_id('minsize'));?>">
                 <?php for($i=0; $i<=100; $i++) { ?>
-                    <option value="<?php echo $i;?>>" <?php if ($i === $minsize ) { echo ' selected '; }?>><?php echo $i;?></option>
+                    <option value="<?php echo esc_attr($i);?>>" <?php if ($i === $minsize ) { echo ' selected '; }?>><?php echo esc_attr($i);?></option>
                 <?php } ?>
             </select>
         </p>

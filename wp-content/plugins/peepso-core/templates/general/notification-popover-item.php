@@ -52,10 +52,10 @@ $className .= ' ps-js-notification ps-js-notification--' . $notification_id;
 
 					<?php if (!$readstatus) { ?>
 					<span class="ps-notification__status ps-tooltip ps-tooltip--notification ps-js-mark-as-read"
-							data-tooltip="<?php echo __('Mark as read', 'peepso-core');?>"
+							data-tooltip="<?php echo esc_attr__('Mark as read', 'peepso-core');?>"
 							style="cursor:pointer;">
 						<i class="gcis gci-eye"></i>
-						<span><?php echo __('Mark as read', 'peepso-core');?></span>
+						<span><?php echo esc_attr__('Mark as read', 'peepso-core');?></span>
 					</span>
 					<?php } ?>
 				</div>

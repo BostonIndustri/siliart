@@ -4,7 +4,7 @@
     </p>
     <p>
 		<a id="ps-gs-notice-dismiss" href="#" class="button ps-js-gs-notice-dimiss">
-			<?php echo __('Dismiss','peepso-core') ?>
+			<?php echo esc_attr__('Dismiss','peepso-core') ?>
 		</a>
 	</p>
 </div>

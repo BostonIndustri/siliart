@@ -7,7 +7,7 @@
     if($count_section > $limit_per_section) {?>
 
         <small>
-            <?php echo sprintf( __("Showing %d of %d", 'peepso-core'),$limit_per_section, $count_section);?>
+            <?php echo sprintf( esc_attr__("Showing %d of %d", 'peepso-core'),$limit_per_section, $count_section);?>
         </small>
 
     <?php } ?>

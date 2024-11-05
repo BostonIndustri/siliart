@@ -30,7 +30,7 @@ window.pswindow = new PsWindow();
 /**
  * Creates the window
  */
-PsWindow.prototype.create = function() {
+PsWindow.prototype.create = function () {
 	if (jQuery('#ps-window').length === 0) {
 		// create the <div> with the window
 		var html = [
@@ -60,7 +60,7 @@ PsWindow.prototype.create = function() {
 		that.is_created = true;
 		that.$container = jQuery('#ps-window');
 
-		jQuery(document).on('keyup.pswindow', function(e) {
+		jQuery(document).on('keyup.pswindow', function (e) {
 			that.keyup(e);
 		});
 	}
@@ -73,7 +73,7 @@ PsWindow.prototype.create = function() {
  * Handles keyup event, hide window if escape key is pressed
  * @param {object} e Event triggered
  */
-PsWindow.prototype.keyup = function(e) {
+PsWindow.prototype.keyup = function (e) {
 	if (this.is_visible && 27 === e.keyCode) {
 		this.hide();
 	}
@@ -84,7 +84,7 @@ PsWindow.prototype.keyup = function(e) {
  * Mouse up handler
  * @param {object} e Event triggered
  */
-PsWindow.prototype.mouse_up = function(e) {
+PsWindow.prototype.mouse_up = function (e) {
 	// commented out because of conflict with cropping image from a pswindow
 	/*if (!this.is_visible)
 		return;
@@ -99,7 +99,7 @@ PsWindow.prototype.mouse_up = function(e) {
  * Sets window content
  * @param {string} content HTML content definition
  */
-PsWindow.prototype.set_content = function(content) {
+PsWindow.prototype.set_content = function (content) {
 	jQuery('#cWindowAction').remove();
 	jQuery('#cWindowContent').html(content);
 	return this;
@@ -109,7 +109,7 @@ PsWindow.prototype.set_content = function(content) {
  * Sets window title
  * @param {string} title Title of the window
  */
-PsWindow.prototype.set_title = function(title) {
+PsWindow.prototype.set_title = function (title) {
 	jQuery('#cwin_logo').html(title);
 	return this;
 };
@@ -118,7 +118,7 @@ PsWindow.prototype.set_title = function(title) {
  * Sets window class
  * @param {string} cls Name of the class attribute
  */
-PsWindow.prototype.set_class = function(cls) {
+PsWindow.prototype.set_class = function (cls) {
 	jQuery('#ps-window').attr('class', cls);
 	return this;
 };
@@ -129,14 +129,12 @@ PsWindow.prototype.set_class = function(cls) {
  * @param {string} content HTML content definition
  * @param {int} fade Number of milliseconds to fade
  */
-PsWindow.prototype.show = function(title, content, fade) {
+PsWindow.prototype.show = function (title, content, fade) {
 	if (this.is_visible) return false; // don't display a new window if one is already visible
 
 	var that = this;
 
-	this.create()
-		.set_title(title)
-		.set_content(content);
+	this.create().set_title(title).set_content(content);
 	this.$container.show();
 
 	this.refresh();
@@ -146,8 +144,15 @@ PsWindow.prototype.show = function(title, content, fade) {
 		this.fade_out(fade);
 	}
 
-	// add body style
-	jQuery('html, body').addClass('ps-modal-is--open');
+	// prevent scrolling
+	var left = window.scrollX || document.documentElement.scrollLeft;
+	var top = window.scrollY || document.documentElement.scrollTop;
+	window.psOrigScroll = window.psOrigScroll || window.onscroll;
+	window.onscroll = function () {
+		if (top !== (window.scrollY || document.documentElement.scrollTop)) {
+			window.scrollTo({ left, top });
+		}
+	};
 
 	return this;
 };
@@ -156,7 +161,7 @@ PsWindow.prototype.show = function(title, content, fade) {
  * Appends actions to window container
  * @param {string} actions HTML definitions
  */
-PsWindow.prototype.set_actions = function(actions) {
+PsWindow.prototype.set_actions = function (actions) {
 	jQuery('#cWindowAction').remove();
 	jQuery('<div id="cWindowAction" class="ps-modal__actions">')
 		.html(actions)
@@ -168,7 +173,7 @@ PsWindow.prototype.set_actions = function(actions) {
 /**
  * Reinitializes window size/location
  */
-PsWindow.prototype.refresh = function() {
+PsWindow.prototype.refresh = function () {
 	this.$container.show();
 	return this;
 };
@@ -176,7 +181,7 @@ PsWindow.prototype.refresh = function() {
 /**
  * Hides modal window
  */
-PsWindow.prototype.hide = function() {
+PsWindow.prototype.hide = function () {
 	var $dialog = jQuery('#ps-window');
 
 	// fires before close actions
@@ -198,8 +203,9 @@ PsWindow.prototype.hide = function() {
 		peepso.observer.doAction('pswindow_close', $dialog);
 	}
 
-	// remove body style
-	jQuery('html, body').removeClass('ps-modal-is--open');
+	// restore scrolling
+	window.onscroll = window.psOrigScroll;
+	delete window.psOrigScroll;
 
 	return this;
 };
@@ -209,10 +215,10 @@ PsWindow.prototype.hide = function() {
  * @param {int} speed The number of milliseconds for the window to fade
  * @param {function} callback Function to be called before fade
  */
-PsWindow.prototype.fade_out = function(speed, callback) {
+PsWindow.prototype.fade_out = function (speed, callback) {
 	var that = this;
 
-	this.$container.fadeOut(speed, function() {
+	this.$container.fadeOut(speed, function () {
 		that.hide();
 
 		if (typeof callback === typeof Function) {
@@ -228,7 +234,7 @@ PsWindow.prototype.fade_out = function(speed, callback) {
  * @param {function} deleteCallback Function to be called before delete
  * @param {string} content String used to override the default message
  */
-PsWindow.prototype.confirm_delete = function(deleteCallback, content) {
+PsWindow.prototype.confirm_delete = function (deleteCallback, content) {
 	this.delete_callback = deleteCallback;
 
 	var data = peepsowindowdata || {};
@@ -254,7 +260,7 @@ PsWindow.prototype.confirm_delete = function(deleteCallback, content) {
  * @param {string} message The message to display within the modal
  * @param {string} title The optional title to display on the modal window
  */
-PsWindow.prototype.acknowledge = function(message, title) {
+PsWindow.prototype.acknowledge = function (message, title) {
 	this.confirm_callback = null;
 	this.no_confirm_callback = null;
 
@@ -279,7 +285,7 @@ PsWindow.prototype.acknowledge = function(message, title) {
  * @param  {Function} callback A function to run when a user clicks 'yes'
  * @param  {Function} no_confirm_callback A function to run when a user clicks 'no'
  */
-PsWindow.prototype.confirm = function(message, callback, no_confirm_callback) {
+PsWindow.prototype.confirm = function (message, callback, no_confirm_callback) {
 	this.confirm_callback = callback;
 	this.no_confirm_callback = no_confirm_callback;
 
@@ -304,7 +310,7 @@ PsWindow.prototype.confirm = function(message, callback, no_confirm_callback) {
 /**
  * Performs the delete callback function if any
  */
-PsWindow.prototype.do_delete = function() {
+PsWindow.prototype.do_delete = function () {
 	if (typeof this.delete_callback === typeof Function) this.delete_callback(); // it's a function, we can safely call it
 	return this;
 };
@@ -312,7 +318,7 @@ PsWindow.prototype.do_delete = function() {
 /**
  * Performs the confirm callback function if any
  */
-PsWindow.prototype.do_confirm = function() {
+PsWindow.prototype.do_confirm = function () {
 	if (typeof this.confirm_callback === typeof Function) this.confirm_callback(); // it's a function, we can safely call it
 	return this;
 };
@@ -320,7 +326,7 @@ PsWindow.prototype.do_confirm = function() {
 /**
  * Performs the confirm callback function if any
  */
-PsWindow.prototype.do_no_confirm = function() {
+PsWindow.prototype.do_no_confirm = function () {
 	if (typeof this.no_confirm_callback === typeof Function) this.no_confirm_callback(); // it's a function, we can safely call it
 
 	this.hide();
@@ -352,7 +358,7 @@ window.psmessage = new PsMessage();
 /**
  * Creates the message dialog
  */
-PsMessage.prototype.create = function() {
+PsMessage.prototype.create = function () {
 	if (0 === jQuery('#ps-message').length) {
 		// create the <div> with the message
 		var html = [
@@ -394,7 +400,7 @@ PsMessage.prototype.create = function() {
 		that.is_created = true;
 		that.$container = jQuery('#ps-message');
 
-		jQuery(document).on('keyup.psmessage', function(e) {
+		jQuery(document).on('keyup.psmessage', function (e) {
 			that.keyup(e);
 		});
 	}
@@ -407,7 +413,7 @@ PsMessage.prototype.create = function() {
  * Handles the keyup event
  * @param {object} e Event triggered
  */
-PsMessage.prototype.keyup = function(e) {
+PsMessage.prototype.keyup = function (e) {
 	if (this.is_visible && 27 === e.keyCode) {
 		this.hide();
 	}
@@ -417,7 +423,7 @@ PsMessage.prototype.keyup = function(e) {
  * Sets message dialog content
  * @param {string} content HTML content definition
  */
-PsMessage.prototype.set_content = function(content) {
+PsMessage.prototype.set_content = function (content) {
 	jQuery('#c-message-action').remove();
 	jQuery('#c-message-content').html(content);
 	return this;
@@ -427,7 +433,7 @@ PsMessage.prototype.set_content = function(content) {
  * Sets message dialog title
  * @param {string} title Title of the window
  */
-PsMessage.prototype.set_title = function(title) {
+PsMessage.prototype.set_title = function (title) {
 	jQuery('#cmsg_logo').html(title);
 	return this;
 };
@@ -436,7 +442,7 @@ PsMessage.prototype.set_title = function(title) {
  * Sets message dialog class
  * @param {string} cls Name of the class attribute
  */
-PsMessage.prototype.set_class = function(cls) {
+PsMessage.prototype.set_class = function (cls) {
 	jQuery('#ps-message').attr('class', cls);
 	return this;
 };
@@ -447,15 +453,13 @@ PsMessage.prototype.set_class = function(cls) {
  * @param {string} content HTML content definition
  * @param {int} fade Number of milliseconds to fade
  */
-PsMessage.prototype.show = function(title, content, fade) {
+PsMessage.prototype.show = function (title, content, fade) {
 	if (this.is_visible) {
 		this.$container.finish();
 		this.hide();
 	}
 
-	this.create()
-		.set_title(title)
-		.set_content(content);
+	this.create().set_title(title).set_content(content);
 	this.$container.show();
 
 	this.refresh();
@@ -471,7 +475,7 @@ PsMessage.prototype.show = function(title, content, fade) {
 /**
  * Hides message dialog
  */
-PsMessage.prototype.hide = function() {
+PsMessage.prototype.hide = function () {
 	jQuery('#ps-message').hide();
 
 	jQuery('#cmsg_logo').html(''); // hide the content in case not set on next show()
@@ -489,10 +493,10 @@ PsMessage.prototype.hide = function() {
  * @param {int} speed The number of milliseconds for the window to fade
  * @param {function} callback Function to be called before fade
  */
-PsMessage.prototype.fade_out = function(speed, callback) {
+PsMessage.prototype.fade_out = function (speed, callback) {
 	var that = this;
 
-	this.$container.fadeOut(speed, function() {
+	this.$container.fadeOut(speed, function () {
 		this.is_visible = false;
 		that.hide();
 
@@ -507,7 +511,7 @@ PsMessage.prototype.fade_out = function(speed, callback) {
 /**
  * Reinitializes message dialog size/location
  */
-PsMessage.prototype.refresh = function() {
+PsMessage.prototype.refresh = function () {
 	this.$container.show();
 	return this;
 };

@@ -42,7 +42,7 @@ $view_class = $instance['view_option'];
                         <?php } ?>
                     </div>
                     <?php if ($login_with_email) { ?>
-                    <div class="ps-form__field-notice ps-form__field-notice--important ps-js-email-notice" style="display:none"><?php echo __('Please use a valid email address.', 'peepso-core'); ?></div>
+                    <div class="ps-form__field-notice ps-form__field-notice--important ps-js-email-notice" style="display:none"><?php echo esc_attr__('Please use a valid email address.', 'peepso-core'); ?></div>
                     <?php } ?>
                 </div>
             </div>
@@ -51,7 +51,7 @@ $view_class = $instance['view_option'];
             <div class="ps-form__row ps-form__row--password ps-js-password-field">
                 <div class="ps-form__field ps-form__field--icon">
                     <input class="ps-input ps-input--sm ps-input--icon <?php echo PeepSo::get_option_new('password_preview_enable') ? 'ps-js-password-preview' : '' ?>"
-                            type="password" name="password" placeholder="<?php echo __('Password', 'peepso-core'); ?>" mouseev="true"
+                            type="password" name="password" placeholder="<?php echo esc_attr__('Password', 'peepso-core'); ?>" mouseev="true"
                             autocomplete="off" keyev="true" clickev="true" />
                     <i class="gcis gci-key"></i>
                 </div>
@@ -62,7 +62,7 @@ $view_class = $instance['view_option'];
                 <!-- Two Factor authentication -->
                 <div class="ps-form__row ps-form__row--password ps-js-tfa-field" style="display:none">
                     <div class="ps-form__field ps-form__field--icon">
-                        <input class="ps-input ps-input--sm ps-input--icon" type="password" name="two_factor_code" placeholder="<?php echo __('TFA code', 'peepso-core'); ?>" mouseev="true"
+                        <input class="ps-input ps-input--sm ps-input--icon" type="password" name="two_factor_code" placeholder="<?php echo esc_attr__('TFA code', 'peepso-core'); ?>" mouseev="true"
                                autocomplete="off" keyev="true" clickev="true" data-ps-extra="1" />
                         <i class="gcis gci-fingerprint"></i>
                     </div>
@@ -73,8 +73,8 @@ $view_class = $instance['view_option'];
             <div class="ps-form__row ps-form__row--remember ps-js-password-field">
                 <div class="ps-form__field ps-form__field--checkbox">
                     <div class="ps-checkbox ps-checkbox--login">
-                        <input class="ps-checkbox__input" type="checkbox" alt="<?php echo __('Remember Me', 'peepso-core'); ?>" value="yes" name="remember" id="ps-form-login-me-remember" <?php echo PeepSo::get_option('site_frontpage_rememberme_default', 0) ? ' checked':'';?>>
-                        <label class="ps-checkbox__label" for="ps-form-login-me-remember"><?php echo __('Remember Me', 'peepso-core'); ?></label>
+                        <input class="ps-checkbox__input" type="checkbox" alt="<?php echo esc_attr__('Remember Me', 'peepso-core'); ?>" value="yes" name="remember" id="ps-form-login-me-remember" <?php echo PeepSo::get_option('site_frontpage_rememberme_default', 0) ? ' checked':'';?>>
+                        <label class="ps-checkbox__label" for="ps-form-login-me-remember"><?php echo esc_attr__('Remember Me', 'peepso-core'); ?></label>
                     </div>
                 </div>
             </div>
@@ -86,7 +86,7 @@ $view_class = $instance['view_option'];
                     <button type="submit"
                         class="ps-btn ps-btn--sm ps-btn--action ps-btn--login ps-btn--loading <?php echo $recaptchaEnabled ? 'ps-js-recaptcha' : ''; ?>"
                         <?php echo $recaptchaEnabled ? 'disabled="disabled"' : '' ?>>
-                        <span><?php echo __('Login', 'peepso-core'); ?></span>
+                        <span><?php echo esc_attr__('Login', 'peepso-core'); ?></span>
                         <img src="<?php echo PeepSo::get_asset('images/ajax-loader.gif'); ?>">
                     </button>
                 </div>
@@ -116,13 +116,13 @@ $view_class = $instance['view_option'];
             ?>
 
             <?php if(0 === $disable_registration) { ?>
-                <a class="psf-login__link psf-login__link--register" href="<?php echo PeepSo::get_page('register'); ?>"><?php echo __('Register', 'peepso-core'); ?></a>
+                <a class="psf-login__link psf-login__link--register" href="<?php echo PeepSo::get_page('register'); ?>"><?php echo esc_attr__('Register', 'peepso-core'); ?></a>
             <?php } ?>
 
-            <a class="psf-login__link psf-login__link--recover" href="<?php echo PeepSo::get_page('recover'); ?>"><?php echo __('Forgot Password', 'peepso-core'); ?></a>
+            <a class="psf-login__link psf-login__link--recover" href="<?php echo PeepSo::get_page('recover'); ?>"><?php echo esc_attr__('Forgot Password', 'peepso-core'); ?></a>
 
             <?php if(0 === $disable_registration) { ?>
-                <a class="psf-login__link psf-login__link--activation ps-js-register-activation" href="<?php echo PeepSo::get_page('register'); ?>?resend"><?php echo __('Resend activation code', 'peepso-core'); ?></a>
+                <a class="psf-login__link psf-login__link--activation ps-js-register-activation" href="<?php echo PeepSo::get_page('register'); ?>?resend"><?php echo esc_attr__('Resend activation code', 'peepso-core'); ?></a>
             <?php } ?>
         </div>
     </div>

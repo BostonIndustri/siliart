@@ -69,7 +69,7 @@ if ($is_active || !$can_install_item) {
         <div class="pa-addons__addon-title">
             <?php if ($can_install_item) { ?>
                 <input type="checkbox" class="ps-js-checkbox"
-                       data-tooltip="<?php echo __('Already installed and active','peepso-core'); ?>"
+                       data-tooltip="<?php echo esc_attr__('Already installed and active','peepso-core'); ?>"
                        data-id="<?php echo $item_id ?>"
                        data-is-installed="<?php echo $is_installed ? 1 : 0 ?>"
                        data-is-active="<?php echo $is_active ? 1 : 0 ?>"
@@ -77,7 +77,7 @@ if ($is_active || !$can_install_item) {
                        style="display:none" />
             <?php } else { ?>
                 <input type="checkbox" class="ps-js-checkbox"
-                       data-tooltip="<?php echo __('Please upgrade to access this feature','peepso-core'); ?>"
+                       data-tooltip="<?php echo esc_attr__('Please upgrade to access this feature','peepso-core'); ?>"
                        data-is-installed="0"
                        data-is-active="0"
                        disabled="disabled"
@@ -100,7 +100,7 @@ if ($is_active || !$can_install_item) {
                     <!-- Active -->
                     <a class="pa-btn pa-btn--action pa-btn--addon-active" title="<?php echo $item_name; ?>" href="#">
                         <i class="gcis gci-check-circle"></i>
-                        <span><?php echo __('Active', 'peepso-core'); ?></span>
+                        <span><?php echo esc_attr__('Active', 'peepso-core'); ?></span>
                     </a>
                     <?php
                 } else if ($is_installed) {
@@ -108,27 +108,27 @@ if ($is_active || !$can_install_item) {
                     ?>
                     <!-- Inactive => Activate  -->
                     <a class="pa-btn pa-btn--action pa-btn--addon-inactive ps-js-addon-inactive"
-                       data-mouseover-text="<?php echo __('Activate','peepso-core'); ?>"
-                       data-running-text="<?php echo __('Activating...','peepso-core'); ?>"
+                       data-mouseover-text="<?php echo esc_attr__('Activate','peepso-core'); ?>"
+                       data-running-text="<?php echo esc_attr__('Activating...','peepso-core'); ?>"
                        data-mouseover-icon="gcis gci-check-circle"
                        data-activation-keyword="<?php echo $activation_keyword;?>"
                        data-activation-key="<?php echo $activation_key;?>"
                        href="#">
                         <i class="gcir gci-check-circle"></i>
-                        <span><?php echo __('Inactive', 'peepso-core');?></span>
+                        <span><?php echo esc_attr__('Inactive', 'peepso-core');?></span>
                     </a>
                     <?php
                 } else {
                     ?>
                     <!-- Not installed => Install -->
                     <a class="pa-btn pa-btn--action pa-btn--addon-install ps-js-addon-install"
-                       data-mouseover-text="<?php echo __('Install','peepso-core'); ?>"
-                       data-running-text="<?php echo __('Installing...','peepso-core'); ?>"
+                       data-mouseover-text="<?php echo esc_attr__('Install','peepso-core'); ?>"
+                       data-running-text="<?php echo esc_attr__('Installing...','peepso-core'); ?>"
                        data-mouseover-icon="gcir gci-arrow-alt-circle-down"
                        data-id="<?php echo $item_id; ?>" title="<?php echo $item_name; ?>"
                        href="#">
                         <i class="gcir gci-question-circle"></i>
-                        <span><?php echo __('Not installed', 'peepso-core'); ?></span>
+                        <span><?php echo esc_attr__('Not installed', 'peepso-core'); ?></span>
                     </a>
                     <?php
                 }
@@ -185,9 +185,9 @@ if ($is_active || !$can_install_item) {
         </div>
         <a href="#" class="pa-addons__addon-desc-btn ps-js-show-addon-desc">
             <span class="dashicons dashicons-info"></span>
-            <span data-label-show="<?php echo __('Show descriptions', 'peepso-core'); ?>"
-                  data-label-hide="<?php echo __('Hide descriptions', 'peepso-core'); ?>">
-                <?php echo __('Show descriptions', 'peepso-core'); ?>
+            <span data-label-show="<?php echo esc_attr__('Show descriptions', 'peepso-core'); ?>"
+                  data-label-hide="<?php echo esc_attr__('Hide descriptions', 'peepso-core'); ?>">
+                <?php echo esc_attr__('Show descriptions', 'peepso-core'); ?>
             </span>
         </a>
     </div>

@@ -612,8 +612,8 @@ class PeepSoField
 				 *		DO display the error on the bottom, and do nothing her
 				 */
 
-				echo '<div class="ps-alert ps-alert--sm ps-alert--neutral ps-js-validation ps-js-validation-' . $method . '">';
-				echo sprintf($test->message, $this->prop('meta','validation',$method.'_value'));
+				echo '<div class="ps-alert ps-alert--sm ps-alert--neutral ps-js-validation ps-js-validation-' . esc_attr($method) . '">';
+				echo wp_kses_post(sprintf($test->message, $this->prop('meta','validation',$method.'_value')));
 				echo '</div>';
 			}
 		}
@@ -621,7 +621,7 @@ class PeepSoField
 		$ret = ob_get_clean();
 
 		if($echo) {
-			echo $ret;
+			echo wp_kses_post($ret);
 		}
 
 		return $ret;
@@ -642,19 +642,19 @@ class PeepSoField
         #6610
 		$override = apply_filters('peepso_field_render_empty_fallback', $this);
         if(!is_object($override) && strlen($override)) {
-            echo $override;
+            echo wp_kses_post($override);
             return ob_get_clean();
         }
 
         if(!$this->is_registration_page){
             ?>
             <span class="ps-profile__about-field-placeholder <?php echo ( 1 == $this->prop('meta','validation','required' ) ) ? 'ps-text--danger' : '';?>">
-		<?php echo __($this->prop('desc'), 'peepso-core'); ?>
+		<?php echo wp_kses_post(__($this->prop('desc'), 'peepso-core')); ?>
 
 		</span>
             <?php
         } else {
-            echo __($this->prop('desc'), 'peepso-core');
+            echo wp_kses_post(__($this->prop('desc'), 'peepso-core'));
         }
 
 		return ob_get_clean();
@@ -664,9 +664,9 @@ class PeepSoField
 	{
 		ob_start();
 
-		echo ' name="'.$this->input_args['name'].'"',
-			' id="'.$this->input_args['id'].'"',
-			' data-id="'.$this->id.'"';
+		echo ' name="'.esc_attr($this->input_args['name']).'"',
+			' id="'.esc_attr($this->input_args['id']).'"',
+			' data-id="'.esc_attr($this->id).'"';
 
 		return ob_get_clean();
 	}
@@ -687,12 +687,12 @@ class PeepSoField
 	{
 		ob_start();
 
-		echo ' name="'.$this->input_args['name'].'"',
-			' id="'.$this->input_args['id'].'"',
-			' data-id="'.$this->id.'"';
+		echo ' name="'.esc_attr($this->input_args['name']).'"',
+			' id="'.esc_attr($this->input_args['id']).'"',
+			' data-id="'.esc_attr($this->id).'"';
 
 		if (!empty($this->el_class )) {
-			echo ' class="'.$this->el_class.'"';
+			echo ' class="'.esc_attr($this->el_class).'"';
 		}
 
 		return ob_get_clean();
@@ -701,9 +701,9 @@ class PeepSoField
 	protected function _render_input_args_acc()
 	{
 		ob_start();
-		echo ' name="'.$this->input_args['name'].'_acc"',
-			' id="'.$this->input_args['id'].'_acc"',
-			' data-id="'.$this->id.'"';
+		echo ' name="'.esc_attr($this->input_args['name']).'_acc"',
+			' id="'.esc_attr($this->input_args['id']).'_acc"',
+			' data-id="'.esc_attr($this->id).'"';
 
 		return ob_get_clean();
 	}
@@ -751,9 +751,9 @@ class PeepSoField
 
         if( 1 == $this->meta->user_disable_acc) {
 			?>
-			<div class="ps-profile__about-field-edit-item ps-tip ps-tip--arrow ps-tip--md" aria-label="<?php echo __('Some fields privacy is defined by the administrators', 'peepso-core'); ?>">
+			<div class="ps-profile__about-field-edit-item ps-tip ps-tip--arrow ps-tip--md" aria-label="<?php echo esc_attr(__('Some fields privacy is defined by the administrators', 'peepso-core')); ?>">
 				<span class="ps-btn ps-btn--xs ps-btn--app ps-btn--disabled">
-					<i class="<?php echo $access_settings[$acc]['icon'];?>"></i><span class="ps-privacy-title"><?php echo $access_settings[$acc]['label'];?></span>
+					<i class="<?php echo esc_attr($access_settings[$acc]['icon']);?>"></i><span class="ps-privacy-title"><?php echo esc_attr($access_settings[$acc]['label']);?></span>
 				</span>
 			</div>
 			<?php
@@ -761,9 +761,9 @@ class PeepSoField
 		}
 
 		if( 1 == $this->prop('meta','searchable')) { ?>
-			<div class="ps-profile__about-field-edit-item ps-tip ps-tip--arrow ps-tip--md" aria-label="<?php echo __('Some fields privacy is defined by the administrators', 'peepso-core'); ?>">
+			<div class="ps-profile__about-field-edit-item ps-tip ps-tip--arrow ps-tip--md" aria-label="<?php echo esc_attr(__('Some fields privacy is defined by the administrators', 'peepso-core')); ?>">
 				<span class="ps-btn ps-btn--xs ps-btn--app ps-btn--app ps-btn--disabled">
-					<i class="<?php echo $access_settings[$acc]['icon'];?>"></i><span class="ps-privacy-title"><?php echo $access_settings[$acc]['label'];?></span>
+					<i class="<?php echo esc_attr($access_settings[$acc]['icon']);?>"></i><span class="ps-privacy-title"><?php echo esc_attr($access_settings[$acc]['label']);?></span>
 				</span>
 			</div>
       <?php
@@ -774,17 +774,17 @@ class PeepSoField
 		?>
 		<div class="ps-profile__about-field-edit-item ps-profile-privacy">
 			<div class="ps-dropdown ps-dropdown--menu ps-privacy-dropdown ps-js-dropdown">
-				<input type="hidden" <?php echo $this->_render_input_args_acc();?> value="<?php echo $acc;?>" />
-				<button id="acc-<?php echo $this->input_args['name'];?>" type="button"
+				<input type="hidden" <?php echo wp_kses_post($this->_render_input_args_acc());?> value="<?php echo wp_kses_post($acc);?>" />
+				<button id="acc-<?php echo esc_attr($this->input_args['name']);?>" type="button"
 						class="ps-btn ps-btn--xs ps-btn--app ps-dropdown__toggle ps-js-dropdown-toggle"
-						aria-label="<?php echo __('Edit privacy of ' . $this->title, 'peepso-core'); ?>">
-					<span class="dropdown-value"><i class="<?php echo $access_settings[$acc]['icon'];?>"></i></span> <span class="ps-privacy-title"><?php echo $access_settings[$acc]['label'];?></span>
+						aria-label="<?php echo esc_attr(__('Edit privacy of ' . $this->title, 'peepso-core')); ?>">
+					<span class="dropdown-value"><i class="<?php echo esc_attr($access_settings[$acc]['icon']);?>"></i></span> <span class="ps-privacy-title"><?php echo esc_attr($access_settings[$acc]['label']);?></span>
 				</button>
 				<div class="ps-dropdown__menu ps-js-dropdown-menu">
 					<?php foreach ($access_settings as $acc_key => $acc_value) { ?>
-						<a href="#" id="<?php echo $this->id . '-acc-' . $acc_key ?>" data-option-value="<?php echo $acc_key; ?>" onclick="profile.change_privacy(this); return false;">
-							<i class="<?php echo $acc_value['icon']; ?>"></i>
-							<span><?php echo $acc_value['label']; ?></span>
+						<a href="#" id="<?php echo esc_attr($this->id . '-acc-' . $acc_key) ?>" data-option-value="<?php echo wp_kses_post($acc_key); ?>" onclick="profile.change_privacy(this); return false;">
+							<i class="<?php echo esc_attr($acc_value['icon']); ?>"></i>
+							<span><?php echo esc_attr($acc_value['label']); ?></span>
 						</a>
 					<?php } ?>
 				</div>

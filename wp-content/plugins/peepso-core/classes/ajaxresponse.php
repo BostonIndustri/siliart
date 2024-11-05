@@ -91,7 +91,7 @@ class PeepSoAjaxResponse
 	{
 		$sOutput = $this->toString();			// construct data to send to browser
 		header('Content-Type: application/json');
-		echo $sOutput;							// send data to browser
+		echo wp_kses_post($sOutput);							// send data to browser
 		if ($fExit)
 			exit(0);							// stop script
 	}

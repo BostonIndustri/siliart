@@ -207,7 +207,7 @@ class PeepSoUrlSegments
         if (!empty($_GET)) {
             foreach ($_GET as $key => $value) {
                 if (strpos($url, $key) === FALSE) {
-                    $key = str_replace('_', '.', $key);
+                 //   $key = str_replace('_', '.', $key);
                 }
                 $get[$key] = $value;
             }

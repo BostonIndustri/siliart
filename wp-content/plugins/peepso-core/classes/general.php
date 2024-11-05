@@ -292,10 +292,10 @@ class PeepSoGeneral
         );
 
         foreach ($access as $name => $data) {
-            echo '<li data-priv="', $name, '">', PHP_EOL;
-            echo '<i class="', $data['icon'], '"></i>', PHP_EOL;
-            echo $data['label'], "</p>\r\n";
-            echo '<span>', $data['descript'], "</span></li>", PHP_EOL;
+            echo '<li data-priv="', esc_attr($name), '">', PHP_EOL;
+            echo '<i class="', esc_attr($data['icon']), '"></i>', PHP_EOL;
+            echo esc_attr($data['label']), "</p>\r\n";
+            echo '<span>', esc_attr($data['descript']), "</span></li>", PHP_EOL;
         }
     }
 
@@ -308,15 +308,15 @@ class PeepSoGeneral
 
             if (isset($data['menu'])) { ?>
 
-                <span class="ps-navbar__menu-item ps-dropdown <?php echo $data['wrapclass'];?>">
-				    <a onclick="return false;"  href="<?php echo $data['href'];?>" class="<?php echo $data['class'];?>">
-              <?php if(FALSE == $data['icon-only']) { echo $data['label']; }?>
+                <span class="ps-navbar__menu-item ps-dropdown <?php echo esc_attr($data['wrapclass']);?>">
+				    <a onclick="return false;"  href="<?php echo esc_url($data['href']);?>" class="<?php echo esc_attr($data['class']);?>">
+              <?php if(FALSE == $data['icon-only']) { echo wp_kses_post($data['label']); }?>
             </a>
-            <div class="<?php echo $data['menuclass'];?>">
+            <div class="<?php echo esc_attr($data['menuclass']);?>">
               <?php foreach ($data['menu'] as $name => $submenu) { ?>
-                  <a class="<?php echo isset($submenu['class']) ? $submenu['class'] : '';?>" href="<?php echo $submenu['href'];?>">
-                  <i class="<?php echo $submenu['icon'];?>"></i>
-                	<?php echo $submenu['label'];?>
+                  <a class="<?php echo isset($submenu['class']) ? esc_attr($submenu['class']) : '';?>" href="<?php echo esc_url($submenu['href']);?>">
+                  <i class="<?php echo esc_attr($submenu['icon']);?>"></i>
+                	<?php echo wp_kses_post($submenu['label']);?>
 								</a>
               <?php } ?>
     				</div>
@@ -324,15 +324,15 @@ class PeepSoGeneral
 
             <?php } else { ?>
 
-                <span class="ps-navbar__menu-item <?php echo $data['class'];?>">
-            <a class="ps-navbar__menu-link ps-js-navbar-menu" href="<?php echo $data['href'];?>" title="<?php echo esc_attr($data['title']);?>">
+                <span class="ps-navbar__menu-item <?php echo esc_attr($data['class']);?>">
+            <a class="ps-navbar__menu-link ps-js-navbar-menu" href="<?php echo esc_url($data['href']);?>" title="<?php echo esc_attr($data['title']);?>">
                 <?php if (isset($data['icon']) && ( FALSE == $data['primary'] || isset($data['icon-only']) )) { ?>
-                    <i class="<?php echo $data['icon'];?>"></i>
+                    <i class="<?php echo esc_attr($data['icon']);?>"></i>
                 <?php } ?>
 
-                <?php if (FALSE == $data['icon-only']) { echo $data['label']; } ?>
+                <?php if (FALSE == $data['icon-only']) { echo wp_kses_post($data['label']); } ?>
 
-                <span class="ps-notif__bubble js-counter ps-js-counter"><?php echo $data['count'] > 0 ? $data['count'] : ''; ?></span>
+                <span class="ps-notif__bubble js-counter ps-js-counter"><?php echo esc_attr($data['count'] > 0 ? $data['count'] : ''); ?></span>
             </a>
         </span>
 
@@ -361,15 +361,15 @@ class PeepSoGeneral
 
 
         foreach ($opts as $type => $data) {
-            echo '<div data-tab="', $type, '" ';
+            echo '<div data-tab="', esc_attr($type), '" ';
             if (isset($data['class']) && !empty($data['class'])) {
-                echo 'class="', $data['class'], '" ';
+                echo 'class="', esc_attr($data['class']), '" ';
             }
             echo '>', PHP_EOL;
             echo '<a href="#" onclick="return false;">';
 
-            echo '<i class="', $data['icon'], '"></i>';
-            echo '<span>', $data['name'], '</span>', PHP_EOL;
+            echo '<i class="', esc_attr($data['icon']), '"></i>';
+            echo '<span>', esc_attr($data['name']), '</span>', PHP_EOL;
 
             echo '</a></div>', PHP_EOL;
         }
@@ -388,7 +388,7 @@ class PeepSoGeneral
         foreach ($codes as $code) {
             echo '<div class="ps-alert ps-alert--abort">', PHP_EOL;
             $msg = $error->get_error_message($code);
-            echo $msg;
+            echo wp_kses_post($msg);
             echo '</div>';
         }
     }

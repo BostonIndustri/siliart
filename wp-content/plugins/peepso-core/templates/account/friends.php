@@ -1,4 +1,4 @@
-	<h2><?php echo __('Friends', 'peepso-core');?></h2>
+	<h2><?php echo esc_attr__('Friends', 'peepso-core');?></h2>
 	<?php
 	if (count($friends) > 0) {
 	?>
@@ -14,12 +14,12 @@
     	</ul>
     <?php
     } else {
-    	echo __('You have no friends yet', 'peepso-core');
+    	echo esc_attr__('You have no friends yet', 'peepso-core');
 	}
 	?>
 
 
-	<h2><?php echo __('Friends Request', 'peepso-core');?></h2>
+	<h2><?php echo esc_attr__('Friends Request', 'peepso-core');?></h2>
 	<?php
 	if (count($list_requests) > 0) {
 	?>
@@ -35,12 +35,12 @@
 		</ul>
 	<?php
 	} else {
-		echo __('You currently have no friend requests', 'peepso-core');
+		echo esc_attr__('You currently have no friend requests', 'peepso-core');
 	}
 	?>
 
 
-	<h2><?php echo __('Blocked Members', 'peepso-core')?></h2>
+	<h2><?php echo esc_attr__('Blocked Members', 'peepso-core')?></h2>
 	<?php
 		if (count($list_blocked->results) > 0) {
 
@@ -60,6 +60,6 @@
             <?php
 
         } else {
-            echo __('No blocked members found.', 'peepso-core');
+            echo esc_attr__('No blocked members found.', 'peepso-core');
         }
 	?>

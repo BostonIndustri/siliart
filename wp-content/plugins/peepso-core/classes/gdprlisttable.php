@@ -100,12 +100,12 @@ class PeepSoGdprListTable extends PeepSoListTable
 		$user = PeepSoUser::get_instance($item['request_user_id']);
         ob_start();
         ?>
-        <a href="<?php echo $user->get_profileurl(); ?>" target="_blank">
-            <img src="<?php echo $user->get_avatar(); ?>" width="24" height="24" alt=""
+        <a href="<?php echo esc_url($user->get_profileurl()); ?>" target="_blank">
+            <img src="<?php echo esc_url($user->get_avatar()); ?>" width="24" height="24" alt=""
                  style="float:left;margin-right:10px;"/>
 
             <div style=float:left>
-                <?php echo $user->get_fullname(); ?>
+                <?php echo esc_attr($user->get_fullname()); ?>
                 <i class="fa fa-external-link"></i>
             </div>
         </a>

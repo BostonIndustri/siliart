@@ -26,12 +26,12 @@ $context = $context ?? FALSE;
             <?php if($type!=='profile') { ?>
             <a class="ps-post-reports__delete" href="#" onclick="activity.delete_reported('<?php echo $post_id ?>', '<?php echo $module_id ?>', '<?php echo $type ?>'); return false;">
                 <i class="gcis gci-trash"></i>
-                <?php echo __('Delete permanently','peepso-core');?>
+                <?php echo esc_attr__('Delete permanently','peepso-core');?>
             </a>
             <?php } ?>
 
             <?php if($context) { ?>
-            <a href="<?php echo $context; ?>" target="_blank" class="ps-tip" aria-label="<?php echo __('Full view','peepso-core'); ?>"><i class="gcis gci-external-link"></i></a>
+            <a href="<?php echo $context; ?>" target="_blank" class="ps-tip" aria-label="<?php echo esc_attr__('Full view','peepso-core'); ?>"><i class="gcis gci-external-link"></i></a>
             <?php } ?>
 
         </div>

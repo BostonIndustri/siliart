@@ -87,30 +87,39 @@
 
 			// Flag to apply activity filter.
 			$.proxy(function (hashValue) {
-				var $hidden, $filter, $option, $toggle;
+				let $filter = this.$filters.filter('[data-id=peepso_stream_id]');
 
-				if (!hashValue) {
-					return;
+				if (hashValue) {
+					hashValue = 'core_' + hashValue;
+					let $hidden = $('[id=peepso_stream_id]');
+					let $option = $filter.find(`[data-option-value="${hashValue}"]`);
+					let $toggle = $filter.find('.ps-js-dropdown-toggle');
+
+					if ($hidden.val() !== hashValue && $option.length) {
+						// Update filter data.
+						$hidden.val(hashValue);
+
+						// Update button toggle.
+						$toggle.find('span').text($option.find('span').text());
+						$toggle
+							.find('.ps-js-icon')
+							.attr('class', $option.find('.ps-js-icon').attr('class'));
+					}
 				}
 
-				hashValue = 'core_' + hashValue;
-				$hidden = $('[id=peepso_stream_id]');
-				$filter = this.$filters.filter('[data-id=peepso_stream_id]');
-				$option = $filter.find('[data-option-value="' + hashValue + '"]');
-				$toggle = $filter.find('.ps-js-dropdown-toggle');
+				// Trigger filter on hashchange.
+				window.addEventListener('hashchange', e => {
+					let hashValue = 'core_' + window.location.hash.slice(1);
+					let $option = $filter.find(`[data-option-value="${hashValue}"]`);
 
-				if ($hidden.val() === hashValue || !$option.length) {
-					return;
-				}
-
-				// Update filter data.
-				$hidden.val(hashValue);
-
-				// Update button toggle.
-				$toggle.find('span').text($option.find('span').text());
-				$toggle
-					.find('.ps-js-icon')
-					.attr('class', $option.find('.ps-js-icon').attr('class'));
+					if ($option.length) {
+						let $radio = $option.find('[type=radio]');
+						if ($radio.length) {
+							$radio[0].checked = true;
+							$filter.find('.ps-js-apply').trigger('click');
+						}
+					}
+				});
 			}, this)(window.location.hash.slice(1));
 
 			// Stream notice.

@@ -29,13 +29,13 @@ $PeepSoGeneral = PeepSoGeneral::get_instance();
 			</div>
 			<div class="ps-postbox__actions ps-postbox-action">
 				<?php if(PeepSo::is_admin() && PeepSo::is_dev_mode('embeds')) { ?>
-				<button type="button" class="ps-btn ps-btn--sm ps-postbox__action ps-postbox__action--cancel ps-js-btn-preview"><?php echo __('Fetch URL', 'peepso-core'); ?></button>
+				<button type="button" class="ps-btn ps-btn--sm ps-postbox__action ps-postbox__action--cancel ps-js-btn-preview"><?php echo esc_attr__('Fetch URL', 'peepso-core'); ?></button>
 				<?php } ?>
 				<button type="button" class="ps-btn ps-btn--sm ps-postbox__action ps-tip ps-tip--arrow ps-postbox__action--cancel ps-button-cancel"
-					aria-label="<?php echo __('Cancel', 'peepso-core'); ?>"
+					aria-label="<?php echo esc_attr__('Cancel', 'peepso-core'); ?>"
 					style="display:none"><i class="gcis gci-times"></i></button>
 				<button type="button" class="ps-btn ps-btn--sm ps-btn--action ps-postbox__action ps-postbox__action--post ps-button-action postbox-submit"
-					style="display:none"><?php echo __('Post', 'peepso-core'); ?></button>
+					style="display:none"><?php echo esc_attr__('Post', 'peepso-core'); ?></button>
 			</div>
 			<div class="ps-loading ps-postbox-loading" style="display: none">
 				<img src="<?php echo PeepSo::get_asset('images/ajax-loader.gif'); ?>">

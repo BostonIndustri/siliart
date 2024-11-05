@@ -61,8 +61,8 @@ if(1 == $reaction->custom) {
 				   data-prop-type="prop"
 				   data-prop-name="post_title" <?php echo (TRUE == $reaction->has_default_title) ? 'data-prop-title-is-default="1"':'';?>>
 
-			<button class="button ps-js-btn ps-js-cancel"><?php echo __('Cancel', 'peepso-core'); ?></button>
-			<button class="button button-primary ps-js-btn ps-js-save"><?php echo __('Save', 'peepso-core'); ?></button>
+			<button class="button ps-js-btn ps-js-cancel"><?php echo esc_attr__('Cancel', 'peepso-core'); ?></button>
+			<button class="button button-primary ps-js-btn ps-js-save"><?php echo esc_attr__('Save', 'peepso-core'); ?></button>
 			<span class="ps-settings__progress ps-js-progress">
 				<img src="images/wpspin_light.gif" style="display:none">
 				<i class="ace-icon fa fa-check bigger-110" style="display:none"></i>
@@ -79,7 +79,7 @@ if(1 == $reaction->custom) {
 				<?php if(0 != $reaction->id) { ?>
 				<div class="ps-settings__row ps-js-reactionconf" id="reaction-<?php echo $reaction->post_id;?>-published-container">
 					<div class="ps-settings__label">
-						<?php echo __('Published', 'peepso-core');?>
+						<?php echo esc_attr__('Published', 'peepso-core');?>
 						<?php if($reaction->has_default_title) {
 							echo '<small class="warning" id="reaction-'.$reaction->post_id.'-default-title-notice">('
 								. __('This Reaction will not be public until you change the default title', 'peepso-core')
@@ -101,7 +101,7 @@ if(1 == $reaction->custom) {
                 <!-- Notification -->
                 <div class="ps-settings__row ps-js-reactionconf" style="" id="reaction-<?php echo $reaction->post_id;?>-desc-container">
                     <div class="ps-settings__label">
-                        <?php echo __('Notification text', 'peepso-core');?>
+                        <?php echo esc_attr__('Notification text', 'peepso-core');?>
                         <div class="ps-settings__progress ps-js-progress">
                             <img src="images/wpspin_light.gif" style="display:none">
                             <i class="ace-icon fa fa-check bigger-110" style="display:none"></i>
@@ -110,8 +110,8 @@ if(1 == $reaction->custom) {
 
                     <div class="ps-settings__controls">
                         <input type="text" class="ps-reaction-notification ps-js-reaction-notiftext" data-prop-name="post_content" value="<?php echo $reaction->content;?>" id="reaction-<?php echo $reaction->post_id;?>-desc" data-parent-id="<?php echo $reaction->post_id;?>">
-                        <button class="button ps-js-btn ps-js-cancel" style="display:none"><?php echo __('Cancel', 'peepso-core');?></button>
-                        <button class="button button-primary ps-js-btn ps-js-save" style="display:none"><?php echo __('Save', 'peepso-core');?></button>
+                        <button class="button ps-js-btn ps-js-cancel" style="display:none"><?php echo esc_attr__('Cancel', 'peepso-core');?></button>
+                        <button class="button button-primary ps-js-btn ps-js-save" style="display:none"><?php echo esc_attr__('Save', 'peepso-core');?></button>
 
                         <p class="ps-reaction-hint ps-js-reaction-notifhint">
                             <?php echo PeepSoUser::get_instance()->get_firstname();?>
@@ -120,7 +120,7 @@ if(1 == $reaction->custom) {
                         </p>
 
                         <p class="ps-reaction-hint ps-reaction-hint-empty ps-js-reaction-notifhint-empty">
-                            <?php echo PeepSoUser::get_instance()->get_firstname();?> <?php echo __('reacted to your post', 'peepso-core');?>
+                            <?php echo PeepSoUser::get_instance()->get_firstname();?> <?php echo esc_attr__('reacted to your post', 'peepso-core');?>
                         </p>
                     </div>
 
@@ -131,7 +131,7 @@ if(1 == $reaction->custom) {
                 <!-- Emotion -->
                 <div class="ps-settings__row ps-js-reactionconf" style="" id="reaction-<?php echo $reaction->post_id;?>-emotion-container">
                     <div class="ps-settings__label">
-                        <?php echo __('Emotion', 'peepso-core');?> (BETA)
+                        <?php echo esc_attr__('Emotion', 'peepso-core');?> (BETA)
                         <div class="ps-settings__progress ps-js-progress">
                             <img src="images/wpspin_light.gif" style="display:none">
                             <i class="ace-icon fa fa-check bigger-110" style="display:none"></i>
@@ -153,11 +153,11 @@ if(1 == $reaction->custom) {
                             }
                             ?>
                         </select>
-                        <button class="button ps-js-btn ps-js-cancel" style="display:none"><?php echo __('Cancel', 'peepso-core');?></button>
-                        <button class="button button-primary ps-js-btn ps-js-save" style="display:none"><?php echo __('Save', 'peepso-core');?></button>
+                        <button class="button ps-js-btn ps-js-cancel" style="display:none"><?php echo esc_attr__('Cancel', 'peepso-core');?></button>
+                        <button class="button button-primary ps-js-btn ps-js-save" style="display:none"><?php echo esc_attr__('Save', 'peepso-core');?></button>
 
                         <p class="ps-reaction-hint ps-reaction-hint-empty ps-js-reaction-notifhint-empty">
-                            <?php echo PeepSoUser::get_instance()->get_firstname();?> <?php echo __('reacted to your post', 'peepso-core');?>
+                            <?php echo PeepSoUser::get_instance()->get_firstname();?> <?php echo esc_attr__('reacted to your post', 'peepso-core');?>
                         </p>
                     </div>
 

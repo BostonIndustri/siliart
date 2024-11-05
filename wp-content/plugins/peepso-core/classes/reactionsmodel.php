@@ -426,28 +426,28 @@ class PeepSoReactionsModel
 
 			$title=implode(' ', $title);
 			?>
-			<span class="<?php echo $class;?>" title="<?php echo $title;?>"></span>
+			<span class="<?php echo esc_attr($class);?>" title="<?php echo esc_attr($title);?>"></span>
 			<?php
 		}
 		?>
-		<a title="<?php echo $title;?>" href="#"
-		onclick="reactions.action_html_reactions_details(this, <?php echo $this->act_id; ?>); return false;"><nobr>
+		<a title="<?php echo esc_attr($title);?>" href="#"
+		onclick="reactions.action_html_reactions_details(this, <?php echo esc_attr($this->act_id); ?>); return false;"><nobr>
 
 		<?php
 
 		if( FALSE !== $this->my_reaction) {
 
-			echo __('You', 'peepso-core');
+			echo esc_attr(__('You', 'peepso-core'));
 			$total_reactions--;
 
 			if($total_reactions> 0) {
-				echo " + " , $total_reactions , ' ';
-				echo _n('other','others',$total_reactions,'peepso-core');
+				echo esc_attr(" + " . $total_reactions . ' ');
+				echo esc_attr(_n('other','others',$total_reactions,'peepso-core'));
 			}
 
 		} else {
-			echo $total_reactions , ' ';
-			echo _n('person','people',$total_reactions,'peepso-core');
+			echo esc_attr($total_reactions . ' ');
+			echo esc_attr(_n('person','people',$total_reactions,'peepso-core'));
 		}
 
 		echo '</nobr></a>';
@@ -462,7 +462,7 @@ class PeepSoReactionsModel
 		?>
 		<div class="ps-reactions__likes-list">
 		<a id="ps-reaction-details-close" class="ps-reactions__likes-close ps-tip ps-tip--arrow ps-tip--inline" href="#"
-		   onclick="reactions.action_html_reactions(this, <?php echo $this->act_id; ?>); return false;" aria-label="<?php echo __('Close reactions','peepso-core');?>">
+		   onclick="reactions.action_html_reactions(this, <?php echo esc_attr($this->act_id); ?>); return false;" aria-label="<?php echo esc_attr(__('Close reactions','peepso-core'));?>">
 			<i class="gcis gci-times"></i>
 		</a>
 		<?php
@@ -521,7 +521,7 @@ class PeepSoReactionsModel
 			?>
 
 			<div class="ps-reactions__likes-list-item">
-			<span class="<?php echo $class;?>"><?php echo $this->reaction($react_id)->title;?> (<?php echo $count;?>):</span>
+			<span class="<?php echo esc_attr($class);?>"><?php echo esc_attr($this->reaction($react_id)->title);?> (<?php echo esc_attr($count);?>):</span>
 			<span class="ps-reactions__likes-list-users">
 			<?php
 
@@ -542,7 +542,7 @@ class PeepSoReactionsModel
 				$html_names[] = '<a class="ps-comment-user" href="' . $user->get_profileurl() . '" data-hover-card="' . $user->get_id() . '">' . $user->get_fullname() . '</a>';
 			}
 
-			echo implode(', ', $html_names);
+			echo wp_kses_post(implode(', ', $html_names));
 			echo '</span>';
 			echo '</div>';
 		}
@@ -557,8 +557,8 @@ class PeepSoReactionsModel
 	{
 		global $post;
 		?>
-			<div id="act-reactions-<?php echo $this->act_id; ?>"
-			 class="ps-reactions__dropdown ps-post__action cstream-reactions-options ps-js-reaction-options ps-js-act-reactions-options--<?php echo $this->act_id; ?>"
+			<div id="act-reactions-<?php echo esc_attr($this->act_id); ?>"
+			 class="ps-reactions__dropdown ps-post__action cstream-reactions-options ps-js-reaction-options ps-js-act-reactions-options--<?php echo esc_attr($this->act_id); ?>"
 			 data-count="">
 			<div class="ps-reactions__list">
 				<?php
@@ -592,8 +592,8 @@ class PeepSoReactionsModel
 					$class = implode(' ', $class);
 					?>
 					<span class="ps-reactions__list-item">
-						<a href="#" class="<?php echo $class; ?>" aria-label="<?php echo $title;?>" data-tooltip="<?php echo $title; ?>"
-						   onclick="reactions.action_react(this, <?php echo $this->act_id; ?>, <?php echo $post->ID;?>, <?php echo $react_id; ?>); return false;">
+						<a href="#" class="<?php echo esc_attr($class); ?>" aria-label="<?php echo esc_attr($title);?>" data-tooltip="<?php echo esc_attr($title); ?>"
+						   onclick="reactions.action_react(this, <?php echo esc_attr($this->act_id); ?>, <?php echo esc_attr($post->ID);?>, <?php echo esc_attr($react_id); ?>); return false;">
 						</a>
 					</span>
 				<?php endforeach; ?>
@@ -609,10 +609,10 @@ class PeepSoReactionsModel
 				$class = implode (' ', $class);
 				?>
 
-				<span class="ps-reactions__list-item ps-reactions__list-item--delete ps-reaction-option-delete--<?php echo $this->act_id;?>">
-					<a class="<?php echo $class;?>" href="#"
-					   data-tooltip="<?php echo __('Remove','peepso-core'); ?>"
-					   onclick="reactions.action_react_delete(this, <?php echo $this->act_id; ?>, <?php echo $post->ID;?>); return false;">
+				<span class="ps-reactions__list-item ps-reactions__list-item--delete ps-reaction-option-delete--<?php echo esc_attr($this->act_id);?>">
+					<a class="<?php echo esc_attr($class);?>" href="#"
+					   data-tooltip="<?php echo esc_attr(__('Remove','peepso-core')); ?>"
+					   onclick="reactions.action_react_delete(this, <?php echo esc_attr($this->act_id); ?>, <?php echo esc_attr($post->ID);?>); return false;">
 					   <i class="gcir gci-times-circle"></i>
 					</a>
 				</span>
@@ -635,8 +635,8 @@ class PeepSoReactionsModel
 			$class = implode(' ', $class);
 
 			?>
-			<div id="act-react-<?php echo $this->act_id; ?>"
-				 class="ps-reactions__likes <?php echo $class;?>  " data-count="">
+			<div id="act-react-<?php echo esc_attr($this->act_id); ?>"
+				 class="ps-reactions__likes <?php echo esc_attr($class);?>  " data-count="">
 				<?php echo $html_reactions; ?>
 			</div>
 		<?php

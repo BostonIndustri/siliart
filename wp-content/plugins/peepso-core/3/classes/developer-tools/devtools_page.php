@@ -40,7 +40,7 @@ abstract class PeepSo3_Developer_Tools_Page
             <form action="<?php echo esc_url($_SERVER['REQUEST_URI']); ?>" method="post">
                 <input type="hidden" name="export_content" value="<?php echo $export_key; ?>">
                 <input type="hidden" name="system_report_export" value="1">
-                <input type="submit" value="<?php echo __('&darr; Export', 'wordpress-system-report'); ?>"
+                <input type="submit" value="<?php echo esc_attr__('&darr; Export', 'wordpress-system-report'); ?>"
                        class="button button-primary">
             </form>
 			<?php
@@ -50,7 +50,7 @@ abstract class PeepSo3_Developer_Tools_Page
 			ob_start();
 			?>
             <form action="<?php echo esc_url($_SERVER['REQUEST_URI']); ?>" method="post">
-                <input type="submit" value="<?php echo __('&#8634; Refresh', 'wordpress-system-report'); ?>"
+                <input type="submit" value="<?php echo esc_attr__('&#8634; Refresh', 'wordpress-system-report'); ?>"
                        class="button button-secondary">
             </form>
 			<?php

@@ -130,14 +130,14 @@ if(!isset($_GET['legacy-widget-preview'])) {
           <?php } ?>
         </div>
         <?php if(isset($instance['show_logout']) && 1 == intval($instance['show_logout'])) { ?>
-        <a class="psw-userbar__logout" href="<?php echo PeepSo::get_page('logout'); ?>" title="<?php echo __('Log Out', 'peepso-core'); ?>" arialabel="<?php echo __('Log Out', 'peepso-core'); ?>">
+        <a class="psw-userbar__logout" href="<?php echo PeepSo::get_page('logout'); ?>" title="<?php echo esc_attr__('Log Out', 'peepso-core'); ?>" arialabel="<?php echo esc_attr__('Log Out', 'peepso-core'); ?>">
           <i class="gcis gci-power-off"></i>
         </a>
         <?php } ?>
 			<?php
 		} else {
 			?>
-			<a class="psw-userbar__login" href="<?php echo PeepSo::get_page('login'); ?>"><?php echo __('Log in', 'peepso-core'); ?></a>
+			<a class="psw-userbar__login" href="<?php echo PeepSo::get_page('login'); ?>"><?php echo esc_attr__('Log in', 'peepso-core'); ?></a>
 		<?php
 		}
 		?>

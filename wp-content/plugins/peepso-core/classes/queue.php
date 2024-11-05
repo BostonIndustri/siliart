@@ -144,7 +144,7 @@ class PeepSoQueue
 		$old_cat = 'foundation';
 
 		$c = array(
-            'foundation'=>'rgb(207,65,59)',
+            'foundation'=>'#cf403b',
             'core'=>'#ddddff',
             'extras'=>'#ddffdd',
             'integrations'=>'#fdfddd',
@@ -175,14 +175,14 @@ class PeepSoQueue
 			    $color = $c[$cat];
             }
 
-			echo '<div  class="psa-navbar__item ', $activeclass, '">', PHP_EOL;
-			echo '<a class="ps-tooltip ps-tooltip-cat-'.$cat.'" style="background-color:',$color,' !important;" href="', admin_url('admin.php?page='), self::$slug;
+			echo '<div  class="psa-navbar__item ', esc_attr($activeclass), '">', PHP_EOL;
+			echo '<a class="ps-tooltip ps-tooltip-cat-'.esc_attr($cat).'" style="background-color:',esc_attr($color),' !important;" href="', esc_url(admin_url('admin.php?page=')), esc_attr(self::$slug);
 			if (!empty($tab['tab']))
-				echo '&tab=', $tab['tab'];
+				echo '&tab=', esc_attr($tab['tab']);
 			echo '"';
 			echo '>';
             if(isset($tab['icon'])) {
-                echo '<img src="'.$tab['icon'].'" height="32" />';
+                echo '<img src="'.esc_url($tab['icon']).'" height="32" />';
             }
             echo    '<div class="ps-label-optional"> &nbsp; ' . esc_attr($tab['label']) . '</div>';
 			echo	'</a>', PHP_EOL;
@@ -199,6 +199,6 @@ class PeepSoQueue
 		$tabs = ob_get_clean();
 
         PeepSoAdmin::admin_header($current_title);
-        echo $tabs;
+        echo wp_kses_post($tabs);
 	}
 }

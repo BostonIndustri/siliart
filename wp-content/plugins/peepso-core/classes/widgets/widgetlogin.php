@@ -82,12 +82,12 @@ class PeepSoWidgetLogin extends WP_Widget
 
         ?>
         <p>
-            <label for="<?php echo $this->get_field_id('view_option'); ?>">
-                <?php echo __('View option', 'peepso-core'); ?>
-                <select class="widefat" id="<?php echo $this->get_field_id('view_option'); ?>"
-                        name="<?php echo $this->get_field_name('view_option'); ?>">
-                    <option value="vertical"><?php echo __('Vertical', 'peepso-core'); ?></option>
-                    <option value="horizontal" <?php if('horizontal' === $view_option) echo ' selected="selected" ';?>><?php echo __('Horizontal', 'peepso-core'); ?></option>
+            <label for="<?php echo esc_attr($this->get_field_id('view_option')); ?>">
+                <?php echo esc_attr(__('View option', 'peepso-core')); ?>
+                <select class="widefat" id="<?php echo esc_attr($this->get_field_id('view_option')); ?>"
+                        name="<?php echo esc_attr($this->get_field_name('view_option')); ?>">
+                    <option value="vertical"><?php echo esc_attr(__('Vertical', 'peepso-core')); ?></option>
+                    <option value="horizontal" <?php if('horizontal' === $view_option) echo ' selected="selected" ';?>><?php echo esc_attr(__('Horizontal', 'peepso-core')); ?></option>
                 </select>
 
             </label>

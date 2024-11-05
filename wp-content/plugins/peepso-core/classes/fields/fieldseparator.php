@@ -31,7 +31,7 @@ class PeepSoFieldSeparator extends PeepSoFieldText
 		ob_start();
 		?>
 
-		<div class="ps-form__separator ps-js-profile-separator"><?php echo $this->title;?></div>
+		<div class="ps-form__separator ps-js-profile-separator"><?php echo esc_attr($this->title);?></div>
 
 		<?php
 		return ob_get_clean();

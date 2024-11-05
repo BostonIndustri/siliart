@@ -67,9 +67,9 @@ if($sort = intval(PeepSo::get_option_new('polls_sort_result_by_votes'))) {
 				onclick="peepso.polls.submit_vote(<?php echo $id ?>, this);">
       <i class="gcis gci-check"></i>
 			<?php if ($has_vote) { ?>
-			<?php echo __('Change Vote', 'peepso-core'); ?>
+			<?php echo esc_attr__('Change Vote', 'peepso-core'); ?>
 			<?php } else { ?>
-			<?php echo __('Submit', 'peepso-core'); ?>
+			<?php echo esc_attr__('Submit', 'peepso-core'); ?>
 			<?php } ?>
 			<img src="<?php echo PeepSo::get_asset('images/ajax-loader.gif'); ?>" class="ps-js-loading" alt="loading" style="display:none" />
 		</button>
@@ -77,7 +77,7 @@ if($sort = intval(PeepSo::get_option_new('polls_sort_result_by_votes'))) {
 		<?php if ($has_vote) { ?>
 		<button class="ps-btn ps-btn--xs ps-js-poll-item-unvote" data-id="<?php echo $id; ?>"
 			onclick="peepso.polls.unvote(<?php echo $id ?>, this);">
-			<?php echo __('Unvote', 'peepso-core'); ?>
+			<?php echo esc_attr__('Unvote', 'peepso-core'); ?>
 			<img src="<?php echo PeepSo::get_asset('images/ajax-loader.gif'); ?>" alt="loading" style="display:none" />
 		</button>
 		<?php } ?>
@@ -85,6 +85,6 @@ if($sort = intval(PeepSo::get_option_new('polls_sort_result_by_votes'))) {
   <?php } ?>
 
 	<?php if ( ! is_user_logged_in()) { ?>
-		<div class="ps-poll__message"><i class="gcis gci-lock"></i><?php echo __('Login to cast your vote and to see results.', 'peepso-core'); ?></div>
+		<div class="ps-poll__message"><i class="gcis gci-lock"></i><?php echo esc_attr__('Login to cast your vote and to see results.', 'peepso-core'); ?></div>
 	<?php } ?>
 </div>

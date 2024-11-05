@@ -116,7 +116,7 @@ class PeepSoFormValidate
     		return (strlen($value) >= intval(PeepSo::get_option('minimum_password_length', 10)) ? TRUE : FALSE);
 		case 'custom':
 			if (!isset($this->options['error_message']))
-				throw new Exception(__('Error message must be set for custom validation', 'peepso-core'), 1);
+				throw new Exception(esc_html(__('Error message must be set for custom validation', 'peepso-core')), 1);
 			else
 				return (call_user_func_array($this->options['function'], array($value)));
 			break;

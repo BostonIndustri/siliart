@@ -49,8 +49,8 @@ if (1 == $post_backgrounds->custom) {
 				   data-prop-type="prop"
 				   data-prop-name="post_title">
 
-			<button class="button ps-js-btn ps-js-cancel"><?php echo __('Cancel', 'peepso-core'); ?></button>
-			<button class="button button-primary ps-js-btn ps-js-save"><?php echo __('Save', 'peepso-core'); ?></button>
+			<button class="button ps-js-btn ps-js-cancel"><?php echo esc_attr__('Cancel', 'peepso-core'); ?></button>
+			<button class="button button-primary ps-js-btn ps-js-save"><?php echo esc_attr__('Save', 'peepso-core'); ?></button>
 			<span class="ps-settings__progress ps-js-progress">
 				<img src="images/wpspin_light.gif" style="display:none">
 				<i class="ace-icon fa fa-check bigger-110" style="display:none"></i>
@@ -66,7 +66,7 @@ if (1 == $post_backgrounds->custom) {
 				<!-- Published -->
 				<div class="ps-settings__row ps-js-post-backgroundsconf" id="post-backgrounds-<?php echo $post_backgrounds->post_id; ?>-published-container">
 					<div class="ps-settings__label">
-						<?php echo __('Published', 'peepso-core'); ?>
+						<?php echo esc_attr__('Published', 'peepso-core'); ?>
 						<div class="ps-settings__progress ps-js-progress">
 							<img src="images/wpspin_light.gif" style="display:none">
 							<i class="ace-icon fa fa-check bigger-110" style="display:none"></i>
@@ -81,7 +81,7 @@ if (1 == $post_backgrounds->custom) {
 				<!-- Image -->
 				<div class="ps-settings__row ps-js-post-backgroundsconf" style="" id="post-backgrounds-<?php echo $post_backgrounds->post_id; ?>-desc-container">
 					<div class="ps-settings__label">
-						<?php echo __('Image', 'peepso-core'); ?>
+						<?php echo esc_attr__('Image', 'peepso-core'); ?>
 						<div class="ps-settings__progress ps-js-progress">
 							<img src="images/wpspin_light.gif" style="display:none">
 							<i class="ace-icon fa fa-check bigger-110" style="display:none"></i>
@@ -95,11 +95,11 @@ if (1 == $post_backgrounds->custom) {
 							</span>
 						</div>
 						<p>
-							<a class="btn btn-sm btn-info btn-img-post-backgrounds" href="#" style="margin-top:10px" data-id="<?php echo $post_backgrounds->post_id; ?>"><?php echo __('Change image', 'peepso-core');?></a>
+							<a class="btn btn-sm btn-info btn-img-post-backgrounds" href="#" style="margin-top:10px" data-id="<?php echo $post_backgrounds->post_id; ?>"><?php echo esc_attr__('Change image', 'peepso-core');?></a>
 
 							<?php if (!$post_backgrounds->custom) {?>
-								<a class="btn btn-sm btn-danger ps-js-post-backgrounds-reset" style="margin-top:10px" onclick="return confirm('<?php echo __('Are you sure?', 'peepso-core'); ?>')" href="<?php echo admin_url('admin.php?page=peepso-manage&tab=post-backgrounds&action=reset-post-backgrounds&id=' . $post_backgrounds->post_id . '&_wpnonce=' . wp_create_nonce('reset-post-backgrounds-nonce')); ?>" >
-									<?php echo __('Reset to default', 'peepso-core'); ?>
+								<a class="btn btn-sm btn-danger ps-js-post-backgrounds-reset" style="margin-top:10px" onclick="return confirm('<?php echo esc_attr__('Are you sure?', 'peepso-core'); ?>')" href="<?php echo admin_url('admin.php?page=peepso-manage&tab=post-backgrounds&action=reset-post-backgrounds&id=' . $post_backgrounds->post_id . '&_wpnonce=' . wp_create_nonce('reset-post-backgrounds-nonce')); ?>" >
+									<?php echo esc_attr__('Reset to default', 'peepso-core'); ?>
 								</a>
 							<?php } ?>
 
@@ -111,7 +111,7 @@ if (1 == $post_backgrounds->custom) {
 				<!-- Text Color -->
 				<div class="ps-settings__row ps-js-post-backgroundsconf" style="" id="post-backgrounds-<?php echo $post_backgrounds->post_id; ?>-text-color-container">
 					<div class="ps-settings__label">
-						<?php echo __('Text Color', 'peepso-core'); ?>
+						<?php echo esc_attr__('Text Color', 'peepso-core'); ?>
 						<div class="ps-settings__progress ps-js-progress">
 							<img src="images/wpspin_light.gif" style="display:none">
 							<i class="ace-icon fa fa-check bigger-110" style="display:none"></i>
@@ -120,7 +120,7 @@ if (1 == $post_backgrounds->custom) {
 
 					<div class="ps-settings__controls">
 						<input type="text" value="<?php echo $post_backgrounds->content->text_color;?>" data-prop-name="post_content|text_color" id="post-backgrounds-<?php echo $post_backgrounds->post_id; ?>-text-color" data-parent-id="<?php echo $post_backgrounds->post_id; ?>" class="color-picker" data-default-color="<?php echo $post_backgrounds->content->text_color;?>" data-alpha-enabled="true"/>
-            <button class="button button-primary ps-js-save"><?php echo __('Save', 'peepso-core'); ?></button>
+            <button class="button button-primary ps-js-save"><?php echo esc_attr__('Save', 'peepso-core'); ?></button>
 					</div>
 				</div>
 

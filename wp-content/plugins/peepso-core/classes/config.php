@@ -58,7 +58,7 @@ class PeepSoConfig
         $this->config_object = new $aTab['function']();
 
         if (!($this->config_object instanceOf PeepSoConfigSectionAbstract)) {
-            throw new Exception(__('Class must be instance of PeepSoConfigSectionAbstract', 'peepso-core'), 1);
+            throw new Exception(esc_attr(__('Class must be instance of PeepSoConfigSectionAbstract', 'peepso-core')), 1);
         }
 
         $filter = 'peepso_admin_register_config_group-' . $aTab['tab'];
@@ -95,8 +95,8 @@ class PeepSoConfig
      */
     public function render_tabs()
     {
-        ob_start();
         $current_title = __('Configuration', 'peepso-core');
+        PeepSoAdmin::admin_header($current_title);
 
         $input = new PeepSoInput();
         $curtab = $input->value('tab', 'site', false); // SQL safe
@@ -105,9 +105,9 @@ class PeepSoConfig
 
         $c = array(
             'foundation-free-bundle' =>'#f7b431',
-            'foundation'=>'rgb(207,65,59)',
-            'foundation-notifications'=>'rgb(190,50,45)',
-            'foundation-advanced'=>'rgb(175,40,35)',
+            'foundation'=>'#cf413b',
+            'foundation-notifications'=>'#be322d',
+            'foundation-advanced'=>'#af2823',
             'core'=>'#fdd5d3',
             'extras'=>'#fdd5d3',
             'integrations'=>'#d2e8f7',
@@ -116,6 +116,7 @@ class PeepSoConfig
         );
 
         echo '<div class="psa-navbar">', PHP_EOL;
+        
         $tabs = $this->get_tabs();
         foreach ($tabs as $tab) {
             $config_tab = '';
@@ -139,8 +140,8 @@ class PeepSoConfig
                 $color = $c[$cat];
             }
 
-            echo '<div  class="psa-navbar__item ', $activeclass, '">', PHP_EOL;
-            echo '<a class="ps-tooltip ps-tooltip-cat-'.$cat.'" style="background-color:',$color,' !important;" href="';
+            echo '<div  class="psa-navbar__item ', esc_attr($activeclass), '">', PHP_EOL;
+            echo '<a class="ps-tooltip ps-tooltip-cat-'.esc_attr($cat).'" style="background-color:',esc_attr($color),' !important;" href="';
             $url = admin_url('admin.php?page=') . self::$slug;
 
             if (!empty($tab['tab'])) {
@@ -150,15 +151,15 @@ class PeepSoConfig
                 }
             }
 
-            echo $url . '"';
+            echo esc_url($url) . '"';
 
             //if (isset($tab['description']) && !empty($tab['description']))
             //	echo ' title="', esc_attr($tab['description']), '"';
             echo '>';
 
             $verbose_tabs_css = (1 == get_user_option('peepso_admin_verbose_tabs')) ? '' : ' style="display:none" ';
-            echo	isset($tab['icon']) ? '<img src="'.$tab['icon'].'" height="32"/>' : $tab['label'];
-            echo    isset($tab['icon']) ? '<div class="ps-label-optional" '.$verbose_tabs_css.' > &nbsp; ' . esc_attr($tab['label']) . '</div>' : '';
+            echo	isset($tab['icon']) ? '<img src="'.esc_url($tab['icon']).'" height="32"/>' : esc_attr($tab['label']);
+            echo    isset($tab['icon']) ? '<div class="ps-label-optional" '.esc_attr($verbose_tabs_css).' > &nbsp; ' . esc_attr($tab['label']) . '</div>' : '';
             echo	'</a>', PHP_EOL;
 
 
@@ -170,11 +171,6 @@ class PeepSoConfig
         }
 
         echo '</div>', PHP_EOL;
-
-        $tabs = ob_get_clean();
-
-        PeepSoAdmin::admin_header($current_title);
-        echo $tabs;
 
         // default to 1
         if(FALSE === get_user_option('peepso_admin_verbose_fields')) {
@@ -189,14 +185,14 @@ class PeepSoConfig
 
         <div class="psa-dashboard__filters">
             <div class="psa-dashboard__filter ps-checkbox">
-                <span><?php echo __('Tab titles','peepso-core');?></span>
+                <span><?php echo esc_attr__('Tab titles','peepso-core');?></span>
                 <input name="peepso_admin_verbose_tabs" class="ace ace-switch ace-switch-2" id="peepso_admin_verbose_tabs" type="checkbox" value="1" <?php echo (1 == get_user_option('peepso_admin_verbose_tabs')) ? 'checked' : ''; ?>>
                 <label class="lbl" for="peepso_admin_verbose_tabs">
 
                 </label>
             </div>
             <div class="psa-dashboard__filter ps-checkbox">
-                <span><?php echo __('Field descriptions','peepso-core');?></span>
+                <span><?php echo esc_attr__('Field descriptions','peepso-core');?></span>
                 <input name="peepso_admin_verbose_fields" class="ace ace-switch ace-switch-2" id="peepso_admin_verbose_fields" type="checkbox" value="1" <?php echo (1 == get_user_option('peepso_admin_verbose_fields')) ? 'checked' : ''; ?>>
                 <label class="lbl" for="peepso_admin_verbose_fields">
 
@@ -207,7 +203,7 @@ class PeepSoConfig
         <?php
 
         echo '<div class="edit-message" id="edit_warning">';
-        echo __('Some settings have been changed. Be sure to save your changes.', 'peepso-core');
+        echo esc_attr__('Some settings have been changed. Be sure to save your changes.', 'peepso-core');
         echo '</div>';
     }
 
@@ -259,14 +255,14 @@ class PeepSoConfig
         $group = $metabox['args']['group'];
 
         if (isset($group['description']))
-            echo '<p style="color:gray">', $group['description'], '</p>', PHP_EOL;
+            echo '<p style="color:gray">', wp_kses_post($group['description']), '</p>', PHP_EOL;
 
         foreach ($group['fields'] as $field) {
             $field = $this->config_object->form->fields[$field['name']];
-            echo '<div id="field_' . $field['name'] . '" class="form-group"';
+            echo '<div id="field_' . esc_attr($field['name']) . '" class="form-group"';
 
             if(isset($field['children'])) {
-                echo ' data-children="'. implode(',',$field['children']).'" ';
+                echo ' data-children="'. esc_attr(implode(',',$field['children'])).'" ';
             }
             echo '>';
             echo $this->config_object->form->render_field($field);
@@ -275,7 +271,7 @@ class PeepSoConfig
         }
 
         if (isset($group['summary']))
-            echo '<p style="color:gray">', $group['summary'], '</p>', PHP_EOL;
+            echo '<p style="color:gray">', wp_kses_post($group['summary']), '</p>', PHP_EOL;
     }
 
     // Calls get_instance() to start
@@ -603,7 +599,7 @@ class PeepSoConfig
 
         $hidden = get_hidden_meta_boxes( $screen );
 
-        printf('<div id="%s-sortables" class="meta-box-sortables">', htmlspecialchars($context));
+        printf('<div id="%s-sortables" class="meta-box-sortables">', esc_attr($context));
 
         // Grab the ones the user has manually sorted. Pull them out of their previous context/priority and into the one the user chose
         if ( ! $already_sorted && $sorted = get_user_option( "meta-box-order_$page" ) ) {
@@ -628,14 +624,14 @@ class PeepSoConfig
                             continue;
                         $i++;
                         $hidden_class = in_array($box['id'], $hidden) ? ' hide-if-js' : '';
-                        echo '<div id="' . $box['id'] . '" class="postbox ' . postbox_classes($box['id'], $page) . $hidden_class . '" ' . '>' . "\n";
+                        echo '<div id="' . esc_attr($box['id']) . '" class="postbox ' . esc_attr(postbox_classes($box['id'], $page)) . esc_attr($hidden_class) . '" ' . '>' . "\n";
                         if ( 'dashboard_browser_nag' != $box['id'] ) {
                             echo '<button type="button" class="handlediv button-link" aria-expanded="true">';
-                            echo '<span class="screen-reader-text">' . sprintf( __( 'Toggle panel: %s' ), $box['title'] ) . '</span>';
+                            echo '<span class="screen-reader-text">' . esc_attr(sprintf( esc_attr__( 'Toggle panel: %s' ), $box['title'] )) . '</span>';
                             echo '<span class="toggle-indicator" aria-hidden="true"></span>';
                             echo '</button>';
                         }
-                        echo "<h3 class='hndle'><span>{$box['title']}</span></h3>\n";
+                        echo "<h3 class='hndle'><span>" . esc_attr($box['title']) . "</span></h3>\n";
                         echo '<div class="inside">' . "\n";
                         call_user_func($box['callback'], $object, $box);
                         echo "</div>\n";

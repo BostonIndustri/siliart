@@ -137,15 +137,15 @@ class PeepSoShare
                     $tooltip .= isset($link['tooltip']) ? "{$link['tooltip']}" : '';
                     $tooltipSuccess .= isset($link['tooltip-after-click']) ? "{$link['tooltip-after-click']}" : '';
                     $tooltipClass .= isset($link['tooltip']) ? " ps-tooltip ps-tooltip--permalink " : '';
-                    echo '<a class="ps-sharebox__item '.$class.' '.$tooltipClass.'" data-tooltip="'.$tooltip.'" data-tooltip-initial="'.$tooltip.'" data-tooltip-success="'.$tooltipSuccess.'" href="', $link['url'], '" target="_blank">', PHP_EOL;
+                    echo '<a class="ps-sharebox__item '.esc_attr($class).' '.esc_attr($tooltipClass).'" data-tooltip="'.esc_attr($tooltip).'" data-tooltip-initial="'.esc_attr($tooltip).'" data-tooltip-success="'.esc_attr($tooltipSuccess).'" href="', esc_url($link['url']), '" target="_blank">', PHP_EOL;
                     //echo '<span class="ps-sharebox__icon ps-icon--social ps-icon--social-', $link['icon'], '">', $link['label'], '</span>', PHP_EOL;
-                    echo '<span class="ps-sharebox__icon ps-icon--social" ><i class="', $link['icon'], '"></i></span> <span class="ps-sharebox__title">' . $link['label'] . '</span>' . PHP_EOL;
+                    echo '<span class="ps-sharebox__icon ps-icon--social" ><i class="', esc_attr($link['icon']), '"></i></span> <span class="ps-sharebox__title">' . esc_attr($link['label']) . '</span>' . PHP_EOL;
                 } elseif(stristr($key, 'separator')) {
                     // nothing for now?
                 }
             }
         } else {
-		    echo __('Sorry, it looks like the no social sharing platforms are enabled', 'peepso-core');
+		    echo esc_attr(__('Sorry, it looks like the no social sharing platforms are enabled', 'peepso-core'));
         }
 		echo '</div>', PHP_EOL;
 	}

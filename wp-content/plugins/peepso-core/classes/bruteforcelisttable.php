@@ -191,8 +191,8 @@ class PeepSoBruteForceListTable extends PeepSoListTable
 			$nonce = wp_create_nonce('clear-brute-force-logs-nonce');
 			echo '
 			<div class="alignleft actions">
-				<a onclick="return confirm(\''. __('Are you sure?', 'peepso-core') . '\');" href="', admin_url('admin.php?page=peepso-manage&tab=brute-force&action=clear-brute-force-logs&_wpnonce=' . $nonce), '">
-					<input type="button" class="button" value="', __('Clear logs', 'peepso-core'), '" />
+				<a onclick="return confirm(\''. esc_attr(__('Are you sure?', 'peepso-core')) . '\');" href="', esc_url(admin_url('admin.php?page=peepso-manage&tab=brute-force&action=clear-brute-force-logs&_wpnonce=' . $nonce)), '">
+					<input type="button" class="button" value="', esc_attr(__('Clear logs', 'peepso-core')), '" />
 				</a>
 			</div>';
 		}

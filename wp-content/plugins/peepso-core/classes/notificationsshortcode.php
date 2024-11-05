@@ -43,9 +43,9 @@ class PeepSoNotificationsShortcode
             PeepSo::PLUGIN_VERSION, TRUE);
 
         ob_start();
-        echo PeepSoTemplate::get_before_markup();
+        echo wp_kses_post(PeepSoTemplate::get_before_markup());
         PeepSoTemplate::exec_template('general', 'notifications');
-        echo PeepSoTemplate::get_after_markup();
+        echo wp_kses_post(PeepSoTemplate::get_after_markup());
 
         return ob_get_clean();
     }

@@ -2,10 +2,10 @@
 # This file is distributed under the GPL-3.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: WooCommerce Square 4.8.0\n"
+"Project-Id-Version: WooCommerce Square 4.8.2\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/woocommerce-square\n"
-"POT-Creation-Date: 2024-09-16 17:12:27+00:00\n"
+"POT-Creation-Date: 2024-10-14 14:43:43+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -127,19 +127,19 @@ msgstr ""
 
 #: includes/Admin/Rest/WC_REST_Square_Cash_App_Settings_Controller.php:82
 #: includes/Admin/Rest/WC_REST_Square_Credit_Card_Payment_Settings_Controller.php:89
-#: includes/Admin/Rest/WC_REST_Square_Gift_Cards_Settings_Controller.php:77
+#: includes/Admin/Rest/WC_REST_Square_Gift_Cards_Settings_Controller.php:73
 msgid "Enable Square payment gateway."
 msgstr ""
 
 #: includes/Admin/Rest/WC_REST_Square_Cash_App_Settings_Controller.php:87
 #: includes/Admin/Rest/WC_REST_Square_Credit_Card_Payment_Settings_Controller.php:94
-#: includes/Admin/Rest/WC_REST_Square_Gift_Cards_Settings_Controller.php:82
+#: includes/Admin/Rest/WC_REST_Square_Gift_Cards_Settings_Controller.php:78
 msgid "Square payment gateway title."
 msgstr ""
 
 #: includes/Admin/Rest/WC_REST_Square_Cash_App_Settings_Controller.php:92
 #: includes/Admin/Rest/WC_REST_Square_Credit_Card_Payment_Settings_Controller.php:99
-#: includes/Admin/Rest/WC_REST_Square_Gift_Cards_Settings_Controller.php:87
+#: includes/Admin/Rest/WC_REST_Square_Gift_Cards_Settings_Controller.php:83
 msgid "Square payment gateway description."
 msgstr ""
 
@@ -205,6 +205,16 @@ msgstr ""
 
 #: includes/Admin/Rest/WC_REST_Square_Credit_Card_Payment_Settings_Controller.php:149
 msgid "Array of digital wallet buttons to hide"
+msgstr ""
+
+#: includes/Admin/Rest/WC_REST_Square_Gift_Cards_Settings_Controller.php:88
+msgid ""
+"Indicates if a Gift card product should use the default placeholder "
+"provided by the plugin."
+msgstr ""
+
+#: includes/Admin/Rest/WC_REST_Square_Gift_Cards_Settings_Controller.php:93
+msgid "ID of the placeholder media."
 msgstr ""
 
 #: includes/Admin/Rest/WC_REST_Square_Settings_Controller.php:89
@@ -467,63 +477,63 @@ msgstr ""
 msgid "Start sync"
 msgstr ""
 
-#: includes/Admin.php:147
+#: includes/Admin.php:148
 msgid "Inventory tracking is disabled for this product"
 msgstr ""
 
-#: includes/Admin.php:148 includes/Handlers/Products.php:237
+#: includes/Admin.php:149 includes/Handlers/Products.php:237
 msgid "Synced with Square"
 msgstr ""
 
-#: includes/Admin.php:149
+#: includes/Admin.php:150
 msgid "Managed by Square"
 msgstr ""
 
-#: includes/Admin.php:150
+#: includes/Admin.php:151
 msgid "Fetch stock from Square"
 msgstr ""
 
-#: includes/Admin.php:151
+#: includes/Admin.php:152
 msgid "Sync inventory"
 msgstr ""
 
-#: includes/Admin.php:152
+#: includes/Admin.php:153
 msgid "Sync stock from Square"
 msgstr ""
 
-#: includes/Admin.php:196 includes/Sync/Records/Record.php:208
+#: includes/Admin.php:199 includes/Sync/Records/Record.php:208
 msgid "Resolved"
 msgstr ""
 
-#: includes/Admin.php:197
+#: includes/Admin.php:200
 msgid "No records found"
 msgstr ""
 
-#: includes/Admin.php:198
+#: includes/Admin.php:201
 msgid "Skipped"
 msgstr ""
 
-#: includes/Admin.php:199
+#: includes/Admin.php:202
 msgid "Updated"
 msgstr ""
 
-#: includes/Admin.php:200
+#: includes/Admin.php:203
 msgid "Imported"
 msgstr ""
 
-#: includes/Admin.php:202
+#: includes/Admin.php:205
 msgid "Enable to fetch inventory changes from Square"
 msgstr ""
 
-#: includes/Admin.php:203
+#: includes/Admin.php:206
 msgid "Enable to push inventory changes to Square"
 msgstr ""
 
-#: includes/Admin.php:206
+#: includes/Admin.php:209
 msgid "Inventory is fetched from Square periodically and updated in WooCommerce"
 msgstr ""
 
-#: includes/Admin.php:209
+#: includes/Admin.php:212
 #. translators: Placeholders: %1$s - <strong> tag, %2$s - </strong> tag
 msgid ""
 "Inventory is %1$salways fetched from Square%2$s periodically to account for "
@@ -1346,7 +1356,7 @@ msgstr ""
 #: includes/Gateway/Cash_App_Pay_Blocks_Handler.php:115
 #: includes/Gateway/Cash_App_Pay_Gateway.php:183
 #: includes/Gateway/Cash_App_Pay_Gateway.php:1224
-#: includes/Gateway/Digital_Wallet.php:145 includes/Gateway/Gift_Card.php:329
+#: includes/Gateway/Digital_Wallet.php:145 includes/Gateway/Gift_Card.php:369
 #: includes/Gateway/Payment_Form.php:220 includes/Gateway.php:305
 #: includes/Gateway.php:1030
 msgid "An error occurred, please try again or try an alternate form of payment."
@@ -1533,7 +1543,7 @@ msgid "Continue"
 msgstr ""
 
 #: includes/Framework/PaymentGateway/Payment_Gateway.php:699
-#: includes/Gateway/Gift_Card.php:551
+#: includes/Gateway/Gift_Card.php:591
 msgid "Place order"
 msgstr ""
 
@@ -2345,63 +2355,63 @@ msgstr ""
 msgid "Unable to verify domain with Apple Pay - missing access token."
 msgstr ""
 
-#: includes/Gateway/Gift_Card.php:40
+#: includes/Gateway/Gift_Card.php:48
 msgid "Gift Cards (Square)"
 msgstr ""
 
-#: includes/Gateway/Gift_Card.php:138
+#: includes/Gateway/Gift_Card.php:147
 msgid "Square Gift Cards"
 msgstr ""
 
-#: includes/Gateway/Gift_Card.php:150
+#: includes/Gateway/Gift_Card.php:159
 msgid "Allow customers to purchase and redeem gift cards during checkout."
 msgstr ""
 
-#: includes/Gateway/Gift_Card.php:440
+#: includes/Gateway/Gift_Card.php:480
 msgid "Payment split"
 msgstr ""
 
-#: includes/Gateway/Gift_Card.php:441
+#: includes/Gateway/Gift_Card.php:481
 msgid "Amount"
 msgstr ""
 
-#: includes/Gateway/Gift_Card.php:445
+#: includes/Gateway/Gift_Card.php:485
 msgid "Gift card"
 msgstr ""
 
-#: includes/Gateway/Gift_Card.php:452
+#: includes/Gateway/Gift_Card.php:492
 msgid "Credit card/Cash App Pay"
 msgstr ""
 
-#: includes/Gateway/Gift_Card.php:454
+#: includes/Gateway/Gift_Card.php:494
 msgid "Credit card"
 msgstr ""
 
-#: includes/Gateway/Gift_Card.php:465
+#: includes/Gateway/Gift_Card.php:505
 msgid "Have a Square Gift Card?"
 msgstr ""
 
-#: includes/Gateway/Gift_Card.php:470
+#: includes/Gateway/Gift_Card.php:510
 msgid "Apply"
 msgstr ""
 
-#: includes/Gateway/Gift_Card.php:479
+#: includes/Gateway/Gift_Card.php:519
 msgid "There was an error while applying the gift card."
 msgstr ""
 
-#: includes/Gateway/Gift_Card.php:484
+#: includes/Gateway/Gift_Card.php:524
 #. translators: %s - amount to be charged on the gift card.
 msgid "%s will be applied from the gift card."
 msgstr ""
 
-#: includes/Gateway/Gift_Card.php:498
+#: includes/Gateway/Gift_Card.php:538
 #. translators: %s - balance amount in the gift card after placing the order.
 msgid ""
 "The remaining gift card balance after placing this order will be "
 "<strong>%s</strong>"
 msgstr ""
 
-#: includes/Gateway/Gift_Card.php:506
+#: includes/Gateway/Gift_Card.php:546
 #. translators: %1$s - remaining amount to be paid using the credit card or
 #. cash app pay; %2$s - payment method.
 msgid ""
@@ -2409,15 +2419,15 @@ msgid ""
 "remaining amount of <strong>%1$s</strong> would need to be paid with a %2$s."
 msgstr ""
 
-#: includes/Gateway/Gift_Card.php:508
+#: includes/Gateway/Gift_Card.php:548
 msgid "credit card or cash app pay"
 msgstr ""
 
-#: includes/Gateway/Gift_Card.php:508 includes/Handlers/Order.php:999
+#: includes/Gateway/Gift_Card.php:548 includes/Handlers/Order.php:999
 msgid "credit card"
 msgstr ""
 
-#: includes/Gateway/Gift_Card.php:515
+#: includes/Gateway/Gift_Card.php:555
 msgid "Use a different gift card"
 msgstr ""
 
@@ -2759,19 +2769,19 @@ msgstr ""
 msgid "The gift card number is either invalid or does not exist."
 msgstr ""
 
-#: includes/Handlers/Products.php:1246 includes/Handlers/Products.php:1435
+#: includes/Handlers/Products.php:1246 includes/Handlers/Products.php:1443
 msgid "Buy Gift Card"
 msgstr ""
 
-#: includes/Handlers/Products.php:1275
+#: includes/Handlers/Products.php:1279
 msgid "Placeholder"
 msgstr ""
 
-#: includes/Handlers/Products.php:1344
+#: includes/Handlers/Products.php:1352
 msgid "You can only add 1 gift card product to your cart per order."
 msgstr ""
 
-#: includes/Handlers/Products.php:1346
+#: includes/Handlers/Products.php:1354
 msgid "View cart"
 msgstr ""
 

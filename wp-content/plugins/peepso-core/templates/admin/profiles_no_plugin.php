@@ -5,8 +5,8 @@
 			<div class="ps-dialog__panel"><?php echo $message; ?></div>
 		</div>
 		<div class="ps-dialog__footer">
-			<a href="#" class="btn btn-link button button-link"><?php echo __('Cancel', 'peepso-core'); ?></a>&nbsp;
-			<a href="#" class="button button-primary"><?php echo __('Get Extended Profiles', 'peepso-core'); ?></a>
+			<a href="#" class="btn btn-link button button-link"><?php echo esc_attr__('Cancel', 'peepso-core'); ?></a>&nbsp;
+			<a href="#" class="button button-primary"><?php echo esc_attr__('Get Extended Profiles', 'peepso-core'); ?></a>
 		</div>
 	</div>
 </div>

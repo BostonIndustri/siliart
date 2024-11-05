@@ -162,7 +162,7 @@ class PeepSoMoods {
 		if (!empty($post_mood))
 		{
 			ob_start();?>
-			<span class="ps-post__mood"><i class="ps-emoticon <?php echo $this->class_prefix . $post_mood_id;?>"></i><span><?php echo __(' feeling ', 'peepso-core') . ucwords($post_mood);?></span></span>
+			<span class="ps-post__mood"><i class="ps-emoticon <?php echo esc_attr($this->class_prefix . $post_mood_id);?>"></i><span><?php echo esc_attr(__(' feeling ', 'peepso-core') . ucwords($post_mood));?></span></span>
 			<?php
 			$extras[] = ob_get_clean();
 		}

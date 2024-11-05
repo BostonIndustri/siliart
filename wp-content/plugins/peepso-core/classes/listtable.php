@@ -101,6 +101,6 @@ class PeepSoListTable extends WP_List_Table
 
 		$this->_pagination = "<div class='tablenav-pages{$page_class}'>$output</div>";
 
-		echo $this->_pagination;
+		echo wp_kses_post($this->_pagination);
 	}
 }

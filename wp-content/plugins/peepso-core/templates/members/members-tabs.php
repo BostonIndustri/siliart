@@ -12,10 +12,10 @@ if(get_current_user_id()) {
 
 <div class="ps-tabs ps-members__tabs ps-tabs--arrows">
   <div class="ps-tabs__item ps-members__tab <?php if (!isset($tab)) echo "ps-tabs__item--active"; ?>">
-		<a href="<?php echo PeepSo::get_page('members'); ?>"><?php echo __('Members', 'peepso-core'); ?></a>
+		<a href="<?php echo PeepSo::get_page('members'); ?>"><?php echo esc_attr__('Members', 'peepso-core'); ?></a>
   </div>
   <div class="ps-tabs__item ps-members__tab <?php if (isset($tab) && 'blocked' == $tab) echo "ps-tabs__item--active"; ?>">
-		<a href="<?php echo $blocked_member_url; ?>"><?php echo __('Blocked', 'peepso-core'); ?></a>
+		<a href="<?php echo $blocked_member_url; ?>"><?php echo esc_attr__('Blocked', 'peepso-core'); ?></a>
   </div>
 </div>
 

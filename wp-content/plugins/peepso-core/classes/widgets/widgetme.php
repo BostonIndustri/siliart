@@ -136,10 +136,10 @@ class PeepSoWidgetMe extends WP_Widget
         ?>
 
         <?php foreach ($toolbar as $item => $data) { ?>
-            <div class="ps-notif <?php echo $data['class'];?>">
-              <a class="ps-notif__toggle" href="<?php echo $data['href'];?>" title="<?php echo esc_attr($data['label']);?>">
-                <i class="<?php echo $data['icon'];?>"></i>
-                <span class="ps-notif__bubble js-counter ps-js-counter"><?php echo ($data['count'] > 0) ? $data['count'] : '';?></span>
+            <div class="ps-notif <?php echo esc_attr($data['class']);?>">
+              <a class="ps-notif__toggle" href="<?php echo esc_url($data['href']);?>" title="<?php echo esc_attr($data['label']);?>">
+                <i class="<?php echo esc_attr($data['icon']);?>"></i>
+                <span class="ps-notif__bubble js-counter ps-js-counter"><?php echo ($data['count'] > 0) ? esc_attr($data['count']) : '';?></span>
               </a>
             </div>
         <?php } ?>
@@ -182,53 +182,53 @@ class PeepSoWidgetMe extends WP_Widget
         $show_in_profile     = isset($instance['show_in_profile']) ? $instance['show_in_profile'] : 3;
         ?>
         <p>
-            <label for="<?php echo $this->get_field_id('guest_behavior'); ?>">
-                <?php echo __('Guest view', 'peepso-core'); ?>
-                <select class="widefat" id="<?php echo $this->get_field_id('guest_behavior'); ?>"
-                        name="<?php echo $this->get_field_name('guest_behavior'); ?>">
-                    <option value="login"><?php echo __('Log-in form', 'peepso-core'); ?></option>
-                    <option value="hide" <?php if('hide' === $guest_behavior) echo ' selected="selected" ';?>><?php echo __('Hide', 'peepso-core'); ?></option>
+            <label for="<?php echo esc_attr($this->get_field_id('guest_behavior')); ?>">
+                <?php echo esc_attr(__('Guest view', 'peepso-core')); ?>
+                <select class="widefat" id="<?php echo esc_attr($this->get_field_id('guest_behavior')); ?>"
+                        name="<?php echo esc_attr($this->get_field_name('guest_behavior')); ?>">
+                    <option value="login"><?php echo esc_attr(__('Log-in form', 'peepso-core')); ?></option>
+                    <option value="hide" <?php if('hide' === $guest_behavior) echo ' selected="selected" ';?>><?php echo esc_attr(__('Hide', 'peepso-core')); ?></option>
                 </select>
 
             </label>
         </p>
         <p>
-            <input name="<?php echo $this->get_field_name('show_notifications'); ?>" class="ace ace-switch ace-switch-2"
-                   id="<?php echo $this->get_field_id('show_notifications'); ?>" type="checkbox" value="1"
+            <input name="<?php echo esc_attr($this->get_field_name('show_notifications')); ?>" class="ace ace-switch ace-switch-2"
+                   id="<?php echo esc_attr($this->get_field_id('show_notifications')); ?>" type="checkbox" value="1"
                 <?php if(1 === $show_notifications) echo ' checked="" ';?>>
-            <label class="lbl" for="<?php echo $this->get_field_id('show_notifications'); ?>">
-                <?php echo __('Show notifications', 'peepso-core'); ?>
+            <label class="lbl" for="<?php echo esc_attr($this->get_field_id('show_notifications')); ?>">
+                <?php echo esc_attr(__('Show notifications', 'peepso-core')); ?>
             </label>
         </p>
         <p>
-            <input name="<?php echo $this->get_field_name('show_community_links'); ?>" class="ace ace-switch ace-switch-2"
-                   id="<?php echo $this->get_field_id('show_community_links'); ?>" type="checkbox" value="1"
+            <input name="<?php echo esc_attr($this->get_field_name('show_community_links')); ?>" class="ace ace-switch ace-switch-2"
+                   id="<?php echo esc_attr($this->get_field_id('show_community_links')); ?>" type="checkbox" value="1"
                 <?php if(1 === $show_community_links) echo ' checked="" ';?>>
-            <label class="lbl" for="<?php echo $this->get_field_id('show_community_links'); ?>">
-                <?php echo __('Show community links', 'peepso-core'); ?>
+            <label class="lbl" for="<?php echo esc_attr($this->get_field_id('show_community_links')); ?>">
+                <?php echo esc_attr(__('Show community links', 'peepso-core')); ?>
             </label>
         </p>
 
         <p>
-            <input name="<?php echo $this->get_field_name('show_cover'); ?>" class="ace ace-switch ace-switch-2"
-                   id="<?php echo $this->get_field_id('show_cover'); ?>" type="checkbox" value="1"
+            <input name="<?php echo esc_attr($this->get_field_name('show_cover')); ?>" class="ace ace-switch ace-switch-2"
+                   id="<?php echo esc_attr($this->get_field_id('show_cover')); ?>" type="checkbox" value="1"
                 <?php if(1 === $show_cover) echo ' checked="" ';?>>
-            <label class="lbl" for="<?php echo $this->get_field_id('show_cover'); ?>">
-                <?php echo __('Show cover', 'peepso-core'); ?>
+            <label class="lbl" for="<?php echo esc_attr($this->get_field_id('show_cover')); ?>">
+                <?php echo esc_attr(__('Show cover', 'peepso-core')); ?>
             </label>
         </p>
 
         <p>
-            <label class="lbl" for="<?php echo $this->get_field_id('show_in_profile'); ?>">
-                <?php echo __('Show on the Profile page', 'peepso-core'); ?>:
+            <label class="lbl" for="<?php echo esc_attr($this->get_field_id('show_in_profile')); ?>">
+                <?php echo esc_attr(__('Show on the Profile page', 'peepso-core')); ?>:
             </label>
-            <select name="<?php echo $this->get_field_name('show_in_profile'); ?>" class="ace ace-switch ace-switch-2"
-                   id="<?php echo $this->get_field_id('show_in_profile'); ?>" type="checkbox" value="1"
+            <select name="<?php echo esc_attr($this->get_field_name('show_in_profile')); ?>" class="ace ace-switch ace-switch-2"
+                   id="<?php echo esc_attr($this->get_field_id('show_in_profile')); ?>" type="checkbox" value="1"
                 >
-                <option value="0"><?php echo __('Never', 'peepso-core');?></option>
-                <option value="1" <?php if(1 === $show_in_profile) echo ' selected="selected" ';?>><?php echo __('When on my profile', 'peepso-core');?></option>
-                <option value="2" <?php if(2 === $show_in_profile) echo ' selected="selected" ';?>><?php echo __('When not on my profile', 'peepso-core');?></option>
-                <option value="3" <?php if(3 === $show_in_profile) echo ' selected="selected" ';?>><?php echo __('Always', 'peepso-core');?></option>
+                <option value="0"><?php echo esc_attr(__('Never', 'peepso-core'));?></option>
+                <option value="1" <?php if(1 === $show_in_profile) echo ' selected="selected" ';?>><?php echo esc_attr(__('When on my profile', 'peepso-core'));?></option>
+                <option value="2" <?php if(2 === $show_in_profile) echo ' selected="selected" ';?>><?php echo esc_attr(__('When not on my profile', 'peepso-core'));?></option>
+                <option value="3" <?php if(3 === $show_in_profile) echo ' selected="selected" ';?>><?php echo esc_attr(__('Always', 'peepso-core'));?></option>
             </select>
 
         </p>

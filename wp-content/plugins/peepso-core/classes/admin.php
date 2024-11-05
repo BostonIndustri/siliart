@@ -111,19 +111,19 @@ class PeepSoAdmin
                     '<a href="#TB_inline?&inlineId=assign-roles-modal-id" class="thickbox">',
                     '</a>');
 //              $notice .= ' <a href="#TB_inline?inlineId=assign-roles-modal-id" class="thickbox">' . __('Click here', 'peepso-core') . '</a>' . __(' for more information on assigning roles.', 'peepso-core');
-                echo '<div class="update-nag" style="padding:11px 15px; margin:5px 15px 2px 0;">', $notice, '</div>', PHP_EOL;
+                echo '<div class="update-nag" style="padding:11px 15px; margin:5px 15px 2px 0;">', wp_kses_post($notice), '</div>', PHP_EOL;
                 echo '<div id="assign-roles-modal-id" style="display:none;">';
                 echo '<div>';
-                echo '<h3>', __('PeepSo User Roles:', 'peepso-core'), '</h3>';
-                echo '<p>', sprintf(__('You can change Roles for PeepSo users by selecting the checkboxes for individual users and then selecting the desired Role from the %s dropdown.', 'peepso-core'),
-                    '<select><option>' . __('- Select Role -', 'peepso-core') . '</option></select>'), '</p>';
-                echo '<p>', sprintf(__('Once the new Role is selected, click on the %s button and those users will be updated.', 'peepso-core'),
-                    '<input type="button" name="sample" id="sample" class="button" value="' . __('Change Role', 'peepso-core') . '">'), '</p>';
-                echo '<p>', __('Meaning of user roles:', 'peepso-core'), '</p>';
+                echo '<h3>', esc_attr(__('PeepSo User Roles:', 'peepso-core')), '</h3>';
+                echo '<p>', sprintf(esc_attr(__('You can change Roles for PeepSo users by selecting the checkboxes for individual users and then selecting the desired Role from the %s dropdown.', 'peepso-core')),
+                    '<select><option>' . esc_attr(__('- Select Role -', 'peepso-core')) . '</option></select>'), '</p>';
+                echo '<p>', sprintf(esc_attr(__('Once the new Role is selected, click on the %s button and those users will be updated.', 'peepso-core')),
+                    '<input type="button" name="sample" id="sample" class="button" value="' . esc_attr(__('Change Role', 'peepso-core')) . '">'), '</p>';
+                echo '<p>', esc_attr(__('Meaning of user roles:', 'peepso-core')), '</p>';
                 $roles = $this->get_roles();
                 $translated_roles = $this->get_translated_roles();
                 foreach ($roles as $name => $desc) {
-                    echo '&nbsp;&nbsp;<b>', $translated_roles[$name], '</b> - ', esc_html($desc), '<br/>';
+                    echo '&nbsp;&nbsp;<b>', esc_html($translated_roles[$name]), '</b> - ', esc_html($desc), '<br/>';
                 }
                 echo '</div>';
                 echo '</div>'; // #assign-roles-modal-id
@@ -137,7 +137,7 @@ class PeepSoAdmin
 
         if ($notices) {
             foreach ($notices as $notice)
-                echo '<div class="', $notice['class'], '" style="padding:11px 15px; margin:5px 15px 2px 0;">', $notice['message'], '</div>' . PHP_EOL;
+                echo '<div class="', esc_attr($notice['class']), '" style="padding:11px 15px; margin:5px 15px 2px 0;">', wp_kses_post($notice['message']), '</div>' . PHP_EOL;
         }
         PeepSo3_Mayfly::del($key,'', FALSE);
     }
@@ -208,7 +208,7 @@ class PeepSoAdmin
 
     public static function admin_header($title)
     {
-        ?><h1 style="font-variant:small-caps;color: #666666;"><img width="130" src="<?php echo PeepSo::get_asset('images/admin/logo_red.png');?>" /> <?php echo strtolower($title);?></h1><?php
+        ?><h1 style="font-variant:small-caps;color: #666666;"><img width="130" src="<?php echo esc_url(PeepSo::get_asset('images/admin/logo_red.png'));?>" /> <?php echo wp_kses_post(strtolower($title));?></h1><?php
     }
     /*
      * callback to display the PeepSo Dashboard
@@ -612,20 +612,24 @@ class PeepSoAdmin
                     ),
                     'addon' => array(
                         'slug' => 'peepso-installer',
-                        'menu' => '<span style="color:#3f9f2e">' . __('Installer', 'peepso-core') . '</span>' . $installer_new,
+                        'menu' => __('Installer', 'peepso-core') . $installer_new,
                         'icon' => 'admin-plugins',
                         'function' => array('PeepSoAdmin', 'addons'),
                         //'count' => __('NEW!', 'peepso-core'),
                     ),
-//                    'app' => array(
-//                        'slug' => 'https://PeepSo.com/app',
-//                        'menu' => '📱 ' . __('Get Mobile App', 'peepso-core') . "<!--$666-->".'</span></span>',
-//                        'icon' => 'admin-plugins',
-//                        //'function' => array('PeepSoAdmin', 'app'),
-//                        //'count' => __('NEW!', 'peepso-core'),
-//                    ),
+                    'app' => array(
+                        'slug' => 'https://PeepSo.com/app',
+                        'menu' => '<span>📱 Get The App!</span>',
+                        'icon' => 'admin-plugins',
+                        //'function' => array('PeepSoAdmin', 'app'),
+                        //'count' => __('NEW!', 'peepso-core'),
+                    ),
                 ),
             );
+            
+            if(class_exists('PeepSoNewAppPlugin')) {
+                unset($tabs['red']['app']);
+            }
 
             if (PeepSoSystemRequirements::is_demo_site()) {
                 unset($tabs['red']['addon']);
@@ -729,8 +733,7 @@ class PeepSoAdmin
                     ob_start();
                     foreach ($activation->errors as $error) {
                         $errors++;
-                        $addon_escaped = esc_html($addon);
-                        echo "<li><i class='gcis gci-exclamation-triangle'></i> <code>$addon_escaped</code>: {$error[0]}</li>";
+                        echo "<li><i class='gcis gci-exclamation-triangle'></i> <code>".esc_html($addon)."</code>: ".esc_html($error[0])."</li>";
                     }
                     $debug .= ob_get_clean();
                     continue;
@@ -743,9 +746,9 @@ class PeepSoAdmin
             if($success > 0) {
                 echo "<div class='notice notice-success is-dismissible peepso'><h4>";
                 if($is_theme) {
-                    echo sprintf(_n('Theme activated','%d themes activated',$success, 'peepso-core'), $success);
+                    echo esc_attr(sprintf(_n('Theme activated','%d themes activated',$success, 'peepso-core'), $success));
                 } else {
-                    echo sprintf(_n('Plugin activated','%d plugins activated',$success, 'peepso-core'), $success);
+                    echo esc_attr(sprintf(_n('Plugin activated','%d plugins activated',$success, 'peepso-core'), $success));
                 }
 
                 echo "</h4></div>";
@@ -754,13 +757,13 @@ class PeepSoAdmin
             if(strlen($debug)) { ?>
                 <div class='error peepso is-dismissible pa-activation-error'>
                     <h4>
-                        <?php echo sprintf(_n('%d activation error','%d activation errors',$errors, 'peepso-core'), $errors);?>
+                        <?php echo esc_attr(sprintf(_n('%d activation error','%d activation errors',$errors, 'peepso-core'), $errors));?>
                     </h4>
 
                     <b>Need assistance? We are here to help! <a class="ps-emphasis" href="https://www.PeepSo.com/contact" target="_blank">Contact PeepSo</b></a>.
                     <br/>
                     <ul>
-                        <?php echo $debug;?>
+                        <?php echo wp_kses_post($debug);?>
                     </ul>
 
 
@@ -954,13 +957,13 @@ class PeepSoAdmin
                     if(!in_array(NULL, [$date, $count, $trigger])) {
 
                         echo "\n\n";
-                        echo $count . ' total attempts';
+                        echo esc_attr($count) . ' total attempts';
 
                         echo "\n\n";
-                        echo current_time('mysql') . ' - server time now';
+                        echo esc_attr(current_time('mysql')) . ' - server time now';
 
                         echo "\n";
-                        echo $date . ' - last attempt';
+                        echo esc_attr($date) . ' - last attempt';
 
                         $name = $trigger;
                         if(is_numeric($name)) {
@@ -1128,17 +1131,17 @@ class PeepSoAdmin
 
         echo '<div id="peepso-role-wrap" style="vertical-align: baseline">';
         echo '<span>';
-        echo __('Set PeepSo Role:', 'peepso-core'), '&nbsp;&nbsp;';
-        echo '<select id="peepso-role-select" name="peepso-role-select'.$role_extra.'">';
-        echo '<option value="0">', __(' - Select Role -', 'peepso-core'), '</option>';
+        echo esc_attr(__('Set PeepSo Role:', 'peepso-core')), '&nbsp;&nbsp;';
+        echo '<select id="peepso-role-select" name="peepso-role-select'.esc_attr($role_extra).'">';
+        echo '<option value="0">', esc_attr(__(' - Select Role -', 'peepso-core')), '</option>';
         $roles = $this->get_roles();
         $translated_roles = $this->get_translated_roles();
         foreach ($roles as $name => $desc) {
-            echo '<option value="', $name, '">', $translated_roles[$name], '</option>';
+            echo '<option value="', esc_attr($name), '">', esc_attr($translated_roles[$name]), '</option>';
         }
         echo '</select>';
-        echo '<input type="hidden" name="ps-role-nonce" value="', wp_create_nonce('psrole-nonce'), '" />';
-        echo '<input type="submit" name="change-peepso-role" id="change-peepso-role" class="button" value="', __('Change Role', 'peepso-core'), '">';
+        echo '<input type="hidden" name="ps-role-nonce" value="', esc_attr(wp_create_nonce('psrole-nonce')), '" />';
+        echo '<input type="submit" name="change-peepso-role" id="change-peepso-role" class="button" value="', esc_attr(__('Change Role', 'peepso-core')), '">';
         echo '</span>';
         echo '</div>';
         echo '<style>';
@@ -1333,7 +1336,7 @@ class PeepSoAdmin
             ?>
             <ul style="color:red">
                 <?php foreach($this->messages['errors'] as $e) { ?>
-                    <li><?php echo $e;?></li>
+                    <li><?php echo wp_kses_post($e);?></li>
                 <?php } ?>
             </ul>
             <?php
@@ -1343,7 +1346,7 @@ class PeepSoAdmin
             ?>
             <ul style="color:darkorange">
                 <?php foreach($this->messages['warnings'] as $e) { ?>
-                    <li><?php echo $e;?></li>
+                    <li><?php echo wp_kses_post($e);?></li>
                 <?php } ?>
             </ul>
             <?php
@@ -1527,7 +1530,7 @@ class PeepSoAdmin
         $first = TRUE;
         foreach ($tabs as $tab) {
             echo '<li class="', ($first ? 'active' : ''), '">
-					<a href="#', $tab['id'], '" data-toggle="tab">', $tab['title'], '</a>
+					<a href="#', esc_attr($tab['id']), '" data-toggle="tab">', esc_attr($tab['title']), '</a>
 				</li>', PHP_EOL;
 
             $first = FALSE;
@@ -1539,8 +1542,8 @@ class PeepSoAdmin
         echo '<div class="tab-content">', PHP_EOL;
 
         foreach ($tabs as $tab) {
-            echo '<div class="tab-pane ', ($first ? 'active' : ''), '" id="', $tab['id'], '">', PHP_EOL;
-            echo call_user_func($tab['callback']);
+            echo '<div class="tab-pane ', ($first ? 'active' : ''), '" id="', esc_attr($tab['id']), '">', PHP_EOL;
+            call_user_func($tab['callback']);
             echo '</div>', PHP_EOL;
 
             $first = FALSE;
@@ -1567,7 +1570,7 @@ class PeepSoAdmin
         );
 
         if (0 === $posts->post_count) {
-            echo __('No recent posts.', 'peepso-core');
+            echo esc_attr(__('No recent posts.', 'peepso-core'));
         } else {
             add_filter('filter_remove_location_shortcode', array(&$this, 'filter_remove_location_shortcode'));
 
@@ -1579,20 +1582,20 @@ class PeepSoAdmin
 
                 echo '<div class="itemdiv dialogdiv">' , PHP_EOL;
                 echo '  <div class="user">' , PHP_EOL;
-                echo '      <img title="', $user->get_username(), '" alt="', esc_attr($user->get_username()), '" src="', $user->get_avatar(), '" />', PHP_EOL;
+                echo '      <img title="', esc_attr($user->get_username()), '" alt="', esc_attr($user->get_username()), '" src="', esc_url($user->get_avatar()), '" />', PHP_EOL;
                 echo '  </div>', PHP_EOL;
                 echo '  <div class="body">', PHP_EOL;
                 echo '      <div class="time">', PHP_EOL;
                 echo '          <i class="ace-icon fa fa-clock-o"></i>', PHP_EOL;
-                echo '          <span class="green">', PeepSoTemplate::time_elapsed(strtotime($post->post_date_gmt), current_time('timestamp')), ' </span>', PHP_EOL;
+                echo '          <span class="green">', esc_attr(PeepSoTemplate::time_elapsed(strtotime($post->post_date_gmt), current_time('timestamp'))), ' </span>', PHP_EOL;
                 echo '      </div>', PHP_EOL;
                 echo '      <div class="name">', PHP_EOL;
-                echo '          <a href="', $user->get_profileurl(), '" title="', esc_attr(__('View profile', 'peepso-core')), '" target="_blank">', $user->get_fullname(TRUE), '</a>', PHP_EOL;
+                echo '          <a href="', esc_url($user->get_profileurl()), '" title="', esc_attr(__('View profile', 'peepso-core')), '" target="_blank">', esc_attr($user->get_fullname(TRUE)), '</a>', PHP_EOL;
                 echo '      </div>', PHP_EOL;
-                echo '      <div class="text">', ucfirst($type->labels->activity_action), ': "', substr(strip_tags(apply_filters('filter_remove_location_shortcode', $post->post_content)), 0, 30), '"', PHP_EOL;
+                echo '      <div class="text">', esc_attr(ucfirst($type->labels->activity_action)), ': "', wp_kses_post(substr(strip_tags(apply_filters('filter_remove_location_shortcode', $post->post_content)), 0, 30)), '"', PHP_EOL;
                 echo '      </div>', PHP_EOL;
                 echo '      <div class="tools">', PHP_EOL;
-                echo '          <a href="', PeepSo::get_page('activity_status'), $post->post_title, '/" title="', esc_attr(__('View post', 'peepso-core')), '" target="_blank" class="btn btn-minier btn-info">', PHP_EOL;
+                echo '          <a href="', esc_url(PeepSo::get_page('activity_status') . $post->post_title. '/'), '" title="', esc_attr(__('View post', 'peepso-core')), '" target="_blank" class="btn btn-minier btn-info">', PHP_EOL;
                 echo '              <i class="icon-only ace-icon fa fa-share"></i>', PHP_EOL;
                 echo '          </a>', PHP_EOL;
                 echo '      </div>', PHP_EOL;
@@ -1622,7 +1625,7 @@ class PeepSoAdmin
         );
 
         if (0 === $comments->post_count) {
-            echo __('No recent posts.', 'peepso-core');
+            echo esc_attr(__('No recent posts.', 'peepso-core'));
         } else {
             echo '<div class="dialogs">', PHP_EOL;
 
@@ -1649,22 +1652,22 @@ class PeepSoAdmin
 
                 echo '<div class="itemdiv dialogdiv">', PHP_EOL;
                 echo '  <div class="user">', PHP_EOL;
-                echo '      <img title="', esc_attr($user->get_username()), '" alt="', esc_attr($user->get_username()), '" src="', $user->get_avatar(), '" />', PHP_EOL;
+                echo '      <img title="', esc_attr($user->get_username()), '" alt="', esc_attr($user->get_username()), '" src="', esc_url($user->get_avatar()), '" />', PHP_EOL;
                 echo '  </div>', PHP_EOL;
                 echo '  <div class="body">', PHP_EOL;
                 echo '      <div class="time">', PHP_EOL;
                 echo '          <i class="ace-icon fa fa-clock-o"></i>', PHP_EOL;
-                echo '          <span class="green">', PeepSoTemplate::time_elapsed(strtotime($post->post_date_gmt), current_time('timestamp')), '</span>', PHP_EOL;
+                echo '          <span class="green">', esc_attr(PeepSoTemplate::time_elapsed(strtotime($post->post_date_gmt), current_time('timestamp'))), '</span>', PHP_EOL;
                 echo '      </div>', PHP_EOL;
                 echo '      <div class="name">', PHP_EOL;
-                echo '          <a href="', $user->get_profileurl(), '" title="', esc_attr(__('View profile', 'peepso-core')), '" target="_blank">', $user->get_fullname(TRUE), '</a>', PHP_EOL;
+                echo '          <a href="', esc_url($user->get_profileurl()), '" title="', esc_attr(__('View profile', 'peepso-core')), '" target="_blank">', esc_attr($user->get_fullname(TRUE)), '</a>', PHP_EOL;
                 echo '      </div>', PHP_EOL;
                 echo '      <div class="text">', PHP_EOL;
                 echo '          <i class="fa fa-quote-left"></i>', PHP_EOL;
-                echo            substr(strip_tags($post->post_content), 0, 30);
+                echo            esc_html(substr(strip_tags($post->post_content), 0, 30));
                 echo '      </div>', PHP_EOL;
                 echo '      <div class="tools">', PHP_EOL;
-                echo '          <a href="', PeepSo::get_page('activity_status'), $post_title, '/" title="', esc_attr(__('View comment', 'peepso-core')), '" target="_blank" class="btn btn-minier btn-info">', PHP_EOL;
+                echo '          <a href="', esc_url(PeepSo::get_page('activity_status') . $post_title . '/'), '" title="', esc_attr(__('View comment', 'peepso-core')), '" target="_blank" class="btn btn-minier btn-info">', PHP_EOL;
                 echo '              <i class="icon-only ace-icon fa fa-share"></i>', PHP_EOL;
                 echo '          </a>', PHP_EOL;
                 echo '      </div>', PHP_EOL;
@@ -1695,7 +1698,7 @@ class PeepSoAdmin
         $user_query = new WP_User_Query($args);
 
         if (0 === $user_query->total_users) {
-            echo __('No users found', 'peepso-core');
+            echo esc_attr(__('No users found', 'peepso-core'));
         } else {
             $legacy_edit_link = (version_compare($wp_version, '3.5') < 0);
 
@@ -1709,21 +1712,21 @@ class PeepSoAdmin
 
                 echo '<div class="itemdiv memberdiv clearfix">', PHP_EOL;
                 echo '  <div class="user">', PHP_EOL;
-                echo '      <a href="', $user->get_profileurl(), '" title="', esc_attr(__('View profile', 'peepso-core')), '" target="_blank">', PHP_EOL;
-                echo '          <img alt="', esc_attr($user->get_firstname()), '" src="', $user->get_avatar(), '">', PHP_EOL;
+                echo '      <a href="', esc_url($user->get_profileurl()), '" title="', esc_attr(__('View profile', 'peepso-core')), '" target="_blank">', PHP_EOL;
+                echo '          <img alt="', esc_attr($user->get_firstname()), '" src="', esc_url($user->get_avatar()), '">', PHP_EOL;
                 echo '      </a>', PHP_EOL;
                 echo '  </div>', PHP_EOL;
                 echo '  <div class="body">', PHP_EOL;
                 echo '      <div class="name">', PHP_EOL;
-                echo '          <a href="', $user->get_profileurl(), '" title="', esc_attr(__('View profile', 'peepso-core')), '" target="_blank">', $user->get_fullname(TRUE), '</a>', PHP_EOL;
+                echo '          <a href="', esc_url($user->get_profileurl()), '" title="', esc_attr(__('View profile', 'peepso-core')), '" target="_blank">', esc_attr($user->get_fullname(TRUE)), '</a>', PHP_EOL;
                 echo '      </div>', PHP_EOL;
                 echo '      <div class="time">', PHP_EOL;
                 echo '          <i class="ace-icon fa fa-clock-o"></i>', PHP_EOL;
-                echo '          <span class="green">', PeepSoTemplate::time_elapsed(strtotime($user->get_date_registered()), current_time('timestamp')), '</span>', PHP_EOL;
+                echo '          <span class="green">', esc_attr(PeepSoTemplate::time_elapsed(strtotime($user->get_date_registered()), current_time('timestamp'))), '</span>', PHP_EOL;
                 echo '      </div>', PHP_EOL;
                 echo '      <div>', PHP_EOL;
-                echo '          <span class="label label-success arrowed-in">', implode(', ', $user->get_role()), '</span>', PHP_EOL;
-                echo '          <a href="', $edit_link, '" title="', esc_attr(__('Edit this user', 'peepso-core')), '"><i class="ace-icon fa fa-edit"></i></a>', PHP_EOL;
+                echo '          <span class="label label-success arrowed-in">', esc_attr(implode(', ', $user->get_role())), '</span>', PHP_EOL;
+                echo '          <a href="', esc_url($edit_link), '" title="', esc_attr(__('Edit this user', 'peepso-core')), '"><i class="ace-icon fa fa-edit"></i></a>', PHP_EOL;
                 echo '      </div>', PHP_EOL;
                 echo '  </div>', PHP_EOL;
                 echo '</div>', PHP_EOL;
@@ -1766,8 +1769,8 @@ class PeepSoAdmin
 
         $first = TRUE;
         foreach ($tabs as $tab) {
-            echo '<li class="', ($first ? 'active' : ''), '" data-module-id=', $tab['module_id'], '>
-					<a href="#', $tab['id'], '" data-toggle="tab">', $tab['title'], '</a>
+            echo '<li class="', ($first ? 'active' : ''), '" data-module-id=', esc_attr($tab['module_id']), '>
+					<a href="#', esc_attr($tab['id']), '" data-toggle="tab">', esc_attr($tab['title']), '</a>
 				</li>';
 
             $first = FALSE;
@@ -1779,8 +1782,8 @@ class PeepSoAdmin
         echo '<div class="tab-content">';
 
         foreach ($tabs as $tab) {
-            echo '<div class="tab-pane ', ($first ? 'active' : ''), '" id="', $tab['id'], '">';
-            echo call_user_func_array($tab['callback'], array($tab['module_id']));
+            echo '<div class="tab-pane ', ($first ? 'active' : ''), '" id="', esc_attr($tab['id']), '">';
+            call_user_func_array($tab['callback'], array($tab['module_id']));
             echo '</div>';
 
             $first = FALSE;
@@ -1810,10 +1813,10 @@ class PeepSoAdmin
         echo '<div class="container-fluid">
 				<div class="row">
 					<div class="col-xs-12">
-						<select name="engagement_', $module_id, '_date_range" class="engagement_date_range">', PHP_EOL;
+						<select name="engagement_', esc_attr($module_id), '_date_range" class="engagement_date_range">', PHP_EOL;
 
         foreach ($date_range_filters as $val => $date_range)
-            echo '<option value="', $val, '">', $date_range, '</option>', PHP_EOL;
+            echo '<option value="', esc_attr($val), '">', esc_attr($date_range), '</option>', PHP_EOL;
 
         echo '          </select>
 					</div>
@@ -1824,8 +1827,8 @@ class PeepSoAdmin
 
         foreach ($stat_types as $stat) {
             echo '<label>
-					<input value="', $stat['stat_type'], '" type="checkbox" name="stats[]" checked="checked" id="id', $stat['label'], '" style="margin:0">
-					<span class="lbl" for="id', $stat['label'], '">', ucwords($stat['label']), '</span> &nbsp; &nbsp;
+					<input value="', esc_attr($stat['stat_type']), '" type="checkbox" name="stats[]" checked="checked" id="id', esc_attr($stat['label']), '" style="margin:0">
+					<span class="lbl" for="id', esc_attr($stat['label']), '">', esc_attr(ucwords($stat['label'])), '</span> &nbsp; &nbsp;
 				</label>', PHP_EOL;
         }
 
@@ -1876,7 +1879,7 @@ class PeepSoAdmin
         $user_query = new WP_User_Query($args);
 
         if (!$user_query->total_users) {
-            echo __('The list is empty', 'peepso-core') . ' ';
+            echo esc_attr(__('The list is empty', 'peepso-core')) . ' ';
         } else {
             $legacy_edit_link = (version_compare($wp_version, '3.5') < 0);
 
@@ -1886,20 +1889,20 @@ class PeepSoAdmin
 
                 echo '<div class="itemdiv memberdiv clearfix">', PHP_EOL;
                 echo '  <div class="user">', PHP_EOL;
-                echo '      <a href="', $user->get_profileurl(), '" title="', esc_attr(__('View profile', 'peepso-core')), '" target="_blank">', PHP_EOL;
-                echo '          <img alt="', esc_attr($user->get_firstname()), '" src="', $user->get_avatar(), '">', PHP_EOL;
+                echo '      <a href="', esc_url($user->get_profileurl()), '" title="', esc_attr(__('View profile', 'peepso-core')), '" target="_blank">', PHP_EOL;
+                echo '          <img alt="', esc_attr($user->get_firstname()), '" src="', esc_url($user->get_avatar()), '">', PHP_EOL;
                 echo '      </a>', PHP_EOL;
                 echo '  </div>', PHP_EOL;
                 echo '  <div class="body">', PHP_EOL;
                 echo '      <div class="name">', PHP_EOL;
-                echo '          <a href="', $user->get_profileurl(), '" title="', esc_attr(__('View profile', 'peepso-core')), '" target="_blank">', $user->get_fullname(TRUE) , '</a>', PHP_EOL;
+                echo '          <a href="', esc_url($user->get_profileurl()), '" title="', esc_attr(__('View profile', 'peepso-core')), '" target="_blank">', esc_attr($user->get_fullname(TRUE)) , '</a>', PHP_EOL;
                 echo '      </div>', PHP_EOL;
                 echo '      <div class="email">', PHP_EOL;
-                echo '          <span>', $user->get_email(), '</span>', PHP_EOL;
+                echo '          <span>', esc_attr($user->get_email()), '</span>', PHP_EOL;
                 echo '      </div>', PHP_EOL;
                 echo '      <div class="approve-links">', PHP_EOL;
-                echo '          <a class="btn btn-xs btn-success" href="', admin_url('admin.php?page=peepso&action=update-user-role&set=member&id=' . $user_item->ID . '&_wpnonce=' . $nonce), '" title="', esc_attr(__('Approve', 'peepso-core')), '">', esc_attr(__('Approve', 'peepso-core')), '</a>', PHP_EOL;
-                echo '          <a class="btn btn-xs" href="', admin_url('admin.php?page=peepso&action=update-user-role&set=ban&id=' . $user_item->ID . '&_wpnonce=' . $nonce), '" title="', esc_attr(__('Dismiss and Ban', 'peepso-core')), '">', esc_attr(__('Dismiss and Ban', 'peepso-core')), '</a>', PHP_EOL;
+                echo '          <a class="btn btn-xs btn-success" href="', esc_url(admin_url('admin.php?page=peepso&action=update-user-role&set=member&id=' . $user_item->ID . '&_wpnonce=' . $nonce)), '" title="', esc_attr(__('Approve', 'peepso-core')), '">', esc_attr(__('Approve', 'peepso-core')), '</a>', PHP_EOL;
+                echo '          <a class="btn btn-xs" href="', esc_url(admin_url('admin.php?page=peepso&action=update-user-role&set=ban&id=' . $user_item->ID . '&_wpnonce=' . $nonce)), '" title="', esc_attr(__('Dismiss and Ban', 'peepso-core')), '">', esc_attr(__('Dismiss and Ban', 'peepso-core')), '</a>', PHP_EOL;
                 echo '      </div>', PHP_EOL;
                 echo '  </div>', PHP_EOL;
                 echo '</div>', PHP_EOL;
@@ -1909,8 +1912,8 @@ class PeepSoAdmin
         }
 
         echo '<div class="center cta-full">
-			<a href="', admin_url('users.php?psrole=verified'), '">',
-        __('See all Pending Members', 'peepso-core'), ' (' , $user_query->total_users . ') &nbsp;
+			<a href="', esc_url(admin_url('users.php?psrole=verified')), '">',
+        esc_attr(__('See all Pending Members', 'peepso-core')), ' (' , esc_attr($user_query->total_users) . ') &nbsp;
 				<i class="fa fa-arrow-right"></i>
 			</a>
 		</div>', PHP_EOL;
@@ -2018,11 +2021,6 @@ class PeepSoAdmin
                 'username'		 => '',
             );
 
-            $output = '';
-            foreach ($fields as $key => $value) {
-                $output .= sprintf( '<input type="hidden" name="%s" value="%s" />', $key, $value );
-            }
-
             $registrationHidden = get_option($optionName);
 
             if (!$registrationHidden)
@@ -2037,22 +2035,26 @@ class PeepSoAdmin
 
                                 <?php
                                 wp_nonce_field('peepso_register', 'register_nonce');
-                                echo $output;
+                                foreach ($fields as $key => $value) {
+                                    ?>
+                                    <input type="hidden" name="<?php echo esc_attr($key); ?>" value="<?php echo esc_attr($value); ?>" />
+                                    <?php
+                                }
                                 ?>
                                 <input class="button button-primary" type="submit" value="Register Your Copy" />
                                 <div class="no-registration">
-                                    <a class="cminds-registration-hide-button" href="<?php echo esc_url(add_query_arg( array( 'peepso_registration_hide' => 1 ), remove_query_arg( 'peepso_registration_hide' ) )); ?>"><?php echo __("I don't want to register", 'peepso-core'); ?></a>
+                                    <a class="cminds-registration-hide-button" href="<?php echo esc_url(add_query_arg( array( 'peepso_registration_hide' => 1 ), remove_query_arg( 'peepso_registration_hide' ) )); ?>"><?php echo esc_attr(__("I don't want to register", 'peepso-core')); ?></a>
                                 </div>
 
                             </div>
                             <div class="cminds_registration_text">
 								<span>
-									<?php echo $dashboard_main; ?>
+									<?php echo esc_attr($dashboard_main); ?>
 								</span>
                                 <span>
 									<?php if(!PeepSo::get_option('optin_stats', 0)) { ?>
 
-                                        <p><input name="optin_stats" type="checkbox" checked="checked" /> <?php echo __('Enable additional statistics'); ?> <a target="_blank" href="<?php echo admin_url('admin.php?page=peepso_config&tab=advanced#field_optin_stats');?>"><i class="infobox-icon dashicons dashicons-editor-help"></i></a></p>
+                                        <p><input name="optin_stats" type="checkbox" checked="checked" /> <?php echo esc_attr(__('Enable additional statistics')); ?> <a target="_blank" href="<?php echo esc_url(admin_url('admin.php?page=peepso_config&tab=advanced#field_optin_stats'));?>"><i class="infobox-icon dashicons dashicons-editor-help"></i></a></p>
 
                                     <?php } ?>
 								</span>

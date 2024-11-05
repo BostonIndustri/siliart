@@ -41,21 +41,18 @@ class PeepSoForm
 	 */
 	public function form_open()
 	{
-		$form_open = '';
 		// output the form tag
-		$form_open .= '<form name="' . $this->args['name'] . '" id="' . $this->args['name'] . '" ';
-		$form_open .= ' action="' . $this->args['action'] . '" ';
-		$form_open .= ' method="' . $this->args['method'] . '" ';
+		echo '<form name="' . esc_attr($this->args['name']) . '" id="' . esc_attr($this->args['name']) . '" ';
+		echo ' action="' . esc_url($this->args['action']) . '" ';
+		echo ' method="' . esc_attr($this->args['method']) . '" ';
 		if (!empty($this->args['class']))
-			$form_open .= ' class="ps-form ' . $this->args['class'] . '" ';
+			echo ' class="ps-form ' . esc_attr($this->args['class']) . '" ';
 		if (!empty($this->args['extra']))
-			$form_open .= ' ' . $this->args['extra'] . ' ';
-		$form_open .= '>';
+			echo ' ' . wp_kses_post($this->args['extra']) . ' ';
+		echo '>';
 
 		// TODO: change to 'peepso-form-nonce' - not use just for config form
-		$form_open .= '<input type="hidden" name="peepso-config-nonce" value="' . wp_create_nonce('peepso-config-nonce') . '"/>';
-
-		return ($form_open);
+		echo '<input type="hidden" name="peepso-config-nonce" value="' . esc_attr(wp_create_nonce('peepso-config-nonce')) . '"/>';
 	}
 
 	/**
@@ -66,9 +63,8 @@ class PeepSoForm
 	{
 		// TODO: need to supply a filter value and a reference to give filter calbacks some context, i.e.: apply_filters('peepso_render_form_close', '', $this);
 		// - callbacks can use $this->args['name'] or $this->args['action'] to give context
-		$form_close = apply_filters('peepso_render_form_close', '', $this);
-		$form_close .= '</form>';
-		return ($form_close);
+		echo wp_kses_post(apply_filters('peepso_render_form_close', '', $this));
+		echo '</form>';
 	}
 
 	/*
@@ -91,7 +87,7 @@ class PeepSoForm
 		}
 
 		// output the form tag
-		echo $this->form_open();
+		$this->form_open();
 
 		// output container data
 		$this->_render_element($container);
@@ -103,7 +99,7 @@ class PeepSoForm
 
 		// close the form
 		// TODO: we want to keep this as a function. It could need to be callable from outside and we might want to add a filter
-		echo $this->form_close();
+		$this->form_close();
 
 		// if there was an access dropdown rendered, make sure the javascript is enqueued
 		if ($this->_access)
@@ -138,7 +134,7 @@ class PeepSoForm
 
 			// output header/section
 			if ('section' == $field['type']) {
-				echo '<div class="ps-form__legend">', $field['label'], '</div>', PHP_EOL;
+				echo '<div class="ps-form__legend">', esc_attr($field['label']), '</div>', PHP_EOL;
 
 				continue;
 			}
@@ -146,9 +142,9 @@ class PeepSoForm
 			$classes = array_merge(array('ps-form__label'), explode(' ', isset($field['class']) ? $field['class'] : ''));
 
 			if ('hidden' === $field['type']) {
-				echo '<input type="hidden" name="', $name, '" value="', esc_attr($field['value']), '" />', PHP_EOL;
+				echo '<input type="hidden" name="', esc_attr($name), '" value="', esc_attr($field['value']), '" />', PHP_EOL;
 			} else if ('title' === $field['type']) {
-				echo '<div class="ps-form__legend">', $field['label'], '</div>';
+				echo '<div class="ps-form__legend">', esc_attr($field['label']), '</div>';
 			} else if ('extended_fields' === $field['type']) {
 				// additional fields
 				do_action('peepso_register_extended_fields');
@@ -169,40 +165,40 @@ class PeepSoForm
 
 				// if there's a label and it's not a submit/message type, output the label
 				if (isset($field['label']) && !empty($field['label']) && !in_array($field['type'], array('submit', 'message'))) {
-					echo '<label id="', $name, 'msg" for="', $name, '" class="', implode(' ', $classes), '">', PHP_EOL;
+					echo '<label id="', esc_attr($name), 'msg" for="', esc_attr($name), '" class="', esc_attr(implode(' ', $classes)), '">', PHP_EOL;
 
-					echo $field['label'];
+					echo wp_kses_post($field['label']);
 					if ($this->_is_required($field))
 						echo '<span class="ps-form__required">&nbsp;*</span>';
 					if (isset($field['loading']) && $field['loading']) {
 						echo ' <span class="ps-form__check ps-js-loading">',
-						     '<img src="', PeepSo::get_asset('images/ajax-loader.gif'), '" />',
+						     '<img src="', esc_url(PeepSo::get_asset('images/ajax-loader.gif')), '" />',
 						     '<i class="gcis gci-check"></i></span>', PHP_EOL;
 					}
 					echo '</label>', PHP_EOL;
 				}
 
-				echo '<', $field['field_wrapper'], ' class="ps-form__field ', $field['field_wrapper_class'],'">';
+				echo '<', esc_attr($field['field_wrapper']), ' class="ps-form__field ', esc_attr($field['field_wrapper_class']),'">';
 
 				echo $this->_render_field_type($name, $field);
 				if (!empty($field['validate']))
-					echo '<span id="err', $name, '" style="display:none">&nbsp;</span>', PHP_EOL;
+					echo '<span id="err', esc_attr($name), '" style="display:none">&nbsp;</span>', PHP_EOL;
 
 				echo '<div class="ps-form__error"', ($field['valid'] ? ' style="display:none"' : ''), '>';
 				if (!$field['valid']) {
 					foreach ($field['error_messages'] as $error) {
-						echo '<div class="ps-form__error-item">', $error , '</div>';
+						echo '<div class="ps-form__error-item">', wp_kses_post($error) , '</div>';
 					}
 				}
 				echo '</div>';
 
 				$this->_render_access($name, $field);
-				echo '</', $field['field_wrapper'], '>', PHP_EOL;
+				echo '</', esc_attr($field['field_wrapper']), '>', PHP_EOL;
 
 				if ('' !== $field['suffix'])
 					echo '<div><span class="middle">', esc_html($field['suffix']), '</span></div>', PHP_EOL;
 				if ('' !== $field['suffixhtml'])
-					echo '<div><span class="middle">', $field['suffixhtml'], '</span></div>', PHP_EOL;
+					echo '<div><span class="middle">', wp_kses_post($field['suffixhtml']), '</span></div>', PHP_EOL;
 
 				$this->_render_close_element($this->fieldcontainer);
 			}
@@ -226,17 +222,17 @@ class PeepSoForm
 			$this->_access = TRUE;
 			echo '<div class="ps-form-privacy">', PHP_EOL;
 			echo	'<div class="ps-privacy-dropdown ps-js-dropdown ps-js-dropdown--privacy">', PHP_EOL;
-			echo		'<input type="hidden" name="', $name, '_acc" value="', $field['access'], '" />', PHP_EOL;
-			echo		'<button id="acc-', $name, '" type="button" class="ps-btn ps-dropdown__toggle ps-js-dropdown-toggle">', PHP_EOL;
-			echo			'<span class="dropdown-value"><i class="ps-icon-', $aAccess[$acc]['icon'], '"></i></span>', PHP_EOL;
-			echo            '<span class="ps-privacy-title">', $aAccess[$acc]['label'], '</span>', PHP_EOL;
+			echo		'<input type="hidden" name="', esc_attr($name), '_acc" value="', esc_attr($field['access']), '" />', PHP_EOL;
+			echo		'<button id="acc-', esc_attr($name), '" type="button" class="ps-btn ps-dropdown__toggle ps-js-dropdown-toggle">', PHP_EOL;
+			echo			'<span class="dropdown-value"><i class="ps-icon-', esc_attr($aAccess[$acc]['icon']), '"></i></span>', PHP_EOL;
+			echo            '<span class="ps-privacy-title">', esc_attr($aAccess[$acc]['label']), '</span>', PHP_EOL;
 			echo		'</button>', PHP_EOL;
 			echo		'<div class="ps-dropdown__menu ps-js-dropdown-menu" style="display:none">', PHP_EOL;
 
 			foreach ($aAccess as $nAcc => $aAcc) {
-				echo '<a id="', $name, '-acc-', $nAcc, '" href="#" data-option-value="', $nAcc, '" onclick="return false;">';
-				echo '<i class="ps-icon-', $aAcc['icon'], '"></i>';
-				echo '<span>', $aAcc['label'], '</span></a>', PHP_EOL;
+				echo '<a id="', esc_attr($name), '-acc-', esc_attr($nAcc), '" href="#" data-option-value="', esc_attr($nAcc), '" onclick="return false;">';
+				echo '<i class="ps-icon-', esc_attr($aAcc['icon']), '"></i>';
+				echo '<span>', esc_attr($aAcc['label']), '</span></a>', PHP_EOL;
 			}
 
 			echo		'</div>', PHP_EOL;
@@ -621,7 +617,7 @@ class PeepSoForm
                 ob_start();
                 ?>
                 <a class="ps-registration__avatar-change ps-js-avatar-button" href="#">
-                    <i class="gcis gci-camera"></i><span><?php echo __('Avatar','peepso-core');?></span>
+                    <i class="gcis gci-camera"></i><span><?php echo esc_attr(__('Avatar','peepso-core'));?></span>
                 </a>
                 <?php
             return ob_get_clean();
@@ -641,9 +637,9 @@ class PeepSoForm
 	private function _render_element($container)
 	{
 		if (!empty($container['element'])) {
-			echo '<', $container['element'];
+			echo '<', esc_attr($container['element']);
 			if (!empty($container['class']))
-				echo ' class="', $container['class'], '"';
+				echo ' class="', esc_attr($container['class']), '"';
 			echo '>';
 		}
 	}
@@ -655,7 +651,7 @@ class PeepSoForm
 	private function _render_close_element($container)
 	{
 		if (!empty($container['element']))
-			echo '</', $container['element'], '>';
+			echo '</', esc_attr($container['element']), '>';
 	}
 
 	/*

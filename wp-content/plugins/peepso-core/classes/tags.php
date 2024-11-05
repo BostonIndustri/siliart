@@ -390,14 +390,14 @@ class PeepSoTags
             if ('tag' === $note_data['not_type']) {
 
                 ob_start();
-                echo ' ', __('in', 'peepso-core'), ' ', __('a post', 'peepso-core');
+                echo ' ', esc_attr(__('in', 'peepso-core')), ' ', esc_attr(__('a post', 'peepso-core'));
 
                 $new_link = ob_get_clean();
             } else if ('tag_comment' === $note_data['not_type']) {
                 ob_start();
                 // Print the bits only for legacy pre-translated notifications
                 if (!strlen($note_data['not_message_args'])) {
-                    echo ' ', __('in', 'peepso-core'), ' ', __('a comment', 'peepso-core');
+                    echo ' ', esc_attr(__('in', 'peepso-core')), ' ', esc_attr(__('a comment', 'peepso-core'));
                 }
                 $new_link = ob_get_clean();
             }

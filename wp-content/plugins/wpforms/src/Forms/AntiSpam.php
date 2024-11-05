@@ -135,6 +135,8 @@ class AntiSpam {
 	 * @since 1.9.0
 	 *
 	 * @param array $form_data Form data.
+	 *
+	 * @noinspection PhpUnusedParameterInspection
 	 */
 	public function maybe_insert_honeypot_init_js( array $form_data ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.Found
 
@@ -160,15 +162,15 @@ class AntiSpam {
 		}
 
 		$styles = sprintf(
-			'%s { position: absolute !important; overflow: hidden !important; display: inline !important; height: 1px !important; width: 1px !important; z-index: -1000 !important; padding: 0 !important; input { visibility: hidden; } }',
+			'%1$s { position: absolute !important; overflow: hidden !important; display: inline !important; height: 1px !important; width: 1px !important; z-index: -1000 !important; padding: 0 !important; } %1$s input { visibility: hidden; } #wpforms-conversational-form-page %1$s label { counter-increment: none; }',
 			esc_attr( implode( ',', $ids ) )
 		);
 
+		// There must be no empty lines inside the script. Otherwise, wpautop adds <p> tags which break script execution.
 		printf(
 			"<script>
 				( function() {
 					const style = document.createElement( 'style' );
-
 					style.appendChild( document.createTextNode( '%s' ) );
 					document.head.appendChild( style );
 					document.currentScript?.remove();

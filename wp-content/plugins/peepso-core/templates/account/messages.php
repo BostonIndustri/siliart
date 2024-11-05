@@ -2,7 +2,7 @@
 	$PeepSoMessages = PeepSoMessages::get_instance();
 	$PeepSoMessagesModel = new PeepSoMessagesModel();
 	?>	
-	<h2><?php echo __('Messages', 'peepso-core');?></h2>
+	<h2><?php echo esc_attr__('Messages', 'peepso-core');?></h2>
 	<?php
 	$i = 0;
 	foreach ($messages as $key => $message) {

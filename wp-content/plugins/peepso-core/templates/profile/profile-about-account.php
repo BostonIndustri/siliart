@@ -32,7 +32,7 @@ if(!$can_edit) {
             <!-- ACCOUNT DATA -->
             <div class="ps-profile__account-row ps-profile__account--basic">
               <div class="ps-profile__account-header">
-                <?php echo __('Your Account', 'peepso-core'); ?>
+                <?php echo esc_attr__('Your Account', 'peepso-core'); ?>
               </div>
 
               <div class="ps-profile__account-form">
@@ -47,7 +47,7 @@ if(!$can_edit) {
             <?php if(PeepSo::get_option('site_registration_allowdelete', 0)) { ?>
             <!-- PROFILE DELETION -->
             <div class="ps-profile__account-row ps-profile__account-row--deletion">
-              <div class="ps-profile__account-header"><?php echo __('Profile Deletion', 'peepso-core'); ?></div>
+              <div class="ps-profile__account-header"><?php echo esc_attr__('Profile Deletion', 'peepso-core'); ?></div>
 
               <div class="ps-alert ps-alert--abort">
                 <?php echo apply_filters('peepso_filter_profile_delete_message', __('Deleting your account is instant and reversible. Most of your information will be delete will disable your profile and remove your name and photo from most things you\'ve shared. Some information may still be visible to others, such as your name in their friends list and messages you sent.', 'peepso-core')); ?>
@@ -62,7 +62,7 @@ if(!$can_edit) {
             <!-- GDPR -->
             <div class="ps-profile__account-row ps-profile__account-row--gdpr">
               <div class="ps-profile__account-gdpr">
-                <div class="ps-profile__account-header"><?php echo __('Export Your Community Data', 'peepso-core'); ?></div>
+                <div class="ps-profile__account-header"><?php echo esc_attr__('Export Your Community Data', 'peepso-core'); ?></div>
                 <div class="ps-profile__account-form">
                   <?php $PeepSoProfile->request_data_form(); ?>
                 </div>

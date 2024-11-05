@@ -37,7 +37,7 @@ class PeepSoMaintenanceDebug {
 
             if(isset($_GET['formatted'])) { echo "<pre>\n";};
 
-            echo $this->separator_top;
+            echo wp_kses_post($this->separator_top);
             $this->line('Elapsed', 'Class::Method', 'Count');
 
             $all_items = 0;
@@ -97,8 +97,8 @@ class PeepSoMaintenanceDebug {
         }
 
 
-        echo sprintf("│ %s │ %s │ %s │\n", $fl, $fc ,$fe);
-        echo $this->$s;
+        echo wp_kses_post(sprintf("│ %s │ %s │ %s │\n", $fl, $fc ,$fe));
+        echo wp_kses_post($this->$s);
     }
 
 }

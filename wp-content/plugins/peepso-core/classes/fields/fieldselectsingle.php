@@ -39,9 +39,9 @@ class PeepSoFieldSelectSingle extends PeepSoField {
 	{
 		ob_start();
 
-		echo ' name="'.$this->input_args['name'].'"',
-			' id="'.$this->input_args['id'].'"',
-			' data-id="'.$this->id.'"';
+		echo ' name="'.esc_attr($this->input_args['name']).'"',
+			' id="'.esc_attr($this->input_args['id']).'"',
+			' data-id="'.esc_attr($this->id).'"';
 
 		return ob_get_clean();
 	}
@@ -50,12 +50,12 @@ class PeepSoFieldSelectSingle extends PeepSoField {
 	{
 		ob_start();
 
-		echo ' name="'.$this->input_args['name'].'"',
-			' id="'.$this->input_args['id'].'"',
-			' data-id="'.$this->id.'"';
+		echo ' name="'.esc_attr($this->input_args['name']).'"',
+			' id="'.esc_attr($this->input_args['id']).'"',
+			' data-id="'.esc_attr($this->id).'"';
 
 		if (!empty($this->el_class )) {
-			echo ' class="'.$this->el_class.'"';
+			echo ' class="'.esc_attr($this->el_class).'"';
 		}
 
 		return ob_get_clean();
@@ -72,8 +72,8 @@ class PeepSoFieldSelectSingle extends PeepSoField {
 		ob_start();
 		?>
 		<div class="ps-input__wrapper">
-			<select class="ps-input ps-input--sm ps-input--select" <?php echo $this->_render_input_args() . $this->_render_required_args(); ?>>
-				<option value=""><?php echo __('Select an option...', 'peepso-core'); ?></option>
+			<select class="ps-input ps-input--sm ps-input--select" <?php echo wp_kses_post($this->_render_input_args() . $this->_render_required_args()); ?>>
+				<option value=""><?php echo esc_attr(__('Select an option...', 'peepso-core')); ?></option>
 				<?php
 				foreach ($options as $k => $v) {
 
@@ -83,9 +83,7 @@ class PeepSoFieldSelectSingle extends PeepSoField {
 						$selected = 'selected';
 					}
 
-					$option = '<option %3$s value="%1$s">%2$s</option>';
-
-					echo sprintf($option, $k, __($v, 'peepso-core'), $selected);
+					echo '<option '.esc_attr($selected).' value="'.esc_attr($k).'">'.esc_attr(__($v, 'peepso-core')).'</option>';
 				}
 				?>
 			</select>
@@ -106,8 +104,8 @@ class PeepSoFieldSelectSingle extends PeepSoField {
 
 		ob_start();
 		?>
-		<select<?php echo $this->_render_input_register_args() . $this->_render_required_args(); ?>>
-			<option value=""><?php echo __('Select an option...', 'peepso-core'); ?></option>
+		<select<?php echo wp_kses_post($this->_render_input_register_args() . $this->_render_required_args()); ?>>
+			<option value=""><?php echo esc_attr(__('Select an option...', 'peepso-core')); ?></option>
 			<?php
 			foreach ($options as $k => $v) {
 
@@ -117,9 +115,7 @@ class PeepSoFieldSelectSingle extends PeepSoField {
 					$selected = 'selected';
 				}
 
-				$option = '<option %3$s value="%1$s">%2$s</option>';
-
-				echo sprintf($option, $k, $v, $selected);
+				echo '<option '.esc_attr($selected).' value="'.esc_attr($k).'">'.esc_attr(__($v, 'peepso-core')).'</option>';
 			}
 			?>
 		</select>
@@ -147,9 +143,7 @@ class PeepSoFieldSelectSingle extends PeepSoField {
 				$checked = 'checked';
 			}
 
-			$option = '<div class="ps-checkbox"><input class="ps-checkbox__input" name="%4$s" type="radio" id="%4$s-%1$s" %3$s value="%1$s" ' . $this->_render_input_args() . $this->_render_required_args() . ' /> <label class="ps-checkbox__label" for="%4$s-%1$s">%2$s</label></div>';
-
-			echo sprintf($option, $k, $v, $checked, 'profile_field_' . $this->id);
+			echo '<div class="ps-checkbox"><input class="ps-checkbox__input" name="'.'profile_field_' . esc_attr($this->id).'" type="radio" id="'.'profile_field_' . esc_attr($this->id).'-'.esc_attr($k).'" '.esc_attr($checked).' value="'.esc_attr($k).'" ' . wp_kses_post($this->_render_input_args() . $this->_render_required_args()) . ' /> <label class="ps-checkbox__label" for="'.'profile_field_' . esc_attr($this->id).'-'.esc_attr($k).'">'.esc_attr($v).'</label></div>';
 		}
 
 		return ob_get_clean();
@@ -175,9 +169,7 @@ class PeepSoFieldSelectSingle extends PeepSoField {
 
 			$this->el_class = 'ps-radio';
 
-			$option = '<div class="ps-checkbox"><input class="ps-checkbox__input" name="%4$s" type="radio" %3$s value="%1$s" id="%1$s" ' . $this->_render_input_register_args() . $this->_render_required_args() . ' /> <label class="ps-checkbox__label" for="%1$s">%2$s</label></div>';
-
-			echo sprintf($option, $k, $v, $checked, 'profile_field_' . $this->id);
+			echo '<div class="ps-checkbox"><input class="ps-checkbox__input" name="'.'profile_field_' . esc_attr($this->id).'" type="radio" '.esc_attr($checked).' value="'.esc_attr($k).'" id="'.esc_attr($k).'" ' . wp_kses_post($this->_render_input_register_args() . $this->_render_required_args()) . ' /> <label class="ps-checkbox__label" for="'.esc_attr($k).'">'.esc_attr($k).'</label></div>';
 		}
 
 		return ob_get_clean();

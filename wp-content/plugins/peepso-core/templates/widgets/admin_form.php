@@ -22,7 +22,7 @@ if(isset($instance['fields']['title']) && TRUE === $instance['fields']['title'])
 	$title = !empty($instance['title']) ? $instance['title'] : '';
 	?>
 	<p>
-		<label for="<?php echo $that->get_field_id('title'); ?>"><?php echo __('Title:'); ?></label>
+		<label for="<?php echo $that->get_field_id('title'); ?>"><?php echo esc_attr__('Title:'); ?></label>
 		<input class="widefat" id="<?php echo $that->get_field_id('title'); ?>"
 			   name="<?php echo $that->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>">
 	</p>
@@ -38,7 +38,7 @@ if(isset($instance['fields']['limit']) && TRUE === $instance['fields']['limit'])
 	$limit = ! empty( $instance['limit'] ) ? $instance['limit'] : 12;
 	?>
 	<p>
-		<label for="<?php echo $that->get_field_id( 'limit' ); ?>"><?php echo __( 'Limit:', 'peepso-core'); ?></label>
+		<label for="<?php echo $that->get_field_id( 'limit' ); ?>"><?php echo esc_attr__( 'Limit:', 'peepso-core'); ?></label>
 		<select class="widefat" id="<?php echo $that->get_field_id( 'limit' ); ?>" name="<?php echo $that->get_field_name( 'limit' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
 			<?php
 			$options = array();
@@ -74,7 +74,7 @@ if (isset($instance['fields']['hideempty']) && TRUE == $instance['fields']['hide
 																		 name="<?php echo $that->get_field_name('hideempty');?>"
 																		 id="<?php echo $that->get_field_id('hideempty');?>">
 		<label class="lbl" for="<?php echo $that->get_field_id('hideempty'); ?>">
-			<?php echo __('Hide when empty', 'peepso-core'); ?>
+			<?php echo esc_attr__('Hide when empty', 'peepso-core'); ?>
 		</label>
 	</p>
 	<?php
@@ -91,7 +91,7 @@ if (isset($instance['fields']['totalonline']) && TRUE == $instance['fields']['to
                                                                          name="<?php echo $that->get_field_name('totalonline');?>"
                                                                          id="<?php echo $that->get_field_id('totalonline');?>">
         <label class="lbl" for="<?php echo $that->get_field_id('totalonline'); ?>">
-            <?php echo __('Show total online members count', 'peepso-core'); ?>
+            <?php echo esc_attr__('Show total online members count', 'peepso-core'); ?>
         </label>
     </p>
     <?php
@@ -107,7 +107,7 @@ if (isset($instance['fields']['totalmember']) && TRUE == $instance['fields']['to
                                                                          name="<?php echo $that->get_field_name('totalmember');?>"
                                                                          id="<?php echo $that->get_field_id('totalmember');?>">
         <label class="lbl" for="<?php echo $that->get_field_id('totalmember'); ?>">
-            <?php echo __('Show total members count', 'peepso-core'); ?>
+            <?php echo esc_attr__('Show total members count', 'peepso-core'); ?>
         </label>
     </p>
     <?php

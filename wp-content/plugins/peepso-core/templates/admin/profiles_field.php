@@ -88,8 +88,8 @@ if(property_exists($field, 'admin_disable_appearance')) {
 				   data-prop-type="prop"
 				   data-prop-name="post_title" <?php echo (1 == get_post_meta($field->prop('id'),'default_title',TRUE)) ? 'data-prop-title-is-default="1"':'';?>>
 
-			<button class="button ps-js-btn ps-js-cancel"><?php echo __('Cancel', 'peepso-core'); ?></button>
-			<button class="button button-primary ps-js-btn ps-js-save"><?php echo __('Save', 'peepso-core'); ?></button>
+			<button class="button ps-js-btn ps-js-cancel"><?php echo esc_attr__('Cancel', 'peepso-core'); ?></button>
+			<button class="button button-primary ps-js-btn ps-js-save"><?php echo esc_attr__('Save', 'peepso-core'); ?></button>
 			<span class="ps-settings__progress ps-js-progress">
 				<img src="images/loading.gif" style="display:none">
 				<i class="ace-icon fa fa-check bigger-110" style="display:none"></i>

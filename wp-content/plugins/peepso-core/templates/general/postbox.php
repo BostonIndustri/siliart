@@ -13,7 +13,7 @@ $PeepSoPostbox = PeepSoPostbox::get_instance();
 					</div>
 					<div class="ps-postbox__input-wrapper ps-postbox-input ps-inputbox">
 						<?php // echo (isset($prefix)) ? $prefix : ''; ?>
-						<textarea class="ps-postbox__input ps-textarea ps-postbox-textarea" placeholder="<?php echo __(apply_filters('peepso_postbox_message', ''), 'peepso-core'); ?>"></textarea>
+						<textarea class="ps-postbox__input ps-textarea ps-postbox-textarea" placeholder="<?php echo esc_attr__(apply_filters('peepso_postbox_message', ''), 'peepso-core'); ?>"></textarea>
 						<?php // echo (isset($suffix)) ? $suffix : ''; ?>
 					</div>
 				</div>
@@ -30,8 +30,8 @@ $PeepSoPostbox = PeepSoPostbox::get_instance();
 				<?php $PeepSoPostbox->post_interactions(array('is_current_user' => isset($is_current_user) ? $is_current_user : NULL)); ?>
 			</div>
 			<div class="ps-postbox__actions ps-postbox-action">
-				<button type="button" class="ps-btn ps-btn--sm ps-postbox__action ps-postbox__action--cancel ps-tip ps-tip--arrow ps-button-cancel" aria-label="<?php echo __('Cancel', 'peepso-core'); ?>"><i class="gcis gci-times"></i></button>
-				<button type="button" class="ps-btn ps-btn--sm ps-btn--action ps-postbox__action ps-postbox__action--post ps-button-action postbox-submit"><?php echo __('Post', 'peepso-core'); ?></button>
+				<button type="button" class="ps-btn ps-btn--sm ps-postbox__action ps-postbox__action--cancel ps-tip ps-tip--arrow ps-button-cancel" aria-label="<?php echo esc_attr__('Cancel', 'peepso-core'); ?>"><i class="gcis gci-times"></i></button>
+				<button type="button" class="ps-btn ps-btn--sm ps-btn--action ps-postbox__action ps-postbox__action--post ps-button-action postbox-submit"><?php echo esc_attr__('Post', 'peepso-core'); ?></button>
 			</div>
 			<div class="ps-loading ps-postbox-loading" style="display:none">
 				<img src="<?php echo PeepSo::get_asset('images/ajax-loader.gif'); ?>">

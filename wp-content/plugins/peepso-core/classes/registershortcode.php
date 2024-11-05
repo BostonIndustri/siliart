@@ -375,7 +375,7 @@ class PeepSoRegisterShortcode
             $wpuser = PeepSoUser::get_instance($user->ID);
 
             if('ban' == $wpuser->get_user_role()) {
-                echo __('Your account has been suspended indefinitely', 'peepso-core');
+                echo esc_attr(__('Your account has been suspended indefinitely', 'peepso-core'));
                 return;
             }
 

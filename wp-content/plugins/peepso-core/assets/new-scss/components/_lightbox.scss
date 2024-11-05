@@ -304,11 +304,11 @@
     top: auto;
 
     @if $rtl {
-      left: 0;
+      left: 100%;
       right: auto;
     } @else {
       left: auto;
-      right: 0;
+      right: 100%;
     }
 
     bottom: 100%;

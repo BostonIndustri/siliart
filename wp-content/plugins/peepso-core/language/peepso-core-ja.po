@@ -11,6 +11,59 @@ msgstr ""
 "Language: ja_JP\n"
 "Project-Id-Version: PeepSo - PeepSo Foundation\n"
 
+#. Description of the plugin/theme
+msgid "PeepSo Foundation - The Next Generation Social Networking Plugin for WordPress. <strong>📱 <a href=\"https://PeepSo.com/app\" target=\"_blank\">Now with Mobile App for Your Community.</a></strong>"
+msgstr ""
+
+#: templates/profile/profile-about-account.php:53
+msgid "Deleting your account is instant and reversible. Most of your information will be delete will disable your profile and remove your name and photo from most things you've shared. Some information may still be visible to others, such as your name in their friends list and messages you sent."
+msgstr ""
+
+#: templates/profile/dialog-avatar.php:73
+#: templates/profile/dialog-profile-avatar.php:54
+msgid "Preview"
+msgstr ""
+
+#: classes/configsectionnotifications.php:279
+msgid "Reset all users to default"
+msgstr ""
+
+#: classes/configsectionadvanced.php:354
+msgid "Plugin updates"
+msgstr ""
+
+#: classes/configsectionadvanced.php:347
+msgid "Version lock"
+msgstr ""
+
+#: classes/configsectionadvanced.php:344
+msgid "Please note that automatic updates are not recommended. Changing the version lock can help with premium plugins partially disabling themselves when a newer PeepSo Foundation version is detected, but in case of larger code changes it can lead to fatal errors."
+msgstr ""
+
+#: classes/configsectionadvanced.php:340
+msgid "recommended"
+msgstr ""
+
+#: classes/configsectionadvanced.php:340
+msgid "Strict"
+msgstr ""
+
+#: classes/configsectionadvanced.php:339
+msgid "Normal"
+msgstr ""
+
+#: classes/configsectionadvanced.php:338
+msgid "Relaxed"
+msgstr ""
+
+#: classes/configsectionadvanced.php:160
+msgid "Allow special offers in the admin area"
+msgstr ""
+
+#: classes/admin.php:420 peepso.php:3696
+msgid "Show unread"
+msgstr ""
+
 #: classes/configsectionpostbox.php:342
 msgid "Remove excessive line breaks"
 msgstr ""
@@ -117,19 +170,19 @@ msgstr ""
 msgid "Ignore all reports"
 msgstr ""
 
-#: peepso.php:3677
+#: peepso.php:3710
 msgid "Are you sure want to delete reported post?"
 msgstr ""
 
-#: peepso.php:3676
+#: peepso.php:3709
 msgid "Are you sure want to ignore this report(s)?"
 msgstr ""
 
-#: peepso.php:2172
+#: peepso.php:2203
 msgid "All reported content"
 msgstr ""
 
-#: peepso.php:2171
+#: peepso.php:2202
 msgid "reported"
 msgstr ""
 
@@ -145,95 +198,95 @@ msgstr ""
 msgid "License Keys"
 msgstr ""
 
-#: classes/configsectionadvanced.php:530
+#: classes/configsectionadvanced.php:560
 msgid "Do not compress"
 msgstr ""
 
-#: classes/configsectionadvanced.php:506
+#: classes/configsectionadvanced.php:536
 msgid "Do not resize"
 msgstr ""
 
-#: classes/configsectionadvanced.php:490
+#: classes/configsectionadvanced.php:520
 msgid "Choosing both \"do not resize\" and \"do not compress\" will import images without any processing, which might pose a security risk."
 msgstr ""
 
-#: classes/configsectionadvanced.php:159
+#: classes/configsectionadvanced.php:166
 msgid "Connection to %s"
 msgstr ""
 
-#: classes/configsectionadvanced.php:152
+#: classes/configsectionadvanced.php:153
 msgid "Debug Log"
 msgstr ""
 
-#: classes/configsectionadvanced.php:147
+#: classes/configsectionadvanced.php:148
 msgid "Full"
 msgstr ""
 
-#: classes/configsectionadvanced.php:146
+#: classes/configsectionadvanced.php:147
 msgid "Basic"
 msgstr ""
 
-#: classes/configsectionadvanced.php:139
+#: classes/configsectionadvanced.php:140
 msgid "SSL verification"
 msgstr ""
 
-#: classes/configsectionadvanced.php:136
+#: classes/configsectionadvanced.php:137
 msgid "In some rare cases your server might fail to verify our SSL certificate.<br>Set this option to \"No\" in order to skip strict SSL verification."
 msgstr ""
 
-#: classes/configsectionadvanced.php:126
+#: classes/configsectionadvanced.php:127
 msgid "DNS discovery"
 msgstr ""
 
-#: classes/configsectionadvanced.php:123
+#: classes/configsectionadvanced.php:124
 msgid "In some rare cases your server might be unable to resolve our IP address.<br>Set this option to \"No\" in order to use a predefined IP address."
 msgstr ""
 
-#: classes/configsectionadvanced.php:98
+#: classes/configsectionadvanced.php:99
 msgid "Higher values might periodically slow down your website, but are recommended if the other settings don't help with connectivity issues."
 msgstr ""
 
-#: classes/configsectionadvanced.php:91
+#: classes/configsectionadvanced.php:92
 msgid "%s seconds"
 msgstr ""
 
-#: classes/configsectionadvanced.php:82
+#: classes/configsectionadvanced.php:83
 msgid "Server"
 msgstr ""
 
-#: classes/configsectionadvanced.php:77
+#: classes/configsectionadvanced.php:78
 msgid "Secondary"
 msgstr ""
 
-#: classes/configsectionadvanced.php:76
+#: classes/configsectionadvanced.php:77
 msgid "Primary"
 msgstr ""
 
-#: classes/configsectionadvanced.php:60
+#: classes/configsectionadvanced.php:61
 msgid "PeepSo.com is currently online (%.2fms)"
 msgstr ""
 
-#: classes/configsectionadvanced.php:60
+#: classes/configsectionadvanced.php:61
 msgid "PeepSo.com is currently offline (%s)"
 msgstr ""
 
-#: classes/configsectionadvanced.php:46
+#: classes/configsectionadvanced.php:47
 msgid "Contact Us"
 msgstr ""
 
-#: classes/configsectionadvanced.php:46
+#: classes/configsectionadvanced.php:47
 msgid "Video Tutorials"
 msgstr ""
 
-#: classes/configsectionadvanced.php:45
+#: classes/configsectionadvanced.php:46
 msgid "The options below allow you to adjust the way your website connects to our server; * marks the recommended defaults."
 msgstr ""
 
-#: classes/configsectionadvanced.php:44
+#: classes/configsectionadvanced.php:45
 msgid "Lack of connection might result in Installer not working, Licenses not validating and in extreme cases, website slowdown."
 msgstr ""
 
-#: classes/configsectionadvanced.php:43
+#: classes/configsectionadvanced.php:44
 msgid "PeepSo and its plugins need to connect periodically to our server in order to provide licensing, install and update packages."
 msgstr ""
 
@@ -270,11 +323,11 @@ msgstr ""
 msgid "New User Email (No Password Fields)"
 msgstr ""
 
-#: peepso.php:2072
+#: peepso.php:2103
 msgid "Old posts & comments"
 msgstr ""
 
-#: peepso.php:2071
+#: peepso.php:2102
 msgid "Old posts"
 msgstr ""
 
@@ -314,7 +367,7 @@ msgstr ""
 msgid "Ban until"
 msgstr ""
 
-#: classes/registershortcode.php:378 peepso.php:3005 peepso.php:4949
+#: classes/registershortcode.php:378 peepso.php:3038 peepso.php:4986
 msgid "Your account has been suspended indefinitely"
 msgstr ""
 
@@ -346,15 +399,15 @@ msgstr ""
 msgid "One entry per line. If you skip any items, they will follow their default order."
 msgstr ""
 
-#: classes/configsectionadvanced.php:676
+#: classes/configsectionadvanced.php:706
 msgid "Prevent variable encoding/redirects"
 msgstr ""
 
-#: classes/configsectionadvanced.php:673
+#: classes/configsectionadvanced.php:703
 msgid "Prevents WordPress from redirecting certain URLs like test?lorem/ipsum to test?lorem%2Fipsum"
 msgstr ""
 
-#: classes/configsectionadvanced.php:658
+#: classes/configsectionadvanced.php:688
 msgid "Enable SEO Friendly links"
 msgstr ""
 
@@ -378,15 +431,15 @@ msgstr ""
 msgid "Pin This Post Until &hellip;"
 msgstr ""
 
-#: peepso.php:7306
+#: peepso.php:7352
 msgid "Your scheduled post is live"
 msgstr ""
 
-#: peepso.php:2097
+#: peepso.php:2128
 msgid "Show only posts that are pinned"
 msgstr ""
 
-#: peepso.php:2095
+#: peepso.php:2126
 msgid "Only pinned posts"
 msgstr ""
 
@@ -469,7 +522,7 @@ msgstr ""
 msgid "Rotate left"
 msgstr ""
 
-#: classes/admin.php:631
+#: classes/admin.php:642
 msgid "Upgrade Now!"
 msgstr ""
 
@@ -521,19 +574,19 @@ msgstr ""
 msgid "ON: WordPress registration page will be redirected to the PeepSo registration page."
 msgstr ""
 
-#: classes/config.php:418
+#: classes/config.php:414
 msgid "Navigation & Filters"
 msgstr ""
 
-#: classes/config.php:403
+#: classes/config.php:399
 msgid "Moderating content"
 msgstr ""
 
-#: classes/config.php:400 peepso.php:2170 templates/members/search.php:75
+#: classes/config.php:396 peepso.php:2201 templates/members/search.php:75
 msgid "Moderation"
 msgstr ""
 
-#: classes/config.php:306
+#: classes/config.php:302
 msgid "PeepSo Free Bundle"
 msgstr ""
 
@@ -567,38 +620,38 @@ msgstr ""
 msgid "\"Powered by PeepSo\" in the front-end and email footers"
 msgstr ""
 
-#: classes/configsectionnotifications.php:114
+#: classes/configsectionnotifications.php:130
 msgid "Post following & notifications"
 msgstr ""
 
-#: classes/configsectionnotifications.php:106
+#: classes/configsectionnotifications.php:122
 msgctxt "verb"
 msgid "Save"
 msgstr ""
 
-#: classes/configsectionnotifications.php:100
+#: classes/configsectionnotifications.php:116
 msgctxt "verb"
 msgid "React"
 msgstr ""
 
-#: classes/configsectionnotifications.php:94
+#: classes/configsectionnotifications.php:110
 msgctxt "verb"
 msgid "Comment"
 msgstr ""
 
-#: classes/configsectionnotifications.php:88
+#: classes/configsectionnotifications.php:104
 msgid "Decide which actions will trigger a post follow if the user has no prior relationship with a given post"
 msgstr ""
 
-#: classes/configsectionnotifications.php:82
+#: classes/configsectionnotifications.php:98
 msgid "Automatically follow posts"
 msgstr ""
 
-#: classes/configsectionnotifications.php:76
+#: classes/configsectionnotifications.php:92
 msgid "Notify post followers about reactions"
 msgstr ""
 
-#: classes/configsectionnotifications.php:73
+#: classes/configsectionnotifications.php:89
 msgid "Does not apply to post author"
 msgstr ""
 
@@ -631,7 +684,7 @@ msgstr ""
 msgid "All"
 msgstr ""
 
-#: templates/blocks/login.php:61 templates/blocks/profile.php:173
+#: templates/blocks/login.php:61 templates/blocks/profile.php:175
 #: templates/general/login.php:38 templates/widgets/login.tpl.php:65
 #: templates/widgets/me.tpl.php:206
 msgid "TFA code"
@@ -642,19 +695,19 @@ msgstr ""
 msgid "Filters"
 msgstr ""
 
-#: peepso.php:2088
+#: peepso.php:2119
 msgid "Most recently commented and added posts are on top"
 msgstr ""
 
-#: peepso.php:2075
+#: peepso.php:2106
 msgid "New posts & comments"
 msgstr ""
 
-#: peepso.php:2082
+#: peepso.php:2113
 msgid "Most recent posts are on top"
 msgstr ""
 
-#: peepso.php:2074
+#: peepso.php:2105
 msgid "New posts"
 msgstr ""
 
@@ -702,7 +755,7 @@ msgstr ""
 msgid "Pinned Posts"
 msgstr ""
 
-#: classes/configsectionnotifications.php:278
+#: classes/configsectionnotifications.php:309
 msgid "To improve email delivery, do not use a generic address like @gmail.com - instead try using your own domain, like this: no-reply@example.com"
 msgstr ""
 
@@ -758,7 +811,7 @@ msgstr ""
 msgid "Username field will not be available during registration."
 msgstr ""
 
-#: classes/admin.php:422
+#: classes/admin.php:422 peepso.php:3698
 msgid "View all"
 msgstr ""
 
@@ -799,11 +852,11 @@ msgstr ""
 msgid "PeepSo uses usernames in user profile URLs (called \"vanity URLs\") - users usually want to have control over that. Especially if usernames are generated automatically via the options above."
 msgstr ""
 
-#: peepso.php:3542
+#: peepso.php:3575
 msgid "Your account has been activated"
 msgstr ""
 
-#: classes/admin.php:432 peepso.php:3675
+#: classes/admin.php:432 peepso.php:3708
 msgid "Any unsaved comments will be discarded. Are you sure?"
 msgstr ""
 
@@ -815,27 +868,27 @@ msgstr ""
 msgid "Emotion"
 msgstr ""
 
-#: peepso.php:6971
+#: peepso.php:7017
 msgid "The field will be visible and editable only by the Admins. Enable this if you need the field to serve an Admin-only purpose (eg a temporary field draft, or Admin user notes)."
 msgstr ""
 
-#: peepso.php:6969
+#: peepso.php:7015
 msgid "Only Admin can see"
 msgstr ""
 
-#: peepso.php:6946
+#: peepso.php:6992
 msgid "The field will be editable only by the Admins, and will be seen by anyone who matches the field privacy."
 msgstr ""
 
-#: peepso.php:6944
+#: peepso.php:6990
 msgid "Only Admin can edit"
 msgstr ""
 
-#: peepso.php:6917 peepso.php:6948 peepso.php:6973
+#: peepso.php:6963 peepso.php:6994 peepso.php:7019
 msgid "The field will not be counted in profile completeness."
 msgstr ""
 
-#: peepso.php:6915
+#: peepso.php:6961
 msgid "The field will only show during registration. Administrators will be still able to see the field in user profiles."
 msgstr ""
 
@@ -843,17 +896,13 @@ msgstr ""
 msgid "Username cannot be an email."
 msgstr ""
 
-#: classes/configsectionadvanced.php:702
+#: classes/configsectionadvanced.php:732
 msgid "Reactions Emotions"
 msgstr ""
 
 #: 3/classes/compatibility/wordpress_language.php:29
 msgid "Unknown email address."
 msgstr ""
-
-#. Description of the plugin/theme
-msgid "PeepSo Foundation - The Next Generation Social Networking Plugin for WordPress"
-msgstr "PeepSo財団 - ワードプレスの次世代ソーシャルネットワークプラグイン"
 
 #. Plugin URI of the plugin/theme
 #. Author URI of the plugin/theme
@@ -864,7 +913,7 @@ msgstr "https://peepso.com"
 msgid "Log in"
 msgstr "ログイン"
 
-#: templates/blocks/profile.php:78 templates/widgets/me.tpl.php:95
+#: templates/blocks/profile.php:80 templates/widgets/me.tpl.php:95
 msgid "My Profile"
 msgstr "マイプロフィール"
 
@@ -1118,7 +1167,7 @@ msgstr ""
 msgid "Notification preferences"
 msgstr "通知設定"
 
-#: classes/configsectionnotifications.php:198
+#: classes/configsectionnotifications.php:214
 #: templates/profile/profile-about-notifications.php:41
 msgid "Email notification intensity"
 msgstr ""
@@ -1126,10 +1175,6 @@ msgstr ""
 #: templates/profile/profile-about-account.php:65
 msgid "Export Your Community Data"
 msgstr "コミュニティデータをエクスポート"
-
-#: templates/profile/profile-about-account.php:53
-msgid "Deleting your account will disable your profile and remove your name and photo from most things you've shared. Some information may still be visible to others, such as your name in their friends list and messages you sent."
-msgstr "アカウントを削除すると、プロフィールを無効に、共有しているほとんどのものから名前と写真を削除します。送信したメッセージと友人リストにおけるあなたの名前などいくつかの情報は他の人に目に見えるものがまだあります。"
 
 #: templates/profile/online.php:2
 msgid "%s- is currently online"
@@ -1196,28 +1241,20 @@ msgstr ""
 msgid "Please fill in the date"
 msgstr "日付を記入してください。"
 
-#: classes/form.php:624 templates/profile/dialog-avatar.php:110
-#: templates/profile/dialog-profile-avatar.php:6 templates/profile/focus.php:61
-#: templates/profile/focus.php:125
-msgid "Change avatar"
-msgstr ""
-
-#: templates/profile/dialog-avatar.php:88
+#: templates/profile/dialog-avatar.php:89
 msgid "This is how <strong>%s</strong> avatar will appear throughout the entire community."
 msgstr ""
 
-#: templates/profile/dialog-avatar.php:83
+#: templates/profile/dialog-avatar.php:84
 #: templates/profile/dialog-profile-avatar.php:60
 msgid "This is how your avatar will appear throughout the entire community."
 msgstr ""
 
-#: templates/profile/dialog-avatar.php:72
-#: templates/profile/dialog-avatar.php:75
-#: templates/profile/dialog-profile-avatar.php:54
+#: templates/profile/dialog-avatar.php:76
 msgid "Avatar Preview"
 msgstr "写真のプレビュー"
 
-#: templates/profile/dialog-avatar.php:67
+#: templates/profile/dialog-avatar.php:68
 #: templates/profile/dialog-profile-avatar.php:48
 msgid "No avatar uploaded. Use the button above to select and upload one."
 msgstr "写真はアップロードされていません。上のボタンを使用して選択してアップロードしてください。"
@@ -1529,7 +1566,7 @@ msgstr ""
 
 #: templates/general/postbox-interaction-pin.php:48
 #: templates/general/postbox-interaction-schedule.php:40
-#: templates/profile/dialog-avatar.php:113
+#: templates/profile/dialog-avatar.php:114
 #: templates/profile/dialog-profile-avatar.php:66
 msgid "Done"
 msgstr "完了"
@@ -1558,27 +1595,27 @@ msgstr "既読にする"
 msgid "Settings"
 msgstr ""
 
-#: templates/blocks/login.php:112 templates/blocks/profile.php:233
+#: templates/blocks/login.php:112 templates/blocks/profile.php:235
 #: templates/general/login.php:77 templates/widgets/login.tpl.php:125
 #: templates/widgets/me.tpl.php:266
 msgid "Resend activation code"
 msgstr "アクティベーションコードを再送します。"
 
-#: templates/blocks/login.php:108 templates/blocks/profile.php:227
+#: templates/blocks/login.php:108 templates/blocks/profile.php:229
 #: templates/general/login.php:71 templates/profile/no-access.php:52
 #: templates/widgets/login.tpl.php:119 templates/widgets/me.tpl.php:260
 msgid "Register"
 msgstr "登録"
 
 #: templates/blocks/login.php:72 templates/blocks/login.php:73
-#: templates/blocks/profile.php:184 templates/blocks/profile.php:185
+#: templates/blocks/profile.php:186 templates/blocks/profile.php:187
 #: templates/general/login.php:58 templates/general/login.php:59
 #: templates/widgets/login.tpl.php:76 templates/widgets/login.tpl.php:77
 #: templates/widgets/me.tpl.php:217 templates/widgets/me.tpl.php:218
 msgid "Remember Me"
 msgstr "ログインしたままにする"
 
-#: templates/blocks/login.php:41 templates/blocks/profile.php:153
+#: templates/blocks/login.php:41 templates/blocks/profile.php:155
 #: templates/general/login.php:22 templates/widgets/login.tpl.php:45
 #: templates/widgets/me.tpl.php:186
 msgid "Please use a valid email address."
@@ -1748,48 +1785,48 @@ msgstr ""
 msgid "Get Extended Profiles"
 msgstr "拡張プロフィールの取得"
 
-#: templates/admin/profiles_field.php:396
+#: templates/admin/profiles_field.php:397
 msgid "Maximum year allowed"
 msgstr "可能な最大年数"
 
-#: templates/admin/profiles_field.php:381
-#: templates/admin/profiles_field.php:397
+#: templates/admin/profiles_field.php:382
+#: templates/admin/profiles_field.php:398
 msgid "years"
 msgstr "年間"
 
-#: templates/admin/profiles_field.php:380
+#: templates/admin/profiles_field.php:381
 msgid "Minimum year allowed"
 msgstr "許された最小年"
 
-#: templates/admin/profiles_field.php:368
+#: templates/admin/profiles_field.php:369
 msgid "+Unlimited"
 msgstr "+無制限"
 
-#: templates/admin/profiles_field.php:359
+#: templates/admin/profiles_field.php:360
 msgid "-Unlimited"
 msgstr "-無制限"
 
-#: templates/admin/profiles_field.php:264
+#: templates/admin/profiles_field.php:265
 msgid "Disable user privacy setting"
 msgstr "ユーザーのプライバシー設定を無効にします。"
 
-#: templates/admin/profiles_field.php:241
+#: templates/admin/profiles_field.php:242
 msgid "Default Privacy"
 msgstr "デフォルトの投稿プライバシー"
 
-#: templates/admin/profiles_field.php:188
+#: templates/admin/profiles_field.php:189
 msgid "Edit method"
 msgstr "メソッドを編集します。"
 
-#: templates/admin/profiles_field.php:170
+#: templates/admin/profiles_field.php:171
 msgid "Display"
 msgstr "表示"
 
-#: templates/admin/profiles_field.php:39
+#: templates/admin/profiles_field.php:40
 msgid "Validation"
 msgstr "検証"
 
-#: templates/admin/profiles_field.php:26
+#: templates/admin/profiles_field.php:27
 msgid "Core %s: "
 msgstr "コア %s: "
 
@@ -2030,7 +2067,7 @@ msgstr "この投稿に反応、コメントをするには%sログイン%sし�
 msgid "%sRegister%s or %sLogin%s to react or comment on this post."
 msgstr "%s登録%s または %sログイン%s をして、この投稿に反応またはコメントします。"
 
-#: peepso.php:6061 templates/activity/comment-modal-attachment.php:114
+#: peepso.php:6106 templates/activity/comment-modal-attachment.php:114
 #: templates/activity/post.php:143
 msgid "Comments are closed"
 msgstr ""
@@ -2074,11 +2111,11 @@ msgstr "検索キーワードを入力"
 msgid "Search: "
 msgstr "検索:"
 
-#: peepso.php:2060
+#: peepso.php:2091
 msgid "Hide my posts"
 msgstr "自分の投稿を非表示にします。"
 
-#: peepso.php:2056
+#: peepso.php:2087
 msgid "Show my posts"
 msgstr "自分の投稿を表示します。"
 
@@ -2133,290 +2170,290 @@ msgstr "友達リクエスト"
 msgid "You have no friends yet"
 msgstr "友だちはまだいません。"
 
-#: peepso.php:7250
+#: peepso.php:7296
 msgid "Duplicate"
 msgstr "複製"
 
-#: peepso.php:7058
+#: peepso.php:7104
 msgid "Privacy warning text"
 msgstr "プライバシー警告テキスト"
 
-#: peepso.php:7036
+#: peepso.php:7082
 msgid "When enabled, users will be presented with a privacy warning after going into \"edit mode\" of this profile field"
 msgstr "有効にすると、このプロフィールフィールドの「編集モード」に移動した後、ユーザーに対してプライバシー警告が表示されます"
 
-#: peepso.php:7035
+#: peepso.php:7081
 msgid "Show a privacy warning"
 msgstr "プライバシー警告を表示"
 
-#: peepso.php:7016
+#: peepso.php:7062
 msgid "User prefix"
 msgstr ""
 
-#: peepso.php:6998
+#: peepso.php:7044
 msgid "Preset domain"
 msgstr ""
 
-#: peepso.php:6866
+#: peepso.php:6912
 msgid "Warning: searchable fields privacy will be forced as \"Site Members\" and will not be editable by users. The \"Privacy\" config tab will have no effect."
 msgstr "警告: 検索可能なフィールドのプライバシーは「サイトメンバー」とされ、ユーザーによって編集できるものではありません。「プライバシー」設定タブは無効となります。"
 
-#: peepso.php:6865
+#: peepso.php:6911
 msgid "Searchable"
 msgstr "検索可能"
 
-#: peepso.php:6841
+#: peepso.php:6887
 msgid "Half width"
 msgstr "半幅"
 
-#: peepso.php:6913
+#: peepso.php:6959
 msgid "Show only in registration"
 msgstr ""
 
-#: peepso.php:6889
+#: peepso.php:6935
 msgid "Show in registration"
 msgstr "登録時に表示"
 
-#: peepso.php:6433
+#: peepso.php:6478
 msgid "%s has no blog posts yet"
 msgstr "%s にはまだブログ投稿がありません"
 
-#: peepso.php:6433
+#: peepso.php:6478
 msgid "You have no blog posts yet"
 msgstr "まだブログを投稿していません"
 
-#: peepso.php:6119
+#: peepso.php:6164
 msgid "Blog"
 msgstr "ブログ"
 
-#: peepso.php:6054 templates/activity/comment-modal-attachment.php:170
+#: peepso.php:6099 templates/activity/comment-modal-attachment.php:170
 #: templates/activity/comment-reply.php:34 templates/activity/post-edit.php:21
 #: templates/activity/post.php:174 templates/general/postbox-legacy.php:38
 #: templates/general/postbox.php:34
 msgid "Post"
 msgstr "投稿"
 
-#: peepso.php:6053 templates/activity/comment-modal-attachment.php:169
+#: peepso.php:6098 templates/activity/comment-modal-attachment.php:169
 #: templates/activity/comment-reply.php:33 templates/activity/post.php:173
 msgid "Clear"
 msgstr "クリア"
 
-#: peepso.php:6041 templates/activity/comment-edit.php:8
+#: peepso.php:6086 templates/activity/comment-edit.php:8
 #: templates/activity/comment-modal-attachment.php:157
 #: templates/activity/post.php:161
 msgid "Write a comment..."
 msgstr "コメントする"
 
-#: peepso.php:6011
+#: peepso.php:6056
 msgid "No comments yet"
 msgstr "コメントはまだありません"
 
-#: peepso.php:5950
+#: peepso.php:5995
 msgid "Can't load comments and likes. Try refreshing the page or contact the Administrators."
 msgstr "コメントやいいね！を読み込めません。ページを更新するか、管理者に問い合わせてください。"
 
-#: peepso.php:5650
+#: peepso.php:5692
 msgid "Profile Pages"
 msgstr "プロフィールページ"
 
-#: peepso.php:5620
+#: peepso.php:5662
 msgid "Once Weekly"
 msgstr "週 1 回"
 
-#: peepso.php:5614
+#: peepso.php:5656
 msgid "Every Five Minutes"
 msgstr "5 分ごと"
 
-#: peepso.php:5608
+#: peepso.php:5650
 msgid "Every One Minute"
 msgstr "1分ごと"
 
-#: peepso.php:5552
+#: peepso.php:5594
 msgid "Unsubscribe this user from all email notifications"
 msgstr ""
 
-#: peepso.php:5550
+#: peepso.php:5592
 msgid "Email preferences"
 msgstr ""
 
-#: peepso.php:5546
+#: peepso.php:5588
 msgid "PeepSo Email Notifications"
 msgstr ""
 
-#: peepso.php:5536
+#: peepso.php:5578
 msgid "Upgrade now!"
 msgstr "今すぐアップグレード"
 
-#: peepso.php:5533
+#: peepso.php:5575
 msgid "Please upgrade PeepSo %s and PeepSo. "
 msgstr "PeepSo %s と PeepSo をアップグレードしてください。 "
 
-#: peepso.php:5526
+#: peepso.php:5568
 msgid "You are running PeepSo %s."
 msgstr "PeepSo %s を実行しています。"
 
-#: peepso.php:5523
+#: peepso.php:5565
 msgid "has been disabled because it requires <strong>PeepSo %s</strong>. "
 msgstr "<strong>PeepSo %s</strong>が必要なために無効にされています。 "
 
-#: peepso.php:5520
+#: peepso.php:5562
 msgid "was only tested up to <strong>PeepSo %s</strong>. "
 msgstr "<strong>PeepSo %s</strong>までは、テストアップのみして下さい。"
 
-#: peepso.php:5515
+#: peepso.php:5557
 msgid "is not fully compatible with <strong>PeepSo %s</strong>. "
 msgstr "<strong>PeepSo %s</strong>と完全に互換性がありません。"
 
-#: peepso.php:5462
+#: peepso.php:5504
 msgid "The following PeepSo add-on plugins are incompatible with PeepSo Foundation %s. Please update PeepSo Foundation and the add-on plugins to avoid conflicts and issues."
 msgstr "以下の PeepSo アドオンプラグインは、PeepSo Foundation %sと互換性はありません。干渉や問題を避けるために、PeepSo Foundation と アドオンプラグインを更新してください。"
 
-#: peepso.php:5421
+#: peepso.php:5463
 msgid "PeepSo GDPR Scripts"
 msgstr "PeepSo GDPRスクリプト"
 
-#: peepso.php:5413
+#: peepso.php:5455
 msgid "PeepSo Maintenance Scripts"
 msgstr "PeepSo メンテナンススクリプト"
 
-#: peepso.php:5405
+#: peepso.php:5447
 msgid "PeepSo emails"
 msgstr ""
 
-#: peepso.php:5405 peepso.php:5413 peepso.php:5421
+#: peepso.php:5447 peepso.php:5455 peepso.php:5463
 msgid "It looks like %s were not processing properly. We just tried to fix it automatically.<br><small>If you see this message repeatedly, there might be something wrong with your WordPress Cron. Consider deactivating and re-activating PeepSo or contacting Support.</small>"
 msgstr "%sが正しく処理されていないようです。自動で修正しようと試みています。<br><small>このメッセージが繰り返し表示される場合、ワードプロセスクロンに問題がある可能性があります。PeepSoを無効にし再度有効化するか、サポートまで問い合わせてください。</small>"
 
-#: peepso.php:5390
+#: peepso.php:5432
 msgid "PeepSo is having issues validating your license. <a href=\"ENTER_LICENSE\">Review your PeepSo license keys</a>."
 msgstr "PeepSo におけるライセンス認証に問題があります。 <a href=\"ENTER_LICENSE\">PeepSo ライセンス キー</a> を確認してください。"
 
-#: peepso.php:4994
+#: peepso.php:5031
 msgid "This user may not login at the moment."
 msgstr "現時点では、このユーザーはログインできません。"
 
-#: peepso.php:4958
+#: peepso.php:4995
 msgid "Please verify the email address you have provided using the link in the email that was sent to you."
 msgstr "お送りしたメール内のリンクを使って、あなたが入力したメールアドレスの認証を済ませてください。"
 
-#: peepso.php:4954
+#: peepso.php:4991
 msgid "Your account is awaiting admin approval."
 msgstr "あなたのアカウントは、管理者の承認を待っています。"
 
-#: peepso.php:3790
+#: peepso.php:3823
 msgid "Or create a new page with %s shortcode and assign it %s."
 msgstr "または、 %s ショートコードで新しいページを作成し、 %s を割り当てます。"
 
-#: peepso.php:3787
+#: peepso.php:3820
 msgid "the list"
 msgstr "リスト"
 
-#: peepso.php:3787
+#: peepso.php:3820
 msgid "Or choose another page from %s."
 msgstr "又は%sから他のページを選択できます。"
 
-#: peepso.php:3785
+#: peepso.php:3818
 msgid "The assigned page with %s shortcode was not found.<br/>Make sure the page exists (is not trashed) and is published."
 msgstr "%s ショートコードの割り当てられたページが見つかりませんでした。<br/>ページが存在すること (又削除されていない事)と公開されている事を確認してください。"
 
-#: peepso.php:3658
+#: peepso.php:3691
 msgid "Done!"
 msgstr "完了！"
 
-#: classes/admin.php:383 peepso.php:3624
+#: classes/admin.php:383 peepso.php:3657
 msgid "OK"
 msgstr ""
 
-#: peepso.php:3503
+#: peepso.php:3536
 msgid "Deleting this post will reset likes and comments on the blog post. If comment integration is enabled, a fresh activity post will be automatically created."
 msgstr "この投稿を削除すると、ブログ投稿のいいね！やコメントがリセットされます。コメント統合が有効になっている場合、新しいアクティビティの投稿が自動的に作成されます。"
 
-#: peepso.php:3385 peepso.php:3387
+#: peepso.php:3418 peepso.php:3420
 msgid "Ban this user"
 msgstr "このユーザーを禁止"
 
-#: peepso.php:3165
+#: peepso.php:3198
 msgid "Cannot activate PeepSo; it requires <b>Permalinks</b> to be enabled. Go to <a href=\"%1$s\">Settings -&gt; Permalinks</a> and select anything but the <i>Default</i> option."
 msgstr "PeepSOをアクティベイトできません;有効にするためには <b>パーマリンク</b> が必要です。 こちらで <i>既定の</i> オプション以外のどれかを選択してください。 <a href=\"%1$s\">Settings -&gt; Permalinks</a> "
 
-#: peepso.php:3018 peepso.php:4939
+#: peepso.php:3051 peepso.php:4976
 msgid "Your account has been suspended until %s."
 msgstr "あなたのアカウントは、%sから利用停止になっています。"
 
-#: peepso.php:2457
+#: peepso.php:2488
 msgid "The hashtag cache has been purged and it may take a while to rebuild it. You can use your site as usual."
 msgstr "ハッシュタグキャッシュは削除され、再構築に時間がかかる場合があります。いつものようにサイトを使用することは可能です。"
 
-#: peepso.php:2161
+#: peepso.php:2192
 msgid "scheduled"
 msgstr "スケジュール済み"
 
-#: peepso.php:2155
+#: peepso.php:2186
 msgid "All community posts scheduled for later"
 msgstr ""
 
-#: peepso.php:2154
+#: peepso.php:2185
 msgid "All scheduled posts"
 msgstr "すべてのスケジュールされた投稿"
 
-#: peepso.php:2151
+#: peepso.php:2182
 msgid "All the posts you scheduled for later"
 msgstr "後でスケジュールされたすべての投稿"
 
-#: peepso.php:2150
+#: peepso.php:2181
 msgid "My scheduled posts"
 msgstr "スケジュールされた投稿"
 
-#: peepso.php:2143
+#: peepso.php:2174
 msgid "Posts you added to your \"Saved\" list"
 msgstr ""
 
-#: peepso.php:2142
+#: peepso.php:2173
 msgid "saved"
 msgstr "保存済"
 
-#: peepso.php:2141
+#: peepso.php:2172
 msgid "Saved posts"
 msgstr ""
 
-#: peepso.php:2134
+#: peepso.php:2165
 msgid "Posts from %s you follow"
 msgstr ""
 
-#: peepso.php:2133
+#: peepso.php:2164
 msgid "followed"
 msgstr "フォロー中"
 
-#: peepso.php:2128
+#: peepso.php:2159
 msgid "&amp;"
 msgstr "&amp;"
 
-#: peepso.php:2122
+#: peepso.php:2153
 msgid "groups"
 msgstr "グループ"
 
-#: peepso.php:2119
+#: peepso.php:2150
 msgid "members"
 msgstr "メンバー"
 
-#: peepso.php:2114
+#: peepso.php:2145
 msgid "Posts from the entire community"
 msgstr ""
 
-#: peepso.php:2112 templates/blocks/profile.php:122
+#: peepso.php:2143 templates/blocks/profile.php:124
 #: templates/widgets/me.tpl.php:151
 msgid "Community"
 msgstr "コミュニティ"
 
-#: peepso.php:1904
+#: peepso.php:1935
 msgid "via %s"
 msgstr "%s経由"
 
-#: peepso.php:1833
+#: peepso.php:1864
 msgid "stream"
 msgstr "ストリーム"
 
-#: peepso.php:1723
+#: peepso.php:1754
 msgid "Post by"
 msgstr "投稿者"
 
@@ -2424,35 +2461,35 @@ msgstr "投稿者"
 msgid "Email&nbsp;address:"
 msgstr ""
 
-#: peepso.php:1360
+#: peepso.php:1391
 msgid "Edit My Profile"
 msgstr "マイプロフィールを編集"
 
-#: peepso.php:1334
+#: peepso.php:1365
 msgid "Howdy, %s"
 msgstr "こんにちは、%s"
 
-#: peepso.php:1246
+#: peepso.php:1277
 msgid "Disabled %d group email subscriptions"
 msgstr ""
 
-#: peepso.php:1241
+#: peepso.php:1272
 msgid "Disabled %d email notifications"
 msgstr ""
 
-#: peepso.php:678
+#: peepso.php:705
 msgid "PeepSo released a new add-on! Check out the <a href=\"%s\" aria-label=\"PeepSo installer!\">Installer</a> to learn more."
 msgstr ""
 
-#: peepso.php:622
+#: peepso.php:648
 msgid "Visit Community"
 msgstr "コミュニティを訪問"
 
-#: peepso.php:583
+#: peepso.php:608
 msgid "Review your navigation settings"
 msgstr "ナビゲーションの設定を確認する"
 
-#: peepso.php:582
+#: peepso.php:607
 msgid "PeepSo can't locate all required shortcodes."
 msgstr "PeepSo はすべての必要なショートコードを見つけることができません。"
 
@@ -2469,147 +2506,147 @@ msgstr "申請"
 msgid "Today"
 msgstr "今日"
 
-#: install/activate.php:995
+#: install/activate.php:998
 msgid "You are about to be redirected"
 msgstr "リダイレクトしようとしています"
 
-#: install/activate.php:970
+#: install/activate.php:973
 msgid "Site Registration"
 msgstr "登録"
 
-#: install/activate.php:965
+#: install/activate.php:968
 msgid "User Profile"
 msgstr "ユーザープロフィール"
 
-#: install/activate.php:959
+#: install/activate.php:962
 msgid "Recent Activity"
 msgstr "最近のアクティビティ"
 
-#: install/activate.php:631 install/activate.php:632
+#: install/activate.php:634 install/activate.php:635
 msgid "Verified icon 8"
 msgstr ""
 
-#: install/activate.php:624 install/activate.php:625
+#: install/activate.php:627 install/activate.php:628
 msgid "Verified icon 7"
 msgstr ""
 
-#: install/activate.php:617 install/activate.php:618
+#: install/activate.php:620 install/activate.php:621
 msgid "Verified icon 6"
 msgstr ""
 
-#: install/activate.php:610 install/activate.php:611
+#: install/activate.php:613 install/activate.php:614
 msgid "Verified icon 5"
 msgstr ""
 
-#: install/activate.php:603 install/activate.php:604
+#: install/activate.php:606 install/activate.php:607
 msgid "Verified icon 4"
 msgstr ""
 
-#: install/activate.php:595 install/activate.php:596
+#: install/activate.php:598 install/activate.php:599
 msgid "Verified icon 3"
 msgstr ""
 
-#: install/activate.php:587 install/activate.php:588
+#: install/activate.php:590 install/activate.php:591
 msgid "Verified icon 2"
 msgstr ""
 
-#: install/activate.php:580 install/activate.php:581
+#: install/activate.php:583 install/activate.php:584
 msgid "Verified icon 1"
 msgstr ""
 
-#: install/activate.php:538
+#: install/activate.php:541
 msgid "celebrates"
 msgstr "祝福されました"
 
-#: install/activate.php:537
+#: install/activate.php:540
 msgid "Celebrate"
 msgstr "祝福"
 
-#: install/activate.php:531
+#: install/activate.php:534
 msgid "is grateful for"
 msgstr "に喜ばれました"
 
-#: install/activate.php:530
+#: install/activate.php:533
 msgid "Grateful"
 msgstr "喜び"
 
-#: install/activate.php:524
+#: install/activate.php:527
 msgid "is speechless about"
 msgstr "に閉口されました"
 
-#: install/activate.php:523
+#: install/activate.php:526
 msgid "Speechless"
 msgstr "言葉がない"
 
-#: install/activate.php:517
+#: install/activate.php:520
 msgid "feels crazy about"
 msgstr "クレイジーになりました"
 
-#: install/activate.php:516
+#: install/activate.php:519
 msgid "Crazy"
 msgstr "クレイジー"
 
-#: install/activate.php:509
+#: install/activate.php:512
 msgid "is angry about"
 msgstr "怒りが寄せられました"
 
-#: install/activate.php:508
+#: install/activate.php:511
 msgid "Angry"
 msgstr "怒り"
 
-#: install/activate.php:502
+#: install/activate.php:505
 msgid "is sad about"
 msgstr "悲しみが寄せられました"
 
-#: install/activate.php:501
+#: install/activate.php:504
 msgid "Sad"
 msgstr "悲しい"
 
-#: install/activate.php:495
+#: install/activate.php:498
 msgid "gasped at"
 msgstr "驚かれました"
 
-#: install/activate.php:494
+#: install/activate.php:497
 msgid "Wow"
 msgstr "ワオ"
 
-#: install/activate.php:488
+#: install/activate.php:491
 msgid "winked at"
 msgstr "ウインクされました"
 
-#: install/activate.php:487
+#: install/activate.php:490
 msgid "Wink"
 msgstr "ウインク"
 
-#: install/activate.php:480
+#: install/activate.php:483
 msgid "laughed at"
 msgstr "「笑」がつきました"
 
-#: install/activate.php:479
+#: install/activate.php:482
 msgid "Haha"
 msgstr "笑"
 
-#: install/activate.php:472
+#: install/activate.php:475
 msgid "loved"
 msgstr "ハートがつけられました"
 
-#: install/activate.php:471
+#: install/activate.php:474
 msgid "Love"
 msgstr "ハート"
 
-#: install/activate.php:465
+#: install/activate.php:468
 msgid "liked"
 msgstr "いいね！しました"
 
-#: install/activate.php:440
+#: install/activate.php:443
 msgid "About the author:"
 msgstr "作者について:"
 
-#: install/activate.php:439 templates/reactions/admin_reactions.php:56
+#: install/activate.php:442 templates/reactions/admin_reactions.php:56
 msgid "Likes"
 msgstr "いいね！"
 
-#: install/activate.php:436
+#: install/activate.php:439
 msgid "Get involved!"
 msgstr "参加しよう！"
 
@@ -2626,7 +2663,11 @@ msgstr ""
 msgid "User dropdown menu"
 msgstr ""
 
-#: classes/register.php:190 classes/widgets/widgetuserbar.php:206
+#: classes/form.php:620 classes/register.php:190
+#: classes/widgets/widgetuserbar.php:206
+#: templates/profile/dialog-avatar.php:111
+#: templates/profile/dialog-profile-avatar.php:6 templates/profile/focus.php:61
+#: templates/profile/focus.php:125
 msgid "Avatar"
 msgstr ""
 
@@ -2635,19 +2676,19 @@ msgstr ""
 msgid "Other elements"
 msgstr ""
 
-#: assets/js/blocks/user-bar-editor.js:72 classes/configsectionadvanced.php:343
+#: assets/js/blocks/user-bar-editor.js:72 classes/configsectionadvanced.php:373
 #: classes/configsectionnavigation.php:143
 #: classes/widgets/widgetuserbar.php:195
 msgid "Desktop"
 msgstr ""
 
-#: assets/js/blocks/user-bar-editor.js:71 classes/configsectionadvanced.php:342
+#: assets/js/blocks/user-bar-editor.js:71 classes/configsectionadvanced.php:372
 #: classes/configsectionnavigation.php:142
 #: classes/widgets/widgetuserbar.php:194
 msgid "Mobile"
 msgstr ""
 
-#: assets/js/blocks/user-bar-editor.js:70 classes/configsectionadvanced.php:340
+#: assets/js/blocks/user-bar-editor.js:70 classes/configsectionadvanced.php:370
 #: classes/configsectionnavigation.php:141
 #: classes/widgets/widgetuserbar.php:193
 msgid "Disable"
@@ -2868,7 +2909,7 @@ msgstr "最新メンバーはいません"
 msgid "Members count"
 msgstr "メンバー数"
 
-#: classes/vip.php:264
+#: classes/vip.php:266
 msgid "PeepSo VIP icons"
 msgstr ""
 
@@ -2884,11 +2925,11 @@ msgstr ""
 msgid "VIP"
 msgstr ""
 
-#: classes/user.php:1573
+#: classes/user.php:1612
 msgid "Account activated"
 msgstr "アカウントのアクティブ化"
 
-#: classes/user.php:1056
+#: classes/user.php:1095
 msgid "Welcome to %s"
 msgstr "%s へようこそ"
 
@@ -3054,7 +3095,7 @@ msgid "Enter your desired password"
 msgstr "ご希望のパスワードを入力します。"
 
 #: classes/register.php:107 templates/blocks/login.php:50
-#: templates/blocks/profile.php:162 templates/general/login.php:29
+#: templates/blocks/profile.php:164 templates/general/login.php:29
 #: templates/profile/dialog-profile-delete-account-data-archive.php:4
 #: templates/profile/dialog-profile-deletion.php:4
 #: templates/profile/dialog-profile-download-account-data.php:4
@@ -3181,16 +3222,16 @@ msgstr "一部のフィールドが保存されませんでした。すべての
 msgid "Account"
 msgstr "アカウント"
 
-#: classes/profileshortcode.php:595 peepso.php:5106
+#: classes/profileshortcode.php:595 peepso.php:5143
 msgid "About"
 msgstr "概要"
 
-#: classes/profileshortcode.php:504 peepso.php:3597 peepso.php:3616
+#: classes/profileshortcode.php:504 peepso.php:3630 peepso.php:3649
 #: templates/profile/dialog-profile-avatar.php:71
 msgid "The file size you uploaded is too big. The maximum file size is %s."
 msgstr "アップロードしたファイルが大きすぎます。最大ファイルサイズは%sです。"
 
-#: classes/profileshortcode.php:502 peepso.php:3605 peepso.php:3611
+#: classes/profileshortcode.php:502 peepso.php:3638 peepso.php:3644
 #: templates/profile/dialog-profile-avatar.php:70
 msgid "The file type you uploaded is not allowed. Only JPEG, PNG, and WEBP allowed."
 msgstr ""
@@ -3208,7 +3249,7 @@ msgid "The file you uploaded is either missing or too large."
 msgstr "アップロードしたファイルが見つからないか、または大きすぎます。"
 
 #: classes/profileshortcode.php:256 classes/profileshortcode.php:301
-#: peepso.php:1249
+#: peepso.php:1280
 msgid "You do not have enough permissions."
 msgstr "必要な権限を持っていません。"
 
@@ -3503,7 +3544,7 @@ msgstr ""
 msgid "Profile views"
 msgstr ""
 
-#: classes/profile.php:1364 peepso.php:5113 templates/followers/submenu.php:8
+#: classes/profile.php:1364 peepso.php:5150 templates/followers/submenu.php:8
 msgid "Followers"
 msgstr ""
 
@@ -3653,7 +3694,7 @@ msgid "Schedule"
 msgstr "スケジュール"
 
 #: classes/configsectionpostbox.php:184 classes/postbox.php:197
-#: templates/admin/profiles_field.php:38
+#: templates/admin/profiles_field.php:39
 msgid "Privacy"
 msgstr "プライバシー"
 
@@ -3965,8 +4006,8 @@ msgstr "ログイン試行"
 msgid "VIP Icons"
 msgstr ""
 
-#: classes/configsectionadvanced.php:708 classes/manage.php:60
-#: classes/manage.php:62 install/activate.php:438
+#: classes/configsectionadvanced.php:738 classes/manage.php:60
+#: classes/manage.php:62 install/activate.php:441
 msgid "Reactions"
 msgstr "リアクション"
 
@@ -4107,7 +4148,7 @@ msgstr ""
 msgid "Username or Email"
 msgstr ""
 
-#: classes/configsectionnotifications.php:233 classes/general.php:416
+#: classes/configsectionnotifications.php:249 classes/general.php:416
 #: classes/profile.php:1726 classes/profile.php:1876 classes/profile.php:1887
 #: classes/register.php:80
 msgid "Email"
@@ -4141,7 +4182,7 @@ msgstr "メンバー以外も含めて、だれでも見ることができる。
 msgid "Public"
 msgstr "公開"
 
-#: classes/general.php:241 templates/blocks/profile.php:95
+#: classes/general.php:241 templates/blocks/profile.php:97
 #: templates/blocks/user-bar.php:88 templates/blocks/user-bar.php:128
 #: templates/blocks/user-bar.php:129 templates/widgets/me.tpl.php:122
 #: templates/widgets/userbar.tpl.php:98 templates/widgets/userbar.tpl.php:133
@@ -4149,7 +4190,7 @@ msgid "Log Out"
 msgstr "ログアウト"
 
 #: classes/general.php:225 classes/profileshortcode.php:600
-#: templates/blocks/profile.php:87 templates/blocks/user-bar.php:80
+#: templates/blocks/profile.php:89 templates/blocks/user-bar.php:80
 #: templates/widgets/me.tpl.php:105 templates/widgets/userbar.tpl.php:90
 msgid "Preferences"
 msgstr "環境設定"
@@ -4247,7 +4288,7 @@ msgstr "リトライ"
 msgid "Ready"
 msgstr "準備完了"
 
-#: classes/gdpr.php:30 classes/gdprlisttable.php:149 peepso.php:3542
+#: classes/gdpr.php:30 classes/gdprlisttable.php:149 peepso.php:3575
 #: templates/admin/queue-status-description.php:30
 msgid "Success"
 msgstr "成功"
@@ -4344,7 +4385,7 @@ msgstr "このフィールドは、数値でなければなりません。"
 msgid "This field is required."
 msgstr "この項目は入力必須です。"
 
-#: classes/form.php:865
+#: classes/form.php:861
 msgid "ReCaptcha security check failed"
 msgstr "ReCaptchaのセキュリティチェックに失敗しました。"
 
@@ -4374,7 +4415,7 @@ msgstr ""
 
 #: activity/classes/activityshortcode.php:188 classes/follower.php:48
 #: classes/general.php:55 classes/profile.php:1380 classes/profile.php:1381
-#: peepso.php:2132 templates/followers/submenu.php:13
+#: peepso.php:2163 templates/followers/submenu.php:13
 #: templates/members/search.php:65
 msgid "Following"
 msgstr "フォロー中"
@@ -4550,7 +4591,7 @@ msgid "input (single line)"
 msgstr "入力"
 
 #: classes/fields/fieldselectsingle.php:76
-#: classes/fields/fieldselectsingle.php:110
+#: classes/fields/fieldselectsingle.php:108
 msgid "Select an option..."
 msgstr "オプションを選択"
 
@@ -5705,7 +5746,7 @@ msgid "If a post is reported enough times, it will be automatically unpublished.
 msgstr "投稿が一定回数がレポートされた場合、投稿は自動的に非公開になります。0に設定すると無効になります。"
 
 #: classes/gdpr.php:553 classes/gdpr.php:1157 classes/general.php:40
-#: peepso.php:5065
+#: peepso.php:5102
 msgid "Activity"
 msgstr "アクティビティ"
 
@@ -5863,7 +5904,7 @@ msgstr ""
 msgid "Moods"
 msgstr "ムード"
 
-#: classes/config.php:409 classes/configsectionlocation.php:42
+#: classes/config.php:405 classes/configsectionlocation.php:42
 #: classes/location.php:121 classes/location.php:126 classes/location.php:156
 #: classes/profilefields.php:213
 msgid "Location"
@@ -6255,109 +6296,109 @@ msgstr "他のドメインへのリンクのみ"
 msgid "All links"
 msgstr "全てのリンク"
 
-#: classes/configsectionnotifications.php:324
+#: classes/configsectionnotifications.php:355
 msgid "This section controls the settings and layout of all emails sent by PeepSo: notifications, registration, forgot password etc."
 msgstr ""
 
-#: classes/configsectionnotifications.php:323
+#: classes/configsectionnotifications.php:354
 msgid "Emails"
 msgstr ""
 
-#: classes/configsectionnotifications.php:316
+#: classes/configsectionnotifications.php:347
 msgid "Override entire HTML"
 msgstr "HTML全体を書き換え"
 
-#: classes/configsectionnotifications.php:308
+#: classes/configsectionnotifications.php:339
 msgid "Missing variable {emails_contents} or {unsubscribeurl}"
 msgstr "関数の喪失　 {emails_contents} または {unsubscribeurl}"
 
-#: classes/configsectionnotifications.php:298
+#: classes/configsectionnotifications.php:329
 msgid "Available variables: <br/>{email_contents} - email contents <font color=\"red\">*</font><br/>{unsubscribeurl} - URL of the user notification preferences <font color=\"red\">*</font><br/>{currentuserfullname} - full name of the recipient<br>{useremail} - email of the recipient<br/>{sitename} - the name of your site<br/>{siteurl} - the URL of your site<br/><br/><font color=\"red\">*</font> required variable"
 msgstr ""
 
-#: classes/configsectionnotifications.php:296
+#: classes/configsectionnotifications.php:327
 msgid "<a href=\"%s\" target=\"_blank\">Click here</a> after saving to test your changes."
 msgstr "<a href=\"%s\" target=\"_blank>クリックしてください。</a> あなたの変更をテストするために保存した後にクリックしてください。"
 
-#: classes/configsectionnotifications.php:294
+#: classes/configsectionnotifications.php:325
 msgid "Text, HTML and inline CSS only (no PHP or shortcodes). Leave empty for the default layout."
 msgstr "テキスト、HTML、CSS（PHPやショートコードでない）。デフォルトのレイアウトのために空にしておいてください。"
 
-#: classes/configsectionnotifications.php:288
+#: classes/configsectionnotifications.php:319
 msgid "Customize the entire email layout"
 msgstr ""
 
-#: classes/configsectionnotifications.php:281
+#: classes/configsectionnotifications.php:312
 msgid "Admin Email"
 msgstr ""
 
-#: classes/configsectionnotifications.php:266
+#: classes/configsectionnotifications.php:297
 msgid "Email sender"
 msgstr ""
 
-#: classes/configsectionnotifications.php:260
-#: classes/configsectionnotifications.php:275
+#: classes/configsectionnotifications.php:291
+#: classes/configsectionnotifications.php:306
 msgid "Should be between 1 and 64 characters long."
 msgstr "1文字以上64文字以内"
 
-#: classes/configsectionnotifications.php:250
+#: classes/configsectionnotifications.php:266
 msgid "These defaults will only be applied to new users"
 msgstr "これらのデフォルトは新規ユーザーにのみ適用されます"
 
-#: classes/configsectionnotifications.php:249
+#: classes/configsectionnotifications.php:265
 msgid "Notification defaults"
 msgstr "通知のデフォルト"
 
-#: classes/configsectionnotifications.php:226
+#: classes/configsectionnotifications.php:242
 msgid "On-site"
 msgstr "オンサイト"
 
-#: classes/configsectionnotifications.php:181
+#: classes/configsectionnotifications.php:197
 #: templates/profile/profile-about-notifications.php:189
 msgid "Web Push Notifications"
 msgstr ""
 
-#: classes/configsectionnotifications.php:151
+#: classes/configsectionnotifications.php:167
 msgid "How to generate keys"
 msgstr ""
 
-#: classes/configsectionnotifications.php:145
+#: classes/configsectionnotifications.php:161
 msgid "Public Key"
 msgstr ""
 
-#: classes/configsectionnotifications.php:137
+#: classes/configsectionnotifications.php:153
 msgid "Private Key"
 msgstr ""
 
-#: classes/configsectionnotifications.php:130
+#: classes/configsectionnotifications.php:146
 msgid "Enable by default for users"
 msgstr ""
 
-#: classes/configsectionnotifications.php:127
+#: classes/configsectionnotifications.php:143
 msgid "Defines the default state for all users who never set this notification preference"
 msgstr ""
 
-#: classes/configsectionnotifications.php:120
+#: classes/configsectionnotifications.php:136
 msgid "Enabled: Web Push Notifications option will appear in user preferences"
 msgstr ""
 
-#: classes/configsectionnotifications.php:67
+#: classes/configsectionnotifications.php:83
 msgid "On-site notification previews"
 msgstr "オンサイト通知のプレビュー"
 
-#: classes/configsectionnotifications.php:60
+#: classes/configsectionnotifications.php:76
 msgid "Ellipsis"
 msgstr "省略記号"
 
-#: classes/configsectionnotifications.php:54
+#: classes/configsectionnotifications.php:70
 msgid "If a notification is over the limit, the ellipsis will be attached to the end. The length of the potential ellipsis counts into a total notification preview length."
 msgstr "制限を超えた場合、省略記号は最後に添付されます。 潜在的な省略記号の長さは、合計の通知プレビュー長にカウントされます。"
 
-#: classes/configsectionnotifications.php:50
+#: classes/configsectionnotifications.php:66
 msgid "Preview length"
 msgstr "プレビューの長さ"
 
-#: classes/configsectionnotifications.php:47
+#: classes/configsectionnotifications.php:63
 msgid "Notification previews will be trimmed to this length.  To avoid cutting words in the middle, the actual length of a preview might be shorter."
 msgstr "通知プレビューはこの長さにトリミングされます。中央の単語をカットしないようにするには、プレビューの実際の長さが短くなる場合があります。"
 
@@ -6438,7 +6479,7 @@ msgid "Every %s loop"
 msgid_plural "Every %s loops"
 msgstr[0] "%s毎にループ"
 
-#: classes/configsectionadvanced.php:102 classes/configsectionnetwork.php:103
+#: classes/configsectionadvanced.php:103 classes/configsectionnetwork.php:103
 msgid "Timeout"
 msgstr "タイムアウト"
 
@@ -6485,7 +6526,7 @@ msgid "No redirect"
 msgstr "リダイレクトなし"
 
 #: classes/configsectionnavigation.php:218
-#: classes/configsectionnavigation.php:265 peepso.php:3770
+#: classes/configsectionnavigation.php:265 peepso.php:3803
 msgid "Front Page"
 msgstr "フロントページ"
 
@@ -6553,7 +6594,7 @@ msgstr "コメントで有効にする"
 msgid "Enable in posts"
 msgstr "投稿で有効にする"
 
-#: classes/configsectionblogposts.php:391 peepso.php:5640
+#: classes/configsectionblogposts.php:391 peepso.php:5682
 msgid "Activity Stream"
 msgstr "アクティビティ・ストリーム"
 
@@ -6686,7 +6727,7 @@ msgstr "左 (正方形)"
 msgid "Top (rectangle)"
 msgstr "トップ (長方形)"
 
-#: classes/configsectionblogposts.php:78 templates/admin/profiles_field.php:204
+#: classes/configsectionblogposts.php:78 templates/admin/profiles_field.php:205
 msgid "Placeholder"
 msgstr "プレースホルダー"
 
@@ -6833,7 +6874,7 @@ msgid "Only for Administrators"
 msgstr ""
 
 #: assets/js/blocks/profile-editor.js:73 assets/js/blocks/user-bar-editor.js:73
-#: classes/configsectionadvanced.php:341
+#: classes/configsectionadvanced.php:371
 #: classes/configsectionappearance.php:592
 #: classes/configsectionnavigation.php:144 classes/widgets/widgetme.php:231
 #: classes/widgets/widgetuserbar.php:196
@@ -7110,323 +7151,323 @@ msgstr ""
 msgid "Display name style"
 msgstr "名前の表示スタイル"
 
-#: classes/configsectionadvanced.php:764
+#: classes/configsectionadvanced.php:794
 msgid "Sharing"
 msgstr ""
 
-#: classes/configsectionadvanced.php:738
+#: classes/configsectionadvanced.php:768
 msgid "Enabled social networks"
 msgstr "ソーシャルネットワークを有効化"
 
-#: classes/configsectionadvanced.php:732
+#: classes/configsectionadvanced.php:762
 msgid "Activity Social Sharing"
 msgstr "アクティビティソーシャル共有"
 
-#: classes/configsectionadvanced.php:725
+#: classes/configsectionadvanced.php:755
 msgid "Profiles Social Sharing"
 msgstr "プロフィールソーシャル共有"
 
-#: classes/configsectionadvanced.php:722
+#: classes/configsectionadvanced.php:752
 msgid "User profiles are shareable to social networks"
 msgstr "ユーザー プロファイルはそーシャルネットワークに共有可能"
 
-#: classes/configsectionadvanced.php:717
+#: classes/configsectionadvanced.php:747
 msgid "Enable Repost"
 msgstr "報告を有効にする"
 
-#: classes/configsectionadvanced.php:692
+#: classes/configsectionadvanced.php:722
 msgid "The Open Graph protocol enables links shared to Facebook (and others) carry information that render shared URLs in a great way. Having a photo, title and description. You can learn more about it in our documentation. Just search for 'Open Graph'."
 msgstr ""
 
-#: classes/configsectionadvanced.php:691
+#: classes/configsectionadvanced.php:721
 msgid "SEO & Open Graph"
 msgstr "SEO ・ オープングラフ"
 
-#: classes/configsectionadvanced.php:684
+#: classes/configsectionadvanced.php:714
 msgid "PeepSo can reset WP_Query"
 msgstr "PeepSo WP_Query をリセットすることができます。"
 
-#: classes/configsectionadvanced.php:681
+#: classes/configsectionadvanced.php:711
 msgid "This can interfere with SEO plugins, so use with caution."
 msgstr "これは SEO のプラグインと関連づけることができます、注意して使用してください。"
 
-#: classes/configsectionadvanced.php:681
+#: classes/configsectionadvanced.php:711
 msgid "This advanced feature causes PeepSo pages to override the global WP_Query for better SEO."
 msgstr "この高度な機能によって、より良い SEO のためグローバル WP_Query をオーバーライドする PeepSo ページを生成します。"
 
-#: classes/configsectionadvanced.php:667
+#: classes/configsectionadvanced.php:697
 msgid "You are currently using [peepso_activity] as your home page. Because of that, single activity URLs will have to contain \"?\" no matter what the above setting is."
 msgstr "現在、ホーム ページとして [peepso_activity] を使用しています。そのため、上記の設定に関係なく、単一の URLアクティビティは \"?\"を含める必要があります。"
 
-#: classes/configsectionadvanced.php:655
+#: classes/configsectionadvanced.php:685
 msgid "This feature might not work with some SEO plugins and server setups. It will remove \"?\" from certain PeepSo URLs, such as \"profile/?username/about\"."
 msgstr "この機能はSEOプラグインやサーバー設定において上手く作動しない場合があります。「profile/?username/about」のような特定のPeepSoのURLから「？」が削除されます。"
 
-#: classes/configsectionadvanced.php:650
+#: classes/configsectionadvanced.php:680
 msgid "Advanced SEO"
 msgstr "高度なSEO"
 
-#: classes/configsectionadvanced.php:642
+#: classes/configsectionadvanced.php:672
 msgid "Image (og:image)"
 msgstr "イメージ(og:image)"
 
-#: classes/configsectionadvanced.php:635
+#: classes/configsectionadvanced.php:665
 msgid "Description (og:description)"
 msgstr "説明(og:description)"
 
-#: classes/configsectionadvanced.php:628
+#: classes/configsectionadvanced.php:658
 msgid "Title (og:title)"
 msgstr "タイトル (og:title)"
 
-#: classes/configsectionadvanced.php:621
+#: classes/configsectionadvanced.php:651
 msgid "Enable Open Graph"
 msgstr "オープングラフを有効化。"
 
-#: classes/configsectionadvanced.php:613
+#: classes/configsectionadvanced.php:643
 msgid "Control behavior of PeepSo when uninstalling / deactivating"
 msgstr "アンインストール/非アクティブ化するとき、動作を制御します。"
 
-#: classes/configsectionadvanced.php:612
+#: classes/configsectionadvanced.php:642
 msgid "PeepSo Uninstall"
 msgstr "PeepSo アンインストール"
 
-#: classes/configsectionadvanced.php:607
+#: classes/configsectionadvanced.php:637
 msgid "When set to \"YES\", all <em>PeepSo</em> data will be deleted upon plugin Uninstall (but not Deactivation).<br/>Once deleted, <u>all data is lost</u> and cannot be recovered."
 msgstr "\"YES\"に設定すると、すべてのデータはプラグインのアンインストール (非アクティブ化ではない) 時に削除されます。<br/>削除した場合には <u>すべてのデータはなくなり、</u> 回復することはできません。"
 
-#: classes/configsectionadvanced.php:602
+#: classes/configsectionadvanced.php:632
 msgid "Delete all data and settings"
 msgstr "すべてのデータと設計を削除"
 
-#: classes/configsectionadvanced.php:593
+#: classes/configsectionadvanced.php:623
 msgid "Delete Post and Comment data"
 msgstr "投稿とコメントを削除"
 
-#: classes/configsectionadvanced.php:575
+#: classes/configsectionadvanced.php:605
 msgid "Excluded domains"
 msgstr "除外されたドメイン"
 
-#: classes/configsectionadvanced.php:571
+#: classes/configsectionadvanced.php:601
 msgid "Example domains:"
 msgstr "ドメイン例"
 
-#: classes/configsectionadvanced.php:571
+#: classes/configsectionadvanced.php:601
 msgid "Domains that do not require a warning page, without \"www\" or \"http(s)\". One domain name per line. Your website is excluded by default. "
 msgstr ""
 
-#: classes/configsectionadvanced.php:565
+#: classes/configsectionadvanced.php:595
 msgid "Include social sharing links"
 msgstr "ソーシャル共有リンクを含む"
 
-#: classes/configsectionadvanced.php:562
+#: classes/configsectionadvanced.php:592
 msgid "Turn ON to force the warning page even for configured social sharing providers."
 msgstr ""
 
-#: classes/configsectionadvanced.php:557
+#: classes/configsectionadvanced.php:587
 msgid "Enable \"external link warning\" page"
 msgstr "”外部リンクの警告”ページを有効にする"
 
-#: classes/configsectionadvanced.php:554
+#: classes/configsectionadvanced.php:584
 msgid "ON: users will be shown a warning page when clicking an external link inside any PeepSo page. The warning page is the one containing peepso_external_link_warning shortcode."
 msgstr ""
 
-#: classes/configsectionadvanced.php:545
+#: classes/configsectionadvanced.php:575
 msgid "These settings control the dimensions and compression levels, and will only be applied to newly uploaded images."
 msgstr "この設定は、ディメンションやコンプリヘンションの水準を管理します。新しくアップロードされた写真にのみ適用されます。"
 
-#: classes/configsectionadvanced.php:544
+#: classes/configsectionadvanced.php:574
 msgid "Storage"
 msgstr "ストレージ"
 
-#: classes/configsectionadvanced.php:537
+#: classes/configsectionadvanced.php:567
 msgid "Cover quality"
 msgstr "カバー品質"
 
-#: classes/configsectionadvanced.php:513
+#: classes/configsectionadvanced.php:543
 msgid "Cover width"
 msgstr "カバー幅"
 
-#: classes/configsectionadvanced.php:483
+#: classes/configsectionadvanced.php:513
 msgid "Avatar quality"
 msgstr "写真の品質"
 
-#: classes/configsectionadvanced.php:480 classes/configsectionadvanced.php:534
+#: classes/configsectionadvanced.php:510 classes/configsectionadvanced.php:564
 msgid "Higher quality will use more storage, but the images will look better"
 msgstr "高画質はより多くのストレージを使用しますが、イメージは美しくなります。"
 
-#: classes/configsectionadvanced.php:472 classes/configsectionadvanced.php:524
+#: classes/configsectionadvanced.php:502 classes/configsectionadvanced.php:554
 msgid "%d%%"
 msgstr "%d%%"
 
-#: classes/configsectionadvanced.php:462
+#: classes/configsectionadvanced.php:492
 msgid "Avatar size"
 msgstr "写真サイズ"
 
-#: classes/configsectionadvanced.php:459 classes/configsectionadvanced.php:510
+#: classes/configsectionadvanced.php:489 classes/configsectionadvanced.php:540
 msgid "Bigger images use more storage, but will look better - especially on high resolution screens."
 msgstr "大きな画像はより多くのストレージを使用しますが、見た目に美しく、特に高解像度の画面においてそれは顕著になります。"
 
-#: classes/configsectionadvanced.php:453 classes/configsectionadvanced.php:474
-#: classes/configsectionadvanced.php:502 classes/configsectionadvanced.php:526
+#: classes/configsectionadvanced.php:483 classes/configsectionadvanced.php:504
+#: classes/configsectionadvanced.php:532 classes/configsectionadvanced.php:556
 #: classes/configsectionnetwork.php:70 classes/configsectionnetwork.php:97
 #: classes/configsectionnetwork.php:167 classes/configsectionnetwork.php:181
 #: classes/configsectionnetwork.php:216
 msgid "default"
 msgstr "デフォルト"
 
-#: classes/configsectionadvanced.php:451 classes/configsectionadvanced.php:500
+#: classes/configsectionadvanced.php:481 classes/configsectionadvanced.php:530
 msgid "%d pixels"
 msgstr "%d ピクセル"
 
-#: classes/configsectionadvanced.php:438
+#: classes/configsectionadvanced.php:468
 msgid "Cache"
 msgstr ""
 
-#: classes/configsectionadvanced.php:430
+#: classes/configsectionadvanced.php:460
 msgid "Cache Busting (BETA)"
 msgstr ""
 
-#: classes/configsectionadvanced.php:425
+#: classes/configsectionadvanced.php:455
 msgid "Might cause longer PHP execution times."
 msgstr ""
 
-#: classes/configsectionadvanced.php:424
+#: classes/configsectionadvanced.php:454
 msgid "Enables cache-busting query args for all PeepSo assets (JavaScript and CSS). Users PHP to detect the last file modification time."
 msgstr ""
 
-#: classes/configsectionadvanced.php:413
+#: classes/configsectionadvanced.php:443
 msgid "Cron jobs"
 msgstr ""
 
-#: classes/configsectionadvanced.php:407
+#: classes/configsectionadvanced.php:437
 msgid "GDPR Exports"
 msgstr ""
 
-#: classes/configsectionadvanced.php:399
+#: classes/configsectionadvanced.php:429
 msgid "Maintenance scripts"
 msgstr ""
 
-#: classes/configsectionadvanced.php:390
+#: classes/configsectionadvanced.php:420
 msgid "Email Queue"
 msgstr ""
 
-#: classes/configsectionadvanced.php:377
+#: classes/configsectionadvanced.php:407
 msgid "Performance"
 msgstr "パフォーマンス"
 
-#: classes/configsectionadvanced.php:370
+#: classes/configsectionadvanced.php:400
 msgid "Repeat \"load more\" button?"
 msgstr "「詳細をロード」ボタンをを繰り返す。"
 
-#: classes/configsectionadvanced.php:367
+#: classes/configsectionadvanced.php:397
 msgid "You can choose to have a specified batch of posts to load before showing the \"load button\" again."
 msgstr ""
 
-#: classes/configsectionadvanced.php:367
+#: classes/configsectionadvanced.php:397
 msgid "By default all posts load in an \"infinite scroll\"."
 msgstr "既定では、すべての記事を「無限スクロール」で読み込みます。"
 
-#: classes/configsectionadvanced.php:359
+#: classes/configsectionadvanced.php:389
 msgid "Every %d items"
 msgstr "%d アイテムごと"
 
-#: classes/configsectionadvanced.php:350
+#: classes/configsectionadvanced.php:380
 msgid "Enable \"load more:\""
 msgstr "「もっと読み込む」を有効にする"
 
-#: classes/configsectionadvanced.php:347
+#: classes/configsectionadvanced.php:377
 msgid "Disables infinite loading of activity stream posts, member listings etc. To load more content users have to press \"load more\" button."
 msgstr "アクティビティストリーム投稿、メンバーリストなどの無限の読み込みを無効にします。より多くのコンテンツを読み込むには、「もっと読み込む」ボタンを押す必要があります。"
 
-#: classes/configsectionadvanced.php:334
+#: classes/configsectionadvanced.php:364
 msgid "User blocking"
 msgstr ""
 
-#: classes/configsectionadvanced.php:330
+#: classes/configsectionadvanced.php:360
 msgid "Users will be able to block each other. This feature might degrade performance for users with many blocks."
 msgstr ""
 
-#: classes/configsectionadvanced.php:323
+#: classes/configsectionadvanced.php:330
 msgid "Maintenance & debugging"
 msgstr "メンテナンス ・ デバッグ"
 
-#: classes/configsectionadvanced.php:317
+#: classes/configsectionadvanced.php:324
 msgid "Show Developer Tools"
 msgstr ""
 
-#: classes/configsectionadvanced.php:314
+#: classes/configsectionadvanced.php:321
 msgid "ON: a Developer Tools are added to the WordPress admin menu."
 msgstr ""
 
-#: classes/configsectionadvanced.php:309
+#: classes/configsectionadvanced.php:316
 msgid "PeepSo debug log"
 msgstr ""
 
-#: classes/configsectionadvanced.php:306
+#: classes/configsectionadvanced.php:313
 msgid "This can impact website speed and should ONLY be enabled when someone is debugging PeepSo."
 msgstr "これはウェブサイトの速度に影響を与える可能性があり、誰かが PeepSo をデバッグする時にのみ有効にする必要があります。"
 
-#: classes/configsectionadvanced.php:306
+#: classes/configsectionadvanced.php:313
 msgid "ON: various debug information is written to a log file."
 msgstr ""
 
-#: classes/configsectionadvanced.php:299
+#: classes/configsectionadvanced.php:306
 msgid "File System Override"
 msgstr "ファイルシステムの上書き"
 
-#: classes/configsectionadvanced.php:293
+#: classes/configsectionadvanced.php:300
 msgid "Uploads Directory"
 msgstr "ディレクトリのアップロード"
 
-#: classes/configsectionadvanced.php:285
+#: classes/configsectionadvanced.php:292
 msgid "Can not write to directory"
 msgstr "ディレクトリに書き込みが出来ません"
 
-#: classes/configsectionadvanced.php:273
+#: classes/configsectionadvanced.php:280
 msgid "PeepSo allows users to upload images that are stored on your server. Enter a location where these files are to be stored.<br/>This must be a directory that is writable by your web server and and is accessible via the web. If the directory specified does not exist, it will be created.<br/>When empty, PeepSo uses following directory: <b>%s</b>"
 msgstr "あなたのサーバーに保存されている画像をPeepSoへアップロードすることができます。これらのファイルを保存されている場所を入力してください。<br/>web サーバーから書き込み可能なディレクトリでなければならず、web 経由でアクセス可能である必要があります。指定されたディレクトリが存在しない場合、新規作成されます。<br/>空の場合、PeepSoは次のディレクトリに従う事になります：<b>%s</b>"
 
-#: classes/configsectionadvanced.php:266
+#: classes/configsectionadvanced.php:273
 msgid "This setting is to be changed upon very first PeepSo activation or in case of site migration. If changed in any other case it will result in missing content including user avatars, covers, photos etc. (error 404)."
 msgstr "この設定は、まさに最初の PeepSo アクティベーションにより、またはサイトの移行の場合に、変更することが可能です。もし他の場合に変更されると、 写真、壁紙、画像を含め行方不明のコンテンツになります(404 エラー)。"
 
-#: classes/configsectionadvanced.php:256
+#: classes/configsectionadvanced.php:263
 msgid "Compatibility"
 msgstr "互換性"
 
-#: classes/configsectionadvanced.php:250
+#: classes/configsectionadvanced.php:257
 msgid "Divi Builder"
 msgstr ""
 
-#: classes/configsectionadvanced.php:247
+#: classes/configsectionadvanced.php:254
 msgid "Attempts to fix Divi Builder styles that are known to conflict with PeepSo"
 msgstr "PeepSo と競合することが知られている Divi Builder スタイルを修正しようとします"
 
-#: classes/configsectionadvanced.php:242
+#: classes/configsectionadvanced.php:249
 msgid "WordPress.com / JetPack"
 msgstr ""
 
-#: classes/configsectionadvanced.php:239
+#: classes/configsectionadvanced.php:246
 msgid "Attempts to fix some issues specific to WordPress.com and JetPack"
 msgstr ""
 
-#: classes/configsectionadvanced.php:233
+#: classes/configsectionadvanced.php:240
 msgid "GDPR Compliance"
 msgstr "GDPR コンプライアンス"
 
-#: classes/configsectionadvanced.php:210
+#: classes/configsectionadvanced.php:217
 msgid "Enable GDPR Compliance"
 msgstr "GDPR コンプライアンスを有効にします。"
 
-#: classes/configsectionadvanced.php:199
+#: classes/configsectionadvanced.php:206
 msgid "The EU General Data Protection Regulation (GDPR, or EUGDPR for short) is a regulation in European Union law on data protection and privacy for all individuals within the European Union. All businesses and websites processing personal information of EU citizens must abide by this law, including the right to be forgotten (data deletion), the right to full data download (export) etc. You can read more about it "
 msgstr "EU 一般的なデータ保護規則 (GDPR、または略して EUGDPR) は、データ保護および欧州連合内のすべての個人のプライバシーに関する欧州連合の法律に基づく規制です。すべての企業や EU 市民の個人情報を取り扱うウェブサイトは、この法律に従わなければなりません。これは、忘れ去られることの権利(データ削除)、 完全なデータ のダウンロード (エクスポート) 等を含みます。続きを読むことが可能です。"
 
-#: classes/configsectionadvanced.php:191
+#: classes/configsectionadvanced.php:198
 msgid "Help us improve PeepSo!"
 msgstr "PeepSoの改善にご協力ください！"
 
-#: classes/configsectionadvanced.php:184
+#: classes/configsectionadvanced.php:191
 msgid "Enable usage tracking"
 msgstr "使用状況トラッキングを有効にする"
 
@@ -7597,7 +7638,7 @@ msgid "ON: registration through PeepSo becomes impossible and is not shown anywh
 msgstr ""
 
 #: classes/bruteforce.php:471 classes/configsectionaccounts.php:381
-#: classes/configsectionadvanced.php:582
+#: classes/configsectionadvanced.php:612
 msgid "Security"
 msgstr "セキュリティ"
 
@@ -7794,8 +7835,8 @@ msgstr ""
 msgid "Please make sure to use %s"
 msgstr ""
 
-#: classes/configsectionaccounts.php:105 classes/configsectionadvanced.php:201
-#: classes/configsectionlocation.php:29 classes/location.php:43 peepso.php:3792
+#: classes/configsectionaccounts.php:105 classes/configsectionadvanced.php:208
+#: classes/configsectionlocation.php:29 classes/location.php:43 peepso.php:3825
 msgid "here"
 msgstr "ここ"
 
@@ -8023,8 +8064,8 @@ msgstr "パスワードを変更しました"
 msgid "This will be sent when a user requests a password recovery"
 msgstr "ユーザーがパスワードの回復を求めたときに、これを送ります。"
 
-#: classes/configemails.php:53 install/activate.php:975
-#: templates/blocks/login.php:110 templates/blocks/profile.php:230
+#: classes/configemails.php:53 install/activate.php:978
+#: templates/blocks/login.php:110 templates/blocks/profile.php:232
 #: templates/general/login.php:74 templates/general/recover-password.php:3
 #: templates/widgets/login.tpl.php:122 templates/widgets/me.tpl.php:263
 msgid "Forgot Password"
@@ -8118,90 +8159,90 @@ msgstr "登録プロセスが完了次第、これを新しいユーザーに送
 msgid "New User Email"
 msgstr "新しいユーザ―のEメール"
 
-#: classes/config.php:634
+#: classes/config.php:630
 msgid "Toggle panel: %s"
 msgstr "トグルパネル%s"
 
-#: classes/config.php:542
+#: classes/config.php:538
 msgid "Please correct the errors below"
 msgstr "以下のエラーを直してください。"
 
-#: classes/config.php:539
+#: classes/config.php:535
 msgid "Options updated"
 msgstr "更新された選択肢"
 
-#: classes/config.php:427
+#: classes/config.php:423
 msgid "Live updates"
 msgstr "ライブアップデート"
 
-#: classes/config.php:394
+#: classes/config.php:390
 msgid "Advanced System options"
 msgstr ""
 
-#: classes/config.php:391 classes/configsectionaccounts.php:676
-#: classes/configsectionadvanced.php:112
+#: classes/config.php:387 classes/configsectionaccounts.php:676
+#: classes/configsectionadvanced.php:113
 #: classes/configsectionappearance.php:291 classes/configsectionpostbox.php:354
 #: classes/configsectionpostbox.php:798
 msgid "Advanced"
 msgstr "高度な設定"
 
-#: classes/config.php:386
+#: classes/config.php:382
 msgid "Edit content of emails sent by PeepSo to users and Admins"
 msgstr "ユーザーや管理者に送られるメールの内容の編集"
 
-#: classes/config.php:383
+#: classes/config.php:379
 msgid "Edit Emails"
 msgstr ""
 
-#: classes/config.php:375 classes/configsectionappearance.php:608
+#: classes/config.php:371 classes/configsectionappearance.php:608
 #: classes/general.php:154 classes/notificationsqueue.php:304
 #: classes/notificationsshortcode.php:23 classes/profileshortcode.php:605
-#: classes/widgets/widgetuserbar.php:214 install/activate.php:990
+#: classes/widgets/widgetuserbar.php:214 install/activate.php:993
 #: templates/general/notification-popover-header.php:6
 msgid "Notifications"
 msgstr "通知"
 
-#: classes/config.php:359
+#: classes/config.php:355
 msgid "Blog Posts"
 msgstr "ブログ投稿"
 
-#: classes/config.php:350 classes/config.php:353
+#: classes/config.php:346 classes/config.php:349
 msgid "Markdown"
 msgstr "マークダウン"
 
-#: classes/config.php:341
+#: classes/config.php:337
 msgid "Stream Posts"
 msgstr "ストリーム投稿"
 
-#: classes/config.php:334
+#: classes/config.php:330
 msgid "Registration, login and security"
 msgstr ""
 
-#: classes/config.php:332
+#: classes/config.php:328
 msgid "Accounts & Security"
 msgstr ""
 
-#: classes/config.php:325
+#: classes/config.php:321
 msgid "Look and feel settings"
 msgstr "見た感じの設定"
 
-#: classes/config.php:323 templates/admin/profiles_field.php:37
+#: classes/config.php:319 templates/admin/profiles_field.php:38
 msgid "Appearance"
 msgstr "外観"
 
-#: classes/config.php:317
+#: classes/config.php:313
 msgid "General configuration settings for PeepSo"
 msgstr "一般の構築設定"
 
-#: classes/config.php:210
+#: classes/config.php:206
 msgid "Some settings have been changed. Be sure to save your changes."
 msgstr "幾つかの設定が変更されました。変更を保存することを確認してください。"
 
-#: classes/config.php:199
+#: classes/config.php:195
 msgid "Field descriptions"
 msgstr "フィールドの詳細"
 
-#: classes/config.php:192
+#: classes/config.php:188
 msgid "Tab titles"
 msgstr "タブのタイトル"
 
@@ -8213,7 +8254,8 @@ msgstr "クラスは、ConfigSectionAbstractのインスタンスでなければ
 msgid "Clear logs"
 msgstr "ログのクリア"
 
-#: classes/bruteforcelisttable.php:194
+#: classes/admin.php:338 classes/bruteforcelisttable.php:194 peepso.php:3331
+#: templates/activity/dialogs.php:51 templates/activity/dialogs.php:72
 #: templates/general/notification-confirm-mark-all-read.php:1
 #: templates/post-backgrounds/admin_post_backgrounds_item.php:101
 msgid "Are you sure?"
@@ -8224,12 +8266,12 @@ msgstr "よろしいですか？"
 msgid "deleted"
 msgstr "削除済み"
 
-#: classes/bruteforcelisttable.php:97 install/activate.php:980
+#: classes/bruteforcelisttable.php:97 install/activate.php:983
 msgid "Reset Password"
 msgstr "パスワードのリセット"
 
 #: classes/bruteforcelisttable.php:94 templates/blocks/login.php:85
-#: templates/blocks/profile.php:197 templates/general/login.php:50
+#: templates/blocks/profile.php:199 templates/general/login.php:50
 #: templates/profile/no-access.php:50 templates/widgets/login.tpl.php:89
 #: templates/widgets/me.tpl.php:230
 msgid "Login"
@@ -8333,11 +8375,11 @@ msgstr ""
 msgid "Username and password required."
 msgstr "ユーザー名とパスワードが必要です。"
 
-#: classes/auth.php:84 classes/auth.php:91 peepso.php:1423 peepso.php:1428
+#: classes/auth.php:84 classes/auth.php:91 peepso.php:1454 peepso.php:1459
 msgid "Invalid email address."
 msgstr ""
 
-#: classes/auth.php:51 peepso.php:2882
+#: classes/auth.php:51 peepso.php:2915
 msgid "ReCaptcha security check failed."
 msgstr ""
 
@@ -8524,15 +8566,15 @@ msgstr ""
 msgid "Insufficient permissions."
 msgstr "権限が不足しています。"
 
-#: classes/admin.php:2048
+#: classes/admin.php:2057
 msgid "Enable additional statistics"
 msgstr "追加統計を有効化"
 
-#: classes/admin.php:2037
+#: classes/admin.php:2046
 msgid "I don't want to register"
 msgstr "登録しません。"
 
-#: classes/admin.php:2023
+#: classes/admin.php:2028
 msgid "Once registered, you will receive updates and special offers from PeepSo. We will send your administrator's email and site URL to PeepSo server."
 msgstr ""
 
@@ -8541,260 +8583,260 @@ msgstr ""
 msgid "Profile"
 msgstr "プロフィール"
 
-#: classes/admin.php:1906
+#: classes/admin.php:1916
 msgid "See all Pending Members"
 msgstr "すべての保留メンバーをみる"
 
-#: classes/admin.php:1895
+#: classes/admin.php:1905
 msgid "Dismiss and Ban"
 msgstr "却下と禁止"
 
-#: classes/admin.php:1894
+#: classes/admin.php:1904
 msgid "Approve"
 msgstr "承認"
 
-#: classes/admin.php:1872
+#: classes/admin.php:1882
 msgid "The list is empty"
 msgstr "このリストは空です"
 
-#: classes/admin.php:1847
+#: classes/admin.php:1857
 msgid "likes"
 msgstr "いいね"
 
-#: classes/admin.php:1839 peepso.php:2125
+#: classes/admin.php:1849 peepso.php:2156
 msgid "posts"
 msgstr "投稿"
 
-#: classes/admin.php:1796
+#: classes/admin.php:1806
 msgid "Last month"
 msgstr "先月"
 
-#: classes/admin.php:1795
+#: classes/admin.php:1805
 msgid "This month"
 msgstr "今月"
 
-#: classes/admin.php:1794
+#: classes/admin.php:1804
 msgid "Last week"
 msgstr "先週"
 
-#: classes/admin.php:1793
+#: classes/admin.php:1803
 msgid "This week"
 msgstr "今週"
 
-#: classes/admin.php:1750 peepso.php:5101
+#: classes/admin.php:1760 peepso.php:5138
 msgid "Stream"
 msgstr "ストリーム"
 
-#: classes/admin.php:1719
+#: classes/admin.php:1729
 msgid "Edit this user"
 msgstr "このユーザを編集"
 
-#: classes/admin.php:1691
+#: classes/admin.php:1701
 msgid "No users found"
 msgstr "ユーザーが見つかりません。"
 
-#: classes/admin.php:1660
+#: classes/admin.php:1670
 msgid "View comment"
 msgstr "コメントを表示する"
 
-#: classes/admin.php:1588
+#: classes/admin.php:1598
 msgid "View post"
 msgstr "投稿を表示"
 
-#: classes/admin.php:1583 classes/admin.php:1653 classes/admin.php:1705
-#: classes/admin.php:1711 classes/admin.php:1882 classes/admin.php:1888
+#: classes/admin.php:1593 classes/admin.php:1663 classes/admin.php:1715
+#: classes/admin.php:1721 classes/admin.php:1892 classes/admin.php:1898
 msgid "View profile"
 msgstr "プロフィールを表示"
 
-#: classes/admin.php:1563 classes/admin.php:1618
+#: classes/admin.php:1573 classes/admin.php:1628
 msgid "No recent posts."
 msgstr "最近のコメントはありません。"
 
-#: classes/admin.php:1506 classes/configsectionpostbox.php:548
-#: install/activate.php:437 templates/general/lightbox.php:18
+#: classes/admin.php:1516 classes/configsectionpostbox.php:548
+#: install/activate.php:440 templates/general/lightbox.php:18
 msgid "Comments"
 msgstr "コメント"
 
-#: classes/admin.php:1443 classes/bruteforcelisttable.php:100
+#: classes/admin.php:1453 classes/bruteforcelisttable.php:100
 #: classes/gdprlisttable.php:152 classes/mailqueuelisttable.php:172
 msgid "Unknown"
 msgstr "不明"
 
-#: classes/admin.php:1436 peepso.php:7276
+#: classes/admin.php:1446 peepso.php:7322
 msgid "Female"
 msgstr "女性"
 
-#: classes/admin.php:1429 peepso.php:7275
+#: classes/admin.php:1439 peepso.php:7321
 msgid "Male"
 msgstr "男性"
 
-#: classes/admin.php:1312
+#: classes/admin.php:1322
 msgid "User Demographics"
 msgstr "ユーザーのデモグラフィックス"
 
-#: classes/admin.php:1306
+#: classes/admin.php:1316
 msgid "Most Recent Content"
 msgstr "最近のコンテンツ"
 
-#: classes/admin.php:1299
+#: classes/admin.php:1309
 msgid "Users"
 msgstr "ユーザー"
 
-#: classes/admin.php:1292
+#: classes/admin.php:1302
 msgid "User Engagement"
 msgstr "ユーザー・エンゲージメント"
 
-#: classes/admin.php:1284
+#: classes/admin.php:1294
 msgid "Get Free eBook Now! ($9.99 Value)"
 msgstr "無料のEブックをどうぞ（9.99ドル相当）"
 
-#: classes/admin.php:1209
+#: classes/admin.php:1219
 msgid "Profile Link"
 msgstr "プロフィール・リンク"
 
-#: classes/admin.php:1174
+#: classes/admin.php:1184
 msgid "Pending admin approval"
 msgstr "管理者承認を保留。"
 
-#: classes/admin.php:1173
+#: classes/admin.php:1183
 msgid "Pending user email verification"
 msgstr "ユーザーのEメール認証を保留"
 
-#: classes/admin.php:1172
+#: classes/admin.php:1182
 msgid "Banned"
 msgstr "禁止済み"
 
-#: classes/admin.php:1171
+#: classes/admin.php:1181
 msgid "Community Administrator"
 msgstr "コミュニティ管理者"
 
-#: classes/admin.php:1170
+#: classes/admin.php:1180
 msgid "Community Moderator"
 msgstr "コミュニティモデレーター"
 
-#: classes/admin.php:1169
+#: classes/admin.php:1179
 msgid "Community Member"
 msgstr "コミュニティメンバー"
 
-#: classes/admin.php:1158
+#: classes/admin.php:1168
 msgid "Verified email, awaiting Adminstrator approval"
 msgstr "Eメール認証済み：管理者認証を待っています。"
 
-#: classes/admin.php:1157
+#: classes/admin.php:1167
 msgid "Registered, awaiting email verification"
 msgstr "登録済み：Eメール認証を待っています。"
 
-#: classes/admin.php:1156
+#: classes/admin.php:1166
 msgid "Banned, cannot login or participate"
 msgstr "禁止されている：ログインや参加ができません。"
 
-#: classes/admin.php:1155
+#: classes/admin.php:1165
 msgid "PeepSo Administrator, can Moderate, edit users, etc."
 msgstr "管理者：モデレートやユーザーの編集などができます。"
 
-#: classes/admin.php:1153
+#: classes/admin.php:1163
 msgid "Full member, can write posts and participate"
 msgstr "メンバー全員：記事を書き、参加することができます。"
 
-#: classes/admin.php:1126
+#: classes/admin.php:1136
 msgid " - Select Role -"
 msgstr "- 役割を選択 -"
 
-#: classes/admin.php:1124
+#: classes/admin.php:1134
 msgid "Set PeepSo Role:"
 msgstr "役割を設定"
 
-#: classes/admin.php:1107
+#: classes/admin.php:1117
 msgid "Please select a PeepSo Role before clicking on \"Change Role\"."
 msgstr "役割の変更をクリックする前に、役割を選択してください。"
 
-#: classes/admin.php:1076
+#: classes/admin.php:1086
 msgid "Form is invalid."
 msgstr "フォームが不正です。"
 
-#: classes/admin.php:1057
+#: classes/admin.php:1067
 msgid "Invalid action"
 msgstr "無効なアクション"
 
-#: classes/admin.php:1052
+#: classes/admin.php:1062
 msgid " banned"
 msgstr "禁止済み"
 
-#: classes/admin.php:1047
+#: classes/admin.php:1057
 msgid " approved"
 msgstr "承認済"
 
-#: classes/admin.php:888
+#: classes/admin.php:898
 msgid "PeepSo Role"
 msgstr "権限"
 
-#: classes/admin.php:795 templates/admin/addons.php:68
+#: classes/admin.php:805 templates/admin/addons.php:68
 msgid "Your license"
 msgstr ""
 
-#: classes/admin.php:794 templates/admin/addons_product.php:118
+#: classes/admin.php:804 templates/admin/addons_product.php:118
 msgid "Inactive"
 msgstr ""
 
-#: classes/admin.php:793
+#: classes/admin.php:803
 msgid "Failed to activate"
 msgstr ""
 
-#: classes/admin.php:792
+#: classes/admin.php:802
 msgid "Activated"
 msgstr ""
 
-#: classes/admin.php:791 templates/admin/addons_product.php:112
+#: classes/admin.php:801 templates/admin/addons_product.php:112
 msgid "Activating..."
 msgstr ""
 
-#: classes/admin.php:790 templates/admin/addons.php:99
+#: classes/admin.php:800 templates/admin/addons.php:99
 #: templates/admin/addons.php:132 templates/admin/addons_product.php:111
 msgid "Activate"
 msgstr ""
 
-#: classes/admin.php:789 classes/configsectionnetwork.php:173
+#: classes/admin.php:799 classes/configsectionnetwork.php:173
 #: templates/admin/addons_product.php:103
 msgid "Active"
 msgstr "有効"
 
-#: classes/admin.php:788 templates/admin/addons_product.php:131
+#: classes/admin.php:798 templates/admin/addons_product.php:131
 msgid "Not installed"
 msgstr ""
 
-#: classes/admin.php:787
+#: classes/admin.php:797
 msgid "Failed to install"
 msgstr ""
 
-#: classes/admin.php:786
+#: classes/admin.php:796
 msgid "Installed"
 msgstr ""
 
-#: classes/admin.php:785 templates/admin/addons_product.php:126
+#: classes/admin.php:795 templates/admin/addons_product.php:126
 msgid "Installing..."
 msgstr ""
 
-#: classes/admin.php:784 templates/admin/addons.php:98
+#: classes/admin.php:794 templates/admin/addons.php:98
 #: templates/admin/addons.php:131 templates/admin/addons_product.php:125
 msgid "Install"
 msgstr ""
 
-#: classes/admin.php:750
+#: classes/admin.php:760
 msgid "%d activation error"
 msgid_plural "%d activation errors"
 msgstr[0] ""
 
-#: classes/admin.php:741
+#: classes/admin.php:751
 msgid "Plugin activated"
 msgid_plural "%d plugins activated"
 msgstr[0] ""
 
-#: classes/admin.php:739
+#: classes/admin.php:749
 msgid "Theme activated"
 msgid_plural "%d themes activated"
 msgstr[0] ""
 
-#: classes/admin.php:615 classes/admin.php:776
+#: classes/admin.php:615 classes/admin.php:786
 msgid "Installer"
 msgstr ""
 
@@ -8806,44 +8848,44 @@ msgstr "キュー"
 msgid "Manage"
 msgstr "管理"
 
-#: classes/admin.php:596 classes/config.php:99
+#: classes/admin.php:596 classes/config.php:98
 msgid "Configuration"
 msgstr "構成"
 
 #: classes/admin.php:527 classes/admin.php:528 classes/admin.php:529
-#: lib/helpers.php:44 peepso.php:3454 peepso.php:3455 peepso.php:3456
+#: lib/helpers.php:44 peepso.php:3487 peepso.php:3488 peepso.php:3489
 msgid "%s year"
 msgid_plural "%s years"
 msgstr[0] "%1$s 年"
 
 #: classes/admin.php:524 classes/admin.php:525 classes/admin.php:526
-#: lib/helpers.php:39 peepso.php:3451 peepso.php:3452 peepso.php:3453
+#: lib/helpers.php:39 peepso.php:3484 peepso.php:3485 peepso.php:3486
 msgid "%s month"
 msgid_plural "%s months"
 msgstr[0] "%d ヶ月"
 
 #: classes/admin.php:521 classes/admin.php:522 classes/admin.php:523
-#: lib/helpers.php:34 peepso.php:3448 peepso.php:3449 peepso.php:3450
+#: lib/helpers.php:34 peepso.php:3481 peepso.php:3482 peepso.php:3483
 msgid "%s week"
 msgid_plural "%s weeks"
 msgstr[0] "%d 週間"
 
 #: classes/admin.php:518 classes/admin.php:519 classes/admin.php:520
-#: lib/helpers.php:29 peepso.php:3445 peepso.php:3446 peepso.php:3447
+#: lib/helpers.php:29 peepso.php:3478 peepso.php:3479 peepso.php:3480
 msgid "%s day"
 msgid_plural "%s days"
 msgstr[0] "%s日"
 
 #: classes/admin.php:515 classes/admin.php:516 classes/admin.php:517
 #: classes/bruteforce.php:239 classes/bruteforce.php:277 lib/helpers.php:24
-#: peepso.php:3442 peepso.php:3443 peepso.php:3444
+#: peepso.php:3475 peepso.php:3476 peepso.php:3477
 msgid "%s hour"
 msgid_plural "%s hours"
 msgstr[0] "%s時間"
 
 #. translators: min=minute
 #: classes/admin.php:512 classes/admin.php:513 classes/admin.php:514
-#: lib/helpers.php:19 peepso.php:3439 peepso.php:3440 peepso.php:3441
+#: lib/helpers.php:19 peepso.php:3472 peepso.php:3473 peepso.php:3474
 msgid "%s min"
 msgid_plural "%s mins"
 msgstr[0] "%S 分"
@@ -8854,78 +8896,70 @@ msgstr[0] "%S 分"
 #: classes/admin.php:521 classes/admin.php:522 classes/admin.php:523
 #: classes/admin.php:524 classes/admin.php:525 classes/admin.php:526
 #: classes/admin.php:527 classes/admin.php:528 classes/admin.php:529
-#: classes/template.php:143 peepso.php:3439 peepso.php:3440 peepso.php:3441
-#: peepso.php:3442 peepso.php:3443 peepso.php:3444 peepso.php:3445
-#: peepso.php:3446 peepso.php:3447 peepso.php:3448 peepso.php:3449
-#: peepso.php:3450 peepso.php:3451 peepso.php:3452 peepso.php:3453
-#: peepso.php:3454 peepso.php:3455 peepso.php:3456
+#: classes/template.php:143 peepso.php:3472 peepso.php:3473 peepso.php:3474
+#: peepso.php:3475 peepso.php:3476 peepso.php:3477 peepso.php:3478
+#: peepso.php:3479 peepso.php:3480 peepso.php:3481 peepso.php:3482
+#: peepso.php:3483 peepso.php:3484 peepso.php:3485 peepso.php:3486
+#: peepso.php:3487 peepso.php:3488 peepso.php:3489
 msgid "%s ago"
 msgstr "%s 前"
 
-#: classes/admin.php:509 classes/template.php:141 peepso.php:3436
+#: classes/admin.php:509 classes/template.php:141 peepso.php:3469
 msgid "just now"
 msgstr "たった今"
 
-#: classes/admin.php:431 peepso.php:3674
+#: classes/admin.php:431 peepso.php:3707
 msgid "The system is currently saving your changes."
 msgstr "システムは、変更を常に保存しています。"
 
-#: classes/admin.php:430 peepso.php:3673
+#: classes/admin.php:430 peepso.php:3706
 msgid "There are unsaved changes on this page."
 msgstr "このページに保存していない変更があります。"
 
-#: classes/admin.php:425 peepso.php:3668
+#: classes/admin.php:425 peepso.php:3701
 msgid "Please login to continue"
 msgstr "続行するにはログインしてください。"
 
 #: classes/admin.php:424 classes/profileshortcode.php:271
-#: classes/profileshortcode.php:320 peepso.php:3667
+#: classes/profileshortcode.php:320 peepso.php:3700
 msgid "The file type you uploaded is not allowed."
 msgstr "アップロードしたファイルの種類は許可されていません。"
 
-#: classes/admin.php:421 peepso.php:3664
+#: classes/admin.php:421 peepso.php:3697
 msgid "Show all"
 msgstr "すべて表示"
 
-#: classes/admin.php:420 peepso.php:3663
-msgid "Show unread only"
-msgstr "未読のみ表示"
-
-#: classes/admin.php:419 peepso.php:3662
+#: classes/admin.php:419 peepso.php:3695
 msgid "Are you sure you want to mark all notifications as read?"
 msgstr "全ての通知を既読にしますか？"
 
-#: classes/admin.php:418 peepso.php:3661 templates/general/notifications.php:25
+#: classes/admin.php:418 peepso.php:3694 templates/general/notifications.php:25
 msgid "Mark all as read"
 msgstr ""
 
-#: peepso.php:3665
-msgid "View All"
-msgstr "すべて表示"
-
-#: classes/admin.php:413 peepso.php:3655
+#: classes/admin.php:413 peepso.php:3688
 msgid "Something went wrong. Please contact the administrator."
 msgstr ""
 
 #: classes/admin.php:380 classes/admin.php:414
-#: classes/license_edd_helper.php:453 peepso.php:3621 peepso.php:3656
+#: classes/license_edd_helper.php:453 peepso.php:3654 peepso.php:3689
 msgid "Error"
 msgstr "エラー"
 
-#: classes/admin.php:379 peepso.php:3620
+#: classes/admin.php:379 peepso.php:3653
 msgid "Dialog"
 msgstr ""
 
-#: classes/admin.php:374 peepso.php:3587 templates/search/search.php:73
+#: classes/admin.php:374 peepso.php:3620 templates/search/search.php:73
 msgid "No results."
 msgstr ""
 
-#: classes/admin.php:344 peepso.php:3304 templates/activity/dialogs.php:67
+#: classes/admin.php:344 peepso.php:3337 templates/activity/dialogs.php:67
 msgid "Okay"
 msgstr "OK"
 
-#: classes/admin.php:343 classes/admin.php:382 peepso.php:3303 peepso.php:3388
-#: peepso.php:3623 templates/activity/activity-stream-filters-simple.php:68
+#: classes/admin.php:343 classes/admin.php:382 peepso.php:3336 peepso.php:3421
+#: peepso.php:3656 templates/activity/activity-stream-filters-simple.php:68
 #: templates/activity/activity-stream-filters-simple.php:110
 #: templates/activity/activity-stream-filters-simple.php:168
 #: templates/activity/activity-stream-filters.php:70
@@ -8938,7 +8972,7 @@ msgstr "OK"
 #: templates/activity/dialog-repost.php:31 templates/activity/dialogs.php:17
 #: templates/activity/dialogs.php:35 templates/activity/dialogs.php:56
 #: templates/activity/dialogs.php:81 templates/activity/post-edit.php:20
-#: templates/admin/profiles_field.php:90
+#: templates/admin/profiles_field.php:91
 #: templates/admin/profiles_field_config_field_text.php:15
 #: templates/admin/profiles_field_config_field_textarea.php:19
 #: templates/admin/profiles_no_plugin.php:8
@@ -8946,7 +8980,7 @@ msgstr "OK"
 #: templates/hashtags/stream-filters.php:33
 #: templates/location/photo_album_show_extra_fields.php:35
 #: templates/post-backgrounds/admin_post_backgrounds_item.php:52
-#: templates/profile/dialog-avatar.php:55
+#: templates/profile/dialog-avatar.php:56
 #: templates/profile/dialog-cover-remove.php:10
 #: templates/profile/dialog-profile-delete-account-data-archive.php:21
 #: templates/profile/dialog-profile-deletion.php:21
@@ -8966,7 +9000,7 @@ msgstr "キャンセル"
 #: activity/classes/activity.php:3751 classes/admin.php:342
 #: classes/bruteforcelisttable.php:124 classes/bruteforcelisttable.php:150
 #: classes/gdprlisttable.php:252 classes/mailqueuelisttable.php:230
-#: classes/modalcomments.php:163 classes/profile.php:2046 peepso.php:3302
+#: classes/modalcomments.php:163 classes/profile.php:2046 peepso.php:3335
 #: templates/activity/dialogs.php:57 templates/admin/selectoptions.php:43
 #: templates/admin/selectoptions.php:79 templates/polls/postbox-polls.php:9
 #: templates/polls/postbox-polls.php:14 templates/profile/dialog-avatar.php:8
@@ -8975,17 +9009,12 @@ msgstr "キャンセル"
 msgid "Delete"
 msgstr "削除"
 
-#: classes/admin.php:339 peepso.php:3299 templates/activity/dialogs.php:53
+#: classes/admin.php:339 peepso.php:3332 templates/activity/dialogs.php:53
 msgid "Are you sure you want to delete this?"
 msgstr "これを削除してもよろしいですか？"
 
-#: classes/admin.php:338 peepso.php:3298 templates/activity/dialogs.php:51
-#: templates/activity/dialogs.php:72
-msgid "Confirm Delete"
-msgstr "削除を確認"
-
-#: classes/admin.php:337 classes/admin.php:381 peepso.php:3297 peepso.php:3622
-#: templates/activity/dialogs.php:62 templates/profile/dialog-avatar.php:59
+#: classes/admin.php:337 classes/admin.php:381 peepso.php:3330 peepso.php:3655
+#: templates/activity/dialogs.php:62 templates/profile/dialog-avatar.php:60
 #: templates/profile/dialog-cover-remove.php:14
 #: templates/profile/dialog-profile-deletion.php:25
 msgid "Confirm"
@@ -9005,7 +9034,7 @@ msgstr "PeepSo"
 msgid "Meaning of user roles:"
 msgstr "ユーザーの権限の意味"
 
-#: classes/admin.php:121 classes/admin.php:1134
+#: classes/admin.php:121 classes/admin.php:1144
 msgid "Change Role"
 msgstr "権限の変更"
 
@@ -9057,7 +9086,7 @@ msgstr "保存しました"
 msgid "View Replies"
 msgstr "返信を表示"
 
-#: activity/classes/activityshortcode.php:50 install/activate.php:954
+#: activity/classes/activityshortcode.php:50 install/activate.php:957
 msgid "Home"
 msgstr "ホーム"
 
@@ -9078,7 +9107,7 @@ msgid "Changes saved."
 msgstr "変更が保存されました。"
 
 #: activity/classes/activity.php:5134 classes/profile.php:1453
-#: classes/profile.php:1458 classes/profile.php:1463 install/activate.php:464
+#: classes/profile.php:1458 classes/profile.php:1463 install/activate.php:467
 msgid "Like"
 msgstr "いいね！"
 
@@ -9101,7 +9130,7 @@ msgid_plural " like this"
 msgstr[0] ""
 
 #: activity/classes/activity.php:4926 activity/classes/activity.php:5137
-#: classes/admin.php:428 classes/admin.php:429 peepso.php:3671 peepso.php:3672
+#: classes/admin.php:428 classes/admin.php:429 peepso.php:3704 peepso.php:3705
 msgid " person likes this"
 msgid_plural " people like this."
 msgstr[0] " このような人々"
@@ -9140,7 +9169,7 @@ msgstr ""
 #: activity/classes/activityshortcode.php:171 classes/profile.php:1953
 #: templates/activity/comment-edit.php:18
 #: templates/activity/description-edit.php:18
-#: templates/admin/profiles_field.php:91
+#: templates/admin/profiles_field.php:92
 #: templates/admin/profiles_field_config_field_text.php:16
 #: templates/admin/profiles_field_config_field_textarea.php:20
 #: templates/post-backgrounds/admin_post_backgrounds_item.php:53
@@ -9175,7 +9204,7 @@ msgstr ""
 msgid "and"
 msgstr "そして"
 
-#: activity/classes/activity.php:3251 classes/admin.php:423 peepso.php:3666
+#: activity/classes/activity.php:3251 classes/admin.php:423 peepso.php:3699
 msgid "Read more"
 msgstr "もっと読む"
 
@@ -9234,8 +9263,8 @@ msgstr "スパム"
 
 #: activity/classes/activity.php:2653 classes/adminbruteforce.php:64
 #: classes/adminrequestdataajax.php:86 classes/adminrequestdataajax.php:117
-#: peepso.php:1035 peepso.php:1054 peepso.php:1103 peepso.php:1161
-#: peepso.php:1252
+#: peepso.php:1066 peepso.php:1085 peepso.php:1134 peepso.php:1192
+#: peepso.php:1283
 msgid "Could not verify nonce."
 msgstr "Nonce を確認できませんでした。"
 
@@ -9255,7 +9284,7 @@ msgstr "%s が %s まで禁止されています。"
 msgid "%s has been unbanned"
 msgstr "%s は禁止解除されています。"
 
-#: activity/classes/activity.php:2436 classes/admin.php:415 peepso.php:3657
+#: activity/classes/activity.php:2436 classes/admin.php:415 peepso.php:3690
 msgid "Notice"
 msgstr "通知"
 
@@ -9273,7 +9302,7 @@ msgstr "自分自身を禁止することはできません。"
 
 #: activity/classes/activity.php:2407 activity/classes/activity.php:2563
 #: activity/classes/activity.php:2610 activity/classes/activity.php:2667
-#: activity/classes/activity.php:2767 classes/admin.php:1072
+#: activity/classes/activity.php:2767 classes/admin.php:1082
 #: classes/profile.php:847
 msgid "You do not have permission to do that."
 msgstr "これを行う権限を持っていません。"
@@ -9318,7 +9347,7 @@ msgstr ""
 msgid "Invalid User id"
 msgstr "無効なユーザー"
 
-#: activity/classes/activity.php:1547 classes/admin.php:1843
+#: activity/classes/activity.php:1547 classes/admin.php:1853
 msgid "comments"
 msgstr "コメント"
 
@@ -9516,7 +9545,7 @@ msgctxt "Page listing"
 msgid "PeepSo"
 msgstr "PeepSo"
 
-#: 3/classes/search/search_adapter_wp_posts.php:17 classes/admin.php:1501
+#: 3/classes/search/search_adapter_wp_posts.php:17 classes/admin.php:1511
 #: classes/configsectionpostbox.php:526
 msgid "Posts"
 msgstr "投稿"
@@ -9526,7 +9555,7 @@ msgid "Pages"
 msgstr ""
 
 #: 3/classes/search/search_adapter_wp_as_documentation.php:21
-#: classes/configsectionadvanced.php:46 classes/configsectionadvanced.php:383
+#: classes/configsectionadvanced.php:47 classes/configsectionadvanced.php:413
 msgid "Documentation"
 msgstr ""
 
@@ -9543,9 +9572,9 @@ msgid " mutual friend"
 msgid_plural " mutual friends"
 msgstr[0] ""
 
-#: 3/classes/search/search_adapter_users.php:13 classes/admin.php:1511
+#: 3/classes/search/search_adapter_users.php:13 classes/admin.php:1521
 #: classes/general.php:83 classes/membersshortcode.php:27
-#: install/activate.php:985 peepso.php:5071
+#: install/activate.php:988 peepso.php:5108
 #: templates/members/members-tabs.php:15
 msgid "Members"
 msgstr "メンバー"
@@ -9585,10 +9614,10 @@ msgstr ""
 msgid "Order"
 msgstr ""
 
-#: 3/classes/search/admin_search.php:83 classes/config.php:314
-#: classes/configsectionadvanced.php:69 classes/configsectionappearance.php:623
+#: 3/classes/search/admin_search.php:83 classes/config.php:310
+#: classes/configsectionadvanced.php:70 classes/configsectionappearance.php:623
 #: classes/configsectionmarkdown.php:63 classes/configsectionpostbox.php:456
-#: templates/admin/profiles_field.php:36
+#: templates/admin/profiles_field.php:37
 msgid "General"
 msgstr "一般"
 
@@ -9614,7 +9643,7 @@ msgstr ""
 
 #: 3/classes/search/admin_search.php:18
 #: 3/classes/search/search_shortcode.php:55 classes/blocks/blocksearch.php:11
-#: classes/widgets/widgetsearch.php:59 peepso.php:5645
+#: classes/widgets/widgetsearch.php:59 peepso.php:5687
 #: templates/activity/activity-stream-filters-simple.php:140
 #: templates/activity/activity-stream-filters-simple.php:169
 #: templates/activity/activity-stream-filters.php:186
@@ -9687,7 +9716,7 @@ msgstr ""
 #: 3/classes/developer-tools/devtools_page_report.php:41
 #: 3/classes/developer-tools/devtools_page_report.php:48
 #: classes/blogposts.php:205 classes/configsectionaccounts.php:150
-#: classes/configsectionaccounts.php:258 classes/configsectionadvanced.php:145
+#: classes/configsectionaccounts.php:258 classes/configsectionadvanced.php:146
 msgid "Disabled"
 msgstr "無効中"
 
@@ -9706,33 +9735,33 @@ msgstr "無効中"
 #: classes/configsectionlocation.php:50 classes/configsectionmoderation.php:23
 #: classes/configsectionmoderation.php:84
 #: classes/configsectionmoderation.php:109 classes/configsectionnetwork.php:43
-#: classes/configsectionnotifications.php:34
-#: classes/configsectionnotifications.php:123
+#: classes/configsectionnotifications.php:50
+#: classes/configsectionnotifications.php:139
 #: classes/configsectionpostbox.php:532 classes/configsectionpostbox.php:554
 #: classes/configsectionpostbox.php:578 classes/configsectionpostbox.php:638
 #: classes/configsectionpostbox.php:701 classes/configsectionpostbox.php:717
 #: classes/configsectionpostbox.php:739 classes/configsectionpostbox.php:881
-#: templates/admin/profiles_field.php:135
+#: templates/admin/profiles_field.php:136
 msgid "Enabled"
 msgstr "有効になっています。"
 
 #: 3/classes/developer-tools/devtools_page_report.php:39
 #: 3/classes/developer-tools/devtools_page_report.php:40 classes/admin.php:341
 #: classes/configsectionaccounts.php:190 classes/configsectionaccounts.php:461
-#: classes/configsectionaccounts.php:491 classes/configsectionadvanced.php:120
-#: classes/configsectionadvanced.php:134 classes/configsectionadvanced.php:361
+#: classes/configsectionaccounts.php:491 classes/configsectionadvanced.php:121
+#: classes/configsectionadvanced.php:135 classes/configsectionadvanced.php:391
 #: classes/configsectionblogposts.php:297 classes/configsectionpostbox.php:27
 #: classes/configsectionpostbox.php:116 classes/configsectionpostbox.php:368
 #: classes/configsectionpostbox.php:677 classes/fields/fieldselectbool.php:22
-#: peepso.php:3301 templates/admin/selectoptions.php:26
+#: peepso.php:3334 templates/admin/selectoptions.php:26
 #: templates/general/notification-confirm-mark-all-read.php:4
 msgid "No"
 msgstr "いいえ"
 
 #: 3/classes/developer-tools/devtools_page_report.php:39
 #: 3/classes/developer-tools/devtools_page_report.php:40 classes/admin.php:340
-#: classes/configsectionadvanced.php:119 classes/configsectionadvanced.php:133
-#: classes/fields/fieldselectbool.php:22 peepso.php:3300
+#: classes/configsectionadvanced.php:120 classes/configsectionadvanced.php:134
+#: classes/fields/fieldselectbool.php:22 peepso.php:3333
 #: templates/admin/selectoptions.php:26
 #: templates/general/notification-confirm-mark-all-read.php:3
 msgid "Yes"

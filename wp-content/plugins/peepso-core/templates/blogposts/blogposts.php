@@ -18,8 +18,8 @@
 
 			<div class="ps-blogposts__filters">
 				<select class="ps-input ps-input--sm ps-input--select ps-js-blogposts-sortby ps-js-blogposts-sortby--<?php echo apply_filters('peepso_user_profile_id', 0); ?>">
-					<option value="desc"><?php echo __('Newest first', 'peepso-core');?></option>
-					<option value="asc"><?php echo __('Oldest first', 'peepso-core');?></option>
+					<option value="desc"><?php echo esc_attr__('Newest first', 'peepso-core');?></option>
+					<option value="asc"><?php echo esc_attr__('Oldest first', 'peepso-core');?></option>
 				</select>
 			</div>
 

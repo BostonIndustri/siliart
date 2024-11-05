@@ -198,15 +198,15 @@
                 add_action ( 'category_edit_form_fields', function($term) {
                     ?>
                     <tr class="form-field">
-                        <th scope="row" valign="top"><label for="cat_Image_url"><?php echo __('PeepSo Blog Posts integration', 'peepso-core'); ?></label></th>
+                        <th scope="row" valign="top"><label for="cat_Image_url"><?php echo esc_attr(__('PeepSo Blog Posts integration', 'peepso-core')); ?></label></th>
                         <td>
                             <select name="peepso_blogposts" id="peepso_blogposts" style="width:60%;">
-                                <option value="1"><?php echo __('Enabled','peepso-core');?></option>
-                                <option value="0" <?php if(!PeepSoBlogPosts::enabled_for_category($term->term_id)) { echo "selected"; }?> ><?php echo __('Disabled','peepso-core');?></option>
+                                <option value="1"><?php echo esc_attr(__('Enabled','peepso-core'));?></option>
+                                <option value="0" <?php if(!PeepSoBlogPosts::enabled_for_category($term->term_id)) { echo "selected"; }?> ><?php echo esc_attr(__('Disabled','peepso-core'));?></option>
                             </select>
 
                             <br />
-                            <span class="description"><?php echo __('Use with caution! Disabling PeepSo BlogPosts integration for a category will prevent new stream posts from being created. Old posts (if any) will remain, but comment integration will be disabled both for new and old posts in this category.','peepso-core'); ?></span>
+                            <span class="description"><?php echo esc_attr(__('Use with caution! Disabling PeepSo BlogPosts integration for a category will prevent new stream posts from being created. Old posts (if any) will remain, but comment integration will be disabled both for new and old posts in this category.','peepso-core')); ?></span>
                         </td>
                     </tr>
                     <?php
@@ -349,31 +349,31 @@
         public function blogposts_meta_box() {
             global $post;
             ?>
-            <strong><?php echo sprintf(__('%s excerpt','peepso-core'),'PeepSo');?></strong>
+            <strong><?php echo esc_attr(sprintf(__('%s excerpt','peepso-core'),'PeepSo'));?></strong>
 
             <p style="font-size:12px;color: #666666;">
-                <?php  echo __('Displays above the blog post embed on PeepSo stream.','peepso-core'); ?>
-                <textarea placeholder="<?php echo __('Supports MarkDown formatting. HTML will be ignored.','peepso-core');?>" style="width:100%;min-height:200px;" name="peepso_excerpt"><?php echo get_post_meta($post->ID, 'peepso_excerpt', TRUE);?></textarea>
+                <?php  echo esc_attr(__('Displays above the blog post embed on PeepSo stream.','peepso-core')); ?>
+                <textarea placeholder="<?php echo esc_attr(__('Supports MarkDown formatting. HTML will be ignored.','peepso-core'));?>" style="width:100%;min-height:200px;" name="peepso_excerpt"><?php echo wp_kses_post(get_post_meta($post->ID, 'peepso_excerpt', TRUE));?></textarea>
             </p>
 
             <?php if(PeepSo::get_option('hashtags_enable', 1)) { ?>
                 <hr>
 
-                <strong><?php echo sprintf(__('%s hashtags', 'peepso-core'), 'PeepSo'); ?></strong>
+                <strong><?php echo esc_attr(sprintf(__('%s hashtags', 'peepso-core'), 'PeepSo')); ?></strong>
                 <p style="font-size:12px;color: #666666;">
 
-                    <?php echo __('List your hashtags separated by spaces, using the # character for each hashtag.', 'peepso-core'); ?>
+                    <?php echo esc_attr(__('List your hashtags separated by spaces, using the # character for each hashtag.', 'peepso-core')); ?>
 
                     <input
                             type="text"
                             placeholder="#hashtagOne #hashtagTwo"
                             style="width:100%;"
                             name="peepso_hashtags"
-                            value="<?php echo $this->hashtags_meta_cleanup(get_post_meta($post->ID, 'peepso_hashtags', TRUE)); ?>"
+                            value="<?php echo wp_kses_post($this->hashtags_meta_cleanup(get_post_meta($post->ID, 'peepso_hashtags', TRUE))); ?>"
                     />
                 </p>
                 <hr>
-                <strong><?php echo __('WordPress meta as PeepSo hashtags', 'peepso-core'); ?></strong>
+                <strong><?php echo esc_attr(__('WordPress meta as PeepSo hashtags', 'peepso-core')); ?></strong>
 
                 <p style="font-size:12px;color: #666666;">
                     Attach the WordPress tags and/or categories as PeepSo hashtags in the front-end.
@@ -393,7 +393,7 @@
                        value="1" <?php echo $checked ? "checked" : ""; ?>
                        name="peepso_hashtags_use_wp_tags" id="peepso_hashtags_use_wp_tags"/>
                 <label for="peepso_hashtags_use_wp_tags">
-                    <?php echo __('Use WordPress tags', 'peepso-core'); ?>
+                    <?php echo esc_attr(__('Use WordPress tags', 'peepso-core')); ?>
                 </label>
 
                 <br/>
@@ -412,7 +412,7 @@
                        value="1" <?php echo $checked ? "checked" : ""; ?>
                        name="peepso_hashtags_use_wp_cats" id="peepso_hashtags_use_wp_cats"/>
                 <label for="peepso_hashtags_use_wp_cats">
-                    <?php echo __('Use WordPress categories', 'peepso-core'); ?>
+                    <?php echo esc_attr(__('Use WordPress categories', 'peepso-core')); ?>
                 </label>
 
 

@@ -8,7 +8,7 @@ $unpublished = 'pending' == $post_status;
 <div id="comment-item-<?php echo $ID; ?>" class="ps-comment ps-comment-item cstream-comment stream-comment ps-js-comment-item  <?php echo (TRUE == $unpublished) ? 'ps-comment--unpublished ps-js-comment-unpublished' : ''?>" data-comment-id="<?php echo $ID; ?>" data-author="<?php echo $post_author; ?>">
 	<div class="ps-comment__avatar ps-avatar ps-avatar--comment">
 		<a href="<?php echo $PeepSoUser->get_profileurl(); ?>">
-			<img data-author="<?php echo $post_author; ?>" src="<?php echo PeepSoUser::get_instance($post_author)->get_avatar(); ?>" alt="<?php echo __($fullName); ?> avatar" />
+			<img data-author="<?php echo $post_author; ?>" src="<?php echo PeepSoUser::get_instance($post_author)->get_avatar(); ?>" alt="<?php echo esc_attr__($fullName); ?> avatar" />
 		</a>
 	</div>
 	<div class="ps-comment__body js-stream-content ps-js-comment-body">

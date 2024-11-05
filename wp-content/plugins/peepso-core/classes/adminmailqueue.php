@@ -40,7 +40,7 @@ class PeepSoAdminMailQueue
 		$oPeepSoListTable->display();
 		echo '</form>';
 
-        echo PeepSoTemplate::exec_template('admin', 'queue-status-description');
+        PeepSoTemplate::exec_template('admin', 'queue-status-description', NULL, FALSE);
 		#echo "</div>";
 	}
 }

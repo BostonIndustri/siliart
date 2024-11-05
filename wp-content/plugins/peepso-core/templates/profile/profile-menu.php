@@ -17,7 +17,7 @@ foreach ($links as $id=>$link) {
 
 ?>
 
-<a href="#" class="ps-focus__menu-item ps-focus__menu-item--more ps-tip ps-tip--arrow ps-js-item-more" aria-label="<?php echo __('More', 'peepso-core'); ?>" style="display:none">
+<a href="#" class="ps-focus__menu-item ps-focus__menu-item--more ps-tip ps-tip--arrow ps-js-item-more" aria-label="<?php echo esc_attr__('More', 'peepso-core'); ?>" style="display:none">
 	<i class="gcis gci-ellipsis-h"></i>
 </a>
 <div class="ps-focus__menu-more ps-dropdown ps-dropdown--menu ps-js-focus-more">

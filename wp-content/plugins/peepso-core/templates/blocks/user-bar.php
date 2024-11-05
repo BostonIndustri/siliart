@@ -25,7 +25,7 @@ if (isset($compact_mode) && !$preview) {
     }
 }
 
-?><div class="psw-userbar psw-userbar--<?php echo $content_position; ?> ps-js-widget-userbar <?php echo $compact_mode_class; ?>">
+?><div class="psw-userbar psw-userbar--<?php echo esc_attr($content_position); ?> ps-js-widget-userbar <?php echo esc_attr($compact_mode_class); ?>">
     <div class="psw-userbar__inner">
     <?php if (is_user_logged_in()) { ?>
 
@@ -64,9 +64,9 @@ if (isset($compact_mode) && !$preview) {
         <div class="psw-userbar__user-profile">
             <?php if (isset($show_avatar) && 1 === (int) $show_avatar) { ?>
             <div class="ps-avatar psw-avatar--userbar">
-                <a href="<?php echo $user->get_profileurl(); ?>">
-                    <img src="<?php echo $user->get_avatar(); ?>" alt="<?php echo $user->get_fullname(); ?> avatar"
-                        title="<?php echo $user->get_profileurl(); ?>">
+                <a href="<?php echo esc_url($user->get_profileurl()); ?>">
+                    <img src="<?php echo esc_url($user->get_avatar()); ?>" alt="<?php echo esc_attr($user->get_fullname()); ?> avatar"
+                        title="<?php echo esc_url($user->get_profileurl()); ?>">
                 </a>
             </div>
             <?php } ?>
@@ -114,7 +114,7 @@ if (isset($compact_mode) && !$preview) {
 
                         echo sprintf(
                             '<a href="%1$s" class="%2$s"><i class="%3$s"></i> %4$s</a>',
-                            $href, $class, $link['icon'], esc_attr($link['label'])
+                            esc_url($href), esc_attr($class), esc_attr($link['icon']), esc_attr($link['label'])
                         );
                     }
                 ?>
@@ -124,16 +124,16 @@ if (isset($compact_mode) && !$preview) {
         </div>
 
         <?php if (isset($show_logout) && 1 === (int) $show_logout) { ?>
-        <a class="psw-userbar__logout" href="<?php echo PeepSo::get_page('logout'); ?>"
-                title="<?php echo __('Log Out', 'peepso-core'); ?>"
-                arialabel="<?php echo __('Log Out', 'peepso-core'); ?>">
+        <a class="psw-userbar__logout" href="<?php echo esc_url(PeepSo::get_page('logout')); ?>"
+                title="<?php echo esc_attr__('Log Out', 'peepso-core'); ?>"
+                arialabel="<?php echo esc_attr__('Log Out', 'peepso-core'); ?>">
             <i class="gcis gci-power-off"></i>
         </a>
         <?php } ?>
 
     <?php } elseif($guest_behavior=='login') { ?>
 
-        <a class="psw-userbar__login" href="<?php echo PeepSo::get_page('login'); ?>"><?php echo __('Log in', 'peepso-core'); ?></a>
+        <a class="psw-userbar__login" href="<?php echo esc_url(PeepSo::get_page('login')); ?>"><?php echo esc_attr__('Log in', 'peepso-core'); ?></a>
 
     <?php } ?>
     </div>
@@ -141,7 +141,7 @@ if (isset($compact_mode) && !$preview) {
     <?php if (is_user_logged_in()) { ?>
     <div class="psw-userbar__toggle psw-userbar__toggle--avatar ps-js-widget-userbar-toggle">
         <div class="ps-avatar psw-avatar--userbar">
-            <img src="<?php echo $user->get_avatar();?>" alt="<?php echo $user->get_fullname(); ?> avatar" title="<?php echo $user->get_profileurl(); ?>">
+            <img src="<?php echo esc_url($user->get_avatar());?>" alt="<?php echo esc_attr($user->get_fullname()); ?> avatar" title="<?php echo esc_url($user->get_profileurl()); ?>">
         </div>
         <span class="ps-notif__bubble ps-notif__bubble--all ps-js-notif-counter"></span>
         <i class="gcis gci-times-circle"></i>

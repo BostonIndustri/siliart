@@ -86,9 +86,9 @@ class PeepSoGiphy
         <div class="error peepso">
             <strong>
                 <?php
-                echo __('Please provide GIPHY API Key.', 'peepso-core'),
+                echo esc_attr(__('Please provide GIPHY API Key.', 'peepso-core')),
                     ' <a href="http://api.giphy.com" target="_blank">',
-                    __('Get it now!', 'peepso-core'),
+                    esc_attr(__('Get it now!', 'peepso-core')),
                     '</a>';
                 ?>
             </strong>

@@ -124,8 +124,8 @@ class PeepSoNotificationsQueue {
 							// MESSAGE
 							ob_start();
 							//echo $PeepSoUser->get_fullname() . ' ' . trim($not['not_message'], ' .');
-                            echo $PeepSoUser->get_fullname() . ' ';
-                            echo PeepSoNotifications::parse($not);
+                            echo esc_html($PeepSoUser->get_fullname() . ' ');
+                            echo esc_html(PeepSoNotifications::parse($not));
 							$PeepSoProfile->notification_link(TRUE, $not);
 							$data['message'] = $this->sanitize(ob_get_clean());
 
@@ -181,14 +181,14 @@ class PeepSoNotificationsQueue {
 									// PREVIEW
 									ob_start();
 									$PeepSoMessages->get_last_author_name($args);
-									echo $PeepSoMessages->get_conversation_title();
+									echo esc_html($PeepSoMessages->get_conversation_title());
 									$data['preview'] = $this->sanitize(ob_get_clean());
 
 									// DATE
 									ob_start();
 									$item_date = mysql2date('U', $msg->post_date_gmt, FALSE);
 									$curr_date = date('U', current_time('timestamp', 1));
-									echo PeepSoTemplate::time_elapsed($item_date, $curr_date);
+									echo esc_html(PeepSoTemplate::time_elapsed($item_date, $curr_date));
 
 									$data['age'] = trim(strip_tags(ob_get_clean()), " \n\t");
 
@@ -233,7 +233,7 @@ class PeepSoNotificationsQueue {
 									ob_start();
 									$item_date = mysql2date('U', $req['freq_created'], FALSE);
 									$curr_date = date('U', current_time('timestamp', 1));
-									echo PeepSoTemplate::time_elapsed($item_date, $curr_date);
+									echo esc_html(PeepSoTemplate::time_elapsed($item_date, $curr_date));
 
 									$data['age'] = $this->sanitize(ob_get_clean());
 

@@ -38,9 +38,9 @@ class PeepSoLocation
                     ?>
                     <div class="error peepso">
                         <strong>
-                            <?php echo __('A Google maps API key is required for the Location suggestions to work properly','peepso-core');?>.
-                            <?php echo __('You can configure it','peepso-core');?>
-                            <a href="admin.php?page=peepso_config&tab=location#field_location_gmap_api_key"><?php echo __('here', 'peepso-core');?></a>.
+                            <?php echo esc_attr(__('A Google maps API key is required for the Location suggestions to work properly','peepso-core'));?>.
+                            <?php echo esc_attr(__('You can configure it','peepso-core'));?>
+                            <a href="admin.php?page=peepso_config&tab=location#field_location_gmap_api_key"><?php echo esc_attr(__('here', 'peepso-core'));?></a>.
                         </strong>
                     </div>
                 <?php });
@@ -273,10 +273,10 @@ class PeepSoLocation
 
             ?>
       			<span class="ps-post__location">
-              <a href="#" title="<?php echo $name_esc; ?>"
-                 data-preview="<?php echo sprintf(__('Location:  %s','peepso-core'),$name);?>"
-                  onclick="pslocation.show_map(<?php echo "$lat, $lng, '$name_esc'"; ?>); return false;">
-                  <i class="gcis gci-map-marker-alt"></i><?php echo $name; ?>
+              <a href="#" title="<?php echo esc_attr($name_esc); ?>"
+                 data-preview="<?php echo esc_attr(sprintf(__('Location:  %s','peepso-core'),$name));?>"
+                  onclick="pslocation.show_map(<?php echo esc_attr("$lat, $lng, '$name_esc'"); ?>); return false;">
+                  <i class="gcis gci-map-marker-alt"></i><?php echo esc_attr($name); ?>
               </a>
       			</span>
 			<?php
@@ -332,8 +332,8 @@ class PeepSoLocation
     {?>
 		<div class="error">
 			<strong>
-                <?php echo __('PeepSo Location requires a Google Maps API key.', 'peepso-core'); ?>
-                <a href="admin.php?page=peepso_config&tab=location"><?php echo __('Click here to configure it', 'peepso-core'); ?></a>.
+                <?php echo esc_attr(__('PeepSo Location requires a Google Maps API key.', 'peepso-core')); ?>
+                <a href="admin.php?page=peepso_config&tab=location"><?php echo esc_attr(__('Click here to configure it', 'peepso-core')); ?></a>.
 
 
 			</strong>

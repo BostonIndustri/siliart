@@ -54,8 +54,8 @@ if(1 == $icon->custom) {
 				   data-prop-type="prop"
 				   data-prop-name="post_title">
 
-			<button class="button ps-js-btn ps-js-cancel"><?php echo __('Cancel', 'peepso-core'); ?></button>
-			<button class="button button-primary ps-js-btn ps-js-save"><?php echo __('Save', 'peepso-core'); ?></button>
+			<button class="button ps-js-btn ps-js-cancel"><?php echo esc_attr__('Cancel', 'peepso-core'); ?></button>
+			<button class="button button-primary ps-js-btn ps-js-save"><?php echo esc_attr__('Save', 'peepso-core'); ?></button>
 			<span class="ps-settings__progress ps-js-progress">
 				<img src="images/wpspin_light.gif" style="display:none">
 				<i class="ace-icon fa fa-check bigger-110" style="display:none"></i>
@@ -71,7 +71,7 @@ if(1 == $icon->custom) {
 				<!-- Published -->
 				<div class="ps-settings__row ps-js-vipiconconf" id="vipicon-<?php echo $icon->post_id;?>-published-container">
 					<div class="ps-settings__label">
-						<?php echo __('Published', 'peepso-core');?>
+						<?php echo esc_attr__('Published', 'peepso-core');?>
 						<div class="ps-settings__progress ps-js-progress">
 							<img src="images/wpspin_light.gif" style="display:none">
 							<i class="ace-icon fa fa-check bigger-110" style="display:none"></i>
@@ -86,7 +86,7 @@ if(1 == $icon->custom) {
 				<!-- Notification -->
 				<div class="ps-settings__row ps-js-vipiconconf" style="" id="vipicon-<?php echo $icon->post_id;?>-desc-container">
 					<div class="ps-settings__label">
-						<?php echo __('Icon Description', 'peepso-core');?>
+						<?php echo esc_attr__('Icon Description', 'peepso-core');?>
 						<div class="ps-settings__progress ps-js-progress">
 							<img src="images/wpspin_light.gif" style="display:none">
 							<i class="ace-icon fa fa-check bigger-110" style="display:none"></i>
@@ -95,8 +95,8 @@ if(1 == $icon->custom) {
 
 					<div class="ps-settings__controls">
 						<input type="text" class="ps-vipicon-notification" data-prop-name="post_content" value="<?php echo $icon->content;?>" id="vipicon-<?php echo $icon->post_id;?>-desc" data-parent-id="<?php echo $icon->post_id;?>">
-						<button class="button ps-js-btn ps-js-cancel" style="display:none"><?php echo __('Cancel', 'peepso-core');?></button>
-						<button class="button button-primary ps-js-btn ps-js-save" style="display:none"><?php echo __('Save', 'peepso-core');?></button>
+						<button class="button ps-js-btn ps-js-cancel" style="display:none"><?php echo esc_attr__('Cancel', 'peepso-core');?></button>
+						<button class="button button-primary ps-js-btn ps-js-save" style="display:none"><?php echo esc_attr__('Save', 'peepso-core');?></button>
 					</div>
 
 

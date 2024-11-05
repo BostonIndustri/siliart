@@ -112,21 +112,21 @@ class PeepSo3_Developer_Tools_Page_Git extends PeepSo3_Developer_Tools_Page
 
 			foreach($plugins_git as $plugin_name=>$plugin_info) {
 
-				echo __("Plugin\t\t", 'wordpress-system-report' ) 	. $plugin_name;
+				echo esc_attr__("Plugin\t\t", 'wordpress-system-report' ) 	. $plugin_name;
 				echo "\n";
 
-				echo __("Version\t\t", 'wordpress-system-report' ) 	. $plugin_info['version'];
+				echo esc_attr__("Version\t\t", 'wordpress-system-report' ) 	. $plugin_info['version'];
 				echo "\n";
 
-				echo __("Path\t\t", 'wordpress-system-report' ) 	. $plugin_info['path'];
+				echo esc_attr__("Path\t\t", 'wordpress-system-report' ) 	. $plugin_info['path'];
 				echo "\n";
 
-				echo __("Git ref\t\t", 'wordpress-system-report' ) 	. $plugin_info['git'];
+				echo esc_attr__("Git ref\t\t", 'wordpress-system-report' ) 	. $plugin_info['git'];
 				echo "\n\n";
 			}
 
 		} else {
-			echo __('It appears you have no plugins using git', 'wordpress-system-report' );
+			echo esc_attr__('It appears you have no plugins using git', 'wordpress-system-report' );
 		}
 
 		echo "\n\t".'** THEMES **'."\n";
@@ -136,21 +136,21 @@ class PeepSo3_Developer_Tools_Page_Git extends PeepSo3_Developer_Tools_Page
 
 			foreach($themes_git as $theme_name=>$theme_info) {
 
-				echo __("Theme\t\t", 'wordpress-system-report' ) 	. $theme_name;
+				echo esc_attr__("Theme\t\t", 'wordpress-system-report' ) 	. $theme_name;
 				echo "\n";
 
-				echo __("Version\t\t", 'wordpress-system-report' ) 	. $theme_info['version'];
+				echo esc_attr__("Version\t\t", 'wordpress-system-report' ) 	. $theme_info['version'];
 				echo "\n";
 
-				echo __("Path\t\t", 'wordpress-system-report' ) 	. $theme_info['path'];
+				echo esc_attr__("Path\t\t", 'wordpress-system-report' ) 	. $theme_info['path'];
 				echo "\n";
 
-				echo __("Git ref\t\t", 'wordpress-system-report' ) 	. $theme_info['git'];
+				echo esc_attr__("Git ref\t\t", 'wordpress-system-report' ) 	. $theme_info['git'];
 				echo "\n\n";
 			}
 
 		} else {
-			echo __('It appears you have no themes using git', 'wordpress-system-report' );
+			echo esc_attr__('It appears you have no themes using git', 'wordpress-system-report' );
 		}
 
 		echo '### End Git Repositories Info ###';

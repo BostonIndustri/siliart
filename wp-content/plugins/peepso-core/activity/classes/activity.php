@@ -1518,7 +1518,7 @@ class PeepSoActivity extends PeepSoAjaxCallback
         global $post;
 
         // this is only called when there are comments now; can remove has_comments() check
-        //    echo __('Show All Comments', 'peepso-core');
+        //    echo esc_attr__('Show All Comments', 'peepso-core');
 
         global $post;
         $comments_var = $this->get_comments_var($post);
@@ -1530,11 +1530,11 @@ class PeepSoActivity extends PeepSoAjaxCallback
             if ($this->comment_query->query['offset'] == 0) {
                 $label = __('Show %d %s', 'peepso-core');
             }
-            echo $this->get_comment_or_reply_label($label, $post->post_type, $comment_count);
+            echo esc_attr($this->get_comment_or_reply_label($label, $post->post_type, $comment_count));
         } else if ($site_activity_comments <= $this->comment_query->post_count) {
             if ($this->comment_query->post_count > 1) {
                 $comment_count = $this->comment_query->post_count;
-                echo $this->get_comment_or_reply_label(__('All %d %s displayed.', 'peepso-core'), $post->post_type, $comment_count);
+                echo esc_attr($this->get_comment_or_reply_label(__('All %d %s displayed.', 'peepso-core'), $post->post_type, $comment_count));
             }
         }
     }
@@ -2956,19 +2956,19 @@ class PeepSoActivity extends PeepSoAjaxCallback
                 continue;
             }
 
-            echo '<a data-stream-id="', $post->ID, '" ';
+            echo '<a data-stream-id="', esc_attr($post->ID), '" ';
             if (isset($act['click']) && $logged_in)
-                echo ' onclick="', $act['click'], '" ';
+                echo ' onclick="', esc_attr($act['click']), '" ';
             else
                 echo ' onclick="return false;" ';
             if (isset($act['title']) && $logged_in)
-                echo ' title="', $act['title'], '" ';
+                echo ' title="', esc_attr($act['title']), '" ';
             else if (!$logged_in)
-                echo ' title="', __('Please register or log in to perform this action', 'peepso-core'), '" ';
-            echo ' href="', ($logged_in ? $act['href'] : '#'), '" ';
-            echo ' class="ps-comment__action ', $act['class'], '" ', (isset($act['extra']) ? $act['extra'] : ''), '>';
-            echo '<i class="', $act['icon'],'"></i>';
-            echo '<span>',$act['label'],'</span>';
+                echo ' title="', esc_attr__('Please register or log in to perform this action', 'peepso-core'), '" ';
+            echo ' href="', ($logged_in ? esc_url($act['href']) : '#'), '" ';
+            echo ' class="ps-comment__action ', esc_attr($act['class']), '" ', (isset($act['extra']) ? $act['extra'] : ''), '>';
+            echo '<i class="', esc_attr($act['icon']),'"></i>';
+            echo '<span>',wp_kses_post($act['label']),'</span>';
             echo '</a>', PHP_EOL;
         }
     }
@@ -3059,21 +3059,21 @@ class PeepSoActivity extends PeepSoAjaxCallback
             return;
 
         foreach ($acts as $name => $act) {
-            echo '<a data-stream-id="', $post->ID, '" ';
+            echo '<a data-stream-id="', esc_attr($post->ID), '" ';
             if (isset($act['click']) && $logged_in)
                 echo ' onclick="', rtrim( esc_js($act['click']), ';' ), '; return false" ';
             else
                 echo ' onclick="return false" ';
             if (isset($act['title']) && $logged_in)
-                echo ' title="', $act['title'], '" ';
+                echo ' title="', esc_attr($act['title']), '" ';
             else if (!$logged_in)
-                echo ' title="', __('Please register or log in to perform this action', 'peepso-core'), '" ';
+                echo ' title="', esc_attr__('Please register or log in to perform this action', 'peepso-core'), '" ';
             if (isset($act['extra']))
                 echo ' ', $act['extra'];
-            echo ' href="', ($logged_in ? $act['href'] : '#'), '" ';
-            echo ' class="', $act['class'], '">';
-            echo '<i class="', $act['icon'],'"></i>';
-            echo '<span>',$act['label'],'</span>';
+            echo ' href="', ($logged_in ? esc_url($act['href']) : '#'), '" ';
+            echo ' class="', esc_attr($act['class']), '">';
+            echo '<i class="', esc_attr($act['icon']),'"></i>';
+            echo '<span>',esc_attr($act['label']),'</span>';
             echo '</a>', PHP_EOL;
         }
     }
@@ -3119,7 +3119,7 @@ class PeepSoActivity extends PeepSoAjaxCallback
         $owner_id = intval($this->get_author_id($post_id));
 
 //        if (PeepSo::check_permissions($owner_id, PeepSo::PERM_COMMENT, $user_id)) {
-        echo PeepSoTemplate::exec_template('activity', 'comment-reply', array('act_id' => $act_id, 'PeepSoActivity' => $this), TRUE);
+        PeepSoTemplate::exec_template('activity', 'comment-reply', array('act_id' => $act_id, 'PeepSoActivity' => $this), FALSE);
 //        }
 
     }
@@ -3325,7 +3325,7 @@ class PeepSoActivity extends PeepSoAjaxCallback
     public function content_media_class($class)
     {
         $class = apply_filters('peepso_activity_content_media_class', $class);
-        echo $class;
+        echo esc_attr($class);
     }
 
     /**
@@ -3473,7 +3473,7 @@ class PeepSoActivity extends PeepSoAjaxCallback
         // scheduled post
         if($post_date > $curr_date) {
 
-            echo sprintf(__('Scheduled for %s','peepso-core'),date($config_date_format, $post_timestamp_user_offset));
+            echo esc_attr(sprintf(__('Scheduled for %s','peepso-core'),date($config_date_format, $post_timestamp_user_offset)));
 
         } else {
 
@@ -3492,9 +3492,9 @@ class PeepSoActivity extends PeepSoAjaxCallback
             }
 
             if ($use_absolute) {
-                echo '<span class="ps-js-autotime" data-timestamp="', get_the_time('U'), '" title="', mysql2date($config_date_format, $post_time_user_offset), '">', PeepSoTemplate::time_elapsed($post_date, $curr_date), '</span>';
+                echo '<span class="ps-js-autotime" data-timestamp="', esc_attr(get_the_time('U')), '" title="', esc_attr(mysql2date($config_date_format, $post_time_user_offset)), '">', esc_attr(PeepSoTemplate::time_elapsed($post_date, $curr_date)), '</span>';
             } else {
-                echo mysql2date($config_date_format, $post_time_user_offset);
+                echo esc_attr(mysql2date($config_date_format, $post_time_user_offset));
             }
         }
 
@@ -3653,31 +3653,31 @@ class PeepSoActivity extends PeepSoAjaxCallback
                 $element = 'div';
             }
 
-            echo '<' . $element .' data-stream-id="', $post_id, '" ';
+            echo '<' . esc_attr($element) .' data-stream-id="', esc_attr($post_id), '" ';
 
             // Prints embedded data.
             $act_data = array_filter($act, function($k) { return 0 === strpos($k, 'data-'); }, ARRAY_FILTER_USE_KEY);
             foreach ($act_data as $key => $value) {
-                echo " $key=\"" . esc_attr($value) . '"';
+                echo ' '. $key .'="' . esc_attr($value) . '"';
             }
 
             if (isset($act['click']) && $allow_guest)
-                echo ' onclick="', $act['click'], '" ';
+                echo ' onclick="', esc_attr($act['click']), '" ';
             else
                 echo ' onclick="return false;" ';
             if (isset($act['title']) && $allow_guest)
-                echo ' title="', $act['title'], '" ';
+                echo ' title="', esc_attr($act['title']), '" ';
             else if (!$allow_guest)
-                echo ' title="', __('Please register or log in to perform this action', 'peepso-core'), '" ';
-            echo ' href="', ($allow_guest ? $act['href'] : '#'), '" ';
-            echo ' class="', (isset($act['class']) ? $act['class'] : ''),'" ';
-            echo isset( $act['style'] ) ? ( ' style="' . $act['style'] .'"' ) : '';
+                echo ' title="', esc_attr__('Please register or log in to perform this action', 'peepso-core'), '" ';
+            echo ' href="', ($allow_guest ? esc_url($act['href']) : '#'), '" ';
+            echo ' class="', (isset($act['class']) ? esc_attr($act['class']) : ''),'" ';
+            echo isset( $act['style'] ) ? ( ' style="' . esc_attr($act['style']) .'"' ) : '';
             echo '>';
             if (isset($act['icon']))
-                echo '<i class="',$act['icon'],'"></i>';
+                echo '<i class="',esc_attr($act['icon']),'"></i>';
             if (isset($act['label']))
-                echo '<span>',$act['label'],'</span>';
-            echo '</' . $element .'>', PHP_EOL;
+                echo '<span>',wp_kses_post($act['label']),'</span>';
+            echo '</' . esc_attr($element) .'>', PHP_EOL;
         }
     }
 
@@ -4120,7 +4120,7 @@ class PeepSoActivity extends PeepSoAjaxCallback
 
         $link = PeepSo::get_page('activity_status') . $post->post_title . '/';
         if ($echo)
-            echo $link;
+            echo esc_url($link);
         else
             return ($link);
     }
@@ -4149,7 +4149,7 @@ class PeepSoActivity extends PeepSoAjaxCallback
         }
 
         if ($echo)
-            echo $link;
+            echo esc_url($link);
         else
             return ($link);
     }
@@ -4256,7 +4256,7 @@ class PeepSoActivity extends PeepSoAjaxCallback
         $privacy = PeepSoPrivacy::get_instance();
         $level = $privacy->get_access_setting($post->act_access);
 
-        echo '<i class="', $level['icon'], '"></i><span>', $level['label'] ,'</span>';
+        echo '<i class="', esc_attr($level['icon']), '"></i><span>', esc_attr($level['label']) ,'</span>';
     }
 
     /*
@@ -4872,13 +4872,13 @@ class PeepSoActivity extends PeepSoAjaxCallback
         $reasons = apply_filters('peepso_activity_report_reasons', $reasons);
 
         echo '<select class="ps-input ps-input--sm ps-input--select ps-js-report-type">', PHP_EOL;
-        echo '<option value="">', __('- select reason -', 'peepso-core'), '</option>', PHP_EOL;
+        echo '<option value="">', esc_attr__('- select reason -', 'peepso-core'), '</option>', PHP_EOL;
         foreach ($reasons as $reason) {
             $reason = esc_attr($reason);
             $reason = stripslashes($reason);
-            echo '<option value="', $reason, '" data-need-reason="'.apply_filters('peepso_activity_report_reasons_need_reason', 0, $reason).'">', $reason, '</option>';
+            echo '<option value="', wp_kses_post($reason), '" data-need-reason="'.esc_attr(apply_filters('peepso_activity_report_reasons_need_reason', 0, $reason)).'">', wp_kses_post($reason), '</option>';
         }
-        echo '<option value="Other" data-need-reason="1">' . __('Other', 'peepso-core') . '</option>';
+        echo '<option value="Other" data-need-reason="1">' . esc_attr__('Other', 'peepso-core') . '</option>';
         echo '</select>', PHP_EOL;
 
         echo '<div class="ps-js-report-desc">';
@@ -4922,8 +4922,8 @@ class PeepSoActivity extends PeepSoAjaxCallback
         }
 
         if ($count > 0)
-            echo '<a href="#" onclick="return activity.show_likes(', $act_id, ');">',
-            $count, _n(' person likes this', ' people like this.', $count, 'peepso-core'), '</a>';
+            echo '<a href="#" onclick="return activity.show_likes(', esc_attr($act_id), ');">',
+            esc_attr($count), esc_attr(_n(' person likes this', ' people like this.', $count, 'peepso-core')), '</a>';
     }
 
     /**
@@ -5488,17 +5488,17 @@ class PeepSoActivity extends PeepSoAjaxCallback
         foreach ($acts as $name => $act) {
             echo '<a ';
             if (isset($act['click']) && $logged_in)
-                echo ' onclick="', $act['click'], '" ';
+                echo ' onclick="', esc_js($act['click']), '" ';
             else
                 echo ' onclick="return false;" ';
             if (isset($act['title']) && $logged_in)
-                echo ' title="', $act['title'], '" ';
+                echo ' title="', esc_attr($act['title']), '" ';
             else if (!$logged_in)
-                echo ' title="', __('Please register or log in to perform this action', 'peepso-core'), '" ';
-            echo ' href="', ($logged_in && isset($act['href']) ? $act['href'] : '#'), '" ';
-            echo ' class="', (isset($act['class']) ? $act['class'] : ''), ' ', $act['icon'], '">';
+                echo ' title="', esc_attr__('Please register or log in to perform this action', 'peepso-core'), '" ';
+            echo ' href="', esc_url($logged_in && isset($act['href']) ? $act['href'] : '#'), '" ';
+            echo ' class="', (isset($act['class']) ? esc_attr($act['class']) : ''), ' ', esc_attr($act['icon']), '">';
             if (isset($act['label'])) {
-                echo '<span>',$act['label'],'</span>';
+                echo '<span>',wp_kses_post($act['label']),'</span>';
             }
             echo '</a>', PHP_EOL;
         }

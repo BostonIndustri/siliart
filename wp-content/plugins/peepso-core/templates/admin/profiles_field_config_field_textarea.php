@@ -16,5 +16,5 @@ foreach( $data as $k=>$v ) {
 <textarea <?php echo $data_string;?>><?php echo $value;?></textarea>
 <?php echo $label_after;?>
 
-<button class="button ps-js-btn ps-js-cancel" style="display:none"><?php echo __('Cancel', 'peepso-core'); ?></button>
-<button class="button button-primary ps-js-btn ps-js-save" style="display:none"><?php echo __('Save', 'peepso-core'); ?></button>
+<button class="button ps-js-btn ps-js-cancel" style="display:none"><?php echo esc_attr__('Cancel', 'peepso-core'); ?></button>
+<button class="button button-primary ps-js-btn ps-js-save" style="display:none"><?php echo esc_attr__('Save', 'peepso-core'); ?></button>

@@ -614,7 +614,7 @@ class PeepSoProfileShortcode
 
         $tabs = apply_filters('peepso_filter_about_tabs', $about_tabs);
 
-        echo PeepSoTemplate::exec_template('profile', $template, array('tabs' => $tabs));
+        PeepSoTemplate::exec_template('profile', $template, array('tabs' => $tabs), FALSE);
         add_filter('peepso_data', function( $data ) {
             $data['sections']['profile'] = array(
                 'textSaveAllErrorNotice' => __('Some fields were not saved. Please make sure all fields are valid.', 'peepso-core')

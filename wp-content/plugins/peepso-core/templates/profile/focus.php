@@ -26,7 +26,7 @@ if (!$show_focus) {
 	<div class="ps-focus__cover ps-js-cover">
 		<div class="ps-focus__cover-image ps-js-cover-wrapper">
 			<img class="ps-js-cover-image" src="<?php echo $PeepSoUser->get_cover(); ?>"
-				alt="<?php printf( __('%s cover photo', 'peepso-core'), $PeepSoUser->get_fullname()); ?>"
+				alt="<?php printf( esc_attr__('%s cover photo', 'peepso-core'), $PeepSoUser->get_fullname()); ?>"
 				style="<?php echo $PeepSoUser->get_cover_position(); ?>; opacity: 0;" />
 			<div class="ps-focus__cover-loading ps-js-cover-loading">
 				<i class="gcis gci-circle-notch gci-spin"></i>
@@ -46,7 +46,7 @@ if (!$show_focus) {
 		<div class="ps-focus__cover-inner ps-js-cover-button-popup"<?php echo $cover_box_attrs ?>>
       <div class="ps-avatar ps-avatar--focus ps-focus__avatar ps-js-avatar">
   			<img class="ps-js-avatar-image" src="<?php echo $PeepSoUser->get_avatar('full'); ?>"
-  				alt="<?php printf( __('%s avatar', 'peepso-core'), $PeepSoUser->get_fullname()); ?>" />
+  				alt="<?php printf( esc_attr__('%s avatar', 'peepso-core'), $PeepSoUser->get_fullname()); ?>" />
 
   			<?php
   				$avatar_box_attrs = ' style="cursor:default"';
@@ -58,7 +58,7 @@ if (!$show_focus) {
   			<div class="ps-focus__avatar-change-wrapper ps-js-avatar-button-wrapper"<?php echo $avatar_box_attrs ?>>
   				<?php if ((1 != PeepSo::get_option('avatars_wordpress_only', 0)) && $PeepSoProfile->can_edit()) { ?>
   				<a href="#" class="ps-focus__avatar-change ps-js-avatar-button">
-  					<i class="gcis gci-camera"></i><span><?php echo __('Avatar', 'peepso-core'); ?></span>
+  					<i class="gcis gci-camera"></i><span><?php echo esc_attr__('Avatar', 'peepso-core'); ?></span>
   				</a>
   				<?php } ?>
   			</div>
@@ -73,35 +73,35 @@ if (!$show_focus) {
 			</div>
 		</div>
 		<div class="ps-focus__options ps-js-dropdown ps-js-cover-dropdown">
-			<a href="#" class="ps-focus__options-toggle ps-js-dropdown-toggle"><span><?php echo __('Change cover', 'peepso-core'); ?></span><i class="gcis gci-image"></i></a>
+			<a href="#" class="ps-focus__options-toggle ps-js-dropdown-toggle"><span><?php echo esc_attr__('Change cover', 'peepso-core'); ?></span><i class="gcis gci-image"></i></a>
 			<div class="ps-focus__options-menu ps-js-dropdown-menu">
 				<a href="#" class="ps-js-cover-upload">
 					<i class="gcis gci-paint-brush"></i>
-					<?php echo __('Upload new', 'peepso-core'); ?>
+					<?php echo esc_attr__('Upload new', 'peepso-core'); ?>
 				</a>
                 <a href="#" class="ps-js-cover-reposition">
                     <i class="gcis gci-arrows-alt"></i>
-                    <?php echo __('Reposition', 'peepso-core'); ?>
+                    <?php echo esc_attr__('Reposition', 'peepso-core'); ?>
                 </a>
                 <a href="#" class="ps-js-cover-rotate-left">
                     <i class="gcis gci-arrow-rotate-left"></i>
-                    <?php echo __('Rotate left', 'peepso-core'); ?>
+                    <?php echo esc_attr__('Rotate left', 'peepso-core'); ?>
                 </a>
                 <a href="#" class="ps-js-cover-rotate-right">
                     <i class="gcis gci-arrow-rotate-right"></i>
-                    <?php echo __('Rotate right', 'peepso-core'); ?>
+                    <?php echo esc_attr__('Rotate right', 'peepso-core'); ?>
                 </a>
 				<a href="#" class="ps-js-cover-remove">
 					<i class="gcis gci-trash"></i>
-					<?php echo __('Delete', 'peepso-core'); ?>
+					<?php echo esc_attr__('Delete', 'peepso-core'); ?>
 				</a>
 			</div>
 		</div>
 		<!-- Reposition cover - buttons -->
 		<div class="ps-focus__reposition ps-js-cover-reposition-actions" style="display:none">
 			<div class="ps-focus__reposition-actions reposition-cover-actions">
-				<a href="#" class="ps-focus__reposition-action ps-js-cover-reposition-cancel"><?php echo __('Cancel', 'peepso-core'); ?></a>
-				<a href="#" class="ps-focus__reposition-action ps-js-cover-reposition-confirm"><i class="gcis gci-check"></i> <?php echo __('Save', 'peepso-core'); ?></a>
+				<a href="#" class="ps-focus__reposition-action ps-js-cover-reposition-cancel"><?php echo esc_attr__('Cancel', 'peepso-core'); ?></a>
+				<a href="#" class="ps-focus__reposition-action ps-js-cover-reposition-confirm"><i class="gcis gci-check"></i> <?php echo esc_attr__('Save', 'peepso-core'); ?></a>
 			</div>
 		</div>
 
@@ -110,7 +110,7 @@ if (!$show_focus) {
 		<div class="ps-focus__cover-inner ps-js-cover-button-popup"<?php echo $cover_box_attrs ?>>
       <div class="ps-avatar ps-avatar--focus ps-focus__avatar ps-js-avatar">
   			<img class="ps-js-avatar-image" src="<?php echo $PeepSoUser->get_avatar('full'); ?>"
-  				alt="<?php printf( __('%s avatar', 'peepso-core'), $PeepSoUser->get_fullname()); ?>" />
+  				alt="<?php printf( esc_attr__('%s avatar', 'peepso-core'), $PeepSoUser->get_fullname()); ?>" />
 
   			<?php
   				$avatar_box_attrs = ' style="cursor:default"';
@@ -122,7 +122,7 @@ if (!$show_focus) {
   			<div class="ps-focus__avatar-change-wrapper ps-js-avatar-button-wrapper"<?php echo $avatar_box_attrs ?>>
   				<?php if ((1 != PeepSo::get_option('avatars_wordpress_only', 0)) && $PeepSoProfile->can_edit()) { ?>
   				<a href="#" class="ps-focus__avatar-change ps-js-avatar-button">
-  					<i class="gcis gci-camera"></i><span><?php echo __('Avatar', 'peepso-core'); ?></span>
+  					<i class="gcis gci-camera"></i><span><?php echo esc_attr__('Avatar', 'peepso-core'); ?></span>
   				</a>
   				<?php } ?>
   			</div>

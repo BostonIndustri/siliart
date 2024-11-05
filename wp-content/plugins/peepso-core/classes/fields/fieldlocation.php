@@ -34,9 +34,9 @@ if($PeepSoLocation->is_enabled) {
                 ob_start();
 
                 ?><a href="#" title="<?php echo esc_attr($loc['name']); ?>"
-                    onclick="pslocation.show_map(<?php echo "$lat, $lng, '$name_esc'"; ?>); return false;">
+                    onclick="pslocation.show_map(<?php echo esc_attr("$lat, $lng, '".$name_esc."'"); ?>); return false;">
                     <i class="gcis gci-map-marker-alt"></i>
-                    <span><?php echo $name; ?></span>
+                    <span><?php echo esc_attr($name); ?></span>
                 </a><?php
 
                 $html = ob_get_clean();
@@ -50,9 +50,9 @@ if($PeepSoLocation->is_enabled) {
         {
             ob_start();
 
-            echo ' name="' . $this->input_args['name'] . '"',
-                ' id="' . $this->input_args['id'] . '"',
-                ' data-id="' . $this->id . '"',
+            echo ' name="' . esc_attr($this->input_args['name']) . '"',
+                ' id="' . esc_attr($this->input_args['id']) . '"',
+                ' data-id="' . esc_attr($this->id) . '"',
             ' class="ps-input ps-input--sm ps-js-field-location"',
             ' role="textbox" aria-autocomplete="list" aria-haspopup="true"',
             ' placeholder="', esc_attr(__('Enter location name', 'peepso-core')), '"';
@@ -108,10 +108,10 @@ if($PeepSoLocation->is_enabled) {
                 $class = ' ' . $this->el_class;
             }
 
-            echo ' name="' . $this->input_args['name'] . '"',
-                ' id="' . $this->input_args['id'] . '"',
-                ' data-id="' . $this->id . '"',
-                ' class="ps-input ps-js-field-location' . $class . '"';
+            echo ' name="' . esc_attr($this->input_args['name']) . '"',
+                ' id="' . esc_attr($this->input_args['id']) . '"',
+                ' data-id="' . esc_attr($this->id) . '"',
+                ' class="ps-input ps-js-field-location' . esc_attr($class) . '"';
 
 
             return ob_get_clean();

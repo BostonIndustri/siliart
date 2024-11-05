@@ -113,11 +113,11 @@ if ( isset($url_parsed['query']) && $url_parsed['query'] ) {
     <div class="ps-redirect__box-body">
         <p><?php echo sprintf(__('The link you just clicked redirects to: <span class="ps-redirect__link">%s</span>', 'peepso-core'), $url_encoded); ?></p>
         <hr>
-        <p><?php echo __('Do you want to continue?', 'peepso-core'); ?></p>
+        <p><?php echo esc_attr__('Do you want to continue?', 'peepso-core'); ?></p>
     </div>
     <div class="ps-redirect__box-actions">
         <a role="button" class="ps-btn" href="<?php echo $back;?>"><?php echo $back_label; ?></a>
         <a role="button" class="ps-btn ps-btn-primary" href="<?php echo $url_encoded; ?>"
-           data-no-hijack="1"><?php echo __('Yes, take me there', 'peepso-core'); ?></a>
+           data-no-hijack="1"><?php echo esc_attr__('Yes, take me there', 'peepso-core'); ?></a>
     </div>
 </div>

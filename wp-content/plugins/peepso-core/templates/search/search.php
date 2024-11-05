@@ -13,7 +13,7 @@
 	<div class="ps-search__input-wrapper">
 		<i class="gcis gci-search"></i>
 		<input type="text" value="<?php echo $search; ?>" class="ps-input ps-search__input ps-js-query"
-			placeholder="<?php echo __('Type to search...', 'peepso-core'); ?>" />
+			placeholder="<?php echo esc_attr__('Type to search...', 'peepso-core'); ?>" />
 	</div>
 
 	<div class="ps-loading ps-js-loading" style="display:none">
@@ -70,6 +70,6 @@
 	</script>
 
 	<script type="text/template" class="ps-js-template-empty">
-		<p class="ps-search__item--empty"><?php echo __('No results.', 'peepso-core'); ?></p>
+		<p class="ps-search__item--empty"><?php echo esc_attr__('No results.', 'peepso-core'); ?></p>
 	</script>
 </div>

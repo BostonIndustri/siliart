@@ -5,7 +5,7 @@
 ?>
 <div  id="peepso" class="wrap">
 	<?php
-	echo $config->form_open();
+	$config->form_open();
 	?>
 		<div class="row">
 			<div class="col-xs-12">
@@ -38,13 +38,13 @@
 				<div class="form-actions center">
 					<button class="btn btn-info" type="submit">
 						<i class="ace-icon fa fa-check bigger-110"></i>
-						<?php echo __('Save Settings', 'peepso-core'); ?>
+						<?php echo esc_attr__('Save Settings', 'peepso-core'); ?>
 					</button>
 
 					&nbsp; &nbsp; &nbsp;
 					<button class="btn" type="reset">
 						<i class="ace-icon fa fa-undo bigger-110"></i>
-						<?php echo __('Reset', 'peepso-core'); ?>
+						<?php echo esc_attr__('Reset', 'peepso-core'); ?>
 					</button>
 				</div>
 			</div>
@@ -54,6 +54,6 @@
 <style>
 	input[type=checkbox].ace.ace-switch.ace-switch-2 + .lbl::before {
 		/* translators: Use dashes around and between YES & NO to align them */
-		content: "<?php echo str_replace('-', '\a0', __('YES---------NO', 'peepso-core'));?>"
+		content: "<?php echo esc_attr(str_replace('-', '\a0', __('YES---------NO', 'peepso-core')));?>"
 	}
 </style>

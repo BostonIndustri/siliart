@@ -8,7 +8,7 @@ $PeepSoRegister = PeepSoRegister::get_instance();
 	<div class="ps-page ps-page--register ps-page--register-main">
 		<div class="psf-register psf-register--main">
 			<?php if (!empty($error)) : ?>
-			<div class="ps-alert ps-alert--error"><?php echo __('Error: ', 'peepso-core'); echo $error; ?></div>
+			<div class="ps-alert ps-alert--error"><?php echo esc_attr__('Error: ', 'peepso-core'); echo $error; ?></div>
 			<?php endif; ?>
 
 			<?php do_action('peepso_before_registration_form');?>

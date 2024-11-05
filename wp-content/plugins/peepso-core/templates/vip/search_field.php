@@ -4,17 +4,17 @@ $PeepSoVipIconsModel = new PeepSoVipIconsModel();
 $empty = true;
 
 ?><div class="ps-members__filter ps-members__filter--vip">
-  <div class="ps-members__filter-label"><?php echo __('VIP Icon', 'peepso-core'); ?></div>
+  <div class="ps-members__filter-label"><?php echo esc_attr__('VIP Icon', 'peepso-core'); ?></div>
   <div data-name="vip_icon" class="ps-dropdown ps-dropdown--menu ps-dropdown--full ps-js-dropdown">
     <div class="ps-input ps-input--sm ps-input--select ps-js-dropdown-toggle">
-      <div data-value=""><?php echo __('Select VIP Icon...', 'peepso-core'); ?></div>
+      <div data-value=""><?php echo esc_attr__('Select VIP Icon...', 'peepso-core'); ?></div>
     </div>
     <div class="ps-dropdown__menu ps-js-dropdown-menu">
     <?php foreach ($PeepSoVipIconsModel->vipicons as $key => $value) { ?>
       <?php if ($value->published == 1) { ?>
         <?php if ($empty) { $empty = false; ?>
           <a href="#" data-option-value="">
-            <?php echo __('Select VIP Icon...', 'peepso-core'); ?>
+            <?php echo esc_attr__('Select VIP Icon...', 'peepso-core'); ?>
           </a>
         <?php } ?>
         <a href="#" data-option-value="<?php echo $key; ?>">

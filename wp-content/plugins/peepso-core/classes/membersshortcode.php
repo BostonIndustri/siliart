@@ -50,7 +50,7 @@ class PeepSoMembersShortcode
 		$fields = $profile_fields->load_fields();
 
 		ob_start();
-		echo PeepSoTemplate::get_before_markup();
+		echo wp_kses_post(PeepSoTemplate::get_before_markup());
 
 		$PeepSoUrlSegments= PeepSoUrlSegments::get_instance();
 
@@ -68,7 +68,7 @@ class PeepSoMembersShortcode
 			PeepSoTemplate::exec_template('members', 'search', array('allow_guest_access' => $allow_guest_access, 'genders' => $genders));
 		}
 
-		echo PeepSoTemplate::get_after_markup();
+		echo wp_kses_post(PeepSoTemplate::get_after_markup());
 
 		return ob_get_clean();
 	}

@@ -36,9 +36,9 @@ if(isset($current)) {
                 <?php PeepSoTemplate::exec_template('activity', 'activity-placeholder'); ?>
               </div>
 
-              <div id="ps-no-posts" class="ps-posts__empty"><?php echo __('No posts found.', 'peepso-core'); ?></div>
-              <div id="ps-no-posts-match" class="ps-posts__empty"><?php echo __('No posts found.', 'peepso-core'); ?></div>
-              <div id="ps-no-more-posts" class="ps-posts__empty"><?php echo __('Nothing more to show.', 'peepso-core'); ?></div>
+              <div id="ps-no-posts" class="ps-posts__empty"><?php echo esc_attr__('No posts found.', 'peepso-core'); ?></div>
+              <div id="ps-no-posts-match" class="ps-posts__empty"><?php echo esc_attr__('No posts found.', 'peepso-core'); ?></div>
+              <div id="ps-no-more-posts" class="ps-posts__empty"><?php echo esc_attr__('Nothing more to show.', 'peepso-core'); ?></div>
 
               <?php PeepSoTemplate::exec_template('activity','dialogs'); ?>
             </div>

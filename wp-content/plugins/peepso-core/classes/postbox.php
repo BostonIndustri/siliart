@@ -96,11 +96,11 @@ class PeepSoPostbox extends PeepSoAjaxCallback
 
 		$fOutput = FALSE;
 		foreach ($inter as $key => $data) {
-            echo '<div id="', $data['id'], '"';
+            echo '<div id="', esc_attr($data['id']), '"';
             if (!empty($data['class']))
-                echo ' class="', $data['class'], ' ps-js-interaction-wrapper"';
+                echo ' class="', esc_attr($data['class']), ' ps-js-interaction-wrapper"';
             if (!empty($data['style']))
-                echo ' style="', $data['style'], '"';
+                echo ' style="', esc_attr($data['style']), '"';
             echo '><div class="ps-js-interaction-wrapper ps-js-postbox-toggle">';
             if (!empty($data['click'])) {
                 echo '<a';
@@ -116,12 +116,12 @@ class PeepSoPostbox extends PeepSoAjaxCallback
                     $data['icon'] = array($data['icon']);
                 }
                 for ($i = 0; $i < count($data['icon']); $i++) {
-                    echo '<i class="ps-icon ', $data['icon'][$i], '"></i>', PHP_EOL;
+                    echo '<i class="ps-icon ', esc_attr($data['icon'][$i]), '"></i>', PHP_EOL;
                 }
             }
 
             if (isset($data['icon_html'])) {
-                echo '<span class="ps-postbox__menu-item-label">', $data['icon_html'] , '</span><em class="gcis gci-chevron-down"></em>' , PHP_EOL;
+                echo '<span class="ps-postbox__menu-item-label">', wp_kses_post($data['icon_html']) , '</span><em class="gcis gci-chevron-down"></em>' , PHP_EOL;
 
             }
 
@@ -288,7 +288,7 @@ class PeepSoPostbox extends PeepSoAjaxCallback
 		$tabs = apply_filters('peepso_postbox_tabs', array());
 
 		foreach ($tabs as $id => $html) {
-			echo '<div class="ps-postbox__view" data-tab-id="', $id, '">';
+			echo '<div class="ps-postbox__view" data-tab-id="', esc_attr($id), '">';
 			echo $html;
 			echo '</div>';
 		}

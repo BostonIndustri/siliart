@@ -35,18 +35,18 @@ if ( isset( $html ) ) {
 			<?php if ($thumbnail['type'] === 'audio') { ?>
 				<audio preload="metadata" controls
 						src="<?php echo $thumbnail['value']; ?>">
-					<?php echo __('Sorry, your browser does not support embedded audio.', 'peepso-core') ?>
+					<?php echo esc_attr__('Sorry, your browser does not support embedded audio.', 'peepso-core') ?>
 				</audio>
 			<?php } else if ($thumbnail['type'] === 'video') { ?>
 				<video preload="metadata" controls>
 					<source src="<?php echo $thumbnail['value']; ?>"
 						type="<?php echo $mime_type; ?>">
-					<?php echo __('Sorry, your browser does not support embedded video.', 'peepso-core') ?>
+					<?php echo esc_attr__('Sorry, your browser does not support embedded video.', 'peepso-core') ?>
 				</video>
 			<?php } else if ($thumbnail['type'] === 'image') { ?>
 				<a class="ps-media__cover-inner ps-media-cover" href="<?php echo $url; ?>" <?php echo $linkAttr; ?> style="background-image:url('<?php echo $thumbnail['value']; ?>');">
 					<img class="ps-media__cover-image" src="<?php echo $thumbnail['value']; ?>"
-						alt="<?php echo __('preview thumbnail', 'peepso-core') ?>" />
+						alt="<?php echo esc_attr__('preview thumbnail', 'peepso-core') ?>" />
 				</a>
 			<?php } else {
 				echo $thumbnail['value'];

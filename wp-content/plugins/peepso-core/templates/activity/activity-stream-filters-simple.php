@@ -25,7 +25,7 @@ $user_stream_filters = PeepSoUser::get_stream_filters();
 
         <div class="ps-posts__filters-group ps-posts__filters-group--primary">
             <a href="javascript:" class="ps-posts__filters-toggle ps-js-activitystream-filters-toggle">
-                <?php echo __('Filters', 'peepso-core'); ?>:
+                <?php echo esc_attr__('Filters', 'peepso-core'); ?>:
                 <span></span>
             </a>
             <div class="ps-posts__filters-wrapper ps-js-activitystream-filters-wrapper" style="display:none">
@@ -65,8 +65,8 @@ $user_stream_filters = PeepSoUser::get_stream_filters();
                             </a>
                         <?php } ?>
                         <div class="ps-posts__filter-actions">
-                            <button class="ps-posts__filter-action ps-btn ps-btn--sm ps-js-cancel"><?php echo __('Cancel', 'peepso-core'); ?></button>
-                            <button class="ps-posts__filter-action ps-btn ps-btn--sm ps-btn--action ps-js-apply"><?php echo __('Apply', 'peepso-core'); ?></button>
+                            <button class="ps-posts__filter-action ps-btn ps-btn--sm ps-js-cancel"><?php echo esc_attr__('Cancel', 'peepso-core'); ?></button>
+                            <button class="ps-posts__filter-action ps-btn ps-btn--sm ps-btn--action ps-js-apply"><?php echo esc_attr__('Apply', 'peepso-core'); ?></button>
                         </div>
                     </div>
                 </div>
@@ -107,8 +107,8 @@ $user_stream_filters = PeepSoUser::get_stream_filters();
                             </a>
                         <?php } ?>
                         <div class="ps-posts__filter-actions">
-                            <button class="ps-posts__filter-action ps-btn ps-btn--sm ps-js-cancel"><?php echo __('Cancel', 'peepso-core'); ?></button>
-                            <button class="ps-posts__filter-action ps-btn ps-btn--sm ps-btn--action ps-js-apply"><?php echo __('Apply', 'peepso-core'); ?></button>
+                            <button class="ps-posts__filter-action ps-btn ps-btn--sm ps-js-cancel"><?php echo esc_attr__('Cancel', 'peepso-core'); ?></button>
+                            <button class="ps-posts__filter-action ps-btn ps-btn--sm ps-btn--action ps-js-apply"><?php echo esc_attr__('Apply', 'peepso-core'); ?></button>
                         </div>
                     </div>
                 </div>
@@ -137,22 +137,22 @@ $user_stream_filters = PeepSoUser::get_stream_filters();
 
             <input type="hidden" id="peepso_search" value="<?php echo $show_my_posts; ?>" />
             <div class="ps-posts__filter ps-posts__filter--search ps-js-dropdown ps-js-activitystream-filter" data-id="peepso_search">
-                <a class="ps-posts__filter-toggle ps-js-dropdown-toggle" aria-haspopup="true" aria-label="<?php echo __('Search', 'peepso-core'); ?>">
+                <a class="ps-posts__filter-toggle ps-js-dropdown-toggle" aria-haspopup="true" aria-label="<?php echo esc_attr__('Search', 'peepso-core'); ?>">
                     <i class="gcis gci-search"></i>
-                    <span data-empty="<?php //echo __('Search', 'peepso-core'); ?>"
-                          data-keyword="<?php echo __('Search: ', 'peepso-core'); ?>"></span>
+                    <span data-empty="<?php //echo esc_attr__('Search', 'peepso-core'); ?>"
+                          data-keyword="<?php echo esc_attr__('Search: ', 'peepso-core'); ?>"></span>
                 </a>
                 <div class="ps-posts__filter-box ps-posts__filter-box--search ps-js-dropdown-menu" role="menu">
                     <div class="ps-posts__filter-search">
                         <i class="gcis gci-search"></i><input type="text" id="ps-activitystream-search" class="ps-input ps-input--sm"
-                                                              placeholder="<?php echo __('Type to search', 'peepso-core'); ?>" value="<?php echo $search;?>" />
+                                                              placeholder="<?php echo esc_attr__('Type to search', 'peepso-core'); ?>" value="<?php echo $search;?>" />
                     </div>
 
                     <a role="menuitem" class="ps-posts__filter-select" data-option-value="exact">
                         <div class="ps-checkbox">
                             <input type="radio" name="peepso_search" id="peepso_search_opt_exact" value="exact" checked />
                             <label for="peepso_search_opt_exact">
-                                <span><?php echo __('Exact phrase', 'peepso-core'); ?></span>
+                                <span><?php echo esc_attr__('Exact phrase', 'peepso-core'); ?></span>
                             </label>
                         </div>
                     </a>
@@ -160,13 +160,13 @@ $user_stream_filters = PeepSoUser::get_stream_filters();
                         <div class="ps-checkbox">
                             <input type="radio" name="peepso_search" id="peepso_search_opt_any" value="any" />
                             <label for="peepso_search_opt_any">
-                                <span><?php echo __('Any of the words', 'peepso-core'); ?></span>
+                                <span><?php echo esc_attr__('Any of the words', 'peepso-core'); ?></span>
                             </label>
                         </div>
                     </a>
                     <div class="ps-posts__filter-actions">
-                        <button class="ps-posts__filter-action ps-btn ps-btn--sm ps-js-cancel"><?php echo __('Cancel', 'peepso-core'); ?></button>
-                        <button class="ps-posts__filter-action ps-btn ps-btn--sm ps-btn--action ps-js-search"><?php echo __('Search', 'peepso-core'); ?></button>
+                        <button class="ps-posts__filter-action ps-btn ps-btn--sm ps-js-cancel"><?php echo esc_attr__('Cancel', 'peepso-core'); ?></button>
+                        <button class="ps-posts__filter-action ps-btn ps-btn--sm ps-btn--action ps-js-search"><?php echo esc_attr__('Search', 'peepso-core'); ?></button>
                     </div>
                 </div>
             </div>

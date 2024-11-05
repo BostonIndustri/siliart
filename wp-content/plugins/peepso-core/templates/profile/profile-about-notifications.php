@@ -35,10 +35,10 @@ if(!$can_edit) {
                     <!-- Notifications intensity -->
                     <div class="ps-profile__notifications-row" id="peepso_email_intensity_container">
                         <?php if(count($other_notifications) > 0) { ?>
-                        <h2 class="ps-profile__notifications-title"><?php echo __('Community notifications','peepso-core');?></h2>
+                        <h2 class="ps-profile__notifications-title"><?php echo esc_attr__('Community notifications','peepso-core');?></h2>
                         <?php } ?>
                         <div class="ps-profile__notifications-row-title">
-                            <?php echo __('Email notification intensity','peepso-core');?>
+                            <?php echo esc_attr__('Email notification intensity','peepso-core');?>
                         </div>
 
                         <?php
@@ -78,13 +78,13 @@ if(!$can_edit) {
                     <!-- Notifications -->
                     <!-- <div class="ps-profile__notifications-row">
     						<div class="ps-profile__notifications-row-title">
-    							<?php echo __('Notification preferences','peepso-core');?>
+    							<?php echo esc_attr__('Notification preferences','peepso-core');?>
     						</div>
 
     						<div class="ps-profile__notifications-row-desc">
     							<p>
     								<?php
-                    echo __('Email notifications require an on-site notification enabled.', 'peepso-core');
+                    echo esc_attr__('Email notifications require an on-site notification enabled.', 'peepso-core');
                     echo ' ' . sprintf(__('You can also use %s to quickly manage all notifications.', 'peepso-core'), '<a href="#shortcuts">'.__('shortcuts','peepso-core').'</a>');
                     ?>
     							</p>
@@ -105,12 +105,12 @@ if(!$can_edit) {
                     <!-- Shortcuts -->
                     <div class="ps-profile__notifications-row" id="shortcuts">
                         <div class="ps-profile__notifications-row-title">
-                            <?php echo __('Shortcuts','peepso-core');?>
+                            <?php echo esc_attr__('Shortcuts','peepso-core');?>
                         </div>
 
                         <div class="ps-profile__notifications-row-desc">
                             <p>
-                                <?php echo __('Quickly manage all your preferences at once.', 'peepso-core');?>
+                                <?php echo esc_attr__('Quickly manage all your preferences at once.', 'peepso-core');?>
                             </p>
                         </div>
 
@@ -127,14 +127,14 @@ if(!$can_edit) {
                                data-context="<?php echo isset($context) ? isset($context) : '';?>"
                                data-type="all"
                                href="<?php echo admin_url('admin-ajax.php?action=peepso_user_subscribe_all&_wpnonce=' . wp_create_nonce('peepso-user-subscribe-all') .'&redirect') ?>">
-                                <?php echo __('Enable all', 'peepso-core');?>
+                                <?php echo esc_attr__('Enable all', 'peepso-core');?>
                             </a>
 
                             <a class="ps-profile__notifications-shortcut ps-btn ps-btn--xs ps-js-preferences-button" role="menuitem"
                                href="<?php echo admin_url('admin-ajax.php?action=peepso_user_unsubscribe_onsite&_wpnonce=' . wp_create_nonce('peepso-user-unsubscribe-onsite') .'&redirect') ?>"
                                data-action="disable"
                                data-type="all">
-                                <?php echo __('Disable all', 'peepso-core');?>
+                                <?php echo esc_attr__('Disable all', 'peepso-core');?>
                             </a>
 
                             <a class="ps-profile__notifications-shortcut ps-btn ps-btn--xs ps-js-preferences-button" role="menuitem"
@@ -142,7 +142,7 @@ if(!$can_edit) {
                                data-type="email"
                                style="<?php echo $is_realtime ? '' : 'display:none'; ?>"
                                href="<?php echo admin_url('admin-ajax.php?action=peepso_user_unsubscribe_emails&_wpnonce=' . wp_create_nonce('peepso-user-unsubscribe-emails') .'&redirect')?>">
-                                <?php echo __('Disable emails', 'peepso-core');?>
+                                <?php echo esc_attr__('Disable emails', 'peepso-core');?>
                             </a>
 
                             <?php
@@ -152,19 +152,19 @@ if(!$can_edit) {
                             <a class="ps-profile__notifications-shortcut ps-btn ps-btn--xs ps-js-preferences-button" role="menuitem"
                                data-action="reset"
                                href="<?php echo admin_url('admin-ajax.php?action=peepso_user_reset_notifications&_wpnonce=' . wp_create_nonce('peepso-user-reset-notifications') .'&redirect') ?>">
-                                <?php echo __('Reset to default', 'peepso-core');?>
+                                <?php echo esc_attr__('Reset to default', 'peepso-core');?>
                             </a>
                         </div>
                     </div>
 
                     <div class="ps-profile__notifications-row">
                         <div class="ps-profile__notifications-row-title">
-                            <?php echo __('All notifications','peepso-core');?>
+                            <?php echo esc_attr__('All notifications','peepso-core');?>
                         </div>
 
                         <div class="ps-profile__notifications-row-desc">
                             <p>
-                                <?php echo __('Email notifications require an on-site notification enabled.', 'peepso-core');?>
+                                <?php echo esc_attr__('Email notifications require an on-site notification enabled.', 'peepso-core');?>
                             </p>
                         </div>
 
@@ -186,7 +186,7 @@ if(!$can_edit) {
                     <?php if(PeepSo::is_dev_mode('web_push') && PeepSo::get_option('web_push')) { ?>
                     <div class="ps-profile__notifications-row" id="shortcuts">
                         <div class="ps-profile__notifications-row-title">
-                            <?php echo __('Web Push Notifications','peepso-core');?>
+                            <?php echo esc_attr__('Web Push Notifications','peepso-core');?>
                         </div>
 
                         <?php
@@ -197,7 +197,7 @@ if(!$can_edit) {
                             <div class="ps-form__field">
                                 <div class="ps-profile__notification ps-preferences__notification">
                                     <label for="ps-js-opt-browser-push" class="ps-profile__notification-label">
-                                        <?php echo __('Receive Web Push Notifications in your browser for all enabled on-site notifications.', 'peepso-core'); ?>
+                                        <?php echo esc_attr__('Receive Web Push Notifications in your browser for all enabled on-site notifications.', 'peepso-core'); ?>
                                         <span class="ps-form__check ps-js-loading">
 												<img src="<?php echo PeepSo::get_asset('images/ajax-loader.gif') ?>" />
 												<i class="gcis gci-check"></i>
@@ -222,7 +222,7 @@ if(!$can_edit) {
                         <div class="ps-profile__notifications ps-profile__notifications--other">
                             <div class="ps-profile__notifications-row">
                                 <div class="ps-profile__list ps-js-profile-list">
-                                    <h2 class="ps-profile__notifications-title"><?php echo __('Other notifications','peepso-core');?></h2>
+                                    <h2 class="ps-profile__notifications-title"><?php echo esc_attr__('Other notifications','peepso-core');?></h2>
                                     <?php $PeepSoProfile->notifications_form_fields(); ?>
                                 </div>
                             </div>

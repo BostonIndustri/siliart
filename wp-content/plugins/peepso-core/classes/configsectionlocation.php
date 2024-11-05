@@ -24,9 +24,9 @@ class PeepSoConfigSectionLocation extends PeepSoConfigSectionAbstract
 
 
         ob_start();
-        echo __('A Google maps API key is required for the Location suggestions to work properly','peepso-core') . '<br/>' . __('You can get the API key', 'peepso-core'); ?>
+        echo esc_attr(__('A Google maps API key is required for the Location suggestions to work properly','peepso-core')) . '<br/>' . esc_attr(__('You can get the API key', 'peepso-core')); ?>
         <a href="https://developers.google.com/maps/documentation/javascript/get-api-key" target="_blank">
-            <?php echo __('here', 'peepso-core');?>
+            <?php echo esc_attr(__('here', 'peepso-core'));?>
         </a>.
 
         <?php

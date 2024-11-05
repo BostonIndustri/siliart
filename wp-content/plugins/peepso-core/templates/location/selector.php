@@ -5,12 +5,12 @@
 		</div>
 		<div class="ps-location__box ps-js-location-result">
 			<div class="ps-location__list ps-js-location-list">
-				<div class="ps-location__select ps-js-location-placeholder"><i class="gcis gci-map-marked-alt"></i> <?php echo __('Enter location name...', 'peepso-core'); ?></div>
+				<div class="ps-location__select ps-js-location-placeholder"><i class="gcis gci-map-marked-alt"></i> <?php echo esc_attr__('Enter location name...', 'peepso-core'); ?></div>
 			</div>
 			<div class="ps-location__view ps-js-location-map"></div>
 			<div class="ps-location__actions">
-				<a href="#" class="ps-btn ps-btn--sm ps-btn--action ps-js-select"><?php echo __('Select', 'peepso-core'); ?></a>
-				<a href="#" class="ps-btn ps-btn--sm ps-btn--abort ps-js-remove"><?php echo __('Remove', 'peepso-core'); ?></a>
+				<a href="#" class="ps-btn ps-btn--sm ps-btn--action ps-js-select"><?php echo esc_attr__('Select', 'peepso-core'); ?></a>
+				<a href="#" class="ps-btn ps-btn--sm ps-btn--abort ps-js-remove"><?php echo esc_attr__('Remove', 'peepso-core'); ?></a>
 			</div>
 		</div>
 	</div>

@@ -25,9 +25,9 @@ wp_enqueue_media();
 	<?php if(1 != get_user_meta(get_current_user_id(), 'peepso_vip_hide_admin_tutorial', TRUE)) { ?>
 	<div id="ps-vipicons-admin-tutorial">
 		<p>
-			<h3><?php echo __('Welcome to  PeepSo VIP', 'peepso-core');?></h3>
-			<h4><?php echo __('Here\'s what you should know:', 'peepso-core');?></h4>
-			<a href="<?php echo esc_attr($_SERVER['REQUEST_URI']);?>&dismiss-admin-tutorial"><small>(<?php echo __('click here to dismiss permanently', 'peepso-core');?>)</small></a>
+			<h3><?php echo esc_attr__('Welcome to  PeepSo VIP', 'peepso-core');?></h3>
+			<h4><?php echo esc_attr__('Here\'s what you should know:', 'peepso-core');?></h4>
+			<a href="<?php echo esc_attr($_SERVER['REQUEST_URI']);?>&dismiss-admin-tutorial"><small>(<?php echo esc_attr__('click here to dismiss permanently', 'peepso-core');?>)</small></a>
 		</p>
 		<img src="<?php echo $assets_url . 'images' . DIRECTORY_SEPARATOR;?>vip-admin-tutorial.png" />
 	</div>
@@ -74,14 +74,14 @@ if(@is_dir($user_svg_dir)) {
 ?>
 
 <div id="ps-vipicons-icon-picker">
-	<a href="#" id="ps-vipicons-icon-picker-toggle" onclick="return false;"><i class="ps-icon-cancel"></i> <?php echo __('Cancel','peepso-core');?></a>
+	<a href="#" id="ps-vipicons-icon-picker-toggle" onclick="return false;"><i class="ps-icon-cancel"></i> <?php echo esc_attr__('Cancel','peepso-core');?></a>
 	<input type="hidden" id="icon-picker-current" />
 	<h3>Media Library</h3>
 	<p>
-		<a class="btn btn-sm btn-info btn-img-vipicon" href="#"><?php echo __('Add icon', 'peepso-core');?></a>
+		<a class="btn btn-sm btn-info btn-img-vipicon" href="#"><?php echo esc_attr__('Add icon', 'peepso-core');?></a>
 	</p>
 	<small>
-		<?php echo __('Want to use SVG files with Media Library? We recommend', 'peepso-core');?>
+		<?php echo esc_attr__('Want to use SVG files with Media Library? We recommend', 'peepso-core');?>
 		<a href="plugin-install.php?tab=plugin-information&amp;plugin=svg-support&amp;TB_iframe=true&amp;width=772&amp;height=315" class="thickbox open-plugin-details-modal" aria-label="More information about SVG Support" data-title="SVG Support">SVG Support by Benbohdi</a>.
 	</small>
 
@@ -100,7 +100,7 @@ foreach($images as $category=>$files) {
 	}
 
 	if(!count($files)) {
-		echo __('No icons','peepso-core');
+		echo esc_attr__('No icons','peepso-core');
 		continue;
 	}
 

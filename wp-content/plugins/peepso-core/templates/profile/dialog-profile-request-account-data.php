@@ -1,8 +1,8 @@
-<p><?php echo __('Please enter your password to continue.', 'peepso-core');?></p>
+<p><?php echo esc_attr__('Please enter your password to continue.', 'peepso-core');?></p>
 <form class="ps-form--profile-request-account-data">
 	<div class="ps-form__row">
 		<label class="ps-form__label" for="ps-js-export-data-request-pass">
-			<?php echo __('Password', 'peepso-core'); ?>
+			<?php echo esc_attr__('Password', 'peepso-core'); ?>
 		</label>
 		<div class="ps-form__field">
 			<input type="password" class="ps-input <?php echo PeepSo::get_option_new('password_preview_enable') ? 'ps-js-password-preview' : '' ?>"

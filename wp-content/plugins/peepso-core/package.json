@@ -25,7 +25,7 @@
     "fg-loadcss": "^3.1.0",
     "imagesloaded": "^5.0.0",
     "load-script": "^2.0.0",
-    "marked": "^4.2.5",
+    "marked": "^2.1.x",
     "object-assign": "^4.1.1",
     "promise": "^8.3.0",
     "swipejs": "github:rsusanto/swipe#rtl-support",

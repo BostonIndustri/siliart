@@ -1,4 +1,4 @@
-<div><?php echo __('Are you sure want to remove this cover image?', 'peepso-core'); ?></div>
+<div><?php echo esc_attr__('Are you sure want to remove this cover image?', 'peepso-core'); ?></div>
 
 <?php
 

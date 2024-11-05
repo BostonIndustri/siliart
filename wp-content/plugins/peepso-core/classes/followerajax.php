@@ -46,7 +46,7 @@ class PeepSoFollowerAjax extends PeepSoAjaxCallback
 
         if (count($users)) {
             foreach ($users as $user) {
-                echo '<div class="ps-member ps-js-member" data-user-id="' . $user->uf_active_user_id . '">';
+                echo '<div class="ps-member ps-js-member" data-user-id="' . esc_attr($user->uf_active_user_id) . '">';
                 echo '<div class="ps-member__inner">';
                 PeepSoTemplate::exec_template('members', 'member-item', array(
                     'hide_member_buttons_extra' => TRUE,
@@ -90,7 +90,7 @@ class PeepSoFollowerAjax extends PeepSoAjaxCallback
 
         if (count($users)) {
             foreach ($users as $user) {
-                echo '<div class="ps-member ps-js-member" data-user-id="' . $user->uf_passive_user_id . '">';
+                echo '<div class="ps-member ps-js-member" data-user-id="' . esc_attr($user->uf_passive_user_id) . '">';
                 echo '<div class="ps-member__inner">';
                 PeepSoTemplate::exec_template('members', 'member-item', array(
                     'hide_member_buttons_extra' => TRUE,

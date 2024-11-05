@@ -19,7 +19,7 @@ $max = 0;
     <div class="ps-widget__header--external"><?php
         if (trim($title)) {
             echo isset($widget_instance['before_title']) ? $widget_instance['before_title'] : '<h2>';
-            echo $title;
+            echo esc_attr($title);
             echo isset($widget_instance['after_title']) ? $widget_instance['after_title'] : '</h2>';
         }
     ?></div>
@@ -37,7 +37,7 @@ $max = 0;
     <div class="ps-widget__body--external">
         <div class="ps-widget--hashtags">
             <?php $wrapper = (1 == $displaystyle || 2 == $displaystyle) ? ' ps-widget__hashtags--list' : ''; ?>
-            <div class="ps-widget__hashtags<?php echo $wrapper; ?>">
+            <div class="ps-widget__hashtags<?php echo esc_attr($wrapper); ?>">
                 <?php foreach ($result as $name => $count) { ?>
                 <?php
 
@@ -52,8 +52,8 @@ $max = 0;
                     }
 
                 ?>
-                    <a data-debug="<?php echo "#$name ($count / $percentage%)";?>" class="ps-hashtag <?php echo $size; ?>" href="<?php echo PeepSo::hashtag_url($name);?>">
-                        #<?php echo $name;?>
+                    <a data-debug="<?php echo esc_attr("#$name ($count / $percentage%)");?>" class="ps-hashtag <?php echo esc_attr($size); ?>" href="<?php echo esc_url(PeepSo::hashtag_url($name));?>">
+                        #<?php echo esc_attr($name);?>
                     </a>
 
                 <?php } ?>
@@ -63,7 +63,7 @@ $max = 0;
 
     <?php } else { ?>
     <div class="ps-widget__body--external">
-        <span class='ps-text--muted'><?php echo __('No hashtags', 'peepso-core');?></span>
+        <span class='ps-text--muted'><?php echo esc_attr__('No hashtags', 'peepso-core');?></span>
     </div>
     <?php } ?>
 </div>

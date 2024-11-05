@@ -96,21 +96,21 @@ class PeepSoMailqueueListTable extends PeepSoListTable
 
 					?>
 
-					<a href="<?php echo $user->get_profileurl();?>" target="_blank">
-						<img src="<?php echo $user->avatar;?>" width="24" height="24" alt="" style="float:left;margin-right:10px;"/>
+					<a href="<?php echo esc_url($user->get_profileurl());?>" target="_blank">
+						<img src="<?php echo esc_url($user->avatar);?>" width="24" height="24" alt="" style="float:left;margin-right:10px;"/>
 
 						<div style=float:left>
-							<?php echo $user->get_fullname();?>
+							<?php echo esc_attr($user->get_fullname());?>
 							<i class="fa fa-external-link"></i>
 						</div>
 					</a>
 
 				<?php endif; ?>
 				<br/>
-				<small style="color:<?php echo $this->color_mail_status($item);?>"><i class="fa fa-<?php echo $fa;?>"></i> <?php echo $item['mail_recipient'];?></small>
+				<small style="color:<?php echo esc_attr($this->color_mail_status($item));?>"><i class="fa fa-<?php echo esc_attr($fa);?>"></i> <?php echo wp_kses_post($item['mail_recipient']);?></small>
 
 				<div style="clear:both;margin-bottom:5px;"></div>
-				<i><?php echo $item['mail_subject'];?></i>
+				<i><?php echo wp_kses_post($item['mail_subject']);?></i>
 				<?php
                 return ob_get_clean();
 		}
@@ -291,8 +291,8 @@ class PeepSoMailqueueListTable extends PeepSoListTable
 			$nonce = wp_create_nonce('process-mailqueue-nonce');
 			echo '
 			<div class="alignleft actions">
-				<a href="', admin_url('admin.php?page=peepso-queue&action=process-mailqueue&_wpnonce=' . $nonce), '">
-					<input type="button" class="button" value="', __('Process Emails', 'peepso-core'), '" />
+				<a href="', esc_url(admin_url('admin.php?page=peepso-queue&action=process-mailqueue&_wpnonce=' . $nonce)), '">
+					<input type="button" class="button" value="', esc_attr(__('Process Emails', 'peepso-core')), '" />
 				</a>
 			</div>';
 
@@ -303,13 +303,13 @@ class PeepSoMailqueueListTable extends PeepSoListTable
 				if ($completion_estimate) {
 					$completion_estimate = ceil($completion_estimate / 60);
 					echo '<div class="alignright actions admin-tablenav"> &nbsp; ', PHP_EOL;
-					echo '<span>', sprintf(__('Estimated time until Mail Queue is empty: %1$d %2$s.', 'peepso-core'),
-							$completion_estimate, _n('minute', 'minutes', $completion_estimate, 'peepso-core')), '</span>', PHP_EOL;
+					echo '<span>', sprintf(esc_attr(__('Estimated time until Mail Queue is empty: %1$d %2$s.', 'peepso-core'),
+							$completion_estimate, _n('minute', 'minutes', $completion_estimate, 'peepso-core'))), '</span>', PHP_EOL;
 					echo '</div>', PHP_EOL;
 				}
 			} else {
 				echo '<div class="alignright actions admin-tablenav"> &nbsp; ';
-				echo '<span><a href=?page=peepso_config&tab=advanced#field_disable_mailqueue>', __('The default Mailqueue is disabled', 'peepso-core'),'</a></span>';
+				echo '<span><a href=?page=peepso_config&tab=advanced#field_disable_mailqueue>', esc_attr(__('The default Mailqueue is disabled', 'peepso-core')),'</a></span>';
 				echo '</div>', PHP_EOL;
 			}
 		}

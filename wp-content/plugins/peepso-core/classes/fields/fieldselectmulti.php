@@ -46,9 +46,7 @@ class PeepSoFieldSelectMulti extends PeepSoFieldSelectSingle {
 		foreach ($options as $k => $v) {
 
 			if (is_array($this->value) && in_array($k, $this->value)) {
-				$option = '<span id="%1$s" class="ps-profile__field-%1$s">%2$s</span>';
-
-				echo sprintf($option, $k, $v);
+				echo '<span id="'.esc_attr($k).'" class="ps-profile__field-'.esc_attr($k).'">'.esc_attr($v).'</span>';
 			}
 		}
 
@@ -60,9 +58,9 @@ class PeepSoFieldSelectMulti extends PeepSoFieldSelectSingle {
 	{
 		ob_start();
 
-		echo ' name="'.$this->input_args['name'].'"',
-			' id="'.$this->input_args['id'].'"',
-			' data-id="'.$this->id.'"';
+		echo ' name="'.esc_attr($this->input_args['name']).'"',
+			' id="'.esc_attr($this->input_args['id']).'"',
+			' data-id="'.esc_attr($this->id).'"';
 
 		return ob_get_clean();
 	}
@@ -71,11 +69,11 @@ class PeepSoFieldSelectMulti extends PeepSoFieldSelectSingle {
 	{
 		ob_start();
 
-		echo ' name="'.$this->input_args['name'].'"',
-			' data-id="'.$this->id.'"';
+		echo ' name="'.esc_attr($this->input_args['name']).'"',
+			' data-id="'.esc_attr($this->id).'"';
 
 		if (!empty($this->el_class )) {
-			echo ' class="'.$this->el_class.'"';
+			echo ' class="'.esc_attr($this->el_class).'"';
 		}
 
 		return ob_get_clean();
@@ -99,9 +97,7 @@ class PeepSoFieldSelectMulti extends PeepSoFieldSelectSingle {
 				$checked = 'checked';
 			}
 
-			$option = '<div class="ps-checkbox"><input class="ps-checkbox__input" id="%4$s-%1$s" name="%4$s" type="checkbox" %3$s value="%1$s" ' . $this->_render_input_checklist_args() . ' /> <label class="ps-checkbox__label" for="%4$s-%1$s">%2$s</label></div>';
-
-			echo sprintf($option, $k, $v, $checked, 'profile_field_' . $this->id);
+			echo '<div class="ps-checkbox"><input class="ps-checkbox__input" id="' . 'profile_field_' . esc_attr($this->id) .'-' . esc_attr($k) .'" name="'.'profile_field_' . esc_attr($this->id) .'" type="checkbox" '.esc_attr($checked).' value="'.esc_attr($k).'" ' . wp_kses_post($this->_render_input_checklist_args()) . ' /> <label class="ps-checkbox__label" for="' . 'profile_field_' . esc_attr($this->id) .'-' . esc_attr($k) .'">'.esc_attr($v).'</label></div>';
 		}
 
 		$ret = ob_get_clean();
@@ -127,9 +123,7 @@ class PeepSoFieldSelectMulti extends PeepSoFieldSelectSingle {
 			}
 
 			// in registration page set name to `name[]` so we can get as an array
-			$option = '<div class="ps-checkbox"><input class="ps-checkbox__input" name="%4$s[]" type="checkbox" %3$s value="%1$s" id="%1$s" ' . $this->_render_input_checklist_register_args(). ' /> <label class="ps-checkbox__label" for="%1$s">%2$s</label></div>';
-
-			echo sprintf($option, $k, $v, $checked, 'profile_field_' . $this->id);
+			echo '<div class="ps-checkbox"><input class="ps-checkbox__input" name="'.'profile_field_' . esc_attr($this->id).'[]" type="checkbox" '.esc_attr($checked).' value="'.esc_attr($k).'" id="'.esc_attr($k).'" ' . wp_kses_post($this->_render_input_checklist_register_args()). ' /> <label class="ps-checkbox__label" for="'.esc_attr($k).'">'.esc_attr($v).'</label></div>';
 		}
 
 		$ret = ob_get_clean();

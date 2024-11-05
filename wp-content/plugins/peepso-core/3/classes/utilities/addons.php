@@ -186,6 +186,10 @@ class PeepSo3_Helper_Addons {
             $args['show_alsp'] = 0;
         }
 
+        if(class_exists('PeepSoNewAppPlugin')) {
+            $args['show_app'] = 0;
+        }
+
         if($discount) {
             $args['discount'] = $discount;
         }

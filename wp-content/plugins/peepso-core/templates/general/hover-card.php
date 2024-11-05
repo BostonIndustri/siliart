@@ -19,7 +19,7 @@
 					<span class="ps-js-likes">0</span>
 				</span>
 				<a href="#" class="ps-hovercard__actions ps-js-link">
-					<?php echo __('Visit profile', 'peepso-core'); ?>
+					<?php echo esc_attr__('Visit profile', 'peepso-core'); ?>
 				</a>
 			</div>
 		</div>

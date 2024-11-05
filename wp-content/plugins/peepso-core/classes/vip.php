@@ -118,13 +118,13 @@ class PeepSoVIP {
     public function vip_user_profile_fields($user)
     {
         ?>
-        <h3><?php echo __('VIP', 'peepso-core');?></h3>
+        <h3><?php echo esc_attr(__('VIP', 'peepso-core'));?></h3>
         <table class="form-table">
             <tr class="user-admin-color-wrap">
-                <th scope="row"><?php echo __('Icon to display next to name/username in PeepSo', 'peepso-core');?></th>
+                <th scope="row"><?php echo esc_attr(__('Icon to display next to name/username in PeepSo', 'peepso-core'));?></th>
                 <td>
                     <fieldset id="vip-icons" class="scheme-list">
-                        <legend class="screen-reader-text"><span><?php echo __('Icon to display', 'peepso-core');?></span></legend>
+                        <legend class="screen-reader-text"><span><?php echo esc_attr(__('Icon to display', 'peepso-core'));?></span></legend>
                         <?php
                         $PeepSoVipIconsModel = new PeepSoVipIconsModel();
                         $selectedIcon = get_the_author_meta( 'peepso_vip_user_icon', $user->ID );
@@ -135,9 +135,9 @@ class PeepSoVIP {
                         foreach ($PeepSoVipIconsModel->vipicons as $key => $value) {
                             ?>
                             <div class="color-option">
-                                <input name="peepso_vip_user_icon[]" id="vip_icon_<?php echo $key;?>" type="checkbox" value="<?php echo $value->post_id;?>" class="tog" <?php echo (in_array($value->post_id, $selectedIcon)) ? 'checked="checked"' : '';?>>
-                                <label for="vip_icon_<?php echo $key;?>"><?php echo $value->title;?> <?php  if(!intval($value->published)) { echo "<small>(".__('unpublished', 'peepso-core').")</small>"; }  ?></label>
-                                <img src="<?php echo $value->icon_url;?>" style="width: auto; height: 16px;">
+                                <input name="peepso_vip_user_icon[]" id="vip_icon_<?php echo esc_attr($key);?>" type="checkbox" value="<?php echo esc_attr($value->post_id);?>" class="tog" <?php echo (in_array($value->post_id, $selectedIcon)) ? 'checked="checked"' : '';?>>
+                                <label for="vip_icon_<?php echo esc_attr($key);?>"><?php echo esc_attr($value->title);?> <?php  if(!intval($value->published)) { echo "<small>(".esc_attr(__('unpublished', 'peepso-core')).")</small>"; }  ?></label>
+                                <img src="<?php echo esc_url($value->icon_url);?>" style="width: auto; height: 16px;">
                             </div>
                             <?php
                         }
@@ -176,8 +176,8 @@ class PeepSoVIP {
 
         if($amount>1) {
             ?>
-            <div class="ps-vip__counter ps-js-vip-badge" data-id="<?php echo $user_id ?>">
-                +<?php echo $amount; ?></div>
+            <div class="ps-vip__counter ps-js-vip-badge" data-id="<?php echo esc_attr($user_id) ?>">
+                +<?php echo esc_attr($amount); ?></div>
             <?php
         }
     }
@@ -206,17 +206,18 @@ class PeepSoVIP {
                         $more++;
                     }
 
-                    echo '<img src="' . $vipicon->icon_url . '" alt="'.$vipicon->title.'"  title="'.$vipicon->title
-                        .'" class="ps-vip__icon ps-js-vip-badge '.$class.'" data-id="'.$user_id.'"> ';
+                    echo '<img src="' . esc_url($vipicon->icon_url) . '" alt="'.esc_attr($vipicon->title).'"  title="'.esc_attr($vipicon->title)
+                        .'" class="ps-vip__icon ps-js-vip-badge '.esc_attr($class).'" data-id="'.esc_attr($user_id).'"> ';
 
-                    $last_icon = '<img src="' . $vipicon->icon_url . '" alt="'.$vipicon->title.'"  title="'.$vipicon->title
-                        .'" class="ps-vip__icon ps-js-vip-badge" data-id="'.$user_id.'"> ';
+                    $last_icon = '<img src="' . esc_url($vipicon->icon_url) . '" alt="'.esc_attr($vipicon->title).'"  title="'.esc_attr($vipicon->title)
+                        .'" class="ps-vip__icon ps-js-vip-badge" data-id="'.esc_attr($user_id).'"> ';
 
                     $i++;
                 }
             }
 
-            echo $this->more_icons($more, $last_icon, $user_id);
+            $more_icons = $this->more_icons($more, $last_icon, $user_id);
+            echo $more_icons !== null ? wp_kses_post($more_icons) : "";
         }
 
     }
@@ -226,7 +227,7 @@ class PeepSoVIP {
         $icons = get_the_author_meta( 'peepso_vip_user_icon', $user_id );
         $icons = $this->sort_icons($icons);
         $display = PeepSo::get_option('vipso_where_to_display', 1);
-        $limit = PeepSo::get_option('vipso_display_how_many', 10);
+        $limit = 2;
         if( $display == self::VIP_ICON_AFTER_FULLNAME && is_array($icons) && count($icons) > 0) {
             $PeepSoVipIconsModel = new PeepSoVipIconsModel();
 
@@ -245,17 +246,18 @@ class PeepSoVIP {
                         $more++;
                     }
 
-                    echo ' <img src="' . $vipicon->icon_url . '" alt="'.$vipicon->title.'" title="'.$vipicon->title
-                        .'" class="ps-vip__icon ps-js-vip-badge '.$class.'" data-id="'.$user_id.'">';
+                    echo ' <img src="' . esc_url($vipicon->icon_url) . '" alt="'.esc_attr($vipicon->title).'" title="'.esc_attr($vipicon->title)
+                        .'" class="ps-vip__icon ps-js-vip-badge '.esc_attr($class).'" data-id="'.esc_attr($user_id).'">';
 
-                    $last_icon = '<img src="' . $vipicon->icon_url . '" alt="'.$vipicon->title.'"  title="'.$vipicon->title
-                        .'" class="ps-vip__icon ps-js-vip-badge" data-id="'.$user_id.'"> ';
+                    $last_icon = '<img src="' . esc_url($vipicon->icon_url) . '" alt="'.esc_attr($vipicon->title).'"  title="'.esc_attr($vipicon->title)
+                        .'" class="ps-vip__icon ps-js-vip-badge" data-id="'.esc_attr($user_id).'"> ';
 
                     $i++;
                 }
             }
 
-            echo $this->more_icons($more, $last_icon, $user_id);
+            $more_icons = $this->more_icons($more, $last_icon, $user_id);
+            echo $more_icons !== null ? wp_kses_post($more_icons) : "";
         }
     }
 

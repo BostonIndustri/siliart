@@ -6,7 +6,7 @@ $ampm = preg_match('/[gh]/', $time_format);
 ?><form class="ps-form ps-form--vertical ps-form--pin-until">
 	<div class="ps-form__row">
 		<label class="ps-form__label">
-			<?php echo __('Date', 'peepso-core'); ?>
+			<?php echo esc_attr__('Date', 'peepso-core'); ?>
 		</label>
 		<div class="ps-form__field" style="display:flex">
 			<select class="ps-input ps-input--sm ps-input--select ps-postbox__pin-select ps-js-date-dd"></select>
@@ -16,7 +16,7 @@ $ampm = preg_match('/[gh]/', $time_format);
 	</div>
 	<div class="ps-form__row">
 		<label class="ps-form__label">
-			<?php echo __('Time', 'peepso-core'); ?>
+			<?php echo esc_attr__('Time', 'peepso-core'); ?>
 		</label>
 		<div class="ps-form__field" style="display:flex">
 			<select class="ps-input ps-input--sm ps-input--select ps-postbox__pin-select ps-js-time-hh"></select>

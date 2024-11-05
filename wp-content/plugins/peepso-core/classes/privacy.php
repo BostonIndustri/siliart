@@ -80,7 +80,7 @@ class PeepSoPrivacy
 
 		foreach ($options as $key => $option) {
 			printf('<a href="#" data-option-value="%d" onclick="return %s"><i class="%s"></i><span>%s</span></a>',
-				$key, $callback, $option['icon'], esc_html($option['label'])
+				esc_attr($key), esc_attr($callback), esc_attr($option['icon']), esc_html($option['label'])
 			);
 		}
 		echo '</div>';

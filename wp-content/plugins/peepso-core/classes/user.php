@@ -558,7 +558,7 @@ class PeepSoUser
         //[peepso]_[action]_[WHICH_PLUGIN]_[WHERE]_[WHAT]_[BEFORE/AFTER]
         do_action('peepso_action_render_user_name_before', $this->get_id());
 
-        echo $this->get_fullname();
+        echo esc_html($this->get_fullname());
 
         //[peepso]_[action]_[WHICH_PLUGIN]_[WHERE]_[WHAT]_[BEFORE/AFTER]
         do_action('peepso_action_render_user_name_after', $this->get_id());

@@ -120,11 +120,11 @@ td {
 </style>
 <title><?php echo sprintf(__("Conversation with %s", 'peepso-core'), $participants)?></title></head>
 <body>
-  <a href="html/messages.htm"><?php echo __('Back', 'peepso-core'); ?></a>
+  <a href="html/messages.htm"><?php echo esc_attr__('Back', 'peepso-core'); ?></a>
   <br /><br />
   <div class="thread">
     <h3><?php echo sprintf(__("Conversation with %s", 'peepso-core'), $participants)?></h3>
-    <?php echo __('Participants:', 'peepso-core'); ?> <?php echo $participants?>
+    <?php echo esc_attr__('Participants:', 'peepso-core'); ?> <?php echo $participants?>
     <?php
 		$ids = array();
 

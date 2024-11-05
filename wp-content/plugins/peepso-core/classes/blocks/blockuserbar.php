@@ -58,10 +58,10 @@ class PeepSoBlockUserBar extends PeepSoBlockAbstract
 
 		?>
 		<?php foreach ($toolbar as $item => $data) { ?>
-			<div class="ps-notif <?php echo $data['class']; ?>">
-				<a class="ps-notif__toggle" href="<?php echo $data['href']; ?>" title="<?php echo esc_attr($data['label']); ?>">
-					<i class="<?php echo $data['icon']; ?>"></i>
-					<span class="ps-notif__bubble js-counter ps-js-counter"><?php echo ($data['count'] > 0) ? $data['count'] : ''; ?></span>
+			<div class="ps-notif <?php echo esc_attr($data['class']); ?>">
+				<a class="ps-notif__toggle" href="<?php echo esc_url($data['href']); ?>" title="<?php echo esc_attr($data['label']); ?>">
+					<i class="<?php echo esc_attr($data['icon']); ?>"></i>
+					<span class="ps-notif__bubble js-counter ps-js-counter"><?php echo esc_attr(($data['count'] > 0) ? $data['count'] : ''); ?></span>
 				</a>
 			</div>
 		<?php } ?>

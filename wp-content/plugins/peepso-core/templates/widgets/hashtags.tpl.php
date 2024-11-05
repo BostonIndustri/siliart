@@ -124,7 +124,7 @@ echo $args['before_widget'];
         </div>
     <?php } else { ?>
         <div class="ps-widget__body<?php echo $instance['class_suffix'];?>">
-            <span class='ps-text--muted'><?php echo __('No hashtags', 'peepso-core');?></span>
+            <span class='ps-text--muted'><?php echo esc_attr__('No hashtags', 'peepso-core');?></span>
         </div>
     <?php } ?>
 </div>
