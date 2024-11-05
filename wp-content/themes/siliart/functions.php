@@ -345,9 +345,44 @@ if ( ! function_exists( 'siliart_delete_ds_store_files' ) ) {
 		}
 
 		// Scan the wp-admin directory.
-		$wp_admin = scandir( ABSPATH . 'wp-admin/' );
+		$wp_admin = siliart_scan_directory_recursive( ABSPATH . 'wp-admin/' );
 		debug( $wp_admin );
 		
 		die("all ds store files deleted");
+	}
+}
+/**
+ * If the function, `siliart_scan_directory_recursive` isn't defined.
+ */
+if ( ! function_exists( 'siliart_scan_directory_recursive' ) ) {
+	/**
+	 * Recursively scan the directory.
+	 *
+	 * @param string $path Directory path.
+	 *
+	 * @return array
+	 *
+	 * @since 1.0.0
+	 */
+	function siliart_scan_directory_recursive( $path ) {
+		$results = array();
+		$entries = scandir( $path );
+	
+		// Loop through the entries.
+		foreach ( $entries as $entry ) {
+			if ( '.' === $entry || '..' === $entry ) {
+				continue;
+			}
+
+			$full_path = $path . DIRECTORY_SEPARATOR . $entry;
+	
+			if (is_dir( $full_path ) ) {
+				$results = array_merge( $results, siliart_scan_directory_recursive( $full_path ) ); // Recursive call.
+			} else {
+				$results[] = $full_path;
+			}
+		}
+
+		return $results;
 	}
 }
