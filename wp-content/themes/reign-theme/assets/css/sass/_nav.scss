@@ -141,7 +141,7 @@
 }
 
 // Submenu
-#masthead .menu-item-has-children>a {
+#masthead .header-desktop .menu-item-has-children>a {
     position: relative;
 
     &:after {
@@ -2243,6 +2243,10 @@ nav.reign-navbar-mobile .navbar-nav>li>a .count {
             cursor: pointer;
             display: block;
             font-size: inherit;
+
+            &.hidden {
+                display: none;
+            }
         }
     }
 
@@ -2423,6 +2427,7 @@ nav.reign-navbar-mobile .navbar-nav>li>a .count {
 
             .reign-friendship-btn {
                 margin-left: 5px;
+                padding: 0;
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;

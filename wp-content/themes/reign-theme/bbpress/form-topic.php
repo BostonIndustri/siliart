@@ -44,12 +44,12 @@ if ( ! bbp_is_single_forum() ) :
 
 						<?php
 						if ( bbp_is_topic_edit() ) :
-							printf( esc_html__( 'Now Editing &ldquo;%s&rdquo;', 'reign' ), bbp_get_topic_title() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+							printf( esc_html__( 'Now Editing &ldquo;%s&rdquo;', 'reign' ), bbp_get_topic_title() );
 						else :
 							if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
-								bbp_is_single_forum() ? printf( __( 'Ask a question or share an idea.', 'reign' ), bbp_get_forum_title() ) : esc_html_e( 'Start New Discussion', 'reign' );
+								bbp_is_single_forum() ? printf( esc_html__( 'Ask a question or share an idea.', 'reign' ), bbp_get_forum_title() ) : esc_html_e( 'Start New Discussion', 'reign' );
 							} else {
-								( bbp_is_single_forum() && bbp_get_forum_title() ) ? printf( esc_html__( 'Create New Topic in &ldquo;%s&rdquo;', 'reign' ), bbp_get_forum_title() ) : esc_html_e( 'Create New Topic', 'reign' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+								( bbp_is_single_forum() && bbp_get_forum_title() ) ? printf( esc_html__( 'Create New Topic in &ldquo;%s&rdquo;', 'reign' ), bbp_get_forum_title() ) : esc_html_e( 'Create New Topic', 'reign' );
 							}
 						endif;
 						?>
@@ -268,7 +268,7 @@ if ( ! bbp_is_single_forum() ) :
 			<div class="bbp-template-notice">
 				<ul>
 					<?php if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) : ?>
-						<p><?php printf( __( 'The forum "%s" is closed to new discussions and replies.', 'reign' ), bbp_get_forum_title() ); ?></p>
+						<p><?php printf( esc_html__( 'The forum "%s" is closed to new discussions and replies.', 'reign' ), bbp_get_forum_title() ); ?></p>
 					<?php else : ?>
 						<li><?php printf( esc_html__( 'The forum &#8216;%s&#8217; is closed to new topics and replies.', 'reign' ), bbp_get_forum_title() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></li>
 					<?php endif; ?>

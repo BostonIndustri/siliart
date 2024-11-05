@@ -2,6 +2,7 @@
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
 # Global
+# Override Design Settings
 # Membership Levels
 # Login Form
 # Membership Checkout
@@ -60,6 +61,187 @@
     margin: 0px;
 }
 
+/*--------------------------------------------------------------
+# Override Design Settings
+--------------------------------------------------------------*/
+
+body.pmpro-variation_high_contrast {
+    .pmpro {
+        --pmpro--color--contrast: var(--reign-site-body-text-color);
+
+        .pmpro_card {
+            --pmpro--color--base: var(--reign-site-sections-bg-color);
+            --pmpro--color--border--variation: var(--reign-site-border-color);
+            --pmpro--box-shadow: 5px 4px 0px var(--reign-site-border-color);
+            --pmpro--color--contrast: var(--reign-site-body-text-color);
+            border-radius: var(--reign-global-border-radius);
+        }
+
+        .pmpro_btn,
+        .pmpro_section #loginform .login-submit .button {
+            --pmpro--color--accent: var(--reign-site-button-bg-color);
+            --pmpro--color--base: var(--reign-site-button-text-color);
+            border-radius: var(--reign-global-button-radius);
+
+            &:hover,
+            &:focus {
+                --pmpro--color--accent--variation: var(--reign-site-button-bg-hover-color);
+                --pmpro--color--base: var(--reign-site-button-text-hover-color);
+            }
+        }
+
+        .pmpro_btn-cancel {
+            --pmpro--color--border--variation: var(--reign-site-button-bg-color);
+            --pmpro--color--contrast: var(--reign-site-button-bg-color);
+
+            &:hover,
+            &:focus {
+                background-color: var(--reign-site-button-bg-hover-color);
+                border-color: var(--reign-site-button-bg-hover-color);
+                color: var(--reign-site-button-text-hover-color);
+            }
+        }
+
+        .pmpro_form_input {
+            --pmpro--color--base: var(--reign-form-background-color);
+            --pmpro--color--border: var(--reign-form-border-color);
+            --pmpro--color--contrast: var(--reign-form-text-color);
+
+            &:focus {
+                --pmpro--color--base: var(--reign-form-focus-background-color);
+                color: var(--reign-form-focus-text-color);
+                border-color: var(--reign-form-focus-border-color);
+            }
+        }
+    }
+}
+
+body.pmpro-variation_1 {
+    .pmpro {
+        --pmpro--color--contrast: var(--reign-site-body-text-color);
+
+        .pmpro_card {
+            --pmpro--color--base: var(--reign-site-sections-bg-color);
+            --pmpro--color--border--variation: var(--reign-site-border-color);
+            --pmpro--base--border-radius: var(--reign-global-border-radius);
+        }
+
+        .pmpro_card_content+.pmpro_card_actions {
+            border-top: 1px solid var(--reign-site-border-color);
+        }
+
+        .pmpro_card_actions {
+            background-color: var(--reign-site-secondary-bg-color);
+        }
+
+        .pmpro_card_title {
+            --pmpro--color--contrast: var(--reign-site-headings-color);
+        }
+
+        .pmpro_btn,
+        .pmpro_section #loginform .login-submit .button {
+            --pmpro--color--accent: var(--reign-site-button-bg-color);
+            --pmpro--color--base: var(--reign-site-button-text-color);
+            border-radius: var(--reign-global-button-radius);
+
+            &:hover,
+            &:focus {
+                --pmpro--color--accent--variation: var(--reign-site-button-bg-hover-color) !important;
+                --pmpro--color--base: var(--reign-site-button-text-hover-color);
+            }
+        }
+
+        .pmpro_btn-cancel {
+            --pmpro--color--border: var(--reign-site-button-bg-color);
+            --pmpro--color--contrast: var(--reign-site-button-bg-color);
+
+            &:hover,
+            &:focus {
+                background-color: var(--reign-site-button-bg-hover-color);
+                border-color: var(--reign-site-button-bg-hover-color);
+                color: var(--reign-site-button-text-hover-color);
+            }
+        }
+
+        .pmpro_form_input {
+            --pmpro--color--base: var(--reign-form-background-color);
+            --pmpro--color--border: var(--reign-form-border-color);
+            --pmpro--color--contrast: var(--reign-form-text-color);
+
+            &:focus {
+                --pmpro--color--base: var(--reign-form-focus-background-color);
+                color: var(--reign-form-focus-text-color);
+                border-color: var(--reign-form-focus-border-color);
+            }
+        }
+    }
+}
+
+body.pmpro-variation_minimal {
+    .pmpro_card {
+        margin: 15px 0;
+        padding: 15px;
+        background: var(--reign-site-sections-bg-color);
+        border: 1px solid var(--reign-site-border-color);
+        border-radius: var(--reign-global-border-radius) !important;
+    }
+
+    .pmpro {
+        fieldset {
+            border: 0;
+            margin: 0;
+            padding: 0;
+
+            label {
+                margin-bottom: 10px;
+            }
+
+            .pmpro_form_field {
+                margin: 0 0 15px;
+            }
+
+            p.pmpro_form_hint {
+                margin: 5px 0 0;
+            }
+        }
+    }
+
+    .pmpro_form_fields select {
+        width: 100%;
+    }
+
+    .pmpro_form_field-password-toggle {
+        align-items: center;
+        display: flex;
+        font-weight: 500;
+        justify-content: space-between;
+        margin: 15px 0 0;
+        padding: 0;
+    }
+
+    .pmpro_form_field-password-toggle button {
+        align-items: center;
+        background: transparent;
+        color: var(--reign-site-headings-color);
+        border: none;
+        box-shadow: none;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+        font-size: 16px;
+        line-height: 1;
+        margin: 0;
+        min-height: 1px;
+        padding: 0;
+
+        &:hover,
+        &:focus,
+        &:active {
+            color: var(--reign-colors-theme);
+        }
+    }
+}
 
 /*--------------------------------------------------------------
 # Membership Levels
@@ -287,7 +469,7 @@ form.pmpro_form label,
 }
 
 .pmpro_actions_nav {
-    margin: 0;
+    margin: 15px 0 0;
 }
 
 
@@ -406,7 +588,7 @@ input#pmpro_btn-submit {
 }
 
 .pmpro_invoice_details {
-    gap: 15px; 
+    gap: 15px;
 }
 
 .pmpro_invoice_details>div {
@@ -432,29 +614,29 @@ input#pmpro_btn-submit {
 # Membership Invoice
 --------------------------------------------------------------*/
 
-.pmpro-invoice .pmpro-has-access>.entry-content {
-    position: relative;
-    background: var(--reign-site-sections-bg-color);
-    margin: 0;
-    padding: 15px;
-    border-radius: var(--reign-global-border-radius) !important;
-    border: 1px solid var(--reign-site-border-color);
+// .pmpro-invoice .pmpro-has-access>.entry-content {
+//     position: relative;
+//     background: var(--reign-site-sections-bg-color);
+//     margin: 0;
+//     padding: 15px;
+//     border-radius: var(--reign-global-border-radius) !important;
+//     border: 1px solid var(--reign-site-border-color);
 
-    &::after {
-        content: "";
-        display: table;
-        clear: both;
-    }
+//     &::after {
+//         content: "";
+//         display: table;
+//         clear: both;
+//     }
 
-    @media (max-width: 575px) {
-        overflow: hidden;
-        overflow-x: auto;
-    }
+//     @media (max-width: 575px) {
+//         overflow: hidden;
+//         overflow-x: auto;
+//     }
 
-    hr {
-        display: none;
-    }
-}
+//     hr {
+//         display: none;
+//     }
+// }
 
 
 /*--------------------------------------------------------------
@@ -682,14 +864,7 @@ form.pmpro_form .pmpro_change_password-fields input {
 /*--------------------------------------------------------------
 # Membership Cancel
 --------------------------------------------------------------*/
-
 #pmpro_cancel {
-    margin: 15px 0;
-    padding: 15px;
-    background: var(--reign-site-sections-bg-color);
-    border: 1px solid var(--reign-site-border-color);
-    border-radius: var(--reign-global-border-radius)!important;
-
     .pmpro_actionlinks {
         display: flex;
         align-items: center;
@@ -714,6 +889,21 @@ form.pmpro_form .pmpro_change_password-fields input {
     hr {
         display: none;
     }
+}
+
+.pmpro_btn.pmpro_btn-cancel {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5;
+    border-radius: var(--reign-global-button-radius);
+    text-transform: none;
+    transition: all .3s;
+    cursor: pointer;
+    font-weight: 400;
+    text-shadow: none;
+    font-family: inherit;
 }
 
 /* Theme Color */

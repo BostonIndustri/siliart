@@ -54,39 +54,36 @@ if ( ! function_exists( 'custom_login_classes' ) ) {
 
 	add_filter( 'login_body_class', 'custom_login_classes' );
 
+	/**
+	 * Adds custom classes to the login page body based on theme settings.
+	 *
+	 * @param array $classes Existing body classes.
+	 * @return array Modified body classes with custom classes added.
+	 */
 	function custom_login_classes( $classes ) {
-		$rg_custom_login = get_theme_mod( 'custom_login_register_toggle' );
-		$rg_logoimg      = get_theme_mod( 'admin_logo_media' );
-
-		$rg_admin_background = get_theme_mod( 'toggle_custom_background' );
-
+		$rg_custom_login           = get_theme_mod( 'custom_login_register_toggle' );
+		$rg_admin_background       = get_theme_mod( 'toggle_custom_background' );
 		$custom_login_theme_toggle = get_theme_mod( 'custom_login_theme_toggle', false );
 		$custom_login_choose_theme = get_theme_mod( 'custom_login_choose_theme', 'simple' );
 
-		if ( $rg_custom_login ) {
-			if ( ( $GLOBALS['pagenow'] == 'wp-login.php' ) && $rg_admin_background && false == $custom_login_theme_toggle ) {
+		// Define the is_login_page logic within the function.
+		$login_url        = wp_login_url();
+		$current_url_path = wp_parse_url( $_SERVER['REQUEST_URI'], PHP_URL_PATH );
+		$login_url_path   = wp_parse_url( $login_url, PHP_URL_PATH );
+
+		$is_login_page = $current_url_path === $login_url_path;
+
+		if ( $rg_custom_login && $is_login_page ) {
+			if ( $rg_admin_background && ! $custom_login_theme_toggle ) {
 				$classes[] = 'login-split-page rg-login';
-				return $classes;
-			} elseif ( ( $GLOBALS['pagenow'] == 'wp-login.php' ) && true == $custom_login_theme_toggle && 'simple' == $custom_login_choose_theme ) {
-				$classes[] = 'rg-login login-simple';
-				return $classes;
-			} elseif ( ( $GLOBALS['pagenow'] == 'wp-login.php' ) && true == $custom_login_theme_toggle && 'minimal' == $custom_login_choose_theme ) {
-				$classes[] = 'rg-login login-minimal';
-				return $classes;
-			} elseif ( ( $GLOBALS['pagenow'] == 'wp-login.php' ) && true == $custom_login_theme_toggle && 'creative' == $custom_login_choose_theme ) {
-				$classes[] = 'rg-login login-creative';
-				return $classes;
-			} elseif ( ( $GLOBALS['pagenow'] == 'wp-login.php' ) && true == $custom_login_theme_toggle && 'modern' == $custom_login_choose_theme ) {
-				$classes[] = 'rg-login login-modern';
-				return $classes;
+			} elseif ( $custom_login_theme_toggle ) {
+				$classes[] = 'rg-login login-' . $custom_login_choose_theme;
 			} else {
 				$classes[] = 'rg-login';
-				return $classes;
 			}
-		} else {
-			$classes[] = '';
-			return $classes;
 		}
+
+		return $classes;
 	}
 }
 
@@ -690,7 +687,7 @@ add_action( 'init', 'reign_theme_login_load' );
 
 add_action(
 	'customize_controls_print_styles',
-	function() {
+	function () {
 		?>
 		<style>
 			.customize-control-kirki-sortable ul.ui-sortable li.invisible {

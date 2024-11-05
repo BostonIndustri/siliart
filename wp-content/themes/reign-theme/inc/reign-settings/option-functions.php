@@ -257,10 +257,10 @@ if ( ! function_exists( 'reign_404_redirect' ) ) {
 	 */
 	function reign_404_redirect() {
 		if ( is_404() ) {
-			$reign_404_page_id = get_theme_mod( 'buddyx_404_page', 0 );
+			$reign_404_page_id = get_theme_mod( 'reign_404_page', 0 );
 
-			if ( $reign_404_page_id && $reign_404_page_id != '-1' ) {
-				wp_redirect( get_permalink( $reign_404_page_id ) );
+			if ( $reign_404_page_id && $reign_404_page_id != '-1' && get_post_status( $reign_404_page_id ) ) {
+				wp_safe_redirect( get_permalink( $reign_404_page_id ) );
 				exit;
 			}
 		}
@@ -351,6 +351,12 @@ if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
 	add_filter( 'bp_before_xprofile_cover_image_settings_parse_args', 'reign_bp_before_xprofile_cover_image_settings_parse_args', 10, 1 );
 }
 
+/**
+ * Modify the default cover image settings for xProfile.
+ *
+ * @param array $settings The current xProfile cover image settings.
+ * @return array Modified xProfile cover image settings with the updated default cover image URL.
+ */
 function reign_bp_before_xprofile_cover_image_settings_parse_args( $settings ) {
 
 	global $wbtm_reign_settings;
@@ -359,8 +365,9 @@ function reign_bp_before_xprofile_cover_image_settings_parse_args( $settings ) {
 		$default_xprofile_cover_image_url = REIGN_INC_DIR_URI . 'reign-settings/imgs/default-cover.jpg';
 	}
 	if ( ! empty( $default_xprofile_cover_image_url ) ) {
-		$settings['default_cover'] = $default_xprofile_cover_image_url;
+		$settings['default_cover'] = esc_url( $default_xprofile_cover_image_url );
 	}
+
 	return $settings;
 }
 
@@ -401,6 +408,14 @@ function reign_alter_bp_core_fetch_avatar_no_grav( $no_grav, $params ) {
 
 add_filter( 'bp_core_default_avatar_user', 'reign_alter_bp_core_default_avatar_user', 10, 2 );
 
+/**
+ * Alters the default avatar for BuddyPress users.
+ *
+ * @param string $avatar_default The current default avatar URL.
+ * @param array  $params         Array of parameters related to the avatar, including the object type (e.g., 'user').
+ *
+ * @return string The modified avatar URL, or the original if no custom avatar is set.
+ */
 function reign_alter_bp_core_default_avatar_user( $avatar_default, $params ) {
 	if ( apply_filters( 'reign_show_wordpress_default_avatar', false ) ) {
 		return $avatar_default;
@@ -408,7 +423,9 @@ function reign_alter_bp_core_default_avatar_user( $avatar_default, $params ) {
 
 	if ( ! is_admin() || wp_doing_ajax() ) {
 
-		if ( $params['object'] == 'user' ) {
+		$object = isset( $params['object'] ) ? sanitize_text_field( $params['object'] ) : '';
+
+		if ( 'user' === $object ) {
 			global $wbtm_reign_settings;
 			$avatar_default_image = isset( $wbtm_reign_settings['reign_buddyextender']['avatar_default_image'] ) ? $wbtm_reign_settings['reign_buddyextender']['avatar_default_image'] : REIGN_INC_DIR_URI . 'reign-settings/imgs/default-mem-avatar.png';
 

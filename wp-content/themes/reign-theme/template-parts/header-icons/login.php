@@ -7,7 +7,8 @@ if ( ! is_user_logged_in() ) {
 	$reign_signin_popup = get_theme_mod( 'reign_signin_popup', false );
 	$form_type_login    = get_theme_mod( 'reign_sign_form_popup', 'default' );
 	$forms              = get_theme_mod( 'reign_sign_form_display', 'login' );
-	if ( ( $form_type_login == 'custom' || $forms == 'login' || $forms == 'both' ) && $reign_signin_popup == true ) {
+
+	if ( ( 'custom' === $form_type_login || 'login' === $forms || 'both' === $forms ) && true === $reign_signin_popup ) {
 		$login_page_url = '#';
 	}
 	?>

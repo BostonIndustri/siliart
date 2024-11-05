@@ -102,11 +102,6 @@ if ( ! class_exists( 'Reign_Theme_Structure' ) ) :
 			add_action( 'wp_loaded', array( $this, 'remove_theme_mod_values' ) );
 
 			/**
-			 * Add placeholder to comment form.
-			 */
-			add_filter( 'comment_form_defaults', array( $this, 'reign_comment_form_defaults' ), 10, 1 );
-
-			/**
 			 * Set post excerpt.
 			 */
 			if ( true == get_theme_mod( 'reign_advanced_excerpt', true ) ) {
@@ -254,28 +249,6 @@ if ( ! class_exists( 'Reign_Theme_Structure' ) ) :
 			$excerpt = wp_trim_words( strip_shortcodes( $excerpt ), $length, $excerpt_more );
 
 			return $excerpt;
-		}
-
-		public function reign_comment_form_defaults( $defaults ) {
-			$fields    = $defaults['fields'];
-			$commenter = wp_get_current_commenter();
-			$req       = get_option( 'require_name_email' );
-			$html_req  = ( $req ? " required='required'" : '' );
-			// $html5    = 'html5' === $args['format'];
-			$html5 = 'html5';
-
-			$fields['author'] = '<p class="comment-form-author">' . '<label for="author">' . __( 'Name', 'reign' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
-			'<input placeholder="' . __( 'Name *', 'reign' ) . '" id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30" maxlength="245"' . $html_req . ' /></p>';
-			$fields['email']  = '<p class="comment-form-email"><label for="email">' . __( 'Email', 'reign' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
-			'<input placeholder="' . __( 'Email *', 'reign' ) . '" id="email" name="email" ' . ( $html5 ? 'type="email"' : 'type="text"' ) . ' value="' . esc_attr( $commenter['comment_author_email'] ) . '" size="30" maxlength="100" aria-describedby="email-notes"' . $html_req . ' /></p>';
-			$fields['url']    = '<p class="comment-form-url"><label for="url">' . __( 'Website', 'reign' ) . '</label> ' .
-			'<input placeholder="' . __( 'Website', 'reign' ) . '" id="url" name="url" ' . ( $html5 ? 'type="url"' : 'type="text"' ) . ' value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" maxlength="200" /></p>';
-
-			$defaults['fields'] = $fields;
-
-			$defaults['comment_field'] = '<p class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun', 'reign' ) . '</label> <textarea placeholder="' . __( 'Comment *', 'reign' ) . '" id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p>';
-
-			return $defaults;
 		}
 
 		public function render_post_tags_at_bottom() {

@@ -16,6 +16,7 @@ $cat_args = apply_filters(
 		'hide_empty' => true,
 	)
 );
+
 if ( $atts['show_parent_categories_only'] ) {
 	$cat_args['parent'] = 0;
 }
@@ -42,13 +43,15 @@ $data_slick         = '{"slidesToShow": ' . $atts['per_row'] . ', "slidesToScrol
 <?php
 foreach ( $categories as $category ) {
 	if ( 'uncategorized' === $category->slug ) {
-		continue; }
+		continue;
+	}
+
 	$thumbnail_id = get_term_meta( $category->term_id, 'thumbnail_id', true );
 	$cat_image    = wp_get_attachment_url( $thumbnail_id );
 	if ( ! $cat_image ) {
 		$cat_image = wc_placeholder_img_src();
 	}
-	$style = "background-image: url( '" . $cat_image . "');";
+	$style = "background-image: url( '" . esc_url( $cat_image ) . "');";
 	if ( ( 'layout-type-3' === $atts['layout'] ) || ( 'layout-type-4' === $atts['layout'] ) || ( 'layout-type-5' === $atts['layout'] ) || ( 'layout-type-6' === $atts['layout'] ) ) {
 		$style = '';
 	}
@@ -56,7 +59,7 @@ foreach ( $categories as $category ) {
 	ob_start();
 	?>
 	<div class="rg-woo-category-img-wrap">
-		<img src="<?php echo esc_url( $cat_image ); ?>" />
+		<img src="<?php echo esc_url( $cat_image ); ?>" loading="lazy" />
 	</div>
 	<?php
 	$rg_woo_category_image = ob_get_clean();

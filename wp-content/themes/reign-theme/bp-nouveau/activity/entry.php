@@ -32,7 +32,9 @@ bp_nouveau_activity_hook( 'before', 'entry' ); ?>
 			<?php bp_activity_action(); ?>
 
 			<p class="activity-date">
-				<a href="<?php echo esc_url( bp_activity_get_permalink( bp_get_activity_id() ) ); ?>"><?php echo bp_core_time_since( bp_get_activity_date_recorded() ); ?></a>
+				<a href="<?php echo esc_url( bp_activity_get_permalink( bp_get_activity_id() ) ); ?>">
+					<?php echo esc_html( bp_core_time_since( bp_get_activity_date_recorded() ) ); ?>
+				</a>
 			</p>
 
 		</div>

@@ -111,19 +111,12 @@ if ( isset( $_POST['customized']['bp_nouveau_appearance_groups_layout'] ) ) {
 
 <?php else : ?>
 
-	<?php bp_nouveau_before_loop(); ?>
+	<?php
+	bp_nouveau_before_loop();
 
-	<?php
 	global $wbtm_reign_settings;
-	$group_directory_type = isset( $wbtm_reign_settings['reign_buddyextender']['group_directory_type'] ) ? $wbtm_reign_settings['reign_buddyextender']['group_directory_type'] : 'wbtm-group-directory-type-2';
-	?>
-	<?php
-	$img_class = '';
-	if ( $group_directory_type == 'wbtm-group-directory-type-4' ) {
-		$img_class = 'img-card';
-	} else {
-			$img_class = '';
-	}
+	$group_directory_type = $wbtm_reign_settings['reign_buddyextender']['group_directory_type'] ?? 'wbtm-group-directory-type-2';
+	$img_class            = ( $group_directory_type == 'wbtm-group-directory-type-4' ) ? 'img-card' : '';
 	?>
 
 	<?php if ( bp_get_current_group_directory_type() ) : ?>
@@ -183,11 +176,7 @@ if ( isset( $_POST['customized']['bp_nouveau_appearance_groups_layout'] ) ) {
 
 									<?php if ( bp_nouveau_group_has_meta() ) : ?>
 
-										<?php if ( function_exists( 'bp_nouveau_the_group_meta' ) ) { ?>
-											<p class="item-meta group-details"><?php bp_nouveau_the_group_meta( array( 'keys' => array( 'status', 'count' ) ) ); ?></p>
-										<?php } elseif ( function_exists( 'bp_nouveau_the_group_meta' ) ) { ?>
-												<p class="item-meta group-details"><?php bp_nouveau_the_group_meta(); ?></p>
-										<?php } ?>
+										<p class="item-meta group-details"><?php bp_nouveau_the_group_meta( array( 'keys' => array( 'status', 'count' ) ) ); ?></p>
 
 									<?php endif; ?>
 

@@ -90,9 +90,6 @@ if ( ! $rt_ajax_request ) {
 						if ( ! bp_nouveau_is_object_nav_in_sidebar() ) {
 							?>
 							<div class="rg-nouveau-sidebar-menu <?php echo esc_attr( $nav_view_style ); ?>">
-								<div class="rg-nouveau-sidebar-head">
-									<h4 class="widget-title"><span class="custom-name"><?php echo the_title(); ?></span><span class="rg-toggle ico-plus fa fa-plus-circle"></span></h4>
-								</div>
 								<?php bp_get_template_part( 'members/single/parts/item-nav' ); ?>
 							</div>
 							<?php
@@ -119,9 +116,6 @@ if ( ! $rt_ajax_request ) {
 										if ( ! bp_nouveau_is_object_nav_in_sidebar() ) {
 											?>
 											<div class="rg-nouveau-sidebar-menu <?php echo esc_attr( $nav_view_style ); ?>">
-												<div class="rg-nouveau-sidebar-head">
-													<h4 class="widget-title"><span class="custom-name"><?php echo the_title(); ?></span><span class="rg-toggle ico-plus fa fa-plus-circle"></span></h4>
-												</div>
 												<?php bp_get_template_part( 'members/single/parts/item-nav' ); ?>
 											</div>
 											<?php
@@ -151,7 +145,19 @@ if ( ! $rt_ajax_request ) {
 
 								</div><!-- // .item-body-inner-wrapper -->
 							</div><!-- // .wb-grid-cell -->
-							<?php echo get_sidebar( 'buddypress' ); ?>
+							<?php
+							if ( is_active_sidebar( 'member-profile' ) && bp_is_user() ) {
+								?>
+								<aside id="secondary" class="widget-area member-profile-widget-area sm-wb-grid-1-1 md-wb-grid-1-1 lg-wb-grid-1-3" role="complementary">
+									<div class="widget-area-inner">
+										<?php do_action( 'reign_begin_member_profile_sidebar' ); ?>
+										<?php dynamic_sidebar( 'member-profile' ); ?>
+										<?php do_action( 'reign_end_member_profile_sidebar' ); ?>
+									</div>
+								</aside>
+								<?php
+							}
+							?>
 						</div><!-- // .wb-grid -->
 					</div><!--#item-body-->
 				</div><!-- // .bp-wrap -->
@@ -207,9 +213,6 @@ if ( ! $rt_ajax_request ) {
 								if ( ! bp_nouveau_is_object_nav_in_sidebar() ) {
 									?>
 									<div class="rg-nouveau-sidebar-menu <?php echo esc_attr( $nav_view_style ); ?>">
-										<div class="rg-nouveau-sidebar-head">
-											<h4 class="widget-title"><span class="custom-name"><?php echo the_title(); ?></span><span class="rg-toggle ico-plus fa fa-plus-circle"></span></h4>
-										</div>
 										<?php bp_get_template_part( 'groups/single/parts/item-nav' ); ?>
 									</div>
 									<?php
@@ -236,9 +239,6 @@ if ( ! $rt_ajax_request ) {
 												if ( ! bp_nouveau_is_object_nav_in_sidebar() ) {
 													?>
 													<div class="rg-nouveau-sidebar-menu <?php echo esc_attr( $nav_view_style ); ?>">
-														<div class="rg-nouveau-sidebar-head">
-															<h4 class="widget-title"><span class="custom-name"><?php echo the_title(); ?></span><span class="rg-toggle ico-plus fa fa-plus-circle"></span></h4>
-														</div>
 														<?php bp_get_template_part( 'groups/single/parts/item-nav' ); ?>
 													</div>
 													<?php
@@ -290,8 +290,20 @@ if ( ! $rt_ajax_request ) {
 											?>
 										</div><!-- // .item-body-inner-wrapper -->
 									</div><!-- // .wb-grid-cell -->
+									<?php
+									if ( is_active_sidebar( 'group-single' ) && bp_is_group() ) {
+										?>
+										<aside id="secondary" class="widget-area member-profile-widget-area sm-wb-grid-1-1 md-wb-grid-1-1 lg-wb-grid-1-3" role="complementary">
+											<div class="widget-area-inner">
+												<?php do_action( 'reign_begin_member_profile_sidebar' ); ?>
+												<?php dynamic_sidebar( 'group-single' ); ?>
+												<?php do_action( 'reign_end_member_profile_sidebar' ); ?>
+											</div>
+										</aside>
+										<?php
+									}
+									?>
 								</div><!-- // .wb-grid -->
-								<?php echo get_sidebar( 'buddypress' ); ?>
 							</div><!-- // .item-body -->
 
 						</div><!-- // .bp-wrap -->

@@ -31,33 +31,8 @@ $mobile_menu_logged_out_exists = has_nav_menu( 'mobile-menu-logged-out' );
 							} else {
 								the_custom_logo();
 							}
-						} elseif ( is_front_page() && is_home() ) {
-							?>
-								<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-								<?php
-								$reign_description = get_bloginfo( 'description', 'display' );
-								if ( $reign_description || is_customize_preview() ) {
-									?>
-									<p class="site-description">
-										<?php echo esc_html( $reign_description ); ?>
-									</p>
-									<?php
-								}
-								?>
-						<?php } else { ?>
-							<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-								<?php
-								$reign_description = get_bloginfo( 'description', 'display' );
-								if ( $reign_description || is_customize_preview() ) {
-									?>
-									<p class="site-description">
-										<?php echo esc_html( $reign_description ); ?>
-									</p>
-									<?php
-								}
-								?>
-								<?php
-
+						} else {
+							reign_display_site_title_description();
 						}
 						?>
 					</div><!-- .logo -->
@@ -82,14 +57,14 @@ $mobile_menu_logged_out_exists = has_nav_menu( 'mobile-menu-logged-out' );
 							$current_user = wp_get_current_user();
 							?>
 							<div class="user-wrap">
-								<a href="<?php echo $user_link; ?>"><?php echo get_avatar( get_current_user_id(), 100 ); ?></a>
+								<a href="<?php echo esc_url( $user_link ); ?>"><?php echo get_avatar( get_current_user_id(), 100 ); ?></a>
 								<div>
-									<a href="<?php echo $user_link; ?>"><span class="user-name"><?php echo $current_user->display_name; ?></span></a>
+									<a href="<?php echo esc_url( $user_link ); ?>"><span class="user-name"><?php echo esc_html( $current_user->display_name ); ?></span></a>
 									<?php
 									if ( function_exists( 'bp_is_active' ) && bp_is_active( 'settings' ) ) {
 										$settings_link = trailingslashit( bp_loggedin_user_domain() . bp_get_settings_slug() );
 										?>
-										<div class="my-account-link"><a class="ab-item" aria-haspopup="true" href="<?php echo $settings_link; ?>"><?php esc_html_e( 'My Account', 'reign' ); ?></a></div>
+										<div class="my-account-link"><a class="ab-item" aria-haspopup="true" href="<?php echo esc_url( $settings_link ); ?>"><?php esc_html_e( 'My Account', 'reign' ); ?></a></div>
 										<?php
 									}
 									?>
@@ -108,7 +83,9 @@ $mobile_menu_logged_out_exists = has_nav_menu( 'mobile-menu-logged-out' );
 											$reign_header_mobile_menu_logo = get_theme_mod( 'reign_header_mobile_menu_logo', '' );
 											if ( ! empty( $reign_header_mobile_menu_logo ) ) {
 												?>
-												<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img class="reign-mobile-menu" src="<?php echo esc_url( $reign_header_mobile_menu_logo ); ?>" /></a>
+												<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+													<img class="reign-mobile-menu" src="<?php echo esc_url( $reign_header_mobile_menu_logo ); ?>" />
+												</a>
 												<?php
 											} else {
 												the_custom_logo();
@@ -116,33 +93,8 @@ $mobile_menu_logged_out_exists = has_nav_menu( 'mobile-menu-logged-out' );
 										} else {
 											the_custom_logo();
 										}
-									} elseif ( is_front_page() && is_home() ) {
-										?>
-											<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-											<?php
-											$reign_description = get_bloginfo( 'description', 'display' );
-											if ( $reign_description || is_customize_preview() ) {
-												?>
-												<p class="site-description">
-													<?php echo esc_html( $reign_description ); ?>
-												</p>
-												<?php
-											}
-											?>
-									<?php } else { ?>
-										<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-											<?php
-											$reign_description = get_bloginfo( 'description', 'display' );
-											if ( $reign_description || is_customize_preview() ) {
-												?>
-												<p class="site-description">
-													<?php echo esc_html( $reign_description ); ?>
-												</p>
-												<?php
-											}
-											?>
-											<?php
-
+									} else {
+										reign_display_site_title_description();
 									}
 									?>
 								</div><!-- .logo -->

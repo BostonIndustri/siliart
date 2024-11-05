@@ -1,11 +1,11 @@
 <?php
-$download_id      = get_the_ID();
-$download         = edd_get_download( $download_id );
-$variable_pricing = $download->has_variable_prices();
-$type             = $download->is_single_price_mode() ? 'data-price-mode=multi' : 'data-price-mode=single';
-$data_price       = '';
-$options          = array();
-if ( edd_item_in_cart( $download_id, $options ) && ( ! $variable_pricing || ! $download->is_single_price_mode() ) ) {
+$download_id          = get_the_ID();
+$download             = edd_get_download( $download_id );
+$is_variable_pricing  = $download->has_variable_prices();
+$is_single_price_mode = $download->is_single_price_mode() ? 'data-price-mode=multi' : 'data-price-mode=single';
+$data_price           = '';
+$options              = array();
+if ( edd_item_in_cart( $download_id, $options ) && ( ! $is_variable_pricing || ! $download->is_single_price_mode() ) ) {
 	$button_text     = __( 'Checkout', 'reign' );
 	$href            = esc_url( edd_get_checkout_uri() );
 	$class_to_manage = '';
@@ -20,15 +20,15 @@ if ( edd_item_in_cart( $download_id, $options ) && ( ! $variable_pricing || ! $d
 	$button_display   = '';
 	$checkout_display = 'style="display:none;"';
 }
-if ( ! $variable_pricing ) {
+if ( ! $is_variable_pricing ) {
 	$data_price_value = $download->price;
-	// if ( $show_price ) {
-		$price      = $download->price;
-		$data_price = 'data-price="' . $data_price_value . '"';
-	// }
+	$price            = $download->price;
+	$data_price       = 'data-price="' . $data_price_value . '"';
 }
-$button_html                 = '<a href="' . $href . '" class="button button-overlay-white edd-add-to-cart ' . esc_attr( $class_to_manage ) . '" data-nonce="' . wp_create_nonce( 'edd-add-to-cart-' . $download_id ) . '" data-action="edd_add_to_cart" data-download-id="' . esc_attr( $download_id ) . '"' . $type . ' ' . $data_price . ' ' . $button_display . '><span class="edd-add-to-cart-label">' . $button_text . '</span><span class="edd-loading" aria-label="' . esc_attr__( 'Loading', 'easy-digital-downloads' ) . '"></span></a>';
-$RTM_EDD_Customization_OBJ = RTM_EDD_Customization::instance();
+
+$button_html = '<a href="' . esc_url( $href ) . '" class="button button-overlay-white edd-add-to-cart ' . esc_attr( $class_to_manage ) . '" data-nonce="' . wp_create_nonce( 'edd-add-to-cart-' . $download_id ) . '" data-action="edd_add_to_cart" data-download-id="' . esc_attr( $download_id ) . '"' . $is_single_price_mode . ' ' . $data_price . ' ' . $button_display . '><span class="edd-add-to-cart-label">' . esc_html( $button_text ) . '</span><span class="edd-loading" aria-label="' . esc_attr__( 'Loading', 'easy-digital-downloads' ) . '"></span></a>';
+
+$rtm_edd_customization_obj = RTM_EDD_Customization::instance();
 ?>
 <?php
 $reign_edd_downloads_layouts = get_theme_mod( 'reign_edd_downloads_layouts', 'default' );
@@ -49,7 +49,7 @@ if ( 'layout1' === $reign_edd_downloads_layouts ) {
 								<a href="<?php echo get_the_permalink(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>" class="button button-overlay-white">
 									<?php esc_html_e( 'Details', 'reign' ); ?>
 								</a>
-								<?php $RTM_EDD_Customization_OBJ->rtm_get_edd_download_price_html(); ?>
+								<?php $rtm_edd_customization_obj->rtm_get_edd_download_price_html(); ?>
 								<?php
 								if ( class_exists( 'EDD_Front_End_Submissions' ) ) {
 									$vendor_store_url = EDD_FES()->vendors->get_vendor_store_url( get_the_author_meta( 'ID' ) );
@@ -59,7 +59,7 @@ if ( 'layout1' === $reign_edd_downloads_layouts ) {
 								do_action( 'edd_download_after_title' );
 								?>
 								<?php
-								if ( ! $variable_pricing ) {
+								if ( ! $is_variable_pricing ) {
 									echo $button_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 								}
 								?>
@@ -107,18 +107,18 @@ if ( 'layout1' === $reign_edd_downloads_layouts ) {
 
 						<div class="rtm-download-action">
 							<?php
-							if ( ! $variable_pricing ) {
+							if ( ! $is_variable_pricing ) {
 								echo $button_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 							}
 							?>
 							<?php echo '<a href="' . esc_url( edd_get_checkout_uri() ) . '" class="button button-overlay-white edd_go_to_checkout ' . esc_attr( $class_to_manage ) . '" ' . $checkout_display . '>Checkout</a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-							<?php if ( $variable_pricing ) : ?>
+							<?php if ( $is_variable_pricing ) : ?>
 								<a href="<?php echo get_the_permalink(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>" class="button button-overlay-white details-button">
 									<?php esc_html_e( 'Details', 'reign' ); ?>
 								</a>
 							<?php endif; ?>
 							<div class="separator">-</div>
-							<?php $RTM_EDD_Customization_OBJ->rtm_get_edd_download_price_html(); ?>
+							<?php $rtm_edd_customization_obj->rtm_get_edd_download_price_html(); ?>
 						</div>
 					</div>
 				</div>
@@ -155,16 +155,16 @@ if ( 'layout1' === $reign_edd_downloads_layouts ) {
 					<?php
 					do_action( 'edd_download_after_title' );
 					?>
-					<?php $RTM_EDD_Customization_OBJ->rtm_get_edd_download_price_html(); ?>
+					<?php $rtm_edd_customization_obj->rtm_get_edd_download_price_html(); ?>
 					<div class="rtm-download-overlay-layout-3">
 						<div class="rtm-download-action">
 							<?php
-							if ( ! $variable_pricing ) {
+							if ( ! $is_variable_pricing ) {
 								echo $button_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 							}
 							?>
 							<?php echo '<a href="' . esc_url( edd_get_checkout_uri() ) . '" class="button button-overlay-white edd_go_to_checkout ' . esc_attr( $class_to_manage ) . '" ' . $checkout_display . '>Checkout</a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-							<?php if ( $variable_pricing ) : ?>
+							<?php if ( $is_variable_pricing ) : ?>
 								<a href="<?php echo get_the_permalink(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>" class="button button-overlay-white details-button">
 									<?php esc_html_e( 'Details', 'reign' ); ?>
 								</a>
@@ -195,7 +195,7 @@ if ( 'layout1' === $reign_edd_downloads_layouts ) {
 					<div class="rtm-download-overlay">
 						<div class="rtm-download-action">
 							<?php
-							if ( ! $variable_pricing ) {
+							if ( ! $is_variable_pricing ) {
 								echo $button_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 							}
 							?>
@@ -203,7 +203,7 @@ if ( 'layout1' === $reign_edd_downloads_layouts ) {
 							<a href="<?php echo get_the_permalink(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>" class="button button-overlay-white">
 								<?php esc_html_e( 'Details', 'reign' ); ?>
 							</a>
-							<?php $RTM_EDD_Customization_OBJ->rtm_get_edd_download_price_html(); ?>
+							<?php $rtm_edd_customization_obj->rtm_get_edd_download_price_html(); ?>
 						</div>
 					</div>
 				</div>

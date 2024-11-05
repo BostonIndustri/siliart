@@ -2,7 +2,7 @@
 if ( class_exists( 'BuddyPress' ) && is_user_logged_in() && bp_is_active( 'messages' ) ) {
 	?>
 	<div class="rg-msg header-notifications-dropdown-toggle">
-		<a class="rg-icon-wrap dropdown-toggle" href="<?php echo bp_loggedin_user_domain() . bp_get_messages_slug(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
+		<a class="rg-icon-wrap dropdown-toggle" href="<?php echo esc_url( bp_loggedin_user_domain() . bp_get_messages_slug() ); ?>">
 			<span class="far fa-envelope"></span>
 			<?php
 			if ( class_exists( 'BP_Better_Messages' ) ) {
@@ -25,7 +25,7 @@ if ( class_exists( 'BuddyPress' ) && is_user_logged_in() && bp_is_active( 'messa
 				?>
 				<div class="dropdown-item-wrapper">
 					<?php
-					echo Better_Messages()->functions->get_threads_html( get_current_user_id() );
+					echo Better_Messages()->functions->get_threads_html( get_current_user_id() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					?>
 				</div>
 				<div class="dropdown-footer">
@@ -86,7 +86,7 @@ if ( class_exists( 'BuddyPress' ) && is_user_logged_in() && bp_is_active( 'messa
 
 							$group_id = bp_messages_get_meta( $last_message_id, 'group_id', true );
 							if ( 0 === $last_message_id && ! $group_id ) {
-								if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss )) {
+								if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
 									$first_message           = BP_Messages_Thread::get_first_message( bp_get_message_thread_id() );
 									$group_message_thread_id = bp_messages_get_meta( $first_message->id, 'group_message_thread_id', true ); // group.
 									$group_id                = (int) bp_messages_get_meta( $first_message->id, 'group_id', true );
@@ -113,12 +113,10 @@ if ( class_exists( 'BuddyPress' ) && is_user_logged_in() && bp_is_active( 'messa
 									$group_name = bp_get_group_name( groups_get_group( $group_id ) );
 									if ( empty( $group_name ) ) {
 										$group_link = 'javascript:void(0);';
-									} else {
-										if ( function_exists( 'buddypress' ) && version_compare( buddypress()->version, '12.0', '>=' ) ) {
+									} elseif ( function_exists( 'buddypress' ) && version_compare( buddypress()->version, '12.0', '>=' ) ) {
 											$group_link = bp_get_group_url( groups_get_group( $group_id ) );
-										} else {
-											$group_link = bp_get_group_permalink( groups_get_group( $group_id ) );
-										}
+									} else {
+										$group_link = bp_get_group_permalink( groups_get_group( $group_id ) );
 									}
 
 									if ( function_exists( 'bp_disable_group_avatar_uploads' ) && bp_disable_group_avatar_uploads() && function_exists( 'bb_get_buddyboss_group_avatar' ) ) {
@@ -126,13 +124,13 @@ if ( class_exists( 'BuddyPress' ) && is_user_logged_in() && bp_is_active( 'messa
 									} else {
 										$group_avatar = bp_core_fetch_avatar(
 											array(
-												'item_id'    => $group_id,
-												'object'     => 'group',
-												'type'       => 'full',
+												'item_id' => $group_id,
+												'object'  => 'group',
+												'type'    => 'full',
 												'avatar_dir' => 'group-avatars',
-												'alt'        => sprintf( __( 'Group logo of %s', 'reign' ), $group_name ),
-												'title'      => $group_name,
-												'html'       => false,
+												'alt'     => sprintf( __( 'Group logo of %s', 'reign' ), $group_name ),
+												'title'   => $group_name,
+												'html'    => false,
 											)
 										);
 									}
@@ -199,7 +197,6 @@ if ( class_exists( 'BuddyPress' ) && is_user_logged_in() && bp_is_active( 'messa
 											// Close the avatar directory.
 											closedir( $av_dir );
 										}
-
 									} elseif ( function_exists( 'bb_attachments_get_default_profile_group_avatar_image' ) && ( function_exists( 'bp_disable_group_avatar_uploads' ) && ! bp_disable_group_avatar_uploads() ) ) {
 										$group_avatar = bb_attachments_get_default_profile_group_avatar_image( array( 'object' => 'group' ) );
 									} elseif ( function_exists( 'bb_get_buddyboss_group_avatar' ) && ( function_exists( 'bp_disable_group_avatar_uploads' ) && bp_disable_group_avatar_uploads() ) ) {
@@ -272,7 +269,8 @@ if ( class_exists( 'BuddyPress' ) && is_user_logged_in() && bp_is_active( 'messa
 							?>
 						<div class="dropdown-item">
 							<div class="item-avatar">
-								<?php if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
+								<?php
+								if ( function_exists( 'buddypress' ) && isset( buddypress()->buddyboss ) ) {
 									if ( function_exists( 'bp_messages_get_avatars' ) && ! empty( bp_messages_get_avatars( bp_get_message_thread_id(), get_current_user_id() ) ) ) {
 										$avatars = bp_messages_get_avatars( bp_get_message_thread_id(), get_current_user_id() );
 										?>
@@ -329,7 +327,8 @@ if ( class_exists( 'BuddyPress' ) && is_user_logged_in() && bp_is_active( 'messa
 									}
 								} else {
 									bp_message_thread_avatar( 'type=thumb&width=30&height=30' );
-								} ?>
+								}
+								?>
 								
 							</div>
 							<div class="item-info">
@@ -353,15 +352,15 @@ if ( class_exists( 'BuddyPress' ) && is_user_logged_in() && bp_is_active( 'messa
 													<?php
 													$recipients      = (array) $messages_template->thread->recipients;
 													$recipient_names = array();
-						
+
 													foreach ( $recipients as $recipient ) :
 														if ( bp_loggedin_user_id() !== (int) $recipient->user_id ) :
 															$recipient_name = bp_core_get_user_displayname( $recipient->user_id );
-						
+
 															if ( empty( $recipient_name ) ) :
 																$recipient_name = __( 'Deleted User', 'reign' );
 															endif;
-						
+
 															if ( bp_is_active( 'moderation' ) ) {
 																if ( bp_moderation_is_user_suspended( $recipient->user_id ) ) {
 																	$recipient_name = __( 'Suspended Member', 'reign' );
@@ -369,18 +368,19 @@ if ( class_exists( 'BuddyPress' ) && is_user_logged_in() && bp_is_active( 'messa
 																	$recipient_name = __( 'Blocked Member', 'reign' );
 																}
 															}
-						
+
 															$recipient_names[] = ( $recipient_name ) ? ucwords( $recipient_name ) : '';
 														endif;
 													endforeach;
-						
+
 													echo ( ! empty( $recipient_names ) ? implode( ', ', $recipient_names ) : '' );
 													?>
 												</a>
 											</span>
 											<?php
 										}
-									} else { ?>
+									} else {
+										?>
 										<a href="<?php bp_message_thread_view_link( bp_get_message_thread_id(), bp_loggedin_user_id() ); ?>" class="color-primary"><?php bp_message_thread_subject(); ?></a>
 									<?php } ?>
 								</div>

@@ -16,6 +16,7 @@
 # BuddyPress Schedule Activity
 # BuddyPress Resume Manager
 # BuddyPress Contact Me
+# BuddyPress Member Review
 --------------------------------------------------------------*/
 
 
@@ -1247,5 +1248,81 @@ body.wbcom-bp-contact .bp-contact-me-popup-message {
 }
 
 body.wbcom-bp-contact .bp-contact-me-popup-message li:nth-child(2n+2) {
+    background: var(--reign-site-secondary-bg-color);
+}
+
+/*--------------------------------------------------------------
+# BuddyPress Member Review
+--------------------------------------------------------------*/
+.bupr-members-profiles {
+    text-align: center;
+}
+
+.bupr-members-profiles img.avatar {
+    max-width: 80px;
+    max-height: 80px;
+}
+
+.bupr-bp-member-review-no-popup-add-block #review_desc, #review_desc {
+    margin-top: 10px;
+}
+
+.reviewer h4 {
+    font-size: $font__size_18;
+}
+
+.wbtm-member-cover-image-container .bupr-member-review-stars {
+    margin-right: 0;
+}
+
+.bp-nouveau .bupr-row {
+    border: 1px solid var(--reign-site-border-color);
+    box-shadow: none;
+    border-radius: var(--reign-global-border-radius) !important;
+}
+
+.bupr-review-modal-content {
+    background: var(--reign-site-sections-bg-color);
+    box-shadow: var(--reign-more-options-box-shadow);
+}
+
+.dark-mode,
+.dark-scheme {
+    .bupr-review-modal-close-button svg path {
+        fill: #fff;
+    }
+}
+
+.wbtm-member-cover-image-container .bupr-member-rating-text {
+    color: var(--reign-site-body-text-color);
+}
+
+.wbtm-cover-header-type-1 .bupr-member-rating-text,
+.wbtm-cover-header-type-2 .bupr-member-rating-text {
+    color: #fff;
+}
+
+.wbtm-cover-header-type-2 .bupr-member-review-wrapper {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (max-width: 782px) {
+    .wbtm-member-cover-image-container .bupr-member-review-wrapper {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media(min-width: 768px) {
+    .bupr-row {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.multi-review {
     background: var(--reign-site-secondary-bg-color);
 }

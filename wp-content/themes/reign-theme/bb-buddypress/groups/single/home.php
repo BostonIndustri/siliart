@@ -7,11 +7,7 @@
  */
 
 $bp_nav_style = get_theme_mod( 'buddypress_single_group_nav_style', 'iconic' );
-if ( $bp_nav_style == 'iconic' ) {
-	$class = 'reign-nav-iconic';
-} else {
-	$class = 'reign-default';
-}
+$class        = ( $bp_nav_style == 'iconic' ) ? 'reign-nav-iconic' : 'reign-default';
 
 $bp_nav_view_style = get_theme_mod( 'buddypress_main_nav_view_style', 'text_icon' );
 if ( $bp_nav_view_style == 'swipe' ) {
@@ -108,7 +104,19 @@ if ( bp_has_groups() ) :
 						</div>
 					</div>
 
-					<?php echo get_sidebar( 'buddypress' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					<?php
+					if ( is_active_sidebar( 'group-single' ) && bp_is_group() ) {
+						?>
+						<aside id="secondary" class="widget-area member-profile-widget-area sm-wb-grid-1-1 md-wb-grid-1-1 lg-wb-grid-1-3" role="complementary">
+							<div class="widget-area-inner">
+								<?php do_action( 'reign_begin_member_profile_sidebar' ); ?>
+								<?php dynamic_sidebar( 'group-single' ); ?>
+								<?php do_action( 'reign_end_member_profile_sidebar' ); ?>
+							</div>
+						</aside>
+						<?php
+					}
+					?>
 
 				</div>
 

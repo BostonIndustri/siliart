@@ -11,6 +11,10 @@
 
 .bp-nouveau {
 
+    .dir-list .bp-pagination-links.top {
+        display: none;
+    }
+
     .groups-list.bp-list,
     .members-list.bp-list {
         border-top: 0;
@@ -361,7 +365,7 @@
         }
 
         .action-wrap {
-            color: #999;
+            color: var(--reign-site-alternate-text-color);
             flex: 0 0 20px;
             margin-left: auto;
             margin-top: auto;

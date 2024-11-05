@@ -22,7 +22,7 @@
 		?>
 		<div id="reign-copyright-text">
 			<div class="container">
-				<?php echo reign_footer_custom_copyright_text(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+				<?php echo wp_kses_post( reign_footer_custom_copyright_text() ); ?>
 			</div>	
 		</div>
 		<?php

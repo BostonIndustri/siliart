@@ -116,26 +116,6 @@ if ( bp_is_current_component( 'groups' ) && ! bp_is_group() && ! bp_is_user() &&
 		</aside>
 		<?php
 	}
-} elseif ( is_active_sidebar( 'group-single' ) && bp_is_group() && ! bp_is_group_create() ) {
-	?>
-	<aside id="secondary" class="widget-area group-single-widget-area sm-wb-grid-1-1 md-wb-grid-1-1 lg-wb-grid-1-3" role="complementary">
-		<div class="widget-area-inner">
-			<?php do_action( 'reign_begin_group_single_sidebar' ); ?>
-			<?php dynamic_sidebar( 'group-single' ); ?>
-			<?php do_action( 'reign_end_group_single_sidebar' ); ?>
-		</div>
-	</aside>
-	<?php
-} elseif ( is_active_sidebar( 'member-profile' ) && bp_is_user() && ! bp_is_user_messages() && ! bp_is_user_settings() && ! bp_is_user_notifications() && ! bp_is_user_profile_edit() && ! bp_is_user_change_avatar() && ! bp_is_user_change_cover_image() ) {
-	?>
-	<aside id="secondary" class="widget-area member-profile-widget-area sm-wb-grid-1-1 md-wb-grid-1-1 lg-wb-grid-1-3" role="complementary">
-		<div class="widget-area-inner">
-			<?php do_action( 'reign_begin_member_profile_sidebar' ); ?>
-			<?php dynamic_sidebar( 'member-profile' ); ?>
-			<?php do_action( 'reign_end_member_profile_sidebar' ); ?>
-		</div>
-	</aside>
-	<?php
 } elseif ( function_exists( 'bp_is_document_component' ) && ( bp_is_document_component() && ! bp_is_user() ) ) {
 	$sidebar_id = ( $sidebar_id != '0' ) ? $sidebar_id : 'activity-index';
 

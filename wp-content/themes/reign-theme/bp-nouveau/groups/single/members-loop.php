@@ -90,15 +90,9 @@ if ( isset( $_POST['customized']['bp_nouveau_appearance_members_group_layout'] )
 
 	<?php
 	global $wbtm_reign_settings;
-	$member_directory_type = isset( $wbtm_reign_settings['reign_buddyextender']['member_directory_type'] ) ? $wbtm_reign_settings['reign_buddyextender']['member_directory_type'] : 'wbtm-member-directory-type-2';
-	?>
-	<?php
-	$img_class = '';
-	if ( $member_directory_type == 'wbtm-member-directory-type-4' ) {
-		$img_class = 'img-card';
-	} else {
-			$img_class = '';
-	}
+	$member_directory_type = $wbtm_reign_settings['reign_buddyextender']['member_directory_type'] ?? 'wbtm-member-directory-type-2';
+
+	$img_class = ( $member_directory_type == 'wbtm-member-directory-type-4' ) ? 'img-card' : '';
 	?>
 
 	<?php if ( bp_group_has_members( bp_ajax_querystring( 'group_members' ) ) ) : ?>

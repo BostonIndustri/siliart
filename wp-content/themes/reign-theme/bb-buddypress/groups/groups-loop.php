@@ -20,15 +20,8 @@
 
 <?php
 global $wbtm_reign_settings;
-$group_directory_type = isset( $wbtm_reign_settings['reign_buddyextender']['group_directory_type'] ) ? $wbtm_reign_settings['reign_buddyextender']['group_directory_type'] : 'wbtm-group-directory-type-2';
-?>
-<?php
-$img_class = '';
-if ( $group_directory_type == 'wbtm-group-directory-type-4' ) {
-	$img_class = 'img-card';
-} else {
-		$img_class = '';
-}
+$group_directory_type = $wbtm_reign_settings['reign_buddyextender']['group_directory_type'] ?? 'wbtm-group-directory-type-2';
+$img_class            = ( $group_directory_type == 'wbtm-group-directory-type-4' ) ? 'img-card' : '';
 
 $cover_class        = ! bb_platform_group_element_enable( 'cover-images' ) ? 'bb-cover-disabled' : 'bb-cover-enabled';
 $meta_privacy       = ! bb_platform_group_element_enable( 'group-privacy' ) ? 'meta-privacy-hidden' : '';

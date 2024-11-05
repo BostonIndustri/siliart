@@ -116,15 +116,9 @@ if ( isset( $_POST['customized'] ) ) {
 
 	<?php
 	global $wbtm_reign_settings;
-	$member_directory_type = isset( $wbtm_reign_settings['reign_buddyextender']['member_directory_type'] ) ? $wbtm_reign_settings['reign_buddyextender']['member_directory_type'] : 'wbtm-member-directory-type-2';
-	?>
-	<?php
-	$img_class = '';
-	if ( $member_directory_type == 'wbtm-member-directory-type-4' ) {
-		$img_class = 'img-card';
-	} else {
-		$img_class = '';
-	}
+	$member_directory_type = $wbtm_reign_settings['reign_buddyextender']['member_directory_type'] ?? 'wbtm-member-directory-type-2';
+
+	$img_class = ( $member_directory_type == 'wbtm-member-directory-type-4' ) ? 'img-card' : '';
 	?>
 	<?php if ( bp_get_current_member_type() ) : ?>
 		<p class="current-member-type"><?php bp_current_member_type_message(); ?></p>
@@ -189,7 +183,7 @@ if ( isset( $_POST['customized'] ) ) {
 
 							</div>
 
-							<?php if ( false && bp_get_member_latest_update() && ! bp_nouveau_loop_is_grid() ) : ?>
+							<?php if ( bp_get_member_latest_update() && ! bp_nouveau_loop_is_grid() ) : ?>
 								<div class="user-update">
 									<p class="update"> <?php bp_member_latest_update(); ?></p>
 								</div>

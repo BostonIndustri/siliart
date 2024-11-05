@@ -91,7 +91,7 @@ $group_cover_link = trailingslashit( $admin_link . 'group-cover-image' );
 					<?php if ( bp_nouveau_group_has_meta_extra() ) : ?>
 						<div class="item-meta">
 
-							<?php echo bp_nouveau_the_group_meta( array( 'keys' => 'extra' ) ); ?>
+							<?php bp_nouveau_the_group_meta( array( 'keys' => 'extra' ) ); ?>
 
 						</div><!-- .item-meta -->
 					<?php endif; ?>

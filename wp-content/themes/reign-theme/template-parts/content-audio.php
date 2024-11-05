@@ -17,53 +17,47 @@ $supported_post_types           = $kirki_post_types_support_class->get_post_type
 <article id="post-<?php the_ID(); ?>" <?php post_class( $blog_list_layout ); ?>>
 
 	<?php do_action( 'reign_post_content_begins' ); ?>
+
 	<?php
-	$post_audio = get_post_meta( get_the_ID(), '_reign_post_audio', true );
-	$post_audio_embed = wp_oembed_get($post_audio);
-	if ( $post_audio != '' && $post_audio_embed != ''  ) { ?>
+	$post_audio          = get_post_meta( get_the_ID(), '_reign_post_audio', true );
+	$post_audio_embed    = wp_oembed_get( $post_audio );
+	$post_type           = get_post_type();
+	$has_thumbnail       = has_post_thumbnail();
+	$switch_header_image = false;
+
+	if ( $post_audio && $post_audio_embed ) {
+		?>
 		<div class="rg-audio-block rg-post-thumbnail">
 			<?php echo $post_audio_embed; // WPCS: XSS ok. ?>
 		</div>
 		<?php
-	}elseif ( has_post_thumbnail() ) {
-		if ( is_singular() && ( 'post' === get_post_type() || ! in_array( get_post_type(), array_column( $supported_post_types, 'slug' ) ) ) ) {
-			if ( 'post' === get_post_type() ) {
-				$switch_header_image = get_theme_mod( 'reign_single_post_switch_header_image', false );
-			} else {
-				$switch_header_image = get_theme_mod( 'reign_single_'. get_post_type() .'_switch_header_image', false );
-			}
+	} elseif ( $has_thumbnail ) {
+		if ( is_singular() && ( 'post' === $post_type || ! in_array( $post_type, array_column( $supported_post_types, 'slug' ) ) ) ) {
+			$switch_header_image = ( 'post' === $post_type )
+				? get_theme_mod( 'reign_single_post_switch_header_image', false )
+				: get_theme_mod( 'reign_single_' . $post_type . '_switch_header_image', false );
+		}
 
-			if ( ! $switch_header_image ) {
-				?>
-				<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'reign' ), the_title_attribute( 'echo=0' ) ) ); ?>" class="entry-media rg-post-thumbnail">
-					<?php
-					the_post_thumbnail( 'reign-featured-large' );
-					?>
-				</a>
-				<?php
-			}
-		} else {
+		if ( ! $switch_header_image ) {
 			?>
-			<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'reign' ), the_title_attribute( 'echo=0' ) ) ); ?>" class="entry-media rg-post-thumbnail">
-				<?php
-				the_post_thumbnail( 'reign-featured-large' );
-				?>
+			<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'reign' ), get_the_title() ) ); ?>" class="entry-media rg-post-thumbnail">
+				<?php the_post_thumbnail( 'reign-featured-large' ); ?>
 			</a>
 			<?php
 		}
 	}
-
 	?>
 
-    <?php do_action( 'reign_rg_post_content_before' ); ?>
+	<?php do_action( 'reign_rg_post_content_before' ); ?>
 
 	<div class="rg-post-content">
-		<?php if ( $post_audio != '' && $post_audio_embed == ''  ) { ?>
+		<?php
+		if ( $post_audio && $post_audio_embed === false ) :
+			?>
 			<div class="rg-audio-block rg-post-thumbnail">
-				<?php echo do_shortcode( '[audio src="' . $post_audio . '"]' );?>
+				<?php echo do_shortcode( '[audio src="' . esc_url( $post_audio ) . '"]' ); ?>
 			</div>
-		<?php }?>
-
+		<?php endif; ?>
 
 		<?php if ( ! is_single() ) { ?>
 			<header class="entry-header">
@@ -75,17 +69,17 @@ $supported_post_types           = $kirki_post_types_support_class->get_post_type
 		<div class="entry-content">
 			<?php
 			if ( is_singular() ) {
-				/* translators: %s: Name of current post */
 				the_content(
 					sprintf(
-						wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'reign' ), array( 'span' => array( 'class' => array() ) ) ),
+						wp_kses(
+							__( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'reign' ),
+							array( 'span' => array( 'class' => array() ) )
+						),
 						the_title( '<span class="screen-reader-text">"', '"</span>', false )
 					)
 				);
 			} else {
-				echo '<p>';
-					the_excerpt();
-				echo '</p>';
+				echo '<p>' . wp_kses_post( get_the_excerpt() ) . '</p>';
 			}
 			?>
 
@@ -105,7 +99,7 @@ $supported_post_types           = $kirki_post_types_support_class->get_post_type
 		</div><!-- .entry-content -->
 	</div>
 
-    <?php do_action( 'reign_rg_post_content_after' ); ?>
+	<?php do_action( 'reign_rg_post_content_after' ); ?>
 
 	<?php
 	if ( is_single() ) {

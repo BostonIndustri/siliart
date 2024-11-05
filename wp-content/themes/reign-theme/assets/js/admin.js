@@ -160,3 +160,32 @@ jQuery(window).load(function(){
         jQuery('.reign-settings-loader').fadeOut('slow');
     },500);
 });
+
+// Reign settings menu toggle in mobile view JS
+jQuery(document).ready(function($) {	
+    var btn = document.querySelector('.reign-setting-menu-toggle');
+    var navTabs = document.querySelector('.reign-setting-left-panel .reign-nav-tab-wrapper'); 
+    var btnst = true;
+
+    btn.onclick = function() {
+        var span = document.querySelector('.reign-setting-menu-toggle span');
+        
+        if (btnst) {
+            span.classList.add('toggle');
+            navTabs.style.height = navTabs.scrollHeight + 'px';
+            btnst = false;
+        } else {
+            span.classList.remove('toggle');
+            navTabs.style.height = '0';
+            btnst = true;
+        }
+    };
+    
+    navTabs.addEventListener('transitionend', function() {
+        if (btnst) {
+            navTabs.style.opacity = '0';
+        } else {
+            navTabs.style.opacity = '1';
+        }
+    });
+});

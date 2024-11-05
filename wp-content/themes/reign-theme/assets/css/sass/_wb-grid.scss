@@ -22,7 +22,7 @@
 .wb-grid-cell {
     flex: 1;
     min-width: 1px; // Firefox-34-ignoring-max-width-for-flexbox
-    display: inline-block; // In IE 10, setting -ms-flex-flow: row wrap will not wrap unless display: inline-block is set on child elements.
+    // display: inline-block; // In IE 10, setting -ms-flex-flow: row wrap will not wrap unless display: inline-block is set on child elements.
     list-style: none; // Need when added this class to li
 
     &:not(.no-gutter) {

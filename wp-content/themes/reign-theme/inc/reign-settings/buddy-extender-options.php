@@ -51,12 +51,11 @@ if ( ! class_exists( 'Reign_Buddy_Extender_Options' ) ) :
 			add_action( 'render_theme_options_for_avatar_settings', array( $this, 'render_theme_options_for_avatar_settings' ) );
 			add_action( 'render_theme_options_for_advanced_settings', array( $this, 'render_theme_options_for_advanced_settings' ) );
 
-			add_action( 'render_theme_options_for_group_cover_image', array( $this, 'render_theme_options_for_group_cover_image' ) );
-			add_action( 'render_theme_options_for_xprofile_cover_image', array( $this, 'render_theme_options_for_xprofile_cover_image' ) );
+			// add_action( 'render_theme_options_for_group_cover_image', array( $this, 'render_theme_options_for_group_cover_image' ) );
+			// add_action( 'render_theme_options_for_xprofile_cover_image', array( $this, 'render_theme_options_for_xprofile_cover_image' ) );
 
-			add_action( 'render_theme_options_for_activity_action_control', array( $this, 'render_theme_options_for_activity_action_control' ) );
-
-			add_action( 'render_theme_options_for_xprofile_social_links', array( $this, 'render_theme_options_for_xprofile_social_links' ) );
+			// add_action( 'render_theme_options_for_activity_action_control', array( $this, 'render_theme_options_for_activity_action_control' ) );
+			//add_action( 'render_theme_options_for_xprofile_social_links', array( $this, 'render_theme_options_for_xprofile_social_links' ) );
 
 			add_action( 'render_theme_options_for_bp_layout_mgmt', array( $this, 'render_theme_options_for_bp_layout_mgmt' ) );
 
@@ -70,18 +69,21 @@ if ( ! class_exists( 'Reign_Buddy_Extender_Options' ) ) :
 
 		public function render_theme_options() {
 			$vertical_tabs = array(
-				'avatar_settings'         => __( 'Avatar Settings', 'reign' ),
-				'advanced_settings'       => __( 'Advanced Settings', 'reign' ),
-				'group_cover_image'       => __( 'Default Group Cover Image', 'reign' ),
-				'xprofile_cover_image'    => __( 'Default Profile Cover Image', 'reign' ),
-				'activity_action_control' => __( 'Activity Control', 'reign' ),
-				'xprofile_social_links'   => __( 'Social Media Links', 'reign' ),
-				'bp_layout_mgmt'          => __( 'Member/Group Header Layout', 'reign' ),
+				'avatar_settings'   => __( 'Avatar Settings', 'reign' ),
+				'bp_layout_mgmt'    => __( 'Member/Group Header Layout', 'reign' ),
+				'advanced_settings' => __( 'Advanced Settings', 'reign' ),
+				// 'group_cover_image'       => __( 'Default Group Cover Image', 'reign' ),
+				// 'xprofile_cover_image'    => __( 'Default Profile Cover Image', 'reign' ),
+				// 'activity_action_control' => __( 'Activity Control', 'reign' ),
+				// 'xprofile_social_links'   => __( 'Social Media Links', 'reign' ),
 			);
 			$vertical_tabs = apply_filters( 'wbtm_' . self::$_slug . '_vertical_tabs', $vertical_tabs );
 			include 'vertical-tabs-skeleton.php';
 		}
 
+		/**
+		 * Renders the theme options for BuddyPress layout management.
+		 */
 		public function render_theme_options_for_bp_layout_mgmt() {
 			global $wbtm_reign_settings;
 			$member_header_position = isset( $wbtm_reign_settings['reign_buddyextender']['member_header_position'] ) ? $wbtm_reign_settings['reign_buddyextender']['member_header_position'] : 'inside';
@@ -117,10 +119,26 @@ if ( ! class_exists( 'Reign_Buddy_Extender_Options' ) ) :
 						);
 						echo '<select name="reign_buddyextender[member_header_position]">';
 						foreach ( $member_header_positions as $slug => $position ) {
-							echo '<option value="' . $slug . '" ' . selected( $member_header_position, $slug ) . '>' . $position['name'] . '</option>';
+							echo '<option value="' . esc_attr( $slug ) . '" ' . selected( $member_header_position, $slug ) . '>' . esc_html( $position['name'] ) . '</option>';
 						}
 						echo '</select>';
 						?>
+					</td>
+				</tr>
+				<tr>
+					<td class="rtm-left-side">
+						<div class="rtm-tooltip-wrap">
+							<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/question.png' ); ?>" class="rtm-tooltip-image" alt="<?php esc_attr_e( 'tooltip-image', 'reign' ); ?>" />
+							<label for="enable_profile_header_view" class="rtm-tooltip-label">
+								<?php esc_html_e( 'Allows Members To Switch Header Options', 'reign' ); ?>
+							</label>
+						</div>
+						<div class="rtm-tooltiptext">
+							<?php esc_html_e( 'Enable profile header position options at frontend for members', 'reign' ); ?>
+						</div>
+					</td>
+					<td>
+						<input type="checkbox" name="reign_buddyextender[enable_profile_header_view]" value="on" <?php isset( $wbtm_reign_settings['reign_buddyextender']['enable_profile_header_view'] ) ? checked( $wbtm_reign_settings['reign_buddyextender']['enable_profile_header_view'], 'on' ) : ''; ?>>
 					</td>
 				</tr>
 				<tr>
@@ -161,8 +179,8 @@ if ( ! class_exists( 'Reign_Buddy_Extender_Options' ) ) :
 						echo '<ul>';
 						foreach ( $member_header_types as $slug => $header ) {
 							echo '<li>';
-							echo '<input type="radio" name="reign_buddyextender[member_header_type]" value="' . $slug . '" id="member-' . $slug . '" ' . checked( $member_header_type, $slug, false ) . ' />';
-							echo '<label for="member-' . $slug . '"><img src="' . $header['img_url'] . '" /><span>' . $header['name'] . '</span></label>';
+							echo '<input type="radio" name="reign_buddyextender[member_header_type]" value="' . esc_attr( $slug ) . '" id="member-' . esc_attr( $slug ) . '" ' . checked( $member_header_type, $slug, false ) . ' />';
+							echo '<label for="member-' . esc_attr( $slug ) . '"><img src="' . esc_url( $header['img_url'] ) . '" /><span>' . esc_html( $header['name'] ) . '</span></label>';
 							echo '</li>';
 						}
 						echo '</ul>';
@@ -208,8 +226,8 @@ if ( ! class_exists( 'Reign_Buddy_Extender_Options' ) ) :
 						echo '<ul>';
 						foreach ( $group_header_types as $slug => $header ) {
 							echo '<li>';
-							echo '<input type="radio" name="reign_buddyextender[group_header_type]" value="' . $slug . '" id="group-' . $slug . '" ' . checked( $group_header_type, $slug, false ) . ' />';
-							echo '<label for="group-' . $slug . '"><img src="' . $header['img_url'] . '" /><span>' . $header['name'] . '</span></label>';
+							echo '<input type="radio" name="reign_buddyextender[group_header_type]" value="' . esc_attr( $slug ) . '" id="group-' . esc_attr( $slug ) . '" ' . checked( $group_header_type, $slug, false ) . ' />';
+							echo '<label for="group-' . esc_attr( $slug ) . '"><img src="' . esc_url( $header['img_url'] ) . '" /><span>' . esc_html( $header['name'] ) . '</span></label>';
 							echo '</li>';
 						}
 						echo '</ul>';
@@ -254,8 +272,8 @@ if ( ! class_exists( 'Reign_Buddy_Extender_Options' ) ) :
 						echo '<ul>';
 						foreach ( $member_directory_types as $slug => $directory ) {
 							echo '<li>';
-							echo '<input type="radio" name="reign_buddyextender[member_directory_type]" value="' . $slug . '" id="member-dir-' . $slug . '" ' . checked( $member_directory_type, $slug, false ) . ' />';
-							echo '<label for="member-dir-' . $slug . '"><img src="' . $directory['img_url'] . '" class="rtm-tooltip-label" /><span>' . $directory['name'] . '</span></label>';
+							echo '<input type="radio" name="reign_buddyextender[member_directory_type]" value="' . esc_attr( $slug ) . '" id="member-dir-' . esc_attr( $slug ) . '" ' . checked( $member_directory_type, $slug, false ) . ' />';
+							echo '<label for="member-dir-' . esc_attr( $slug ) . '"><img src="' . esc_url( $directory['img_url'] ) . '" class="rtm-tooltip-label" /><span>' . esc_html( $directory['name'] ) . '</span></label>';
 							echo '</li>';
 						}
 						echo '</ul>';
@@ -300,8 +318,8 @@ if ( ! class_exists( 'Reign_Buddy_Extender_Options' ) ) :
 						echo '<ul>';
 						foreach ( $group_directory_types as $slug => $directory ) {
 							echo '<li>';
-							echo '<input type="radio" name="reign_buddyextender[group_directory_type]" value="' . $slug . '" id="group-dir-' . $slug . '" ' . checked( $group_directory_type, $slug, false ) . ' />';
-							echo '<label for="group-dir-' . $slug . '"><img src="' . $directory['img_url'] . '" class="rtm-tooltip-label" /><span>' . $directory['name'] . '</span></label>';
+							echo '<input type="radio" name="reign_buddyextender[group_directory_type]" value="' . esc_attr( $slug ) . '" id="group-dir-' . esc_attr( $slug ) . '" ' . checked( $group_directory_type, $slug, false ) . ' />';
+							echo '<label for="group-dir-' . esc_attr( $slug ) . '"><img src="' . esc_url( $directory['img_url'] ) . '" class="rtm-tooltip-label" /><span>' . esc_html( $directory['name'] ) . '</span></label>';
 							echo '</li>';
 						}
 						echo '</ul>';
@@ -310,22 +328,7 @@ if ( ! class_exists( 'Reign_Buddy_Extender_Options' ) ) :
 					</td>
 				</tr>
 
-				<tr>
-					<td class="rtm-left-side">
-						<div class="rtm-tooltip-wrap">
-							<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/question.png' ); ?>" class="rtm-tooltip-image" alt="<?php esc_attr_e( 'tooltip-image', 'reign' ); ?>" />
-							<label for="enable_profile_header_view" class="rtm-tooltip-label">
-								<?php esc_html_e( 'Allows Members To Switch Header Options', 'reign' ); ?>
-							</label>
-						</div>
-						<div class="rtm-tooltiptext">
-							<?php esc_html_e( 'Enable profile header position options at frontend for members', 'reign' ); ?>
-						</div>
-					</td>
-					<td>
-						<input type="checkbox" name="reign_buddyextender[enable_profile_header_view]" value="on" <?php isset( $wbtm_reign_settings['reign_buddyextender']['enable_profile_header_view'] ) ? checked( $wbtm_reign_settings['reign_buddyextender']['enable_profile_header_view'], 'on' ) : ''; ?>>
-					</td>
-				</tr>
+				
 			</table>
 			<?php
 		}
@@ -360,14 +363,14 @@ if ( ! class_exists( 'Reign_Buddy_Extender_Options' ) ) :
 							$image_inline_style  .= 'display:none;';
 							$remove_inline_style .= 'display:none;';
 						}
-
 						echo '<p>';
-						echo '<input type="hidden" class="reign-upload-file" name="reign_buddyextender[avatar_default_image]" id="avatar_default_image" value="' . $img_src . '" size="45" data-previewsize="[350,350]">';
-						echo '<input type="hidden" class="reign-upload-file-id" name="reign_buddyextender[avatar_default_image_id]" id="avatar_default_image_id" value="' . $img_id . '">';
-						echo '<img class="reign-default-thumb reign_default_cover_image reign_default_avatar_image" src="' . $img_src . '" style="' . $image_inline_style . '" />';
-						echo '<a href="#" class="button button-link-delete reign-remove-file-button" rel="avatar_default_image" style="' . $remove_inline_style . '" >' . __( 'Remove Image', 'reign' ) . '</a>';
-						echo '<input id="reign-upload-button" type="button" class="button reign-upload-button" value="' . __( 'Upload Image', 'reign' ) . '" />';
+						echo '<input type="hidden" class="reign-upload-file" name="reign_buddyextender[avatar_default_image]" id="avatar_default_image" value="' . esc_attr( $img_src ) . '" size="45" data-previewsize="[350,350]">';
+						echo '<input type="hidden" class="reign-upload-file-id" name="reign_buddyextender[avatar_default_image_id]" id="avatar_default_image_id" value="' . esc_attr( $img_id ) . '">';
+						echo '<img class="reign-default-thumb reign_default_cover_image reign_default_avatar_image" src="' . esc_url( $img_src ) . '" style="' . esc_attr( $image_inline_style ) . '" />';
+						echo '<a href="#" class="button button-link-delete reign-remove-file-button" rel="avatar_default_image" style="' . esc_attr( $remove_inline_style ) . '">' . esc_html__( 'Remove Image', 'reign' ) . '</a>';
+						echo '<input id="reign-upload-button" type="button" class="button reign-upload-button" value="' . esc_attr__( 'Upload Image', 'reign' ) . '" />';
 						echo '</p>';
+
 						?>
 					</td>
 				</tr>
@@ -399,16 +402,21 @@ if ( ! class_exists( 'Reign_Buddy_Extender_Options' ) ) :
 						}
 
 						echo '<p>';
-						echo '<input type="hidden" class="reign-upload-file" name="reign_buddyextender[group_default_image]" id="group_default_image" value="' . $img_src . '" size="45" data-previewsize="[350,350]">';
-						echo '<input type="hidden" class="reign-upload-file-id" name="reign_buddyextender[group_default_image_id]" id="group_default_image_id" value="' . $img_id . '">';
-						echo '<img class="reign-default-thumb reign_default_cover_image reign_default_avatar_image" src="' . $img_src . '" style="' . $image_inline_style . '" />';
-						echo '<a href="#" class="button button-link-delete reign-remove-file-button" rel="group_default_image" style="' . $remove_inline_style . '" >' . __( 'Remove Image', 'reign' ) . '</a>';
-						echo '<input id="reign-upload-button" type="button" class="button reign-upload-button" value="' . __( 'Upload Image', 'reign' ) . '" />';
+						echo '<input type="hidden" class="reign-upload-file" name="reign_buddyextender[group_default_image]" id="group_default_image" value="' . esc_attr( $img_src ) . '" size="45" data-previewsize="[350,350]">';
+						echo '<input type="hidden" class="reign-upload-file-id" name="reign_buddyextender[group_default_image_id]" id="group_default_image_id" value="' . esc_attr( $img_id ) . '">';
+						echo '<img class="reign-default-thumb reign_default_cover_image reign_default_avatar_image" src="' . esc_url( $img_src ) . '" style="' . esc_attr( $image_inline_style ) . '" />';
+						echo '<a href="#" class="button button-link-delete reign-remove-file-button" rel="group_default_image" style="' . esc_attr( $remove_inline_style ) . '">' . esc_html__( 'Remove Image', 'reign' ) . '</a>';
+						echo '<input id="reign-upload-button" type="button" class="button reign-upload-button" value="' . esc_attr__( 'Upload Image', 'reign' ) . '" />';
 						echo '</p>';
+
 						?>
 					</td>
 				</tr>
 			</table>
+			
+			<?php $this->render_theme_options_for_xprofile_cover_image(); ?>
+			<?php $this->render_theme_options_for_group_cover_image(); ?>
+
 			<?php
 		}
 
@@ -429,7 +437,7 @@ if ( ! class_exists( 'Reign_Buddy_Extender_Options' ) ) :
 						</div>
 					</td>
 					<td>
-						<input type="number" name="reign_buddyextender[members_per_page]" value="<?php echo isset( $wbtm_reign_settings['reign_buddyextender']['members_per_page'] ) ? $wbtm_reign_settings['reign_buddyextender']['members_per_page'] : '21'; ?>" >
+						<input type="number" name="reign_buddyextender[members_per_page]" value="<?php echo esc_attr( isset( $wbtm_reign_settings['reign_buddyextender']['members_per_page'] ) ? $wbtm_reign_settings['reign_buddyextender']['members_per_page'] : '21' ); ?>">
 					</td>
 				</tr>
 				<tr>
@@ -445,10 +453,13 @@ if ( ! class_exists( 'Reign_Buddy_Extender_Options' ) ) :
 						</div>
 					</td>
 					<td>
-						<input type="number" name="reign_buddyextender[groups_per_page]" value="<?php echo isset( $wbtm_reign_settings['reign_buddyextender']['groups_per_page'] ) ? $wbtm_reign_settings['reign_buddyextender']['groups_per_page'] : '21'; ?>" >
+						<input type="number" name="reign_buddyextender[groups_per_page]" value="<?php echo esc_attr( isset( $wbtm_reign_settings['reign_buddyextender']['groups_per_page'] ) ? $wbtm_reign_settings['reign_buddyextender']['groups_per_page'] : '21' ); ?>">
 					</td>
 				</tr>
 			</table>
+
+			<?php $this->render_theme_options_for_activity_action_control(); ?>
+			<?php $this->render_theme_options_for_xprofile_social_links(); ?>
 			
 			<?php
 		}
@@ -473,7 +484,7 @@ if ( ! class_exists( 'Reign_Buddy_Extender_Options' ) ) :
 			echo '<td class="rtm-left-side">';
 			echo '<div class="rtm-tooltip-wrap">';
 			echo '<img src="' . esc_url( get_template_directory_uri() . '/assets/img/question.png' ) . '" class="rtm-tooltip-image" alt="tooltip-images" />';
-			echo '<label class="rtm-tooltip-label">' . __( 'Select Image', 'reign' ) . '</label>';
+			echo '<label class="rtm-tooltip-label">' . esc_html__( 'Default Group Cover Image', 'reign' ) . '</label>';
 			echo '</div>';
 			?>
 			<div class="rtm-tooltiptext">
@@ -483,10 +494,11 @@ if ( ! class_exists( 'Reign_Buddy_Extender_Options' ) ) :
 			echo '</td>';
 			echo '<td>';
 			echo '<input class="reign_default_cover_image_url" type="hidden" name="reign_buddyextender[default_group_cover_image_url]" value="' . esc_url( $default_group_cover_image_url ) . '" />';
-			echo '<img class="reign-default-thumb reign_default_cover_image" src="' . esc_url( $default_group_cover_image_url ) . '" style="' . $image_inline_style . '" />';
-			echo '<a href="#" class="button button-link-delete reign-remove-file-button" rel="avatar_default_image" style="' . $remove_inline_style . '" >' . __( 'Remove Image', 'reign' ) . '</a>';
-			echo '<input id="reign-upload-button" type="button" class="button reign-upload-button" value="' . __( 'Upload Image', 'reign' ) . '" />';
+			echo '<img class="reign-default-thumb reign_default_cover_image" src="' . esc_url( $default_group_cover_image_url ) . '" style="' . esc_attr( $image_inline_style ) . '" />';
+			echo '<a href="#" class="button button-link-delete reign-remove-file-button" rel="avatar_default_image" style="' . esc_attr( $remove_inline_style ) . '">' . esc_html__( 'Remove Image', 'reign' ) . '</a>';
+			echo '<input id="reign-upload-button" type="button" class="button reign-upload-button" value="' . esc_attr__( 'Upload Image', 'reign' ) . '" />';
 			echo '</td>';
+
 			echo '</tr>';
 			echo '</table>';
 		}
@@ -510,7 +522,7 @@ if ( ! class_exists( 'Reign_Buddy_Extender_Options' ) ) :
 			echo '<td class="rtm-left-side">';
 			echo '<div class="rtm-tooltip-wrap">';
 			echo '<img src="' . esc_url( get_template_directory_uri() . '/assets/img/question.png' ) . '" class="rtm-tooltip-image" alt="tooltip-images" />';
-			echo '<label class="rtm-tooltip-label">' . __( 'Select Image', 'reign' ) . '</label>';
+			echo '<label class="rtm-tooltip-label">' . esc_html__( 'Default Profile Cover Image', 'reign' ) . '</label>';
 			echo '</div>';
 			?>
 			<div class="rtm-tooltiptext">
@@ -520,9 +532,9 @@ if ( ! class_exists( 'Reign_Buddy_Extender_Options' ) ) :
 			echo '</td>';
 			echo '<td>';
 			echo '<input class="reign_default_cover_image_url" type="hidden" name="reign_buddyextender[default_xprofile_cover_image_url]" value="' . esc_url( $default_xprofile_cover_image_url ) . '" />';
-			echo '<img class="reign-default-thumb reign_default_cover_image" src="' . $default_xprofile_cover_image_url . '" style="' . $image_inline_style . '" />';
-			echo '<a href="#" class="button button-link-delete reign-remove-file-button" rel="avatar_default_image" style="' . $remove_inline_style . '" >' . __( 'Remove Image', 'reign' ) . '</a>';
-			echo '<input id="reign-upload-button" type="button" class="button reign-upload-button" value="' . __( 'Upload Image', 'reign' ) . '" />';
+			echo '<img class="reign-default-thumb reign_default_cover_image" src="' . esc_url( $default_xprofile_cover_image_url ) . '" style="' . esc_attr( $image_inline_style ) . '" />';
+			echo '<a href="#" class="button button-link-delete reign-remove-file-button" rel="avatar_default_image" style="' . esc_attr( $remove_inline_style ) . '">' . esc_html__( 'Remove Image', 'reign' ) . '</a>';
+			echo '<input id="reign-upload-button" type="button" class="button reign-upload-button" value="' . esc_attr__( 'Upload Image', 'reign' ) . '" />';
 			echo '</td>';
 			echo '</tr>';
 			echo '</table>';
@@ -594,84 +606,8 @@ if ( ! class_exists( 'Reign_Buddy_Extender_Options' ) ) :
 			$wbtm_social_links = isset( $wbtm_reign_settings['reign_buddyextender']['wbtm_social_links'] ) ? $wbtm_reign_settings['reign_buddyextender']['wbtm_social_links'] : array();
 			$unique_key        = time();
 			$social_filed_name = array_column( $wbtm_social_links, 'name' );
-
-			if ( ! empty( $wbtm_social_links ) && is_array( $wbtm_social_links ) && ! empty( $social_filed_name[0] ) ) {
-				echo '<div class="wb-xprofile-social-links-wrapper-outer">';
-				echo '<div class="wb-xprofile-social-links-wrapper">';
-				foreach ( $wbtm_social_links as $unique_key => $social_link ) {
-					$display_none = '';
-					$image_link   = '';
-					if ( empty( $social_link['img_url'] ) ) {
-						$display_none = 'display: none;';
-					} else {
-						$image_link = $social_link['img_url'];
-					}
-					?>
-					<div class="wbtm_social_links_container">
-						<div class="wbtm_social_link_section">
-							<h3 class="wbtm_social_link_toggle_head">
-								<?php echo $social_link['name']; ?>
-							</h3>
-							<div class="wbtm_social_link_info_box">
-								<div class="img_section">
-									<input class="reign_default_cover_image_url" type="hidden" name="reign_buddyextender[wbtm_social_links][<?php echo $unique_key; ?>][img_url]" value="<?php echo $image_link; ?>" required="required" />
-									<img class="reign_default_cover_image" src="<?php echo $image_link; ?>" style="<?php echo $display_none; ?>" />
-									<input id="reign-upload-button" type="button" class="button reign-upload-button" value="<?php esc_html_e( 'Upload Icon', 'reign' ); ?>" />
-									<a href="#" class="reign-remove-file-button" rel="avatar_default_image" style="<?php echo $display_none; ?>" >
-										<?php esc_html_e( 'Remove Icon', 'reign' ); ?>
-									</a>
-								</div>
-								<div class="name_section">
-									<input type="text" class="wbtm-social-link-inp" name="reign_buddyextender[wbtm_social_links][<?php echo $unique_key; ?>][name]" placeholder="<?php esc_html_e( 'New Site', 'reign' ); ?>" value="<?php echo $social_link['name']; ?>" required="required" />
-								</div>
-								<div class="del_section">
-									<button><?php esc_html_e( 'Delete', 'reign' ); ?></button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<?php
-				}
-				echo '</div>';
-				echo '<div class="wbtm_social_links_add_more">';
-				echo '<button>' . __( 'Add New Site', 'reign' ) . '</button>';
-				echo '</div>';
-				echo '</div>';
-			} else {
-				?>
-				<div class="wb-xprofile-social-links-wrapper-outer">
-					<div class="wb-xprofile-social-links-wrapper">
-						<div class="wbtm_social_links_container">
-							<div class="wbtm_social_link_section">
-								<h3 class="wbtm_social_link_toggle_head">
-									<?php esc_html_e( 'New Site', 'reign' ); ?>
-								</h3>
-								<div class="wbtm_social_link_info_box">
-									<div class="img_section">
-										<input class="reign_default_cover_image_url" type="hidden" name="reign_buddyextender[wbtm_social_links][<?php echo $unique_key; ?>][img_url]" value="" />
-										<img class="reign_default_cover_image" src="" style="display: none;" />
-										<input id="reign-upload-button" type="button" class="button reign-upload-button" value="<?php esc_html_e( 'Upload Image', 'reign' ); ?>" />
-										<a href="#" class="reign-remove-file-button" rel="avatar_default_image" style="display: none;" >
-											<?php esc_html_e( 'Remove Image', 'reign' ); ?>
-										</a>
-									</div>
-									<div class="name_section">
-										<input type="text" name="reign_buddyextender[wbtm_social_links][<?php echo $unique_key; ?>][name]" placeholder="<?php esc_html_e( 'New Site', 'reign' ); ?>" />
-									</div>
-									<div class="del_section">
-										<button><?php esc_html_e( 'Delete', 'reign' ); ?></button>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="wbtm_social_links_add_more">
-						<button><?php esc_html_e( 'Add New Site', 'reign' ); ?></button>
-					</div>
-				</div>
-				<?php
-			}
 			?>
+			
 			<table class="form-table">
 				<tr>
 					<td class="rtm-left-side">
@@ -690,6 +626,86 @@ if ( ! class_exists( 'Reign_Buddy_Extender_Options' ) ) :
 					</td>
 				</tr>
 			</table>
+
+			<?php
+			if ( ! empty( $wbtm_social_links ) && is_array( $wbtm_social_links ) && ! empty( $social_filed_name[0] ) ) {
+				echo '<div class="wb-xprofile-social-links-wrapper-outer">';
+				echo '<div class="wb-xprofile-social-links-wrapper">';
+				foreach ( $wbtm_social_links as $unique_key => $social_link ) {
+					$display_none = '';
+					$image_link   = '';
+					if ( empty( $social_link['img_url'] ) ) {
+						$display_none = 'display: none;';
+					} else {
+						$image_link = $social_link['img_url'];
+					}
+					?>
+					<div class="wbtm_social_links_container">
+						<div class="wbtm_social_link_section">
+							<h3 class="wbtm_social_link_toggle_head">
+								<?php echo esc_html( $social_link['name'] ); ?>
+							</h3>
+							<div class="wbtm_social_link_info_box">
+								<div class="img_section">
+									<input class="reign_default_cover_image_url" type="hidden" name="reign_buddyextender[wbtm_social_links][<?php echo esc_attr( $unique_key ); ?>][img_url]" value="<?php echo esc_url( $image_link ); ?>" required="required" />
+									<img class="reign_default_cover_image" src="<?php echo esc_url( $image_link ); ?>" style="<?php echo esc_attr( $display_none ); ?>" />
+									<input id="reign-upload-button" type="button" class="button reign-upload-button" value="<?php esc_html_e( 'Upload Icon', 'reign' ); ?>" />
+									<a href="#" class="reign-remove-file-button" rel="avatar_default_image" style="<?php echo esc_attr( $display_none ); ?>" >
+										<?php esc_html_e( 'Remove Icon', 'reign' ); ?>
+									</a>
+								</div>
+								<div class="name_section">
+									<input type="text" class="wbtm-social-link-inp" name="reign_buddyextender[wbtm_social_links][<?php echo esc_attr( $unique_key ); ?>][name]" placeholder="<?php esc_attr_e( 'New Site', 'reign' ); ?>" value="<?php echo esc_attr( $social_link['name'] ); ?>" required="required" />
+								</div>
+								<div class="del_section">
+									<button><?php esc_html_e( 'Delete', 'reign' ); ?></button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<?php
+				}
+				echo '</div>';
+				echo '<div class="wbtm_social_links_add_more">';
+				echo '<button>' . esc_html__( 'Add New Site', 'reign' ) . '</button>';
+				echo '</div>';
+				echo '</div>';
+			} else {
+				?>
+				<div class="wb-xprofile-social-links-wrapper-outer">
+					<div class="wb-xprofile-social-links-wrapper">
+						<div class="wbtm_social_links_container">
+							<div class="wbtm_social_link_section">
+								<h3 class="wbtm_social_link_toggle_head">
+									<?php esc_html_e( 'New Site', 'reign' ); ?>
+								</h3>
+								<div class="wbtm_social_link_info_box">
+									<div class="img_section">
+										<input class="reign_default_cover_image_url" type="hidden" name="reign_buddyextender[wbtm_social_links][<?php echo esc_attr( $unique_key ); ?>][img_url]" value="" />
+										<img class="reign_default_cover_image" src="" style="display: none;" />
+										<input id="reign-upload-button" type="button" class="button reign-upload-button" value="<?php esc_html_e( 'Upload Image', 'reign' ); ?>" />
+										<a href="#" class="reign-remove-file-button" rel="avatar_default_image" style="display: none;" >
+											<?php esc_html_e( 'Remove Image', 'reign' ); ?>
+										</a>
+									</div>
+									<div class="name_section">
+										<input type="text" name="reign_buddyextender[wbtm_social_links][<?php echo esc_attr( $unique_key ); ?>][name]" placeholder="<?php esc_html_e( 'New Site', 'reign' ); ?>" />
+									</div>
+									<div class="del_section">
+										<button><?php esc_html_e( 'Delete', 'reign' ); ?></button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="wbtm_social_links_add_more">
+						<button><?php esc_html_e( 'Add New Site', 'reign' ); ?></button>
+					</div>
+				</div>
+				<?php
+			}
+			?>
+			
 			<?php
 		}
 

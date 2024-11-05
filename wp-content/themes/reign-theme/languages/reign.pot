@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: REIGN 7.5.6\n"
+"Project-Id-Version: REIGN 7.6.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-11 11:48:45+00:00\n"
+"POT-Creation-Date: 2024-10-24 05:58:20+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -36,6 +36,7 @@ msgstr ""
 msgid "300"
 msgstr ""
 
+#: 404.php:16
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/genericon.php:587
 #: lib/kirki-addon/options/general/class-reign-kirki-page-mapping.php:125
 msgid "404"
@@ -66,6 +67,14 @@ msgstr ""
 msgid "page not found"
 msgstr ""
 
+#: 404.php:18
+msgid "The page you were looking  for doesn't exist."
+msgstr ""
+
+#: 404.php:19
+msgid "Go Back"
+msgstr ""
+
 #: amp/comments.php:44 amp/comments.php:88 comments.php:40 comments.php:62
 msgid "Comment navigation"
 msgstr ""
@@ -89,14 +98,14 @@ msgstr ""
 #: amp/single.php:24 inc/extras.php:191
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/foundation-icons.php:914
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/genericon.php:182
-#: inc/theme-functions.php:1433 single.php:27
+#: inc/theme-functions.php:1379 single.php:27
 msgid "Previous"
 msgstr ""
 
 #: amp/single.php:25 inc/extras.php:192
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/foundation-icons.php:929
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/genericon.php:187
-#: inc/theme-functions.php:1445 single.php:28
+#: inc/theme-functions.php:1391 single.php:28
 msgid "Next"
 msgstr ""
 
@@ -112,43 +121,42 @@ msgstr ""
 msgid "Turned off notifications"
 msgstr ""
 
-#: bb-buddypress/groups/groups-loop.php:111
+#: bb-buddypress/groups/groups-loop.php:104
 #: bb-buddypress/groups/single/cover-image-header.php:151
-#: bp-nouveau/groups/groups-loop.php:72 bp-nouveau/groups/groups-loop.php:198
+#: bp-nouveau/groups/groups-loop.php:72 bp-nouveau/groups/groups-loop.php:187
 #: bp-nouveau/groups/single/cover-image-header.php:68
 #. translators: %s = last activity timestamp (e.g. "active 1 hour ago")
 #. translators: %s: last activity timestamp (e.g. "Active 1 hour ago")
 msgid "Active %s"
 msgstr ""
 
-#: bb-buddypress/groups/groups-loop.php:172
+#: bb-buddypress/groups/groups-loop.php:165
 #: bb-buddypress/groups/single/cover-image-header.php:236
 msgid "Leave Group"
 msgstr ""
 
-#: bb-buddypress/groups/groups-loop.php:178
+#: bb-buddypress/groups/groups-loop.php:171
 #: bb-buddypress/groups/single/cover-image-header.php:242
 msgid "Are you sure you want to leave "
 msgstr ""
 
-#: bb-buddypress/groups/groups-loop.php:181
+#: bb-buddypress/groups/groups-loop.php:174
 #: bb-buddypress/groups/single/cover-image-header.php:67
 #: bb-buddypress/groups/single/cover-image-header.php:245
-#: bb-buddypress/groups/single/members-loop.php:295
-#: bb-buddypress/members/members-loop.php:322
+#: bb-buddypress/groups/single/members-loop.php:289
+#: bb-buddypress/members/members-loop.php:314
 #: bb-buddypress/members/single/cover-image-header.php:107
 #: bb-buddypress/members/single/cover-image-header.php:309
-#: buddypress/activity/entry.php:136 paid-memberships-pro/pages/billing.php:501
-#: peepso/groups/group-header.php:113 peepso/profile/focus.php:102
-#: template-parts/peepso/focus.php:100
+#: buddypress/activity/entry.php:136 peepso/groups/group-header.php:113
+#: peepso/profile/focus.php:108 template-parts/peepso/focus.php:106
 #: template-parts/peepso/group-header.php:112
 msgid "Cancel"
 msgstr ""
 
-#: bb-buddypress/groups/groups-loop.php:182
+#: bb-buddypress/groups/groups-loop.php:175
 #: bb-buddypress/groups/single/cover-image-header.php:246
-#: bb-buddypress/groups/single/members-loop.php:296
-#: bb-buddypress/members/members-loop.php:323
+#: bb-buddypress/groups/single/members-loop.php:290
+#: bb-buddypress/members/members-loop.php:315
 #: bb-buddypress/members/single/cover-image-header.php:310
 msgid "Confirm"
 msgstr ""
@@ -156,7 +164,7 @@ msgstr ""
 #: bb-buddypress/groups/single/cover-image-header.php:57
 #: bb-buddypress/members/single/cover-image-header.php:96
 #: bp-nouveau/groups/single/cover-image-header.php:31
-#: bp-nouveau/members/single/cover-image-header.php:40
+#: bp-nouveau/members/single/cover-image-header.php:19
 msgid "Change Cover Photo"
 msgstr ""
 
@@ -189,14 +197,14 @@ msgstr ""
 msgid "Group Description"
 msgstr ""
 
-#: bb-buddypress/groups/single/members-loop.php:278
-#: bb-buddypress/members/members-loop.php:305
+#: bb-buddypress/groups/single/members-loop.php:272
+#: bb-buddypress/members/members-loop.php:297
 #: bb-buddypress/members/single/cover-image-header.php:292
 msgid "Remove Connection"
 msgstr ""
 
-#: bb-buddypress/groups/single/members-loop.php:288
-#: bb-buddypress/members/members-loop.php:315
+#: bb-buddypress/groups/single/members-loop.php:282
+#: bb-buddypress/members/members-loop.php:307
 #: bb-buddypress/members/single/cover-image-header.php:302
 #. translators: %s: The member name with HTML tags
 #. translators: %s: The member name with HTML tags
@@ -204,7 +212,7 @@ msgstr ""
 msgid "Are you sure you want to remove %s from your connections?"
 msgstr ""
 
-#: bb-buddypress/members/members-loop.php:268
+#: bb-buddypress/members/members-loop.php:260
 #: inc/buddypress/buddypress-functions.php:1165
 msgid "More Options"
 msgstr ""
@@ -218,7 +226,7 @@ msgid "Yes, I'd like to create a new site"
 msgstr ""
 
 #: bb-buddypress/members/single/cover-image-header.php:134
-#: bp-nouveau/members/single/cover-image-header.php:52
+#: bp-nouveau/members/single/cover-image-header.php:31
 msgid "Change Profile Photo"
 msgstr ""
 
@@ -226,18 +234,18 @@ msgstr ""
 msgid "Requests to Connect"
 msgstr ""
 
-#: bb-buddypress/members/single/home.php:71
-#: bp-nouveau/members/single/home.php:71
+#: bb-buddypress/members/single/home.php:67
+#: bp-nouveau/members/single/home.php:67
 #: template-parts/header-icons/message.php:22
 msgid "Messages"
 msgstr ""
 
-#: bb-buddypress/members/single/home.php:72
+#: bb-buddypress/members/single/home.php:68
 #: bb-buddypress/members/single/notifications.php:16
 #: bb-buddypress/members/single/profile.php:16
 #: bb-buddypress/members/single/settings.php:14
 #: bp-nouveau/activity/type-parts/content-new-avatar.php:85
-#: bp-nouveau/members/single/home.php:72
+#: bp-nouveau/members/single/home.php:68
 #: bp-nouveau/members/single/notifications.php:44
 #: bp-nouveau/members/single/profile.php:16
 #: bp-nouveau/members/single/settings.php:14
@@ -260,7 +268,7 @@ msgstr ""
 #: bp-nouveau/members/single/notifications.php:42
 #: lib/kirki/kirki-packages/control-dashicons/src/Control/Dashicons.php:115
 #: template-parts/header-icons/notification.php:9
-#: template-parts/header-icons/notification.php:22
+#: template-parts/header-icons/notification.php:20
 msgid "Notifications"
 msgstr ""
 
@@ -291,8 +299,8 @@ msgid "Edit Profile"
 msgstr ""
 
 #: bb-buddypress/members/single/settings.php:13
-#: bp-nouveau/members/single/settings.php:13 inc/theme-functions.php:1205
-#: inc/theme-functions.php:1211
+#: bp-nouveau/members/single/settings.php:13 inc/theme-functions.php:1151
+#: inc/theme-functions.php:1157
 msgid "Account Settings"
 msgstr ""
 
@@ -306,15 +314,15 @@ msgstr ""
 msgid "Discussion"
 msgstr ""
 
-#: bbpress/form-search.php:10
+#: bbpress/form-search.php:12
 msgid "Search Forum Posts..."
 msgstr ""
 
-#: bbpress/form-search.php:17
+#: bbpress/form-search.php:20
 msgid "Search for:"
 msgstr ""
 
-#: bbpress/form-search.php:20
+#: bbpress/form-search.php:23
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/dashicons.php:1119
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/elusive.php:515
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/elusive.php:520
@@ -577,10 +585,10 @@ msgstr ""
 #: buddypress/activity/type-parts/content-created-group.php:43
 #: buddypress/groups/single/admin/manage-members.php:305
 #: inc/buddypress/reign-bp-group-customization.php:280
-#: peepso/groups/group-header.php:231
+#: peepso/groups/group-header.php:229
 #: template-parts/content-user-preview.php:176
 #: template-parts/members-widgets.php:13
-#: template-parts/peepso/group-header.php:230
+#: template-parts/peepso/group-header.php:228
 #: widgets/members-carousel-widget.php:247
 msgid "Members"
 msgstr ""
@@ -612,11 +620,11 @@ msgstr ""
 msgid "Yes, i'd like to create a new site"
 msgstr ""
 
-#: bp-nouveau/members/single/cover-image-header.php:116
+#: bp-nouveau/members/single/cover-image-header.php:95
 msgid "Member Types"
 msgstr ""
 
-#: bp-nouveau/members/single/cover-image-header.php:117
+#: bp-nouveau/members/single/cover-image-header.php:96
 msgid "Member Type"
 msgstr ""
 
@@ -665,7 +673,7 @@ msgstr ""
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/foundation-icons.php:614
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/genericon.php:352
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/reign.php:2241
-#: inc/theme-functions.php:1035
+#: inc/theme-functions.php:981
 #. translators: accessibility text
 msgid "Comment"
 msgstr ""
@@ -704,7 +712,7 @@ msgstr ""
 msgid "Post in"
 msgstr ""
 
-#: buddypress/activity/post-form.php:64 peepso/widgets/me.tpl.php:96
+#: buddypress/activity/post-form.php:64 peepso/widgets/me.tpl.php:105
 msgid "My Profile"
 msgstr ""
 
@@ -808,12 +816,12 @@ msgid "Friendship requests"
 msgstr ""
 
 #: buddypress/members/single/friends/requests.php:106
-#: template-parts/header-icons/friends-request.php:71
+#: template-parts/header-icons/friends-request.php:68
 msgid "Accept"
 msgstr ""
 
 #: buddypress/members/single/friends/requests.php:107
-#: template-parts/header-icons/friends-request.php:72
+#: template-parts/header-icons/friends-request.php:69
 msgid "Reject"
 msgstr ""
 
@@ -833,7 +841,7 @@ msgid ""
 "people!"
 msgstr ""
 
-#: buddypress.php:32 inc/login.php:176 inc/login.php:255
+#: buddypress.php:32 inc/login.php:173 inc/login.php:252
 msgid "%s"
 msgstr ""
 
@@ -847,33 +855,6 @@ msgstr ""
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: edd_templates/checkout_cart.php:16
-msgid "Item Name"
-msgstr ""
-
-#: edd_templates/checkout_cart.php:17
-msgid "Item Price"
-msgstr ""
-
-#: edd_templates/checkout_cart.php:18
-#: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/elusive.php:48
-#: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/genericon.php:57
-msgid "Actions"
-msgstr ""
-
-#: edd_templates/checkout_cart.php:118 woocommerce/cart/cart.php:38
-#: woocommerce/cart/cart.php:168
-msgid "Subtotal"
-msgstr ""
-
-#: edd_templates/checkout_cart.php:146
-msgid "Tax"
-msgstr ""
-
-#: edd_templates/checkout_cart.php:155
-msgid "Total"
-msgstr ""
-
 #: edd_templates/shortcode-download.php:9
 #: template-parts/edd/download-layout-1.php:19
 #: template-parts/edd/download-layout-2.php:19
@@ -883,6 +864,15 @@ msgid "Checkout"
 msgstr ""
 
 #: edd_templates/shortcode-download.php:16
+#: inc/reign-settings/reign-theme-options-manager.php:188
+#: inc/reign-settings/reign-theme-options-manager.php:201
+#: inc/reign-settings/reign-theme-options-manager.php:214
+#: inc/reign-settings/reign-theme-options-manager.php:227
+#: inc/reign-settings/reign-theme-options-manager.php:240
+#: inc/reign-settings/reign-theme-options-manager.php:253
+#: inc/reign-settings/reign-theme-options-manager.php:266
+#: inc/reign-settings/reign-theme-options-manager.php:279
+#: inc/reign-settings/reign-theme-options-manager.php:292
 #: template-parts/edd/download-layout-1.php:26
 #: template-parts/edd/download-layout-2.php:26
 #: template-parts/edd/download-layout-3.php:26
@@ -890,11 +880,11 @@ msgstr ""
 msgid "Buy Now"
 msgstr ""
 
-#: edd_templates/shortcode-download.php:30
-#: template-parts/edd/download-layout-1.php:40
-#: template-parts/edd/download-layout-2.php:40
-#: template-parts/edd/download-layout-3.php:40
-#: template-parts/edd/download-layout-default.php:40
+#: edd_templates/shortcode-download.php:29
+#: template-parts/edd/download-layout-1.php:39
+#: template-parts/edd/download-layout-2.php:39
+#: template-parts/edd/download-layout-3.php:39
+#: template-parts/edd/download-layout-default.php:39
 msgid "Loading"
 msgstr ""
 
@@ -902,10 +892,10 @@ msgstr ""
 #: edd_templates/shortcode-download.php:117
 #: edd_templates/shortcode-download.php:169
 #: edd_templates/shortcode-download.php:204
-#: template-parts/edd/download-layout-1.php:56
-#: template-parts/edd/download-layout-2.php:78
-#: template-parts/edd/download-layout-3.php:75
-#: template-parts/edd/download-layout-default.php:60
+#: template-parts/edd/download-layout-1.php:54
+#: template-parts/edd/download-layout-2.php:76
+#: template-parts/edd/download-layout-3.php:73
+#: template-parts/edd/download-layout-default.php:58
 msgid "Details"
 msgstr ""
 
@@ -913,20 +903,20 @@ msgstr ""
 #: edd_templates/shortcode-download.php:128
 #: edd_templates/shortcode-download.php:178
 #: edd_templates/shortcode-download.php:236
-#: template-parts/edd/download-layout-1.php:79
-#: template-parts/edd/download-layout-2.php:89
-#: template-parts/edd/download-layout-3.php:84
-#: template-parts/edd/download-layout-default.php:92
+#: template-parts/edd/download-layout-1.php:77
+#: template-parts/edd/download-layout-2.php:87
+#: template-parts/edd/download-layout-3.php:82
+#: template-parts/edd/download-layout-default.php:90
 msgid "Buying Options"
 msgstr ""
 
 #: edd_templates/shortcode-download.php:219
-#: template-parts/edd/download-layout-default.php:75
+#: template-parts/edd/download-layout-default.php:73
 msgid "<span class=\"byline\"> by %1$s</span>"
 msgstr ""
 
 #: edd_templates/shortcode-download.php:223
-#: template-parts/edd/download-layout-default.php:79
+#: template-parts/edd/download-layout-default.php:77
 msgid "View all posts by %s"
 msgstr ""
 
@@ -1039,12 +1029,12 @@ msgid "Likes"
 msgstr ""
 
 #: inc/buddypress/buddypress-functions.php:1579
-#: template-parts/header-icons/notification.php:56
+#: template-parts/header-icons/notification.php:47
 msgid "Mark as Read"
 msgstr ""
 
 #: inc/buddypress/buddypress-functions.php:1588
-#: template-parts/header-icons/notification.php:65
+#: template-parts/header-icons/notification.php:56
 msgid "No notifications found"
 msgstr ""
 
@@ -1098,73 +1088,64 @@ msgid "Select Member Header Position"
 msgstr ""
 
 #: inc/buddypress/reign-header-view-xprofile.php:164
-#: inc/reign-settings/peepso-extender-options.php:303
 msgid "Inside"
 msgstr ""
 
 #: inc/buddypress/reign-header-view-xprofile.php:168
 #: inc/reign-menu-icons/includes/settings.php:575
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/genericon.php:292
-#: inc/reign-settings/peepso-extender-options.php:307
 #: lib/kirki/kirki-packages/field-dimensions/src/Dimensions.php:65
 msgid "Top"
 msgstr ""
 
 #: inc/buddypress/reign-header-view-xprofile.php:183
 #: inc/buddypress/reign-header-view-xprofile.php:186
-#: inc/reign-settings/peepso-extender-options.php:328
 msgid "Select Member Header Layout"
 msgstr ""
 
 #: inc/buddypress/reign-header-view-xprofile.php:199
-#: inc/reign-settings/buddy-extender-options.php:142
-#: inc/reign-settings/buddy-extender-options.php:189
-#: inc/reign-settings/peepso-extender-options.php:335
-#: inc/reign-settings/peepso-extender-options.php:378
+#: inc/reign-settings/buddy-extender-options.php:160
+#: inc/reign-settings/buddy-extender-options.php:207
 msgid "Layout #1"
 msgstr ""
 
 #: inc/buddypress/reign-header-view-xprofile.php:203
-#: inc/reign-settings/buddy-extender-options.php:146
-#: inc/reign-settings/buddy-extender-options.php:193
-#: inc/reign-settings/peepso-extender-options.php:339
-#: inc/reign-settings/peepso-extender-options.php:382
+#: inc/reign-settings/buddy-extender-options.php:164
+#: inc/reign-settings/buddy-extender-options.php:211
 msgid "Layout #2"
 msgstr ""
 
 #: inc/buddypress/reign-header-view-xprofile.php:207
-#: inc/reign-settings/buddy-extender-options.php:150
-#: inc/reign-settings/buddy-extender-options.php:197
-#: inc/reign-settings/peepso-extender-options.php:343
-#: inc/reign-settings/peepso-extender-options.php:386
+#: inc/reign-settings/buddy-extender-options.php:168
+#: inc/reign-settings/buddy-extender-options.php:215
 msgid "Layout #3"
 msgstr ""
 
 #: inc/buddypress/reign-header-view-xprofile.php:211
-#: inc/reign-settings/buddy-extender-options.php:154
-#: inc/reign-settings/buddy-extender-options.php:201
+#: inc/reign-settings/buddy-extender-options.php:172
+#: inc/reign-settings/buddy-extender-options.php:219
 msgid "Layout #4"
 msgstr ""
 
 #: inc/buddypress/reign-social-links-xprofile.php:28
-#: inc/extra-plugins-support.php:292
+#: inc/extra-plugins-support.php:291
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/dashicons.php:694
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/dashicons.php:699
-#: inc/theme-functions.php:35
+#: inc/theme-functions.php:50
 #: lib/kirki-addon/options/post-types/class-reign-kirki-post-types.php:923
 #: template-parts/content-share.php:30
 msgid "Facebook"
 msgstr ""
 
 #: inc/buddypress/reign-social-links-xprofile.php:32
-#: inc/extra-plugins-support.php:296
+#: inc/extra-plugins-support.php:295
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/dashicons.php:674
 #: lib/kirki-addon/options/post-types/class-reign-kirki-post-types.php:924
 #: template-parts/content-share.php:39
 msgid "Twitter"
 msgstr ""
 
-#: inc/buddypress/reign-social-links-xprofile.php:36 inc/theme-functions.php:45
+#: inc/buddypress/reign-social-links-xprofile.php:36 inc/theme-functions.php:60
 #: lib/kirki-addon/options/post-types/class-reign-kirki-post-types.php:926
 #: template-parts/content-share.php:61
 msgid "LinkedIn"
@@ -1177,36 +1158,6 @@ msgstr ""
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/genericon.php:85
 #: lib/kirki/kirki-packages/control-dashicons/src/Control/Dashicons.php:110
 msgid "Social"
-msgstr ""
-
-#: inc/class-reign-theme-structure.php:267
-msgid "Name"
-msgstr ""
-
-#: inc/class-reign-theme-structure.php:268
-msgid "Name *"
-msgstr ""
-
-#: inc/class-reign-theme-structure.php:269
-#: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/dashicons.php:684
-#: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/dashicons.php:689
-msgid "Email"
-msgstr ""
-
-#: inc/class-reign-theme-structure.php:270
-msgid "Email *"
-msgstr ""
-
-#: inc/class-reign-theme-structure.php:271
-#: inc/class-reign-theme-structure.php:272
-#: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/elusive.php:1325
-#: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/elusive.php:1330
-#: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/genericon.php:617
-msgid "Website"
-msgstr ""
-
-#: inc/class-reign-theme-structure.php:276
-msgid "Comment *"
 msgstr ""
 
 #: inc/edd-updater/theme-updater-admin.php:272
@@ -1355,13 +1306,13 @@ msgid ""
 "href=\"%5$s\"%6$s>update now</a>."
 msgstr ""
 
-#: inc/extra-plugins-support.php:102 inc/extra-plugins-support.php:128
-#: inc/extra-plugins-support.php:151 inc/extra-plugins-support.php:196
-#: inc/extra-plugins-support.php:271
+#: inc/extra-plugins-support.php:101 inc/extra-plugins-support.php:127
+#: inc/extra-plugins-support.php:150 inc/extra-plugins-support.php:195
+#: inc/extra-plugins-support.php:270
 msgid "View your shopping cart"
 msgstr ""
 
-#: inc/extra-plugins-support.php:232
+#: inc/extra-plugins-support.php:231
 #: lib/kirki-addon/options/general/class-reign-kirki-login-popup.php:140
 #: lib/kirki-addon/options/header/class-reign-kirki-header-mobile-menu.php:164
 #: lib/kirki-addon/options/header/class-reign-kirki-header-mobile-menu.php:192
@@ -1371,15 +1322,15 @@ msgstr ""
 #: lib/kirki-addon/options/header/class-reign-kirki-header.php:276
 #: lib/kirki-addon/options/header/class-reign-kirki-header.php:306
 #: lib/kirki-addon/options/header/class-reign-kirki-header.php:333
-#: peepso/widgets/me.tpl.php:230 template-parts/form-login.php:75
-#: template-parts/form.php:49 template-parts/header/masthead.php:151
-#: template-parts/header-icons/login.php:15
-#: template-parts/header-icons/login.php:16 widgets/login-widget.php:45
+#: peepso/widgets/me.tpl.php:238 template-parts/form-login.php:75
+#: template-parts/form.php:49 template-parts/header/masthead.php:103
+#: template-parts/header-icons/login.php:16
+#: template-parts/header-icons/login.php:17 widgets/login-widget.php:45
 #: widgets/login-widget.php:123
 msgid "Login"
 msgstr ""
 
-#: inc/extra-plugins-support.php:241
+#: inc/extra-plugins-support.php:240
 #: lib/kirki-addon/options/general/class-reign-kirki-login-popup.php:141
 #: lib/kirki-addon/options/header/class-reign-kirki-header-mobile-menu.php:165
 #: lib/kirki-addon/options/header/class-reign-kirki-header-mobile-menu.php:193
@@ -1389,31 +1340,31 @@ msgstr ""
 #: lib/kirki-addon/options/header/class-reign-kirki-header.php:277
 #: lib/kirki-addon/options/header/class-reign-kirki-header.php:307
 #: lib/kirki-addon/options/header/class-reign-kirki-header.php:334
-#: peepso/widgets/me.tpl.php:260 template-parts/form-login.php:56
-#: template-parts/form-login.php:60 template-parts/header/masthead.php:158
-#: template-parts/header-icons/register-menu.php:17
-#: template-parts/header-icons/register-menu.php:24 widgets/login-widget.php:69
+#: peepso/widgets/me.tpl.php:268 template-parts/form-login.php:56
+#: template-parts/form-login.php:60 template-parts/header/masthead.php:110
+#: template-parts/header-icons/register-menu.php:21
+#: template-parts/header-icons/register-menu.php:22 widgets/login-widget.php:69
 msgid "Register"
 msgstr ""
 
-#: inc/extra-plugins-support.php:300
+#: inc/extra-plugins-support.php:299
 msgid "Linkedin"
 msgstr ""
 
-#: inc/extra-plugins-support.php:437
+#: inc/extra-plugins-support.php:436
 msgid "Your Account"
 msgstr ""
 
-#: inc/extra-plugins-support.php:875 widgets/members-carousel-widget.php:133
+#: inc/extra-plugins-support.php:879 widgets/members-carousel-widget.php:133
 msgid "No one has signed up yet!"
 msgstr ""
 
-#: inc/extra-plugins-support.php:985 widgets/groups-carousel-widget.php:154
+#: inc/extra-plugins-support.php:988 widgets/groups-carousel-widget.php:154
 #: widgets/groups-widget.php:180
 msgid "There are no groups to display."
 msgstr ""
 
-#: inc/extra-plugins-support.php:1019
+#: inc/extra-plugins-support.php:1021
 #: lib/kirki-addon/options/post-types/class-reign-kirki-post-types.php:80
 #: widgets/sidewide-activity-widget.php:455
 #: widgets/sidewide-activity-widget.php:456
@@ -1693,26 +1644,22 @@ msgstr ""
 msgid "Header Widget Area"
 msgstr ""
 
-#: inc/init.php:586
+#: inc/init.php:591
 msgid "[Read more]"
 msgstr ""
 
-#: inc/init.php:672 inc/init.php:675
+#: inc/init.php:677 inc/init.php:680
+#: inc/reign-settings/reign-theme-options-manager.php:101
 #: inc/reign-settings/reign-theme-options-manager.php:102
-#: inc/reign-settings/reign-theme-options-manager.php:103
 msgid "Reign Settings"
 msgstr ""
 
-#: inc/init.php:732
-msgid "No new notifications"
-msgstr ""
-
-#: inc/login.php:163
+#: inc/login.php:160
 #: lib/kirki-addon/options/wp-login-screen/class-reign-kirki-wp-login-screen.php:480
 msgid "Welcome back!"
 msgstr ""
 
-#: inc/login.php:164
+#: inc/login.php:161
 #: lib/kirki-addon/options/wp-login-screen/class-reign-kirki-wp-login-screen.php:536
 msgid ""
 "We're thrilled to see you again! Your presence in our community brightens "
@@ -1742,15 +1689,15 @@ msgstr ""
 #: inc/plugins-support/class-reign-walker-nav-menu-checklist.php:195
 #: inc/plugins-support/class-reign-walker-nav-menu-checklist.php:252
 #: inc/plugins-support/class-reign-walker-nav-menu-checklist.php:282
-#: peepso/widgets/me.tpl.php:106
+#: peepso/widgets/me.tpl.php:115
 msgid "Preferences"
 msgstr ""
 
 #: inc/plugins-support/class-reign-walker-nav-menu-checklist.php:201
 #: inc/plugins-support/class-reign-walker-nav-menu-checklist.php:258
 #: inc/plugins-support/class-reign-walker-nav-menu-checklist.php:288
-#: inc/theme-functions.php:1294 inc/theme-functions.php:1305
-#: peepso/widgets/me.tpl.php:123
+#: inc/theme-functions.php:1240 inc/theme-functions.php:1251
+#: peepso/widgets/me.tpl.php:132
 msgid "Log Out"
 msgstr ""
 
@@ -1919,7 +1866,7 @@ msgstr ""
 #: inc/reign-menu-icons/includes/settings.php:743
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/fields/base.php:68
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/elusive.php:465
-#: inc/theme-functions.php:850 inc/theme-functions.php:881
+#: inc/theme-functions.php:769 inc/theme-functions.php:827
 #: lib/kirki/kirki-packages/control-image/src/Control/Image.php:85
 #: lib/kirki/kirki-packages/control-image/src/Field/Image.php:114
 #: lib/kirki/kirki-packages/control-repeater/src/Control/Repeater.php:453
@@ -1930,7 +1877,7 @@ msgstr ""
 
 #: inc/reign-menu-icons/includes/picker.php:199
 #: inc/reign-menu-icons/includes/settings.php:742
-#: paid-memberships-pro/pages/levels.php:112
+#: paid-memberships-pro/pages/levels.php:134
 msgid "Select"
 msgstr ""
 
@@ -2257,7 +2204,7 @@ msgstr ""
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/foundation-icons.php:754
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/genericon.php:602
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/reign.php:2486
-#: inc/theme-functions.php:171
+#: inc/theme-functions.php:208
 msgid "Home"
 msgstr ""
 
@@ -2277,7 +2224,6 @@ msgid "Network"
 msgstr ""
 
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/dashicons.php:219
-#: inc/theme-functions.php:390
 #: lib/kirki-addon/options/post-types/class-reign-kirki-post-types.php:71
 msgid "Page"
 msgstr ""
@@ -2289,8 +2235,8 @@ msgstr ""
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/dashicons.php:229
 #: lib/kirki/kirki-packages/settings/templates/settings-template.php:38
 #: lib/kirki-addon/options/footer/class-reign-kirki-footer.php:72
-#: peepso/groups/group-header.php:226 template-parts/form-vcard.php:60
-#: template-parts/peepso/group-header.php:225
+#: peepso/groups/group-header.php:224 template-parts/form-vcard.php:60
+#: template-parts/peepso/group-header.php:223
 msgid "Settings"
 msgstr ""
 
@@ -2363,7 +2309,6 @@ msgstr ""
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/dashicons.php:289
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/genericon.php:647
 #: inc/required-plugins/class-tgm-plugin-activation.php:2702
-#: paid-memberships-pro/pages/invoice.php:41
 #: widgets/sidewide-activity-widget.php:453
 msgid "Status"
 msgstr ""
@@ -2674,8 +2619,13 @@ msgstr ""
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/reign.php:2851
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/reign.php:2856
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/reign.php:2861
-#: inc/theme-functions.php:1057
+#: inc/theme-functions.php:1003
 msgid "Share"
+msgstr ""
+
+#: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/dashicons.php:684
+#: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/dashicons.php:689
+msgid "Email"
 msgstr ""
 
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/dashicons.php:704
@@ -2713,7 +2663,6 @@ msgstr ""
 
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/dashicons.php:749
 #: inc/required-plugins/class-tgm-plugin-activation.php:2873
-#: paid-memberships-pro/pages/billing.php:499
 msgid "Update"
 msgstr ""
 
@@ -2879,8 +2828,8 @@ msgid "Code"
 msgstr ""
 
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/dashicons.php:909
-#: inc/reign-settings/peepso-extender-options.php:102
-#: inc/reign-settings/peepso-extender-options.php:172
+#: inc/reign-settings/peepso-extender-options.php:97
+#: inc/reign-settings/peepso-extender-options.php:167
 #: inc/wbcom-postmeta-mgmt/sections/class-header-footer-section.php:82
 #: inc/wbcom-postmeta-mgmt/sections/class-header-footer-section.php:118
 #: inc/wbcom-postmeta-mgmt/sections/class-header-footer-section.php:147
@@ -3087,7 +3036,6 @@ msgstr ""
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/genericon.php:542
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/reign.php:2701
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/reign.php:2711
-#: paid-memberships-pro/pages/billing.php:283
 msgid "Phone"
 msgstr ""
 
@@ -3166,6 +3114,11 @@ msgstr ""
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/dashicons.php:1214
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/genericon.php:582
 msgid "Warning"
+msgstr ""
+
+#: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/elusive.php:48
+#: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/genericon.php:57
+msgid "Actions"
 msgstr ""
 
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/elusive.php:52
@@ -3409,7 +3362,6 @@ msgstr ""
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/foundation-icons.php:524
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/genericon.php:207
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/reign.php:2741
-#: paid-memberships-pro/pages/invoice.php:35
 msgid "Print"
 msgstr ""
 
@@ -4004,6 +3956,12 @@ msgstr ""
 msgid "Tags"
 msgstr ""
 
+#: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/elusive.php:1325
+#: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/elusive.php:1330
+#: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/genericon.php:617
+msgid "Website"
+msgstr ""
+
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/elusive.php:1445
 msgid "Open Source"
 msgstr ""
@@ -4273,8 +4231,8 @@ msgstr ""
 
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/foundation-icons.php:529
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/reign.php:1857
-#: peepso/groups/group-header.php:114 peepso/profile/focus.php:103
-#: template-parts/peepso/focus.php:101
+#: peepso/groups/group-header.php:114 peepso/profile/focus.php:109
+#: template-parts/peepso/focus.php:107
 #: template-parts/peepso/group-header.php:113
 msgid "Save"
 msgstr ""
@@ -4753,7 +4711,7 @@ msgid "Pinned"
 msgstr ""
 
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/genericon.php:422
-#: template-parts/activity-widgets.php:3 template-parts/form-vcard.php:52
+#: template-parts/activity-widgets.php:11 template-parts/form-vcard.php:52
 msgid "Activity"
 msgstr ""
 
@@ -5767,65 +5725,43 @@ msgstr ""
 msgid "Custom Field #2"
 msgstr ""
 
-#: inc/reign-settings/buddy-extender-options.php:67
+#: inc/reign-settings/buddy-extender-options.php:66
 #: lib/kirki-addon/options/buddypress/class-reign-kirki-buddypress.php:64
 msgid "Community Settings"
 msgstr ""
 
-#: inc/reign-settings/buddy-extender-options.php:73
+#: inc/reign-settings/buddy-extender-options.php:72
 msgid "Avatar Settings"
+msgstr ""
+
+#: inc/reign-settings/buddy-extender-options.php:73
+msgid "Member/Group Header Layout"
 msgstr ""
 
 #: inc/reign-settings/buddy-extender-options.php:74
 msgid "Advanced Settings"
 msgstr ""
 
-#: inc/reign-settings/buddy-extender-options.php:75
-#: inc/reign-settings/peepso-extender-options.php:70
-msgid "Default Group Cover Image"
-msgstr ""
-
-#: inc/reign-settings/buddy-extender-options.php:76
-#: inc/reign-settings/peepso-extender-options.php:71
-msgid "Default Profile Cover Image"
-msgstr ""
-
-#: inc/reign-settings/buddy-extender-options.php:77
-msgid "Activity Control"
-msgstr ""
-
-#: inc/reign-settings/buddy-extender-options.php:78
-#: inc/reign-settings/peepso-extender-options.php:73
-msgid "Social Media Links"
-msgstr ""
-
-#: inc/reign-settings/buddy-extender-options.php:79
-msgid "Member/Group Header Layout"
-msgstr ""
-
-#: inc/reign-settings/buddy-extender-options.php:97
-#: inc/reign-settings/buddy-extender-options.php:129
-#: inc/reign-settings/buddy-extender-options.php:176
-#: inc/reign-settings/buddy-extender-options.php:223
-#: inc/reign-settings/buddy-extender-options.php:269
-#: inc/reign-settings/buddy-extender-options.php:316
-#: inc/reign-settings/buddy-extender-options.php:340
-#: inc/reign-settings/buddy-extender-options.php:377
-#: inc/reign-settings/buddy-extender-options.php:422
-#: inc/reign-settings/buddy-extender-options.php:438
-#: inc/reign-settings/buddy-extender-options.php:538
-#: inc/reign-settings/buddy-extender-options.php:556
-#: inc/reign-settings/buddy-extender-options.php:574
-#: inc/reign-settings/buddy-extender-options.php:679
-#: inc/reign-settings/peepso-extender-options.php:91
-#: inc/reign-settings/peepso-extender-options.php:111
-#: inc/reign-settings/peepso-extender-options.php:130
-#: inc/reign-settings/peepso-extender-options.php:161
-#: inc/reign-settings/peepso-extender-options.php:181
-#: inc/reign-settings/peepso-extender-options.php:200
-#: inc/reign-settings/peepso-extender-options.php:290
-#: inc/reign-settings/peepso-extender-options.php:322
-#: inc/reign-settings/peepso-extender-options.php:365
+#: inc/reign-settings/buddy-extender-options.php:99
+#: inc/reign-settings/buddy-extender-options.php:131
+#: inc/reign-settings/buddy-extender-options.php:147
+#: inc/reign-settings/buddy-extender-options.php:194
+#: inc/reign-settings/buddy-extender-options.php:241
+#: inc/reign-settings/buddy-extender-options.php:287
+#: inc/reign-settings/buddy-extender-options.php:343
+#: inc/reign-settings/buddy-extender-options.php:380
+#: inc/reign-settings/buddy-extender-options.php:430
+#: inc/reign-settings/buddy-extender-options.php:446
+#: inc/reign-settings/buddy-extender-options.php:550
+#: inc/reign-settings/buddy-extender-options.php:568
+#: inc/reign-settings/buddy-extender-options.php:586
+#: inc/reign-settings/buddy-extender-options.php:615
+#: inc/reign-settings/peepso-extender-options.php:86
+#: inc/reign-settings/peepso-extender-options.php:106
+#: inc/reign-settings/peepso-extender-options.php:125
+#: inc/reign-settings/peepso-extender-options.php:156
+#: inc/reign-settings/peepso-extender-options.php:176
+#: inc/reign-settings/peepso-extender-options.php:195
 #: inc/wbcom-postmeta-mgmt/class-wbcom-render-postmeta.php:64
 #: inc/wbcom-postmeta-mgmt/class-wbcom-render-postmeta.php:112
 #: inc/wbcom-postmeta-mgmt/class-wbcom-render-postmeta.php:158
@@ -5836,199 +5772,197 @@ msgstr ""
 msgid "tooltip-image"
 msgstr ""
 
-#: inc/reign-settings/buddy-extender-options.php:99
-#: inc/reign-settings/peepso-extender-options.php:292
+#: inc/reign-settings/buddy-extender-options.php:101
 msgid "Header Position"
 msgstr ""
 
-#: inc/reign-settings/buddy-extender-options.php:103
+#: inc/reign-settings/buddy-extender-options.php:105
 msgid "Select Single Member and Group Page Header Position"
 msgstr ""
 
-#: inc/reign-settings/buddy-extender-options.php:131
-#: inc/reign-settings/peepso-extender-options.php:324
-msgid "Member Header Layout"
-msgstr ""
-
-#: inc/reign-settings/buddy-extender-options.php:135
-msgid "Select Single Member Page Header Layout"
-msgstr ""
-
-#: inc/reign-settings/buddy-extender-options.php:178
-#: inc/reign-settings/peepso-extender-options.php:367
-msgid "Group Header Layout"
-msgstr ""
-
-#: inc/reign-settings/buddy-extender-options.php:182
-msgid "Select Single Group Page Header Layout"
-msgstr ""
-
-#: inc/reign-settings/buddy-extender-options.php:225
-msgid "Member's Directory Single Member"
-msgstr ""
-
-#: inc/reign-settings/buddy-extender-options.php:229
-msgid "Select Member Directory Page Layout"
-msgstr ""
-
-#: inc/reign-settings/buddy-extender-options.php:271
-msgid "Group's Directory Single Group"
-msgstr ""
-
-#: inc/reign-settings/buddy-extender-options.php:275
-msgid "Select Group Directory Page Layout"
-msgstr ""
-
-#: inc/reign-settings/buddy-extender-options.php:318
+#: inc/reign-settings/buddy-extender-options.php:133
 msgid "Allows Members To Switch Header Options"
 msgstr ""
 
-#: inc/reign-settings/buddy-extender-options.php:322
+#: inc/reign-settings/buddy-extender-options.php:137
 msgid "Enable profile header position options at frontend for members"
 msgstr ""
 
-#: inc/reign-settings/buddy-extender-options.php:342
+#: inc/reign-settings/buddy-extender-options.php:149
+msgid "Member Header Layout"
+msgstr ""
+
+#: inc/reign-settings/buddy-extender-options.php:153
+msgid "Select Single Member Page Header Layout"
+msgstr ""
+
+#: inc/reign-settings/buddy-extender-options.php:196
+msgid "Group Header Layout"
+msgstr ""
+
+#: inc/reign-settings/buddy-extender-options.php:200
+msgid "Select Single Group Page Header Layout"
+msgstr ""
+
+#: inc/reign-settings/buddy-extender-options.php:243
+msgid "Member's Directory Single Member"
+msgstr ""
+
+#: inc/reign-settings/buddy-extender-options.php:247
+msgid "Select Member Directory Page Layout"
+msgstr ""
+
+#: inc/reign-settings/buddy-extender-options.php:289
+msgid "Group's Directory Single Group"
+msgstr ""
+
+#: inc/reign-settings/buddy-extender-options.php:293
+msgid "Select Group Directory Page Layout"
+msgstr ""
+
+#: inc/reign-settings/buddy-extender-options.php:345
 msgid "Default User Avatar"
 msgstr ""
 
-#: inc/reign-settings/buddy-extender-options.php:346
+#: inc/reign-settings/buddy-extender-options.php:349
 msgid "Upload an image that displays before a user has added a custom image."
 msgstr ""
 
-#: inc/reign-settings/buddy-extender-options.php:368
-#: inc/reign-settings/buddy-extender-options.php:405
-#: inc/reign-settings/buddy-extender-options.php:487
-#: inc/reign-settings/buddy-extender-options.php:524
-#: inc/reign-settings/buddy-extender-options.php:655
-#: inc/reign-settings/peepso-extender-options.php:440
-#: inc/reign-settings/peepso-extender-options.php:477
+#: inc/reign-settings/buddy-extender-options.php:370
+#: inc/reign-settings/buddy-extender-options.php:408
+#: inc/reign-settings/buddy-extender-options.php:498
+#: inc/reign-settings/buddy-extender-options.php:536
+#: inc/reign-settings/buddy-extender-options.php:688
+#: inc/reign-settings/peepso-extender-options.php:306
+#: inc/reign-settings/peepso-extender-options.php:343
 msgid "Remove Image"
 msgstr ""
 
-#: inc/reign-settings/buddy-extender-options.php:369
-#: inc/reign-settings/buddy-extender-options.php:406
-#: inc/reign-settings/buddy-extender-options.php:488
-#: inc/reign-settings/buddy-extender-options.php:525
-#: inc/reign-settings/buddy-extender-options.php:653
-#: inc/reign-settings/peepso-extender-options.php:441
-#: inc/reign-settings/peepso-extender-options.php:478
+#: inc/reign-settings/buddy-extender-options.php:371
+#: inc/reign-settings/buddy-extender-options.php:409
+#: inc/reign-settings/buddy-extender-options.php:499
+#: inc/reign-settings/buddy-extender-options.php:537
+#: inc/reign-settings/buddy-extender-options.php:686
+#: inc/reign-settings/peepso-extender-options.php:307
+#: inc/reign-settings/peepso-extender-options.php:344
 msgid "Upload Image"
 msgstr ""
 
-#: inc/reign-settings/buddy-extender-options.php:379
+#: inc/reign-settings/buddy-extender-options.php:382
 msgid "Default Group Avatar"
 msgstr ""
 
-#: inc/reign-settings/buddy-extender-options.php:383
+#: inc/reign-settings/buddy-extender-options.php:386
 msgid "Upload an image that displays before a custom image is added for a group."
 msgstr ""
 
-#: inc/reign-settings/buddy-extender-options.php:424
+#: inc/reign-settings/buddy-extender-options.php:432
 msgid "Members per page"
 msgstr ""
 
-#: inc/reign-settings/buddy-extender-options.php:428
+#: inc/reign-settings/buddy-extender-options.php:436
 msgid "Here you can manage number of members to show per page."
 msgstr ""
 
-#: inc/reign-settings/buddy-extender-options.php:440
+#: inc/reign-settings/buddy-extender-options.php:448
 msgid "Groups per page"
 msgstr ""
 
-#: inc/reign-settings/buddy-extender-options.php:444
+#: inc/reign-settings/buddy-extender-options.php:452
 msgid "Here you can manage number of groups to show per page."
 msgstr ""
 
-#: inc/reign-settings/buddy-extender-options.php:476
-#: inc/reign-settings/buddy-extender-options.php:513
-#: inc/reign-settings/peepso-extender-options.php:429
-#: inc/reign-settings/peepso-extender-options.php:466
-msgid "Select Image"
+#: inc/reign-settings/buddy-extender-options.php:487
+#: inc/reign-settings/peepso-extender-options.php:295
+msgid "Default Group Cover Image"
 msgstr ""
 
-#: inc/reign-settings/buddy-extender-options.php:480
-#: inc/reign-settings/peepso-extender-options.php:433
+#: inc/reign-settings/buddy-extender-options.php:491
 msgid "Select image to set as Default Group Cover Image here."
 msgstr ""
 
-#: inc/reign-settings/buddy-extender-options.php:517
-#: inc/reign-settings/peepso-extender-options.php:470
+#: inc/reign-settings/buddy-extender-options.php:525
+#: inc/reign-settings/peepso-extender-options.php:332
+msgid "Default Profile Cover Image"
+msgstr ""
+
+#: inc/reign-settings/buddy-extender-options.php:529
 msgid "Select image to set as Default Profile Cover Image here."
 msgstr ""
 
-#: inc/reign-settings/buddy-extender-options.php:540
+#: inc/reign-settings/buddy-extender-options.php:552
 msgid "Enable member cover image activity"
 msgstr ""
 
-#: inc/reign-settings/buddy-extender-options.php:544
-#: inc/reign-settings/buddy-extender-options.php:549
+#: inc/reign-settings/buddy-extender-options.php:556
+#: inc/reign-settings/buddy-extender-options.php:561
 msgid "Enable member cover image activity."
 msgstr ""
 
-#: inc/reign-settings/buddy-extender-options.php:558
+#: inc/reign-settings/buddy-extender-options.php:570
 msgid "Enable group image activity"
 msgstr ""
 
-#: inc/reign-settings/buddy-extender-options.php:562
-#: inc/reign-settings/buddy-extender-options.php:567
+#: inc/reign-settings/buddy-extender-options.php:574
+#: inc/reign-settings/buddy-extender-options.php:579
 msgid "Enable group image activity."
 msgstr ""
 
-#: inc/reign-settings/buddy-extender-options.php:576
+#: inc/reign-settings/buddy-extender-options.php:588
 msgid "Enable group cover image activity"
 msgstr ""
 
-#: inc/reign-settings/buddy-extender-options.php:580
-#: inc/reign-settings/buddy-extender-options.php:585
+#: inc/reign-settings/buddy-extender-options.php:592
+#: inc/reign-settings/buddy-extender-options.php:597
 msgid "Enable group cover image activity."
 msgstr ""
 
-#: inc/reign-settings/buddy-extender-options.php:619
-#: inc/reign-settings/peepso-extender-options.php:242
-#: inc/reign-settings/reign-theme-options-manager.php:219
-msgid "Upload Icon"
+#: inc/reign-settings/buddy-extender-options.php:617
+msgid "Enable Member Social Media Links"
 msgstr ""
 
 #: inc/reign-settings/buddy-extender-options.php:621
-#: inc/reign-settings/peepso-extender-options.php:244
-#: inc/reign-settings/reign-theme-options-manager.php:221
+msgid "Enable social media links options at frontend for members"
+msgstr ""
+
+#: inc/reign-settings/buddy-extender-options.php:652
+#: inc/reign-settings/peepso-extender-options.php:239
+#: inc/reign-settings/reign-theme-options-manager.php:367
+msgid "Upload Icon"
+msgstr ""
+
+#: inc/reign-settings/buddy-extender-options.php:654
+#: inc/reign-settings/peepso-extender-options.php:241
+#: inc/reign-settings/reign-theme-options-manager.php:369
 msgid "Remove Icon"
 msgstr ""
 
-#: inc/reign-settings/buddy-extender-options.php:625
-#: inc/reign-settings/buddy-extender-options.php:647
-#: inc/reign-settings/buddy-extender-options.php:659
-#: inc/reign-settings/peepso-extender-options.php:248
-#: inc/reign-settings/reign-theme-options-manager.php:197
-#: inc/reign-settings/reign-theme-options-manager.php:226
-#: inc/reign-settings/reign-theme-options-manager.php:228
-#: inc/reign-settings/reign-theme-options-manager.php:246
+#: inc/reign-settings/buddy-extender-options.php:658
+#: inc/reign-settings/buddy-extender-options.php:680
+#: inc/reign-settings/buddy-extender-options.php:692
+#: inc/reign-settings/peepso-extender-options.php:245
+#: inc/reign-settings/reign-theme-options-manager.php:344
+#: inc/reign-settings/reign-theme-options-manager.php:374
+#: inc/reign-settings/reign-theme-options-manager.php:376
+#: inc/reign-settings/reign-theme-options-manager.php:394
 msgid "New Site"
 msgstr ""
 
-#: inc/reign-settings/buddy-extender-options.php:628
-#: inc/reign-settings/buddy-extender-options.php:662
-#: inc/reign-settings/peepso-extender-options.php:251
-#: inc/reign-settings/reign-theme-options-manager.php:232
-#: peepso/groups/group-header.php:106 peepso/profile/focus.php:95
-#: template-parts/peepso/focus.php:93
+#: inc/reign-settings/buddy-extender-options.php:661
+#: inc/reign-settings/buddy-extender-options.php:695
+#: inc/reign-settings/peepso-extender-options.php:248
+#: inc/reign-settings/reign-theme-options-manager.php:380
+#: peepso/groups/group-header.php:106 peepso/profile/focus.php:101
+#: template-parts/peepso/focus.php:99
 #: template-parts/peepso/group-header.php:105
 msgid "Delete"
 msgstr ""
 
-#: inc/reign-settings/buddy-extender-options.php:637
-#: inc/reign-settings/buddy-extender-options.php:669
-#: inc/reign-settings/peepso-extender-options.php:260
-#: inc/reign-settings/peepso-extender-options.php:271
+#: inc/reign-settings/buddy-extender-options.php:670
+#: inc/reign-settings/buddy-extender-options.php:702
+#: inc/reign-settings/peepso-extender-options.php:257
+#: inc/reign-settings/peepso-extender-options.php:268
 msgid "Add New Site"
-msgstr ""
-
-#: inc/reign-settings/buddy-extender-options.php:681
-msgid "Enable Member Social Media Links"
-msgstr ""
-
-#: inc/reign-settings/buddy-extender-options.php:685
-msgid "Enable social media links options at frontend for members"
 msgstr ""
 
 #: inc/reign-settings/class-left-menu-section.php:73
@@ -6076,148 +6010,140 @@ msgstr ""
 msgid "Getting Started"
 msgstr ""
 
-#: inc/reign-settings/get-started-options.php:80
+#: inc/reign-settings/get-started-options.php:75
 msgid "Upload Logo"
 msgstr ""
 
-#: inc/reign-settings/get-started-options.php:81
+#: inc/reign-settings/get-started-options.php:76
 msgid "Add your own logo here."
 msgstr ""
 
-#: inc/reign-settings/get-started-options.php:82
+#: inc/reign-settings/get-started-options.php:77
+#: inc/reign-settings/get-started-options.php:83
 #: inc/reign-settings/get-started-options.php:90
-#: inc/reign-settings/get-started-options.php:98
-#: inc/reign-settings/get-started-options.php:106
-#: inc/reign-settings/get-started-options.php:114
-#: inc/reign-settings/get-started-options.php:122
+#: inc/reign-settings/get-started-options.php:97
+#: inc/reign-settings/get-started-options.php:104
+#: inc/reign-settings/get-started-options.php:111
 msgid "Go to option"
 msgstr ""
 
-#: inc/reign-settings/get-started-options.php:88
+#: inc/reign-settings/get-started-options.php:81
 msgid "Set Typography"
 msgstr ""
 
-#: inc/reign-settings/get-started-options.php:89
+#: inc/reign-settings/get-started-options.php:82
 msgid "Choose your own typography for any parts of your website."
 msgstr ""
 
-#: inc/reign-settings/get-started-options.php:96
+#: inc/reign-settings/get-started-options.php:88
 #: lib/kirki-addon/options/general/class-reign-kirki-page-mapping.php:63
 msgid "Page Mapping"
 msgstr ""
 
-#: inc/reign-settings/get-started-options.php:97
+#: inc/reign-settings/get-started-options.php:89
 msgid "Map login, register and 404 page with custom pages."
 msgstr ""
 
-#: inc/reign-settings/get-started-options.php:104
+#: inc/reign-settings/get-started-options.php:95
 msgid "Color Options"
 msgstr ""
 
-#: inc/reign-settings/get-started-options.php:105
+#: inc/reign-settings/get-started-options.php:96
 msgid "Replace the default primary and hover color by your own colors."
 msgstr ""
 
-#: inc/reign-settings/get-started-options.php:112
+#: inc/reign-settings/get-started-options.php:102
 msgid "Header Customization"
 msgstr ""
 
-#: inc/reign-settings/get-started-options.php:113
+#: inc/reign-settings/get-started-options.php:103
 msgid "Manage the look of your header in all way possible."
 msgstr ""
 
-#: inc/reign-settings/get-started-options.php:120
+#: inc/reign-settings/get-started-options.php:109
 msgid "Footer Customization"
 msgstr ""
 
-#: inc/reign-settings/get-started-options.php:121
+#: inc/reign-settings/get-started-options.php:110
 msgid "Manage the copyright text, widgets and colors for footer."
 msgstr ""
 
-#: inc/reign-settings/get-started-options.php:132
-msgid "Customizer Shortcuts"
+#: inc/reign-settings/get-started-options.php:121
+msgid "General Settings"
 msgstr ""
 
-#: inc/reign-settings/get-started-options.php:133
-msgid "Begin customizing the website to give it a unique look."
+#: inc/reign-settings/get-started-options.php:122
+msgid "Go to Customizer"
 msgstr ""
 
-#: inc/reign-settings/get-started-options.php:156
-msgid "Downloads"
+#: inc/reign-settings/get-started-options.php:146
+msgid "Recommended Downloads"
 msgstr ""
 
-#: inc/reign-settings/get-started-options.php:157
+#: inc/reign-settings/get-started-options.php:147
 msgid ""
 "Install Recommended Plugins feature simplifies the addition of essential "
 "add-ons for enhancing your website's functionality and features."
 msgstr ""
 
-#: inc/reign-settings/get-started-options.php:163
+#: inc/reign-settings/get-started-options.php:153
 msgid "Install Recommended Plugins"
 msgstr ""
 
-#: inc/reign-settings/get-started-options.php:164
+#: inc/reign-settings/get-started-options.php:154
 msgid ""
 "Enhancing your website's functionality with WordPress plugins is easy. You "
 "can install, activate, and begin using WordPress plugins in a matter of "
 "minutes"
 msgstr ""
 
-#: inc/reign-settings/get-started-options.php:170
-#: inc/reign-settings/get-started-options.php:177
+#: inc/reign-settings/get-started-options.php:161
+#: inc/reign-settings/get-started-options.php:168
 msgid "Installed"
 msgstr ""
 
-#: inc/reign-settings/get-started-options.php:172
-#: inc/reign-settings/get-started-options.php:179
+#: inc/reign-settings/get-started-options.php:163
+#: inc/reign-settings/get-started-options.php:170
 msgid "Install now"
 msgstr ""
 
-#: inc/reign-settings/get-started-options.php:189
+#: inc/reign-settings/get-started-options.php:180
 msgid "Reign Child Theme"
 msgstr ""
 
-#: inc/reign-settings/get-started-options.php:190
+#: inc/reign-settings/get-started-options.php:181
 msgid ""
 "By using a child theme you can modify any file without the fear of breaking "
 "something in the parent theme."
 msgstr ""
 
-#: inc/reign-settings/get-started-options.php:192
+#: inc/reign-settings/get-started-options.php:184
 msgid "Download now"
 msgstr ""
 
-#: inc/reign-settings/get-started-options.php:200
-#: inc/reign-settings/reign-theme-options-manager.php:146
-#: inc/reign-settings/wbcom-support-tab.php:111
+#: inc/reign-settings/get-started-options.php:195
 msgid "Need help or advice?"
 msgstr ""
 
-#: inc/reign-settings/get-started-options.php:201
-#: inc/reign-settings/reign-theme-options-manager.php:147
-#: inc/reign-settings/wbcom-support-tab.php:112
+#: inc/reign-settings/get-started-options.php:196
 msgid ""
 "Got a question or need help with the theme? You can always submit a support "
 "ticket or ask for help in our friendly Facebook community."
 msgstr ""
 
-#: inc/reign-settings/get-started-options.php:203
-#: inc/reign-settings/reign-theme-options-manager.php:149
-#: inc/reign-settings/wbcom-support-tab.php:114
+#: inc/reign-settings/get-started-options.php:198
 msgid "Submit a Support Ticket"
 msgstr ""
 
-#: inc/reign-settings/get-started-options.php:204
-#: inc/reign-settings/reign-theme-options-manager.php:150
-#: inc/reign-settings/wbcom-support-tab.php:115
+#: inc/reign-settings/get-started-options.php:199
 msgid "Join Facebook Community"
 msgstr ""
 
-#: inc/reign-settings/get-started-options.php:215
+#: inc/reign-settings/get-started-options.php:216
 msgid "Reign Theme Video Tutorials"
 msgstr ""
 
-#: inc/reign-settings/get-started-options.php:216
+#: inc/reign-settings/get-started-options.php:217
 msgid ""
 "A theme video series is a collection of short videos that visually and "
 "concisely guide users through various aspects of a specific theme or "
@@ -6229,154 +6155,253 @@ msgid ""
 "features and create stunning online platforms."
 msgstr ""
 
-#: inc/reign-settings/get-started-options.php:218
+#: inc/reign-settings/get-started-options.php:220
 msgid "Watch now"
 msgstr ""
 
-#: inc/reign-settings/peepso-extender-options.php:64
+#: inc/reign-settings/peepso-extender-options.php:61
 msgid "PeepSo Settings"
 msgstr ""
 
-#: inc/reign-settings/peepso-extender-options.php:74
+#: inc/reign-settings/peepso-extender-options.php:67
+msgid "Profile/Group Cover Image"
+msgstr ""
+
+#: inc/reign-settings/peepso-extender-options.php:68
+msgid "Social Media Links"
+msgstr ""
+
+#: inc/reign-settings/peepso-extender-options.php:69
 msgid "PeepSo Profile Settings"
 msgstr ""
 
-#: inc/reign-settings/peepso-extender-options.php:75
+#: inc/reign-settings/peepso-extender-options.php:70
 msgid "PeepSo Group Settings"
 msgstr ""
 
-#: inc/reign-settings/peepso-extender-options.php:93
+#: inc/reign-settings/peepso-extender-options.php:88
 msgid "PeepSo Group Layout"
 msgstr ""
 
-#: inc/reign-settings/peepso-extender-options.php:97
+#: inc/reign-settings/peepso-extender-options.php:92
 msgid "Select PeepSo group page layout"
 msgstr ""
 
-#: inc/reign-settings/peepso-extender-options.php:103
-#: inc/reign-settings/peepso-extender-options.php:173
+#: inc/reign-settings/peepso-extender-options.php:98
+#: inc/reign-settings/peepso-extender-options.php:168
 msgid "Wide Cover"
 msgstr ""
 
-#: inc/reign-settings/peepso-extender-options.php:104
-#: inc/reign-settings/peepso-extender-options.php:174
+#: inc/reign-settings/peepso-extender-options.php:99
+#: inc/reign-settings/peepso-extender-options.php:169
 #: inc/wbcom-postmeta-mgmt/sections/class-layout-section.php:128
 msgid "Full Width"
 msgstr ""
 
-#: inc/reign-settings/peepso-extender-options.php:113
+#: inc/reign-settings/peepso-extender-options.php:108
 msgid "Group Cover Height"
 msgstr ""
 
-#: inc/reign-settings/peepso-extender-options.php:117
+#: inc/reign-settings/peepso-extender-options.php:112
 msgid "Set group cover height. By default it will 50%"
 msgstr ""
 
-#: inc/reign-settings/peepso-extender-options.php:132
-#: inc/reign-settings/peepso-extender-options.php:202
+#: inc/reign-settings/peepso-extender-options.php:127
+#: inc/reign-settings/peepso-extender-options.php:197
 msgid "Enable Center Avatar"
 msgstr ""
 
-#: inc/reign-settings/peepso-extender-options.php:136
-#: inc/reign-settings/peepso-extender-options.php:206
+#: inc/reign-settings/peepso-extender-options.php:131
+#: inc/reign-settings/peepso-extender-options.php:201
 msgid "This option will cenered avtar and other details alognwith actions."
 msgstr ""
 
-#: inc/reign-settings/peepso-extender-options.php:163
+#: inc/reign-settings/peepso-extender-options.php:158
 msgid "Peepso Profile Page Layout"
 msgstr ""
 
-#: inc/reign-settings/peepso-extender-options.php:167
+#: inc/reign-settings/peepso-extender-options.php:162
 msgid "Select profile page layout"
 msgstr ""
 
-#: inc/reign-settings/peepso-extender-options.php:183
+#: inc/reign-settings/peepso-extender-options.php:178
 msgid "Profile Cover Height"
 msgstr ""
 
-#: inc/reign-settings/peepso-extender-options.php:187
+#: inc/reign-settings/peepso-extender-options.php:182
 msgid "Set profile cover height. By default it will 50%"
 msgstr ""
 
-#: inc/reign-settings/peepso-extender-options.php:296
-msgid "Select Header Position"
+#: inc/reign-settings/peepso-extender-options.php:299
+msgid "Select image to set as Default Group Cover Image for single group."
 msgstr ""
 
-#: inc/reign-settings/peepso-extender-options.php:371
-msgid "Select Group Header Layout"
-msgstr ""
-
-#: inc/reign-settings/reign-theme-options-manager.php:114
-msgid "Howdy Admin"
+#: inc/reign-settings/peepso-extender-options.php:336
+msgid "Select image to set as Default Profile Cover Image for single member."
 msgstr ""
 
 #: inc/reign-settings/reign-theme-options-manager.php:118
-msgid "Welcome to Reign Theme!"
+#: inc/reign-settings/reign-theme-options-manager.php:128
+msgid "Reign"
 msgstr ""
 
-#: inc/reign-settings/reign-theme-options-manager.php:119
-msgid "Version - %s"
+#: inc/reign-settings/reign-theme-options-manager.php:125
+#. translators: %s is the theme version.
+msgid "v%s"
 msgstr ""
 
-#: inc/reign-settings/reign-theme-options-manager.php:120
+#: inc/reign-settings/reign-theme-options-manager.php:134
+msgid "Theme Settings updated."
+msgstr ""
+
+#: inc/reign-settings/reign-theme-options-manager.php:148
+msgid "Hello, "
+msgstr ""
+
+#: inc/reign-settings/reign-theme-options-manager.php:178
+msgid "Reign Add-ons"
+msgstr ""
+
+#: inc/reign-settings/reign-theme-options-manager.php:183
+msgid "Reign LeanDash"
+msgstr ""
+
+#: inc/reign-settings/reign-theme-options-manager.php:184
 msgid ""
-"Welcome and thank you for purchasing Reign Theme, one of the most beautiful "
-"and advanced social network WordPress themes."
+"Reign LearnDash addon provides advanced styling options and layout "
+"customization to create visually engaging and user-friendly course pages."
 msgstr ""
 
-#: inc/reign-settings/reign-theme-options-manager.php:126
-msgid " Theme Settings updated."
+#: inc/reign-settings/reign-theme-options-manager.php:196
+msgid "Reign Dokan"
 msgstr ""
 
-#: inc/reign-settings/vertical-tabs-skeleton.php:29
+#: inc/reign-settings/reign-theme-options-manager.php:197
+msgid ""
+"Reign Dokan Addon is a premium plugin optimized for creating WooCommerce "
+"online stores that provide a super-fast interface for the ultimate user "
+"experience."
+msgstr ""
+
+#: inc/reign-settings/reign-theme-options-manager.php:209
+msgid "Reign WC Vendors"
+msgstr ""
+
+#: inc/reign-settings/reign-theme-options-manager.php:210
+msgid ""
+"Reign WC Vendors comes with custom designs for Single Store page layout, "
+"including a clean & modern WC Vendors Store extra widget."
+msgstr ""
+
+#: inc/reign-settings/reign-theme-options-manager.php:222
+msgid "Reign WCFM"
+msgstr ""
+
+#: inc/reign-settings/reign-theme-options-manager.php:223
+msgid ""
+"Build Run and expand your marketplace with Reign WCFM Addon. This addon "
+"ensures you to have each and every functionality of WCFM and WooCommerce."
+msgstr ""
+
+#: inc/reign-settings/reign-theme-options-manager.php:235
+msgid "Reign LifterLMS"
+msgstr ""
+
+#: inc/reign-settings/reign-theme-options-manager.php:236
+msgid ""
+"Reign LifterLMS addon has been designed to enable you to create, sell, and "
+"protect engaging online courses in a distraction-free environment."
+msgstr ""
+
+#: inc/reign-settings/reign-theme-options-manager.php:248
+msgid "Reign Sensei"
+msgstr ""
+
+#: inc/reign-settings/reign-theme-options-manager.php:249
+msgid ""
+"If you are looking to earn via an online course marketplace like Udemy. "
+"Reign Sensei add-on is just the perfect match for you."
+msgstr ""
+
+#: inc/reign-settings/reign-theme-options-manager.php:261
+msgid "Reign Tutor LMS"
+msgstr ""
+
+#: inc/reign-settings/reign-theme-options-manager.php:262
+msgid ""
+"Create and Manage your Learning Management System on WordPress using our "
+"advanced and feature-packed Reign Tutor Lms Add-on."
+msgstr ""
+
+#: inc/reign-settings/reign-theme-options-manager.php:274
+msgid "Reign WP Job Manager"
+msgstr ""
+
+#: inc/reign-settings/reign-theme-options-manager.php:275
+msgid ""
+"The plugin has been developed from the ground up to extend WP Job Manager "
+"Plugin and all of its extensions."
+msgstr ""
+
+#: inc/reign-settings/reign-theme-options-manager.php:287
+msgid "Reign GeoDirectory"
+msgstr ""
+
+#: inc/reign-settings/reign-theme-options-manager.php:288
+msgid ""
+"Reign Geo Directory Add-On offers a solution for site owners to have maps "
+"for their directories."
+msgstr ""
+
+#: inc/reign-settings/vertical-tabs-skeleton.php:35
 msgid "Update Settings"
 msgstr ""
 
 #: inc/reign-settings/wbcom-support-tab.php:55
 #: inc/reign-settings/wbcom-support-tab.php:56
 #: inc/reign-settings/wbcom-support-tab.php:63
-#: inc/reign-settings/wbcom-support-tab.php:131
+#: inc/reign-settings/wbcom-support-tab.php:93
 msgid "Support"
 msgstr ""
 
-#: inc/reign-settings/wbcom-support-tab.php:128
+#: inc/reign-settings/wbcom-support-tab.php:89
 msgid "Need Some Help?"
 msgstr ""
 
-#: inc/reign-settings/wbcom-support-tab.php:129
+#: inc/reign-settings/wbcom-support-tab.php:90
 msgid ""
 "We care about all our clients. Feel free to reach our support for any kind "
 "of help, we would be only too happy to answer. Always there for you in need."
 msgstr ""
 
-#: inc/reign-settings/wbcom-support-tab.php:143
+#: inc/reign-settings/wbcom-support-tab.php:108
 msgid "Looking for additional Features?"
 msgstr ""
 
-#: inc/reign-settings/wbcom-support-tab.php:144
+#: inc/reign-settings/wbcom-support-tab.php:109
 msgid ""
 "For anything in WordPress and BuddyPress. Bringing ideas to life OR more "
 "life to your ideas?. Our team will love to help you."
 msgstr ""
 
-#: inc/reign-settings/wbcom-support-tab.php:146
+#: inc/reign-settings/wbcom-support-tab.php:112
 msgid "Hire us!"
 msgstr ""
 
-#: inc/reign-settings/wbcom-support-tab.php:153
+#: inc/reign-settings/wbcom-support-tab.php:124
 #: lib/kirki/kirki-packages/settings/templates/metaboxes/documentation.php:27
 #: lib/kirki/kirki-packages/settings/templates/metaboxes/documentation.php:37
 msgid "Documentation"
 msgstr ""
 
-#: inc/reign-settings/wbcom-support-tab.php:154
+#: inc/reign-settings/wbcom-support-tab.php:125
 msgid ""
 "Learn about any aspect of Reign Theme. It includes details on installation, "
 "customization options, and usage instructions, enabling users to "
 "effectively harness the theme features."
 msgstr ""
 
-#: inc/reign-settings/wbcom-support-tab.php:156
+#: inc/reign-settings/wbcom-support-tab.php:128
 msgid "Start Reading"
 msgstr ""
 
@@ -6818,111 +6843,115 @@ msgstr[1] ""
 msgid "All plugins installed and activated successfully. %s"
 msgstr ""
 
-#: inc/theme-functions.php:18
-msgid "Call Us Today! 1.555.555.555"
+#: inc/shortcodes/shortcodes.php:121
+msgid "No posts found."
 msgstr ""
 
 #: inc/theme-functions.php:23
+msgid "Call Us Today! 1.555.555.555"
+msgstr ""
+
+#: inc/theme-functions.php:28
 msgid "support@wbcomdesigns.com"
 msgstr ""
 
-#: inc/theme-functions.php:40
+#: inc/theme-functions.php:55
 msgid "X-twitter"
 msgstr ""
 
-#: inc/theme-functions.php:50
+#: inc/theme-functions.php:65
 msgid "Dribbble"
 msgstr ""
 
-#: inc/theme-functions.php:55
+#: inc/theme-functions.php:70
 msgid "Github"
 msgstr ""
 
-#: inc/theme-functions.php:167
-msgid "Homepage"
+#: inc/theme-functions.php:309
+msgid "Error 404"
 msgstr ""
 
-#: inc/theme-functions.php:491
+#: inc/theme-functions.php:386
 msgid "others"
 msgstr ""
 
-#: inc/theme-functions.php:502
+#: inc/theme-functions.php:397
 msgid "likes this"
 msgstr ""
 
-#: inc/theme-functions.php:622
+#: inc/theme-functions.php:517
 msgid "Recently earned badge"
 msgid_plural "Recently earned badges"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/theme-functions.php:785
+#: inc/theme-functions.php:680
 msgid "Dark Mode Image Settings"
 msgstr ""
 
-#: inc/theme-functions.php:792
+#: inc/theme-functions.php:687
 msgid "Image Settings"
 msgstr ""
 
-#: inc/theme-functions.php:807
+#: inc/theme-functions.php:701
 msgid "Light Mode Image"
 msgstr ""
 
-#: inc/theme-functions.php:810
+#: inc/theme-functions.php:704
 msgid "Dark Mode Image"
 msgstr ""
 
-#: inc/theme-functions.php:848 inc/theme-functions.php:879
+#: inc/theme-functions.php:768 inc/theme-functions.php:826
 #: lib/kirki-addon/options/header/class-reign-kirki-header-topbar.php:206
 #: lib/kirki-addon/options/header/class-reign-kirki-header-topbar.php:254
 msgid "Add"
 msgstr ""
 
-#: inc/theme-functions.php:942 inc/theme-functions.php:1096
+#: inc/theme-functions.php:888 inc/theme-functions.php:1042
 msgid "React"
 msgstr ""
 
-#: inc/theme-functions.php:989
+#: inc/theme-functions.php:935
 msgid "Shares"
 msgstr ""
 
-#: inc/theme-functions.php:1222 inc/theme-functions.php:1228
+#: inc/theme-functions.php:1168 inc/theme-functions.php:1174
 msgid "Profile Settings"
 msgstr ""
 
-#: inc/theme-functions.php:1239 inc/theme-functions.php:1245
+#: inc/theme-functions.php:1185 inc/theme-functions.php:1191
 msgid "Change Avatar"
 msgstr ""
 
-#: inc/theme-functions.php:1258 inc/theme-functions.php:1264
+#: inc/theme-functions.php:1204 inc/theme-functions.php:1210
 msgid "Change Password"
 msgstr ""
 
-#: inc/theme-functions.php:1282
+#: inc/theme-functions.php:1228
 msgid "Profile Info"
 msgstr ""
 
-#: inc/theme-functions.php:1323
+#: inc/theme-functions.php:1269
 msgid "Something went wrong. Please try again."
 msgstr ""
 
-#: inc/theme-functions.php:1346
+#: inc/theme-functions.php:1292
 msgid "No member found by that ID."
 msgstr ""
 
-#: inc/theme-functions.php:1360
+#: inc/theme-functions.php:1306
 msgid "There was a problem accepting that request. Please try again."
 msgstr ""
 
-#: inc/theme-functions.php:1369
+#: inc/theme-functions.php:1315
 msgid "Friendship accepted."
 msgstr ""
 
-#: inc/theme-functions.php:1384
+#: inc/theme-functions.php:1330
 msgid "There was a problem rejecting that request. Please try again."
 msgstr ""
 
-#: inc/theme-functions.php:1393
+#: inc/theme-functions.php:1339
 msgid "Friendship rejected."
 msgstr ""
 
@@ -8078,8 +8107,8 @@ msgstr ""
 
 #: lib/kirki-addon/options/buddypress/class-reign-kirki-buddypress.php:267
 #: lib/kirki-addon/options/buddypress/class-reign-kirki-buddypress.php:282
-#: peepso/groups/group-header.php:281
-#: template-parts/peepso/group-header.php:280
+#: peepso/groups/group-header.php:279
+#: template-parts/peepso/group-header.php:278
 msgid "More"
 msgstr ""
 
@@ -9863,6 +9892,26 @@ msgstr ""
 msgid "Card"
 msgstr ""
 
+#: lib/kirki-addon/options/post-types/class-reign-kirki-post-types.php:1259
+msgid "Forums Per Row"
+msgstr ""
+
+#: lib/kirki-addon/options/post-types/class-reign-kirki-post-types.php:1260
+msgid "Set archive page forums listing per row."
+msgstr ""
+
+#: lib/kirki-addon/options/post-types/class-reign-kirki-post-types.php:1265
+msgid "Two"
+msgstr ""
+
+#: lib/kirki-addon/options/post-types/class-reign-kirki-post-types.php:1266
+msgid "Three"
+msgstr ""
+
+#: lib/kirki-addon/options/post-types/class-reign-kirki-post-types.php:1267
+msgid "Four"
+msgstr ""
+
 #: lib/kirki-addon/options/woocommerce/class-reign-kirki-woocommerce.php:63
 msgid "Shop Page"
 msgstr ""
@@ -10392,220 +10441,6 @@ msgstr ""
 msgid "Set split view for register page."
 msgstr ""
 
-#: paid-memberships-pro/pages/billing.php:109
-#: paid-memberships-pro/pages/billing.php:115
-#: paid-memberships-pro/pages/confirmation.php:84
-#: paid-memberships-pro/pages/invoice.php:162
-msgid "View Your Membership Account &rarr;"
-msgstr ""
-
-#: paid-memberships-pro/pages/billing.php:112
-msgid ""
-"Your payment subscription is managed by PayPal. Please <a "
-"href=\"http://www.paypal.com\">login to PayPal here</a> to update your "
-"billing information."
-msgstr ""
-
-#: paid-memberships-pro/pages/billing.php:121
-msgid "Your billing information cannot be updated at this time."
-msgstr ""
-
-#: paid-memberships-pro/pages/billing.php:150
-msgid ""
-"You are logged in as <strong>%1$s</strong>. If you would like to update "
-"your billing information for a different account, <a href=\"%2$s\">log out "
-"now</a>."
-msgstr ""
-
-#: paid-memberships-pro/pages/billing.php:161
-#: paid-memberships-pro/pages/invoice.php:69
-msgid "Billing Address"
-msgstr ""
-
-#: paid-memberships-pro/pages/billing.php:165
-#: template-parts/form-register.php:37
-msgid "First Name"
-msgstr ""
-
-#: paid-memberships-pro/pages/billing.php:169
-#: template-parts/form-register.php:42
-msgid "Last Name"
-msgstr ""
-
-#: paid-memberships-pro/pages/billing.php:173
-msgid "Address 1"
-msgstr ""
-
-#: paid-memberships-pro/pages/billing.php:177
-msgid "Address 2"
-msgstr ""
-
-#: paid-memberships-pro/pages/billing.php:178
-msgid "optional"
-msgstr ""
-
-#: paid-memberships-pro/pages/billing.php:187
-msgid "City"
-msgstr ""
-
-#: paid-memberships-pro/pages/billing.php:191
-msgid "State"
-msgstr ""
-
-#: paid-memberships-pro/pages/billing.php:195
-msgid "Postal Code"
-msgstr ""
-
-#: paid-memberships-pro/pages/billing.php:202
-msgid "City, State Zip"
-msgstr ""
-
-#: paid-memberships-pro/pages/billing.php:255
-msgid "Country"
-msgstr ""
-
-#: paid-memberships-pro/pages/billing.php:296
-msgid "Email Address"
-msgstr ""
-
-#: paid-memberships-pro/pages/billing.php:300
-msgid "Confirm Email"
-msgstr ""
-
-#: paid-memberships-pro/pages/billing.php:322
-msgid "Credit Card Information"
-msgstr ""
-
-#: paid-memberships-pro/pages/billing.php:323
-msgid "We accept %s"
-msgstr ""
-
-#: paid-memberships-pro/pages/billing.php:336
-msgid "Card Type"
-msgstr ""
-
-#: paid-memberships-pro/pages/billing.php:378
-msgid "Card Number"
-msgstr ""
-
-#: paid-memberships-pro/pages/billing.php:382
-msgid "Expiration Date"
-msgstr ""
-
-#: paid-memberships-pro/pages/billing.php:469
-msgid "CVV"
-msgstr ""
-
-#: paid-memberships-pro/pages/billing.php:521
-msgid ""
-"This subscription is not recurring. So you don't need to update your "
-"billing information."
-msgstr ""
-
-#: paid-memberships-pro/pages/billing.php:533
-msgid ""
-"You do not have an active membership. <a href='%s'>Choose a membership "
-"level.</a>"
-msgstr ""
-
-#: paid-memberships-pro/pages/confirmation.php:17
-msgid "There was an error retrieving your invoice. Please contact the site owner."
-msgstr ""
-
-#: paid-memberships-pro/pages/confirmation.php:40
-msgid "Your payment has been submitted. Your membership will be activated shortly."
-msgstr ""
-
-#: paid-memberships-pro/pages/confirmation.php:42
-msgid "Thank you for your membership to %s. Your %s membership is now active."
-msgstr ""
-
-#: paid-memberships-pro/pages/confirmation.php:53
-msgid ""
-"Below are details about your membership account and a receipt for your "
-"initial membership invoice. A welcome email with a copy of your initial "
-"membership invoice has been sent to %s."
-msgstr ""
-
-#: paid-memberships-pro/pages/confirmation.php:55
-msgid ""
-"Below are details about your membership account. A welcome email has been "
-"sent to %s."
-msgstr ""
-
-#: paid-memberships-pro/pages/confirmation.php:76
-#: paid-memberships-pro/pages/invoice.php:38
-msgid "Account"
-msgstr ""
-
-#: paid-memberships-pro/pages/confirmation.php:77
-#: paid-memberships-pro/pages/invoice.php:39
-msgid "Membership Level"
-msgstr ""
-
-#: paid-memberships-pro/pages/confirmation.php:77
-msgid "Pending"
-msgstr ""
-
-#: paid-memberships-pro/pages/confirmation.php:79
-msgid "Expires In"
-msgstr ""
-
-#: paid-memberships-pro/pages/confirmation.php:93
-msgid ""
-"If your account is not activated within a few minutes, please contact the "
-"site owner."
-msgstr ""
-
-#: paid-memberships-pro/pages/invoice.php:34
-msgid "Invoice #%s on %s"
-msgstr ""
-
-#: paid-memberships-pro/pages/invoice.php:44
-msgid "Paid"
-msgstr ""
-
-#: paid-memberships-pro/pages/invoice.php:53
-msgid "Discount Code"
-msgstr ""
-
-#: paid-memberships-pro/pages/invoice.php:86
-msgid "Payment Method"
-msgstr ""
-
-#: paid-memberships-pro/pages/invoice.php:88
-msgid "ending in"
-msgstr ""
-
-#: paid-memberships-pro/pages/invoice.php:90
-msgid "Expiration"
-msgstr ""
-
-#: paid-memberships-pro/pages/invoice.php:102
-#: paid-memberships-pro/pages/invoice.php:132
-msgid "Total Billed"
-msgstr ""
-
-#: paid-memberships-pro/pages/invoice.php:129
-msgid "Date"
-msgstr ""
-
-#: paid-memberships-pro/pages/invoice.php:130
-msgid "Invoice #"
-msgstr ""
-
-#: paid-memberships-pro/pages/invoice.php:131
-msgid "Level"
-msgstr ""
-
-#: paid-memberships-pro/pages/invoice.php:156
-msgid "No invoices found."
-msgstr ""
-
-#: paid-memberships-pro/pages/invoice.php:164
-msgid "&larr; View All Invoices"
-msgstr ""
-
 #: paid-memberships-pro/pages/levels.php:57
 msgid "You may select multiple levels from this group."
 msgstr ""
@@ -10614,31 +10449,31 @@ msgstr ""
 msgid "You may select only one level from this group."
 msgstr ""
 
-#: paid-memberships-pro/pages/levels.php:112
+#: paid-memberships-pro/pages/levels.php:134
 msgid "Select the %s membership level"
 msgstr ""
 
-#: paid-memberships-pro/pages/levels.php:118
+#: paid-memberships-pro/pages/levels.php:140
 msgid "Renew your %s membership level"
 msgstr ""
 
-#: paid-memberships-pro/pages/levels.php:118
+#: paid-memberships-pro/pages/levels.php:140
 msgid "Renew"
 msgstr ""
 
-#: paid-memberships-pro/pages/levels.php:122
+#: paid-memberships-pro/pages/levels.php:144
 msgid "View your %s membership account"
 msgstr ""
 
-#: paid-memberships-pro/pages/levels.php:122
+#: paid-memberships-pro/pages/levels.php:144
 msgid "Your&nbsp;Level"
 msgstr ""
 
-#: paid-memberships-pro/pages/levels.php:139
+#: paid-memberships-pro/pages/levels.php:161
 msgid "Return to Your Account"
 msgstr ""
 
-#: paid-memberships-pro/pages/levels.php:141
+#: paid-memberships-pro/pages/levels.php:163
 msgid "Return to Home"
 msgstr ""
 
@@ -10647,16 +10482,16 @@ msgstr ""
 msgid "%s cover photo"
 msgstr ""
 
-#: peepso/groups/group-header.php:59 peepso/profile/focus.php:49
-#: peepso/profile/focus.php:112 peepso/widgets/me.tpl.php:43
-#: template-parts/peepso/focus.php:47 template-parts/peepso/focus.php:110
+#: peepso/groups/group-header.php:59 peepso/profile/focus.php:50
+#: peepso/profile/focus.php:118 peepso/widgets/me.tpl.php:47
+#: template-parts/peepso/focus.php:48 template-parts/peepso/focus.php:116
 #: template-parts/peepso/group-header.php:58
 msgid "%s avatar"
 msgstr ""
 
-#: peepso/groups/group-header.php:71 peepso/profile/focus.php:60
-#: peepso/profile/focus.php:124 template-parts/peepso/focus.php:58
-#: template-parts/peepso/focus.php:122
+#: peepso/groups/group-header.php:71 peepso/profile/focus.php:61
+#: peepso/profile/focus.php:130 template-parts/peepso/focus.php:59
+#: template-parts/peepso/focus.php:128
 #: template-parts/peepso/group-header.php:70
 msgid "Change avatar"
 msgstr ""
@@ -10665,18 +10500,18 @@ msgstr ""
 msgid "Change cover image"
 msgstr ""
 
-#: peepso/groups/group-header.php:94 peepso/profile/focus.php:83
-#: template-parts/peepso/focus.php:81 template-parts/peepso/group-header.php:93
+#: peepso/groups/group-header.php:94 peepso/profile/focus.php:89
+#: template-parts/peepso/focus.php:87 template-parts/peepso/group-header.php:93
 msgid "Reposition"
 msgstr ""
 
-#: peepso/groups/group-header.php:98 peepso/profile/focus.php:87
-#: template-parts/peepso/focus.php:85 template-parts/peepso/group-header.php:97
+#: peepso/groups/group-header.php:98 peepso/profile/focus.php:93
+#: template-parts/peepso/focus.php:91 template-parts/peepso/group-header.php:97
 msgid "Rotate left"
 msgstr ""
 
-#: peepso/groups/group-header.php:102 peepso/profile/focus.php:91
-#: template-parts/peepso/focus.php:89
+#: peepso/groups/group-header.php:102 peepso/profile/focus.php:97
+#: template-parts/peepso/focus.php:95
 #: template-parts/peepso/group-header.php:101
 msgid "Rotate right"
 msgstr ""
@@ -10686,86 +10521,86 @@ msgstr ""
 msgid "Show details"
 msgstr ""
 
-#: peepso/groups/group-header.php:151
-#: template-parts/peepso/group-header.php:150
+#: peepso/groups/group-header.php:150
+#: template-parts/peepso/group-header.php:149
 msgid "Group categories"
 msgstr ""
 
-#: peepso/groups/group-header.php:155
-#: template-parts/peepso/group-header.php:154
+#: peepso/groups/group-header.php:154
+#: template-parts/peepso/group-header.php:153
 msgid "Group category"
 msgstr ""
 
-#: peepso/groups/group-header.php:186
-#: template-parts/peepso/group-header.php:185
-msgid "%s Group"
+#: peepso/groups/group-header.php:184
+#: template-parts/peepso/group-header.php:183
+msgid " %s Group"
 msgstr ""
 
-#: peepso/groups/group-header.php:194
-#: template-parts/peepso/group-header.php:193
+#: peepso/groups/group-header.php:192
+#: template-parts/peepso/group-header.php:191
 msgid "%s member"
 msgid_plural "%s members"
 msgstr[0] ""
 msgstr[1] ""
 
-#: peepso/groups/group-header.php:201
-#: template-parts/peepso/group-header.php:200
-msgid "<span class=\"ps-js-pending-count\" data-id=\"%1$d\">%2$s</span> pending"
+#: peepso/groups/group-header.php:199
+#: template-parts/peepso/group-header.php:198
+msgid " <span class=\"ps-js-pending-count\" data-id=\"%1$d\">%2$s</span> pending"
 msgstr ""
 
-#: peepso/groups/group-header.php:219
-#: template-parts/peepso/group-header.php:218
+#: peepso/groups/group-header.php:217
+#: template-parts/peepso/group-header.php:216
 msgid "Stream"
 msgstr ""
 
-#: peepso/groups/group-header.php:234
-#: template-parts/peepso/group-header.php:233
-msgid "<span class=\"ps-js-pending-count\" data-id=\"%d\">%s</span> pending"
+#: peepso/groups/group-header.php:232
+#: template-parts/peepso/group-header.php:231
+msgid "<span class=\"ps-js-pending-count\" data-id=\"%1$d\">%2$s</span> pending"
 msgstr ""
 
-#: peepso/profile/focus.php:67 peepso/profile/focus.php:131
-#: template-parts/peepso/focus.php:65 template-parts/peepso/focus.php:129
+#: peepso/profile/focus.php:68 peepso/profile/focus.php:137
+#: template-parts/peepso/focus.php:66 template-parts/peepso/focus.php:135
 msgid "%s is currently online"
 msgstr ""
 
-#: peepso/profile/focus.php:75 template-parts/peepso/focus.php:73
+#: peepso/profile/focus.php:81 template-parts/peepso/focus.php:79
 msgid "Change cover"
 msgstr ""
 
-#: peepso/profile/focus.php:79 template-parts/peepso/focus.php:77
+#: peepso/profile/focus.php:85 template-parts/peepso/focus.php:83
 msgid "Upload new"
 msgstr ""
 
-#: peepso/widgets/me.tpl.php:152
+#: peepso/widgets/me.tpl.php:160
 msgid "Community"
 msgstr ""
 
-#: peepso/widgets/me.tpl.php:186
+#: peepso/widgets/me.tpl.php:194
 msgid "Please use a valid email address."
 msgstr ""
 
-#: peepso/widgets/me.tpl.php:195
+#: peepso/widgets/me.tpl.php:203
 msgid "Password"
 msgstr ""
 
-#: peepso/widgets/me.tpl.php:206
+#: peepso/widgets/me.tpl.php:214
 msgid "TFA code"
 msgstr ""
 
-#: peepso/widgets/me.tpl.php:217 peepso/widgets/me.tpl.php:218
+#: peepso/widgets/me.tpl.php:225 peepso/widgets/me.tpl.php:226
 #: template-parts/form-login.php:48
 msgid "Remember Me"
 msgstr ""
 
-#: peepso/widgets/me.tpl.php:263
+#: peepso/widgets/me.tpl.php:271
 msgid "Forgot Password"
 msgstr ""
 
-#: peepso/widgets/me.tpl.php:266
+#: peepso/widgets/me.tpl.php:274
 msgid "Resend activation code"
 msgstr ""
 
-#: rtmedia/main-nouveau.php:135 rtmedia/main-nouveau.php:277
+#: rtmedia/main-nouveau.php:129 rtmedia/main-nouveau.php:277
 msgid "rtMedia menu"
 msgstr ""
 
@@ -10774,12 +10609,12 @@ msgid "Member primary navigation"
 msgstr ""
 
 #: sidebar-activity-left.php:33 sidebar-group-left.php:91
-#: template-parts/activity-widgets.php:49
+#: template-parts/activity-widgets.php:83
 msgid "Show:"
 msgstr ""
 
 #: sidebar-activity-left.php:46 sidebar-group-left.php:111
-#: template-parts/activity-widgets.php:60
+#: template-parts/activity-widgets.php:94
 msgid "Everything"
 msgstr ""
 
@@ -10801,48 +10636,48 @@ msgid_plural "%d Jobs Available"
 msgstr[0] ""
 msgstr[1] ""
 
-#: template-parts/activity-widgets.php:7
+#: template-parts/activity-widgets.php:15
 msgid "Sitewide activities navigation"
 msgstr ""
 
-#: template-parts/activity-widgets.php:10 template-parts/members-widgets.php:19
+#: template-parts/activity-widgets.php:21 template-parts/members-widgets.php:19
 msgid "All Members %s"
 msgstr ""
 
-#: template-parts/activity-widgets.php:17 template-parts/members-widgets.php:22
+#: template-parts/activity-widgets.php:32 template-parts/members-widgets.php:22
 msgid "My Friends %s"
 msgstr ""
 
-#: template-parts/activity-widgets.php:25 template-parts/groups-widgets.php:26
+#: template-parts/activity-widgets.php:44 template-parts/groups-widgets.php:26
 msgid "My Groups %s"
 msgstr ""
 
-#: template-parts/activity-widgets.php:32
+#: template-parts/activity-widgets.php:55
 msgid "My Favorites %s"
 msgstr ""
 
-#: template-parts/activity-widgets.php:37
+#: template-parts/activity-widgets.php:64
 msgid "Mentions"
 msgstr ""
 
-#: template-parts/activity-widgets.php:54
+#: template-parts/activity-widgets.php:88
 msgid "Activity secondary navigation"
 msgstr ""
 
-#: template-parts/content-audio.php:38 template-parts/content-audio.php:47
-#: template-parts/content-audio.php:102 template-parts/content-gallery.php:38
-#: template-parts/content-gallery.php:47 template-parts/content-gallery.php:95
-#: template-parts/content-link.php:34 template-parts/content-link.php:43
-#: template-parts/content-link.php:102 template-parts/content-page.php:64
-#: template-parts/content-page.php:73 template-parts/content-quote.php:46
-#: template-parts/content-quote.php:55 template-parts/content-quote.php:103
-#: template-parts/content-search.php:46 template-parts/content-video.php:45
-#: template-parts/content-video.php:54 template-parts/content-video.php:103
-#: template-parts/content.php:39 template-parts/content.php:87
+#: template-parts/content-audio.php:43 template-parts/content-audio.php:96
+#: template-parts/content-gallery.php:38 template-parts/content-gallery.php:47
+#: template-parts/content-gallery.php:95 template-parts/content-link.php:34
+#: template-parts/content-link.php:43 template-parts/content-link.php:102
+#: template-parts/content-page.php:64 template-parts/content-page.php:73
+#: template-parts/content-quote.php:46 template-parts/content-quote.php:55
+#: template-parts/content-quote.php:103 template-parts/content-search.php:46
+#: template-parts/content-video.php:45 template-parts/content-video.php:54
+#: template-parts/content-video.php:103 template-parts/content.php:39
+#: template-parts/content.php:87
 msgid "Permalink to %s"
 msgstr ""
 
-#: template-parts/content-audio.php:81 template-parts/content-gallery.php:74
+#: template-parts/content-audio.php:75 template-parts/content-gallery.php:74
 #: template-parts/content-link.php:81 template-parts/content-quote.php:82
 #: template-parts/content-search.php:27 template-parts/content-video.php:82
 #: template-parts/content.php:66
@@ -10850,7 +10685,7 @@ msgstr ""
 msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
-#: template-parts/content-audio.php:95 template-parts/content-bbpress.php:41
+#: template-parts/content-audio.php:89 template-parts/content-bbpress.php:41
 #: template-parts/content-buddypress.php:72
 #: template-parts/content-gallery.php:88 template-parts/content-link.php:95
 #: template-parts/content-page.php:89 template-parts/content-quote.php:96
@@ -10859,7 +10694,7 @@ msgstr ""
 msgid "Pages:"
 msgstr ""
 
-#: template-parts/content-audio.php:102 template-parts/content-gallery.php:95
+#: template-parts/content-audio.php:96 template-parts/content-gallery.php:95
 #: template-parts/content-link.php:102 template-parts/content-quote.php:103
 #: template-parts/content-search.php:46 template-parts/content-video.php:103
 #: template-parts/content.php:87
@@ -10932,6 +10767,14 @@ msgstr ""
 
 #: template-parts/form-register.php:12
 msgid "Register in"
+msgstr ""
+
+#: template-parts/form-register.php:37
+msgid "First Name"
+msgstr ""
+
+#: template-parts/form-register.php:42
+msgid "Last Name"
 msgstr ""
 
 #: template-parts/form-register.php:52
@@ -11011,24 +10854,19 @@ msgstr ""
 msgid "Main menu"
 msgstr ""
 
-#: template-parts/header/header-mobile.php:92
+#: template-parts/header/header-mobile.php:67
 msgid "My Account"
 msgstr ""
 
-#: template-parts/header-icons/friends-request.php:25
-#: template-parts/header-icons/notification.php:13
-msgid "9+"
-msgstr ""
-
-#: template-parts/header-icons/friends-request.php:33
+#: template-parts/header-icons/friends-request.php:30
 msgid "Friend requests"
 msgstr ""
 
-#: template-parts/header-icons/friends-request.php:80
+#: template-parts/header-icons/friends-request.php:77
 msgid "No friend request."
 msgstr ""
 
-#: template-parts/header-icons/friends-request.php:89
+#: template-parts/header-icons/friends-request.php:86
 msgid "All Requests"
 msgstr ""
 
@@ -11036,23 +10874,23 @@ msgstr ""
 msgid "View All Messages"
 msgstr ""
 
-#: template-parts/header-icons/message.php:133
+#: template-parts/header-icons/message.php:131
 msgid "Group logo of %s"
 msgstr ""
 
-#: template-parts/header-icons/message.php:211
+#: template-parts/header-icons/message.php:208
 msgid "Deleted Group"
 msgstr ""
 
-#: template-parts/header-icons/message.php:362
+#: template-parts/header-icons/message.php:361
 msgid "Deleted User"
 msgstr ""
 
-#: template-parts/header-icons/message.php:367
+#: template-parts/header-icons/message.php:366
 msgid "Suspended Member"
 msgstr ""
 
-#: template-parts/header-icons/message.php:369
+#: template-parts/header-icons/message.php:368
 msgid "Blocked Member"
 msgstr ""
 
@@ -11064,11 +10902,11 @@ msgstr ""
 msgid "All Messages"
 msgstr ""
 
-#: template-parts/header-icons/notification.php:28
+#: template-parts/header-icons/notification.php:22
 msgid "Mark all as read"
 msgstr ""
 
-#: template-parts/header-icons/notification.php:69
+#: template-parts/header-icons/notification.php:60
 msgid "All Notifications"
 msgstr ""
 
@@ -11088,15 +10926,15 @@ msgstr ""
 msgid "Search results for "
 msgstr ""
 
-#: template-parts/widgets/rg-woo-product-category.php:78
+#: template-parts/widgets/rg-woo-product-category.php:81
 msgid "Shop Now"
 msgstr ""
 
-#: template-parts/widgets/rg-woo-product-category.php:92
+#: template-parts/widgets/rg-woo-product-category.php:95
 msgid "Item"
 msgstr ""
 
-#: template-parts/widgets/rg-woo-product-category.php:94
+#: template-parts/widgets/rg-woo-product-category.php:97
 msgid "Items"
 msgstr ""
 
@@ -11461,6 +11299,10 @@ msgstr ""
 msgid "Quantity"
 msgstr ""
 
+#: woocommerce/cart/cart.php:38 woocommerce/cart/cart.php:168
+msgid "Subtotal"
+msgstr ""
+
 #: woocommerce/cart/cart.php:71 woocommerce/cart/cart.php:89
 #. translators: %s is the product name
 msgid "Remove %s from cart"
@@ -11547,11 +11389,6 @@ msgctxt "button"
 msgid "Spam"
 msgstr ""
 
-#: inc/class-reign-theme-structure.php:276
-msgctxt "noun"
-msgid "Comment"
-msgstr ""
-
 #: inc/extras.php:270
 msgctxt "post date"
 msgid "Posted on %s"
@@ -11597,14 +11434,14 @@ msgctxt "as in: \"version nr unknown\""
 msgid "unknown"
 msgstr ""
 
-#: inc/theme-functions.php:973
+#: inc/theme-functions.php:919
 msgctxt "Comment Count"
 msgid "%s Comment"
 msgid_plural "%s Comments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: template-parts/activity-widgets.php:37
+#: template-parts/activity-widgets.php:67
 msgctxt "Number of new activity mentions"
 msgid "%s new"
 msgid_plural "%s new"

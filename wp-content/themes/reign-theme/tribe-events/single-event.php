@@ -90,7 +90,7 @@ $cost  = tribe_get_formatted_cost( $event_id );
 		</div>
 		<div class="tribe-event-schedule-long">
 			<div class="rg-tribe-events-single-heading">
-				<?php echo $title; ?>
+				<?php echo wp_kses_post( $title ); ?>
 				<?php echo tribe_events_event_schedule_details( $event_id, '<h2>', '</h2>' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			</div>
 

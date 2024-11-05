@@ -598,14 +598,6 @@ body.buddypress .buddypress-wrap h6 {
             overflow: hidden;
             border-radius: var(--reign-global-border-radius) !important;
 
-            .rg-nouveau-sidebar-head h4.widget-title {
-                margin: 0;
-
-                span.custom-name {
-                    max-width: 90%;
-                }
-            }
-
             &.reign-nav-more {
                 overflow: visible;
             }
@@ -2315,9 +2307,12 @@ form#account-group-invites-form .bp-checkbox-wrap label {
     justify-content: flex-start;
 }
 
-.reign-nav-iconic li#just-me-personal-li>a:before,
 .reign-nav-iconic li#newsfeed-personal-li>a:before {
-    content: "\f1ea";
+    content: "\f09e";
+}
+
+.reign-nav-iconic li#just-me-personal-li>a:before {
+    content: "\f007";
 }
 
 .reign-nav-iconic #li-nav-activity>a:before,
@@ -2798,7 +2793,8 @@ form#account-group-invites-form .bp-checkbox-wrap label {
     content: "\f024";
 }
 
-.reign-nav-iconic #store-personal-li>a:before {
+.reign-nav-iconic #store-personal-li>a:before,
+.reign-nav-iconic #vendor-settings-personal-li>a:before {
     content: "\f54e";
 }
 

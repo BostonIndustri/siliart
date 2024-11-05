@@ -710,7 +710,7 @@ body.activity .content-wrapper>.hentry {
 
     #buddypress .activity-comments div.generic-button a,
     #buddypress .activity-comments .generic-button a {
-        font-size: $font__size-smaller; 
+        font-size: $font__size-smaller;
     }
 
     .buddypress-wrap .activity-comments ul li .activity-meta.action {
@@ -838,7 +838,8 @@ body.activity .content-wrapper>.hentry {
             order: 2;
         }
 
-        .generic-button {
+        .generic-button,
+        .generic-button.bp-activity-share-dropdown-toggle {
             order: 3;
         }
 
@@ -2395,44 +2396,65 @@ iframe.wp-embedded-content {
 
 /* Create Embedded Post Activity */
 
-.activity-list li.blogs .activity-content .activity-inner {
-    border: 0;
-    padding: 0;
-    max-width: 100%;
+.activity-list li.blogs,
+.activity-list div.blogs {
+    .activity-content .activity-inner {
+        border: 0;
+        padding: 0;
+    }
+
+    .activity-content .activity-inner .reign-content-wrp {
+        display: block;
+        padding: 0;
+        clear: both;
+    }
+
+    .activity-content .activity-inner .reign-post-title,
+    .activity-content .activity-inner .bb-post-title {
+        display: block;
+        font-size: 20px;
+        margin: 0 0 10px;
+    }
+
+    .activity-content .activity-inner .bb-post-title {
+        color: inherit;
+    }
+
+    .activity-content .activity-inner a.reign-post-img-link {
+        display: flex;
+        flex-flow: wrap;
+        margin: 0 0 15px;
+        background: var(--reign-site-secondary-bg-color);
+        border-radius: 4px;
+    }
+
+    .activity-content .activity-inner a.reign-post-img-link img {
+        margin: 0 auto;
+        width: auto;
+        max-height: 640px;
+        border-radius: 4px;
+    }
 }
 
-.activity-list li.blogs .activity-content .activity-inner img {
-    max-width: 100%;
-    margin: 0 0 15px;
+.activity-share-modal .activity-list div.blogs .activity-content .activity-inner a.reign-post-img-link img {
+    max-height: 340px;
 }
 
-.activity-list li.blogs .activity-content .activity-inner img,
-.activity-list li.blogs .activity-content .activity-inner .bb-post-img-link img {
-    border-radius: 4px;
-}
+.activity-list .activity-content .activity-inner .activity-reshare-item-container {
+    .activity-content .activity-inner a.reign-post-img-link {
+        display: flex;
+        flex-flow: wrap;
+        margin: 0 0 15px;
+        background: var(--reign-site-secondary-bg-color);
+        border-radius: 4px;
+    }
 
-.activity-list li.blogs .activity-content .activity-inner .reign-content-wrp {
-    display: block;
-    padding: 0;
-    clear: both;
-}
-
-.activity-list li.blogs .activity-content .activity-inner .bb-content-wrp {
-    display: block;
-    padding: 0;
-    padding-top: 12px;
-    background-color: transparent;
-}
-
-.activity-list li.blogs .activity-content .activity-inner .reign-post-title,
-.activity-list li.blogs .activity-content .activity-inner .bb-post-title {
-    display: block;
-    font-size: 20px;
-    margin: 0 0 10px;
-}
-
-.activity-list li.blogs .activity-content .activity-inner .bb-post-title {
-    color: inherit;
+    .activity-content .activity-inner a.reign-post-img-link img {
+        margin: 0 auto;
+        width: auto;
+        max-height: 640px;
+        border-radius: 4px;
+    }
 }
 
 /* Body Text Color */
@@ -2441,13 +2463,6 @@ iframe.wp-embedded-content {
 }
 
 /* Sections BG Color */
-
-// .bp-nouveau .buddypress-wrap form.bp-dir-search-form button[type=submit],
-// .bp-nouveau .buddypress-wrap form.bp-invites-search-form button[type=submit],
-// .bp-nouveau .buddypress-wrap form.bp-messages-search-form button[type=submit],
-// .bp-nouveau .buddypress-wrap form#media_search_form button[type=submit] {
-//     background-color: var(--reign-site-sections-bg-color);
-// }
 
 .buddypress-wrap .bp-pagination,
 .activity-share-modal .bp-activity-share-avatar small.user-status-text {
@@ -2482,7 +2497,6 @@ body.activity-permalink.bp-nouveau .activity-list .activity-reshare-item-contain
 #bp-message-thread-list li,
 .activity-list .activity-item .bp-generic-meta.action,
 .bp-nouveau .bupr-row,
-.multi-review,
 .reaction-list-dropdown,
 .modal-header,
 .activity-share-modal label[for=post-in],
@@ -2618,7 +2632,7 @@ body.activity-permalink.bp-nouveau .activity-list .activity-reshare-item-contain
     border-color: var(--reign-site-button-bg-hover-color);
 }
 
-.buddypress .buddypress-wrap .bp-list.grid .action a, 
+.buddypress .buddypress-wrap .bp-list.grid .action a,
 .buddypress .buddypress-wrap .bp-list.grid .action button {
     border-color: var(--reign-site-button-bg-color);
 

@@ -2,7 +2,7 @@
 	<?php do_action( 'reign_begin_group_left_sidebar' ); ?>
 
 	<div class="widget-area-inner">
-		<div class="widget-groups-nav-inner-wrap">
+		<div class="widget widget-groups-nav-inner-wrap">
 			<?php //if ( !bp_disable_group_avatar_uploads() ) : ?>
 			<!-- <div id="item-header-avatar">
 				<a href="<?php //echo esc_url( bp_get_group_permalink() );                   ?>">
@@ -13,7 +13,7 @@
 			</div> --><!-- #item-header-avatar -->
 			<?php //endif; ?>
 
-			<div class="widget widget-groups-nav rg-custom-mbl-menu">
+			<div class="widget-groups-nav rg-custom-mbl-menu">
 				<span class="custom-icon ico-plus fa fa-plus-circle"></span>
 				<span class="custom-icon ico-minus fa fa-minus-circle"></span>
 				<h4 class="widget-title"><span><?php the_title(); ?></span></h4>

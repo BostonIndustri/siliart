@@ -11,15 +11,9 @@
 
 <?php
 global $wbtm_reign_settings;
-$member_directory_type = isset( $wbtm_reign_settings['reign_buddyextender']['member_directory_type'] ) ? $wbtm_reign_settings['reign_buddyextender']['member_directory_type'] : 'wbtm-member-directory-type-2';
 
-$img_class = '';
-
-if ( $member_directory_type == 'wbtm-member-directory-type-4' ) {
-	$img_class = 'img-card';
-} else {
-	$img_class = '';
-}
+$member_directory_type = $wbtm_reign_settings['reign_buddyextender']['member_directory_type'] ?? 'wbtm-member-directory-type-2';
+$img_class             = ( $member_directory_type == 'wbtm-member-directory-type-4' ) ? 'img-card' : '';
 
 $footer_buttons_class = ( bp_is_active( 'friends' ) && bp_is_active( 'messages' ) ) ? ' footer-buttons-on' : '';
 
@@ -94,15 +88,13 @@ $enabled_joined_date   = ! function_exists( 'bb_enabled_member_directory_element
 						'button_attr'    => array(
 							'data-bp-content-id'   => $bp_get_member_user_id,
 							'data-bp-content-type' => BP_Moderation_Members::$moderation_type_report,
-							'data-reported_type'   => bp_moderation_get_report_type( BP_Moderation_Members::$moderation_type_report, bp_get_member_user_id() ),
+							'data-reported_type'   => bp_moderation_get_report_type( BP_Moderation_Members::$moderation_type_report, $bp_get_member_user_id ),
 						),
 
 					)
 				);
 				$member_report_button = ! is_super_admin( $bp_get_member_user_id ) ? bp_get_button( $report_button ) : '';
-			}
 
-			if ( bp_is_active( 'moderation' ) && is_user_logged_in() ) {
 				// Member block button.
 				$block_button = bp_member_get_report_link(
 					array(
@@ -115,7 +107,7 @@ $enabled_joined_date   = ! function_exists( 'bb_enabled_member_directory_element
 						'button_attr'    => array(
 							'data-bp-content-id'   => $bp_get_member_user_id,
 							'data-bp-content-type' => BP_Moderation_Members::$moderation_type,
-							'data-reported_type'   => bp_moderation_get_report_type( BP_Moderation_Members::$moderation_type, bp_get_member_user_id() ),
+							'data-reported_type'   => bp_moderation_get_report_type( BP_Moderation_Members::$moderation_type, $bp_get_member_user_id ),
 						),
 
 					)

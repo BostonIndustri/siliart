@@ -14,6 +14,10 @@ module.exports = function(grunt) {
             js: {
                 files: '<%= uglify.frontend.src %>',
                 tasks: ['uglify']
+            },
+            css: {
+                files: ['assets/css/*.css', '!assets/css/*.min.css'], // Watch CSS files except minified ones
+                tasks: ['cssmin'] // Run cssmin when CSS files change
             }
         },
         // sass
@@ -34,7 +38,8 @@ module.exports = function(grunt) {
                     'assets/css/eventscalendar-main.css': 'assets/css/sass/eventscalendar-main.scss',
                     'assets/css/youzify-main.css': 'assets/css/sass/youzify-main.scss',
                     'assets/css/directorist-main.css': 'assets/css/sass/directorist-main.scss',
-                    'assets/css/wpforo-main.css': 'assets/css/sass/wpforo-main.scss'
+                    'assets/css/wpforo-main.css': 'assets/css/sass/wpforo-main.scss',
+                    'assets/css/dokan-main.css': 'assets/css/sass/dokan-main.scss'
                 }
             }
         },
@@ -44,32 +49,17 @@ module.exports = function(grunt) {
          * Ref. https://github.com/gruntjs/grunt-contrib-cssmin
          */
         cssmin: {
-            options: {
-                shorthandCompacting: false,
-                roundingPrecision: -1,
-                sourceMap: false,
-                banner: '/* Minified CSS */' // This will add a comment at the beginning of the minified file
-            },
             target: {
-                files: {
-                    'assets/css/main.min.css': ['assets/css/main.css'],
-                    'assets/css/legacy-main.min.css': ['assets/css/legacy-main.css'],
-                    'assets/css/nouveau-main.min.css': ['assets/css/nouveau-main.css'],
-                    'assets/css/bb-platform-main.min.css': ['assets/css/bb-platform-main.css'],
-                    'assets/css/bbpress-main.min.css': ['assets/css/bbpress-main.css'],
-                    'assets/css/woocommerce-main.min.css': ['assets/css/woocommerce-main.css'],
-                    'assets/css/edd-main.min.css': ['assets/css/edd-main.css'],
-                    'assets/css/peepso-main.min.css': ['assets/css/peepso-main.css'],
-                    'assets/css/eventscalendar-main.min.css': ['assets/css/eventscalendar-main.css'],
-                    'assets/css/youzify-main.min.css': ['assets/css/youzify-main.css'],
-                    'assets/css/directorist-main.min.css': ['assets/css/directorist-main.css'],
-                    'assets/css/wpforo-main.min.css': ['assets/css/wpforo-main.css'],
-
-                    'assets/css/login.min.css': ['assets/css/login.css'],
-                    'assets/css/reign-amp.min.css': ['assets/css/reign-amp.css'],
-                    'assets/css/vertical-tabs-skeleton.min.css': ['assets/css/vertical-tabs-skeleton.css'],
-                    'assets/css/wp-event-manager.min.css': ['assets/css/wp-event-manager.css']
-                }
+                options: {
+                    sourceMap: false // Disable source maps and remove the sourceMappingURL comment
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'assets/css', // Source directory for CSS files
+                    src: ['*.css', '!*.min.css', '!*.min.css.map'], // Minify all .css files except already minified ones
+                    dest: 'assets/css', // Destination directory for minified CSS
+                    ext: '.min.css' // Output file extension
+                }]
             }
         },
         // rtlcss
@@ -194,9 +184,6 @@ module.exports = function(grunt) {
         }
 
     });
-    // register task  'checktextdomain', 'makepot',
-    // grunt.registerTask( 'default', [ 'uglify' ] );
-    // grunt.registerTask( 'default', [ 'sass', 'rtlcss', 'uglify' ] );
-    // grunt.registerTask( 'default', [ 'sass', 'autoprefixer', 'uglify' ] );
+
     grunt.registerTask('default', ['sass', 'cssmin', 'rtlcss', 'autoprefixer', 'uglify', 'checktextdomain', 'makepot', 'watch']);
 };

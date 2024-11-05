@@ -869,7 +869,7 @@ body.search {
         border-radius: var(--reign-global-border-radius);
     }
 
-    article {
+    .content-wrapper article {
         margin: 30px 0;
         padding: 0 0 30px;
         background: transparent !important;
@@ -1430,6 +1430,10 @@ body.single-post .rg-quote-block {
         justify-content: center;
         height: 40px;
         cursor: pointer;
+
+        &.reign-post-comment {
+            cursor: auto;
+        }
 
         &:hover,
         &.active {

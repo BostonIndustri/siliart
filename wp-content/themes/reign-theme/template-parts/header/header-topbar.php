@@ -10,9 +10,9 @@
 					if ( isset( $info_link['link_text'] ) ) {
 						$text = $info_link['link_text'];
 						if ( ! empty( $info_link['link_url'] ) ) {
-							$text = '<a href="' . $info_link['link_url'] . '">' . $text . '</a>';
+							$text = '<a href="' . esc_url( $info_link['link_url'] ) . '">' . esc_html( $text ) . '</a>';
 						}
-						echo '<span>' . $info_link['link_icon'] . $text . '</span>';
+						echo '<span>' . wp_kses_post( $info_link['link_icon'] ) . '' . wp_kses_post( $text ) . '</span>';
 					}
 				}
 			}
@@ -25,7 +25,7 @@
 			if ( ! empty( $social_links ) && is_array( $social_links ) ) {
 				foreach ( $social_links as $social_link ) {
 					if ( isset( $social_link['link_url'] ) && isset( $social_link['link_text'] ) ) {
-						echo '<a href="' . $social_link['link_url'] . '" title="' . $social_link['link_text'] . '">' . $social_link['link_icon'] . '</a>';
+						echo '<a href="' . esc_url( $social_link['link_url'] ) . '" title="' . esc_attr( $social_link['link_text'] ) . '">' . wp_kses_post( $social_link['link_icon'] ) . '</a>';
 					}
 				}
 			}

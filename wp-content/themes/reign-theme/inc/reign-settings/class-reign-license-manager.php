@@ -124,47 +124,43 @@ if ( ! class_exists( 'Reign_License_Manager' ) ) :
 				#rg-poststuff {
 					display: none;
 				}
-				.reign_license_page {
-					background: #fff;
-					padding: 40px 30px 0;
-					overflow: hidden;
-				}
-				.reign_license_page+style+.reign_license_page {
+				
+				/* .reign_license_page+style+.reign_license_page {
 					padding-top: 0;
 				}
 				.reign-license-page-inner {
-				    width: 100%;
-				    background: #f5f7f9;
-				    padding: 30px;
-				    margin: 0 auto;
+					width: 100%;
+					background: #f5f7f9;
+					padding: 30px;
+					margin: 0 auto;
 					margin-bottom: 30px;
-				    max-width: 1240px;
-				    border-radius: 12px;
-				    box-sizing: border-box;
-				    position: relative;
-				    border: 1px solid rgba(226,230,235,.5);
+					max-width: 1240px;
+					border-radius: 12px;
+					box-sizing: border-box;
+					position: relative;
+					border: 1px solid rgba(226,230,235,.5);
 				}
 				.reign-license-page-inner .wrap {
-				    margin: 0;
+					margin: 0;
 				}
 				.reign-license-page-inner .wrap h2 {
-				    padding: 0;
-				    font-weight: 500;
-				    font-size: 20px;
+					padding: 0;
+					font-weight: 500;
+					font-size: 20px;
 				}
 				.reign-license-page-inner .wrap form {
-				    background: #fff;
-				    padding: 25px;
-				    margin-top: 15px;
-				    border-radius: 12px;
-				}
+					background: #fff;
+					padding: 25px;
+					margin-top: 15px;
+					border-radius: 12px;
+				} */
+
 			</style>
 
 			<?php
 
 			do_action( 'reign_other_premium_addon_license_panel' );
 		}
-
 	}
 
 	endif;

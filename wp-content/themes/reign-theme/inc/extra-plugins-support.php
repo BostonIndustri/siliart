@@ -80,7 +80,6 @@ if ( ! function_exists( 'reign_register_elementor_locations' ) ) {
 			// $elementor_theme_manager->register_all_core_location();
 			$elementor_theme_manager->register_location( 'header' );
 			$elementor_theme_manager->register_location( 'footer' );
-
 	}
 	add_action( 'elementor/theme/register_locations', 'reign_register_elementor_locations' );
 }
@@ -393,7 +392,7 @@ if ( ! function_exists( 'reign_get_peepso_member_cover_image' ) ) {
  * Get all social fields added in backend.
  */
 function reign_get_peepso_user_social_array() {
-	 global $wbtm_reign_settings;
+	global $wbtm_reign_settings;
 	$wbtm_social_links = isset( $wbtm_reign_settings['reign_peepsoextender']['wbtm_social_links'] ) ? $wbtm_reign_settings['reign_peepsoextender']['wbtm_social_links'] : array();
 	return $wbtm_social_links;
 }
@@ -454,19 +453,19 @@ function reign_peepso_profile_edit_form( $form ) {
 add_action( 'peepso_save_profile_form', 'reign_peepso_profile_after_save', 10, 1 );
 
 function reign_peepso_profile_after_save( $userid ) {
-	$form_arr = filter_input_array( INPUT_POST, FILTER_SANITIZE_STRING );
+	$form_arr = filter_input_array( INPUT_POST, FILTER_DEFAULT, FILTER_REQUIRE_ARRAY );
 	if ( filter_input( INPUT_POST, 'account' ) ) {
 		foreach ( $form_arr as $key => $value ) {
 			if ( strpos( $key, 'wbcom_social_' ) !== false ) {
-				$social_link = filter_input( INPUT_POST, $key, FILTER_SANITIZE_STRING );
-				update_user_meta( $userid, $key, $form_arr[ $key ] );
+				$social_link = sanitize_text_field( $form_arr[ $key ] );
+				update_user_meta( $userid, $key, $social_link );
 			}
 		}
 	}
 }
 
 function reign_peepso_social_not_all_empty( $userid ) {
-	 $social_fields = reign_get_peepso_user_social_array();
+	$social_fields = reign_get_peepso_user_social_array();
 	if ( ! empty( $social_fields ) ) {
 		foreach ( $social_fields as $field_slug => $social ) {
 			$social_link = get_user_meta( $userid, 'wbcom_social_' . $field_slug, true );
@@ -488,30 +487,37 @@ function reign_peepso_user_social_links( $userid ) {
 		$html_to_render = '';
 		$counter        = 0;
 		$first_time     = true;
+
 		foreach ( $social_fields as $field_slug => $social ) {
-			$counter++;
+			++$counter;
 			$social_link = get_user_meta( $userid, 'wbcom_social_' . $field_slug, true );
+
 			if ( ! isset( $social_link ) || empty( $social_link ) ) {
 				continue;
 			}
+
 			if ( $first_time ) {
 				$html_to_render .= '<ul>';
 				$first_time      = false;
 			}
+
 			$html_to_render .= '<li>';
-			$html_to_render .= '<a href="' . $social_link . '" title="' . $social['name'] . '">';
+			$html_to_render .= '<a href="' . esc_url( $social_link ) . '" title="' . esc_attr( $social['name'] ) . '">';
+
 			if ( empty( $social['img_url'] ) ) {
-				$html_to_render .= '<i class="fa fa-' . strtolower( trim( $social['name'] ) ) . '"></i>';
+				$html_to_render .= '<i class="fab fa-' . esc_attr( strtolower( trim( $social['name'] ) ) ) . '"></i>';
 			} else {
-				$html_to_render .= '<img src="' . $social['img_url'] . '" />';
+				$html_to_render .= '<img src="' . esc_url( $social['img_url'] ) . '" alt="' . esc_attr( $social['name'] ) . '" />';
 			}
+
 			$html_to_render .= '</a>';
 			$html_to_render .= '</li>';
+
 			if ( $counter == count( $social_fields ) ) {
 				$html_to_render .= '</ul>';
 			}
 		}
-		echo $html_to_render;
+		echo wp_kses_post( $html_to_render );
 	}
 }
 
@@ -527,10 +533,8 @@ function reign_header_v4_middle_section_search() {
 
 	if ( 'product_search' === $check_search ) {
 		the_widget( 'WC_Widget_Product_Search' );
-	} else {
-		if ( function_exists( 'get_search_form' ) ) {
+	} elseif ( function_exists( 'get_search_form' ) ) {
 			get_search_form();
-		}
 	}
 }
 
@@ -883,7 +887,6 @@ function reign_bp_memeber_carousel( $atts ) {
 	// Restore the global.
 	$members_template = $old_members_template;
 	return ob_get_clean();
-
 }
 add_shortcode( 'bp_memeber_carousel', 'reign_bp_memeber_carousel' );
 
@@ -991,11 +994,10 @@ function reign_bp_group_carousel( $atts ) {
 	$groups_template = $old_groups_template;
 
 	return ob_get_clean();
-
 }
 add_shortcode( 'bp_group_carousel', 'reign_bp_group_carousel' );
 
-if ( class_exists( 'bbPress') ) {
+if ( class_exists( 'bbPress' ) ) {
 	/**
 	 * Setup the post types for forums
 	 *

@@ -98,6 +98,10 @@
         background: var(--reign-site-sections-bg-color);
         border: 1px solid var(--reign-site-border-color);
         border-radius: var(--reign-global-border-radius) !important;
+
+        .item-avatar {
+            margin-right: 15px;
+        }
     }
 
     .bp-list>li .item-avatar {

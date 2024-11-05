@@ -8,18 +8,18 @@
  */
 get_header();
 ?>
-
+	
 <div <?php body_class( 'content-wrapper' ); ?>>
-        <section class="error-404 not-found">
-                <header class="page-header">
+	<section class="error-404 not-found">
+		<header class="page-header">
 
-                        <h2>404</h2>
-                        <h3><?php esc_html_e( 'page not found', 'reign' ); ?></h3>
-                        <p>The page you were looking  for doesn't exist.</p>
-                        <span><a class="button" href="<?php echo esc_url( home_url( '/' ) ); ?>">Go Back</a></span>
+			<h2><?php esc_html_e( '404', 'reign' ); ?></h2>
+			<h3><?php esc_html_e( 'page not found', 'reign' ); ?></h3>
+			<p><?php esc_html_e( 'The page you were looking  for doesn\'t exist.', 'reign' ); ?></p>
+			<span><a class="button" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Go Back', 'reign' ); ?></a></span>
 
-                </header><!-- .page-header -->
-        </section><!-- .error-404 -->
+		</header><!-- .page-header -->
+	</section><!-- .error-404 -->
 </div>
 
 <?php

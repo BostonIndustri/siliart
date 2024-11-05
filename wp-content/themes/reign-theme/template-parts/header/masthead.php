@@ -20,42 +20,13 @@
 						</div>
 					</div>
 				</div>
-				<!-- <div class="mobile-view-search">
-				<?php // get_search_form(); ?>
-				</div> -->
 				<div class="site-branding">
 					<div class="logo">
 						<?php
 						if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) {
 							the_custom_logo();
 						} else {
-							if ( is_front_page() && is_home() ) :
-								?>
-								<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-								<?php
-								$reign_description = get_bloginfo( 'description', 'display' );
-								if ( $reign_description || is_customize_preview() ) {
-									?>
-										<p class="site-description">
-												<?php echo esc_html( $reign_description ); ?>
-										</p>
-										<?php
-								}
-								?>
-							<?php else : ?>
-							<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-								<?php
-								$reign_description = get_bloginfo( 'description', 'display' );
-								if ( $reign_description || is_customize_preview() ) {
-									?>
-									<p class="site-description">
-										<?php echo esc_html( $reign_description ); ?>
-									</p>
-									<?php
-								}
-								?>
-								<?php
-						endif;
+							reign_display_site_title_description();
 						}
 						?>
 					</div>
@@ -71,27 +42,8 @@
 
 				<nav id="site-navigation" class="main-navigation" role="navigation">
 					<?php
-					if ( is_user_logged_in() ) {
-						wp_nav_menu(
-							array(
-								'theme_location' => 'menu-1',
-								'menu_id'        => 'primary-menu',
-								'fallback_cb'    => '',
-								'container'      => false,
-								'menu_class'     => 'primary-menu',
-							)
-						);
-					} elseif ( has_nav_menu( 'menu-1' ) || has_nav_menu( 'menu-1-logout' ) ) {
-						wp_nav_menu(
-							array(
-								'theme_location' => 'menu-1-logout',
-								'menu_id'        => 'primary-menu',
-								'fallback_cb'    => 'fallback_primary_desktop_menu',
-								'container'      => false,
-								'menu_class'     => 'primary-menu',
-							)
-						);
-					}
+					// Display the primary navigation.
+					reign_display_primary_navigation();
 					?>
 				</nav>
 			</div>
@@ -121,9 +73,9 @@
 							$user_link = function_exists( 'bp_core_get_user_domain' ) ? bp_core_get_user_domain( get_current_user_id() ) : '#';
 						}
 						echo '<div class="user-link-wrap">';
-						echo '<a class="user-link" href="' . $user_link . '">'; /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */
+						echo '<a class="user-link" href="' . esc_url( $user_link ) . '">';
 						?>
-						<span class="rg-user"><?php echo $current_user->display_name; /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */ ?></span>
+						<span class="rg-user"><?php echo esc_html( $current_user->display_name ); ?></span>
 						<?php
 						echo get_avatar( $current_user->user_email, 200 );
 						echo '</a>';

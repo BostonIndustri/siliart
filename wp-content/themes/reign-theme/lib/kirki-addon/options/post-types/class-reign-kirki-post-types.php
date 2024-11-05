@@ -1253,6 +1253,29 @@ if ( ! class_exists( 'Reign_Kirki_Post_Types_Support' ) ) :
 						)
 					);
 
+					new \Kirki\Field\Select(
+						array(
+							'settings'        => 'forum_archive_layout_per_row',
+							'label'           => esc_html__( 'Forums Per Row', 'reign' ),
+							'description'     => esc_html__( 'Set archive page forums listing per row.', 'reign' ),
+							'section'         => 'reign_forum_archive',
+							'default'         => 'three',
+							'priority'        => 9,
+							'choices'         => array(
+								'two'   => esc_html__( 'Two', 'reign' ),
+								'three' => esc_html__( 'Three', 'reign' ),
+								'four'  => esc_html__( 'Four', 'reign' ),
+							),
+							'active_callback' => array(
+								array(
+									'setting'  => 'forum_archive_layout',
+									'operator' => 'in',
+									'value'    => array( 'card', 'cover' ),
+								),
+							),
+						)
+					);
+
 					new \Kirki\Pro\Field\Divider(
 						array(
 							'settings' => 'forum_archive_layout_divider',

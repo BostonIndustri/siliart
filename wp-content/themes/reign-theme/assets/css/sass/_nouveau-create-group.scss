@@ -192,9 +192,16 @@
     }
 
     button#group_invites_search_submit {
-        border-radius: 0;
         display: flex;
         justify-content: center;
+        color: inherit;
+        border: 0;
+        border-radius: 0;
+
+        &:hover {
+            color: inherit;
+            border: 0;
+        }
     }
 
     #buddypress.buddypress-wrap .group-invites-column .bp-invites-content .item-avatar img.avatar {
@@ -204,10 +211,13 @@
 
     #buddypress.buddypress-wrap .bp-invites-content .item-list li .invite-button {
         background: transparent;
-        color: #555;
+        color: inherit;
+        padding: 0;
+        line-height: normal;
+        border: 0;
 
         &:hover {
-            color: #333;
+            color: inherit;
         }
     }
 }

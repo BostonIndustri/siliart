@@ -63,14 +63,14 @@ if ( ! class_exists( 'Wbcom_Postmeta_Management' ) ) :
 		public function enqueue_reign_metabox_style_n_script() {
 			$url_prefix = get_template_directory_uri() . '/inc/wbcom-postmeta-mgmt';
 			wp_register_style(
-				$handle = 'wbcom-postmeta-mgmt-css',
+				$handle = 'wbcom-postmeta-mgmt',
 				$src    = $url_prefix . '/assets/wbcom-postmeta-mgmt.css',
 				$deps   = array(),
 				$ver    = REIGN_THEME_VERSION,
 				$media  = 'all'
 			);
 			wp_enqueue_style( 'wp-color-picker' );
-			wp_enqueue_style( 'wbcom-postmeta-mgmt-css' );
+			wp_enqueue_style( 'wbcom-postmeta-mgmt' );
 
 			wp_register_style(
 				$handle = 'select2.min.css',
@@ -90,7 +90,7 @@ if ( ! class_exists( 'Wbcom_Postmeta_Management' ) ) :
 			);
 
 			wp_register_script(
-				$handle    = 'wbcom-postmeta-mgmt-js',
+				$handle    = 'wbcom-postmeta-mgmt',
 				$src       = $url_prefix . '/assets/wbcom-postmeta-mgmt.js',
 				$deps      = array( 'jquery', 'select2.min.js' ),
 				$ver       = REIGN_THEME_VERSION,
@@ -107,7 +107,7 @@ if ( ! class_exists( 'Wbcom_Postmeta_Management' ) ) :
 
 			wp_enqueue_script( 'wp-color-picker' );
 			wp_enqueue_script( 'wp-color-picker-alpha' );
-			wp_enqueue_script( 'wbcom-postmeta-mgmt-js' );
+			wp_enqueue_script( 'wbcom-postmeta-mgmt' );
 			wp_enqueue_script( 'select2.min.js' );
 		}
 

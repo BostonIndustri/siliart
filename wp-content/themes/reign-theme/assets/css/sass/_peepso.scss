@@ -131,6 +131,10 @@ section.ps-page-unstyled {
     z-index: 99;
 }
 
+.ps-text--muted {
+    color: var(--reign-site-alternate-text-color) !important;
+}
+
 /*--------------------------------------------------------------
 # Header Icons
 --------------------------------------------------------------*/

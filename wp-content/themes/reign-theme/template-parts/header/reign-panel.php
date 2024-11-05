@@ -11,18 +11,25 @@ global $post;
 $bp_pages = get_option( 'bp-pages' );
 
 if ( class_exists( 'BuddyPress' ) ) {
-	if ( bp_is_current_component( 'groups' ) ) {
-		$bp_page = get_post( $bp_pages['groups'] );
-	} elseif ( bp_is_current_component( 'members' ) || bp_is_user() ) {
-		$bp_page = get_post( $bp_pages['members'] );
-	} elseif ( bp_is_current_component( 'activity' ) ) {
-		$bp_page = get_post( $bp_pages['activity'] );
-	} elseif ( bp_is_current_component( 'document' ) ) {
-		$bp_page = get_post( $bp_pages['document'] );
-	} elseif ( bp_is_current_component( 'media' ) ) {
-		$bp_page = get_post( $bp_pages['media'] );
-	} elseif ( bp_is_register_page() ) {
-		$bp_page = get_post( $bp_pages['register'] );
+	$components = array(
+		'groups'   => 'groups',
+		'members'  => array( 'members', 'is_user' ),
+		'activity' => 'activity',
+		'document' => 'document',
+		'media'    => 'media',
+		'register' => 'register',
+	);
+
+	foreach ( $components as $component => $page ) {
+		if ( is_array( $page ) ) {
+			if ( bp_is_current_component( $page[0] ) || call_user_func( 'bp_' . $page[1] ) ) {
+				$bp_page = get_post( $bp_pages[ $component ] );
+				break;
+			}
+		} elseif ( bp_is_current_component( $component ) || bp_is_register_page() ) {
+			$bp_page = get_post( $bp_pages[ $component ] );
+			break;
+		}
 	}
 }
 
@@ -46,17 +53,18 @@ if ( 'yes' === $display_left_panel_menu ) {
 
 $reign_left_panel_state  = get_theme_mod( 'reign_left_panel_state', 'closed' );
 $reign_left_panel_toggle = get_theme_mod( 'reign_left_panel_toggle', true );
-$state_class             = '';
-// phpcs:ignore WordPress.PHP.StrictComparisons.LooseComparison
-if (
-	(
-		isset( $_COOKIE['reignpanel'] ) &&
-		$_COOKIE['reignpanel'] === 'open'
-	) || (
-		$reign_left_panel_state === 'open' &&
-		! isset( $_COOKIE['reignpanel'] )
-	)
-) {
+
+$state_class = '';
+// Check if the 'reignpanel' cookie exists and has the value 'open'.
+if ( isset( $_COOKIE['reignpanel'] ) ) {
+	if ( $_COOKIE['reignpanel'] === 'open' ) {
+		$state_class = 'reign-panel-open';
+	} elseif ( $_COOKIE['reignpanel'] !== 'closed' ) {
+		// Log or handle unexpected cookie values if needed.
+		error_log( 'Unexpected reignpanel cookie value: ' . $_COOKIE['reignpanel'] );
+	}
+} elseif ( $reign_left_panel_state === 'open' ) {
+	// If the cookie doesn't exist, fall back to the theme mod setting.
 	$state_class = 'reign-panel-open';
 }
 
@@ -75,7 +83,6 @@ if ( ! is_user_logged_in() ) {
 		return;
 	}
 }
-
 ?>
 
 <div id="reign-menu-panel" class="reign-menu-panel <?php echo esc_attr( $state_class ); ?>">
@@ -91,29 +98,19 @@ if ( ! is_user_logged_in() ) {
 		<?php endif; ?>
 		<div class="reign-inner-panel">
 			<?php
-			if ( is_user_logged_in() ) {
-				wp_nav_menu(
-					array(
-						'theme_location' => 'panel-menu',
-						'menu_id'        => 'reign-panel',
-						'fallback_cb'    => '',
-						'container'      => false,
-						'walker'         => new Reign_Left_Panel_Menu_Walker(),
-						'menu_class'     => 'navbar-nav navbar-reign-panel',
-					)
-				);
-			} else {
-				wp_nav_menu(
-					array(
-						'theme_location' => 'panel-menu-loggedout',
-						'menu_id'        => 'reign-panel',
-						'fallback_cb'    => 'fallback_panel_menu',
-						'container'      => false,
-						'walker'         => new Reign_Left_Panel_Menu_Walker(),
-						'menu_class'     => 'navbar-nav navbar-reign-panel',
-					)
-				);
-			}
+			ob_start();
+
+			$menu_args = array(
+				'menu_id'     => 'reign-panel',
+				'fallback_cb' => is_user_logged_in() ? '' : 'fallback_panel_menu',
+				'container'   => false,
+				'walker'      => new Reign_Left_Panel_Menu_Walker(),
+				'menu_class'  => 'navbar-nav navbar-reign-panel',
+			);
+
+			$menu_args['theme_location'] = is_user_logged_in() ? 'panel-menu' : 'panel-menu-loggedout';
+
+			wp_nav_menu( $menu_args );
 
 			$left_panel_menu = ob_get_clean();
 

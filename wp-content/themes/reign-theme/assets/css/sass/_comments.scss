@@ -172,15 +172,10 @@
     outline: 0;
 }
 
-.single-post .comment-form label {
-    display: none;
+.comment-form label {
     letter-spacing: 0.04em;
     line-height: 1.5;
     margin-bottom: 8px;
-}
-
-.single-post.logged-in .comment-form label {
-    display: none;
 }
 
 .comment-form input[type="text"],

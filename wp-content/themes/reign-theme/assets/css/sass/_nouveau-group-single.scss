@@ -21,12 +21,14 @@
     }
 
     .bp-invites-content ul.item-list .invite-button {
-        box-shadow: none;
+        background: transparent;
+        color: inherit;
+        padding: 0;
+        line-height: normal;
         border: 0;
-        padding: 0 7px;
 
         &:hover {
-            border: 0;
+            color: inherit;
         }
     }
 

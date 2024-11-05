@@ -71,29 +71,30 @@ if ( ! class_exists( 'Reign_Shortcodes' ) ) :
 				'reign_display_posts'
 			);
 
-			if ( ! empty( $atts['category'] ) ) {
-				$category = explode( ',', $atts['category'] );
-			} else {
-				$category = $atts['category'];
-			}
+			// Sanitize the category input.
+			$category = ! empty( $atts['category'] ) ? array_map( 'intval', explode( ',', $atts['category'] ) ) : array();
 
 			$blog_list_layout = $atts['posts_view'];
 
-			// Query setup.
-			$global_query = $GLOBALS['wp_query'];
-			$paged        = get_query_var( 'paged', 1 );
-			wp_reset_postdata();
-			$args = array(
-				'posts_per_page' => $atts['posts_per_page'],
+			// Prepare query arguments.
+			$paged = get_query_var( 'paged', 1 );
+			$args  = array(
+				'posts_per_page' => intval( $atts['posts_per_page'] ),
 				'cat'            => $category,
+				'paged'          => $paged, // Ensure pagination is respected.
 			);
-			$args = apply_filters( 'alter_reign_display_posts_args', $args );
-			$query = new WP_Query( $args );
+			$args  = apply_filters( 'alter_reign_display_posts_args', $args );
+
+			// Query the posts.
+			$global_query        = $GLOBALS['wp_query'];
+			$query               = new WP_Query( $args );
 			$GLOBALS['wp_query'] = $query;
 
 			ob_start();
 
+			// Start the layout wrapper.
 			echo '<div class="reign-blog-shortcode">';
+
 			if ( $blog_list_layout == 'masonry-view' ) {
 				echo '<div class="masonry wb-post-listing col-' . esc_attr( $atts['column_count'] ) . '">';
 				echo '<div class="reign-grid-sizer"></div>';
@@ -103,25 +104,25 @@ if ( ! class_exists( 'Reign_Shortcodes' ) ) :
 				echo '<div class="wb-lists-view-wrap wb-post-listing">';
 			}
 
+			// Check if the query has posts.
 			if ( $query->have_posts() ) {
-				while ( $query->have_posts() ) :
+				while ( $query->have_posts() ) {
 					$query->the_post();
 					get_template_part( 'template-parts/content', get_post_format() );
-				endwhile;
+				}
+
+				// Custom post navigation.
 				reign_custom_post_navigation();
+
+				// Reset post data after custom query.
 				wp_reset_postdata();
-				$GLOBALS['wp_query'] = $global_query;
-			}
-
-			if ( $blog_list_layout == 'masonry-view' ) {
-				echo '</div>';
-			} elseif ( $blog_list_layout == 'wb-grid-view' ) {
-				echo '</div>';
 			} else {
-				echo '</div>';
+				// No posts found message.
+				echo '<p>' . esc_html__( 'No posts found.', 'reign' ) . '</p>';
 			}
 
-			echo '</div>';
+			// Close the layout wrapper.
+			echo '</div></div>';
 
 			// Modify comments display if on a singular post type.
 			if ( is_singular() && post_type_supports( get_post_type(), 'comments' ) ) {
@@ -129,11 +130,11 @@ if ( ! class_exists( 'Reign_Shortcodes' ) ) :
 				add_filter( 'comments_array', '__return_empty_array' );
 			}
 
-			// Output and return the buffered content.
-			$output = ob_get_clean();
+			// Get the buffered content and return it.
+			$output              = ob_get_clean();
+			$GLOBALS['wp_query'] = $global_query; // Restore global query object.
 			return $output;
 		}
-
 	}
 
 	endif;

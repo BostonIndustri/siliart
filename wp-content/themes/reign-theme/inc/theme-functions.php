@@ -12,8 +12,13 @@ function reign_get_default_page_header_image() {
 	return REIGN_THEME_URI . '/lib/images/default-header-image.jpg';
 }
 
+/**
+ * Retrieves the default info links for the header topbar.
+ *
+ * @return array The default topbar info links.
+ */
 function reign_header_topbar_default_info_links() {
-	$reign_header_topbar_default_info_links = array(
+	$links = array(
 		array(
 			'link_text' => esc_attr__( 'Call Us Today! 1.555.555.555', 'reign' ),
 			'link_icon' => '<i class="far fa-phone-alt"></i>',
@@ -25,12 +30,22 @@ function reign_header_topbar_default_info_links() {
 			'link_url'  => 'mailto:support@wbcomdesigns.com',
 		),
 	);
-	$reign_header_topbar_default_info_links = apply_filters( 'reign_header_topbar_default_info_links', $reign_header_topbar_default_info_links );
-	return $reign_header_topbar_default_info_links;
+
+	/**
+	 * Filters the topbar info links.
+	 *
+	 * @param array $links The default links.
+	 */
+	return apply_filters( 'reign_header_topbar_default_info_links', $links );
 }
 
+/**
+ * Retrieves the default social media links for the header topbar.
+ *
+ * @return array The default social media links with text, icons, and URLs.
+ */
 function reign_header_topbar_default_social_links() {
-	$reign_header_topbar_default_social_links = array(
+	$social_links = array(
 		array(
 			'link_text' => esc_attr__( 'Facebook', 'reign' ),
 			'link_icon' => '<i class="fab fa-facebook"></i>',
@@ -57,12 +72,22 @@ function reign_header_topbar_default_social_links() {
 			'link_url'  => '#',
 		),
 	);
-	$reign_header_topbar_default_social_links = apply_filters( 'reign_header_topbar_default_social_links', $reign_header_topbar_default_social_links );
-	return $reign_header_topbar_default_social_links;
+
+	/**
+	 * Filters the default social links.
+	 *
+	 * @param array $social_links The default social links.
+	 */
+	return apply_filters( 'reign_header_topbar_default_social_links', $social_links );
 }
 
+/**
+ * Set default icons for the header.
+ *
+ * @return array The default icons for the header.
+ */
 function reign_header_default_icons_set() {
-	$reign_header_default_icons_set = array(
+	$icons = array(
 		'search',
 		'cart',
 		'message',
@@ -71,12 +96,22 @@ function reign_header_default_icons_set() {
 		'login',
 		'register-menu',
 	);
-	$reign_header_default_icons_set = apply_filters( 'reign_header_default_icons_set', $reign_header_default_icons_set );
-	return $reign_header_default_icons_set;
+
+	/**
+	 * Filters the default header icons.
+	 *
+	 * @param array $icons The default icons.
+	 */
+	return apply_filters( 'reign_header_default_icons', $icons );
 }
 
+/**
+ * Set default icons for the mobile header.
+ *
+ * @return array The default icons for the mobile header.
+ */
 function reign_mobile_header_default_icons_set() {
-	$reign_mobile_header_default_icons_set = array(
+	$icons = array(
 		'search',
 		'cart',
 		'message',
@@ -85,8 +120,13 @@ function reign_mobile_header_default_icons_set() {
 		'login',
 		'register-menu',
 	);
-	$reign_mobile_header_default_icons_set = apply_filters( 'reign_mobile_header_default_icons_set', $reign_mobile_header_default_icons_set );
-	return $reign_mobile_header_default_icons_set;
+
+	/**
+	 * Filters the default mobile header icons.
+	 *
+	 * @param array $icons The default icons.
+	 */
+	return apply_filters( 'reign_mobile_header_default_icons', $icons );
 }
 
 /**
@@ -144,14 +184,18 @@ add_filter(
 	1
 );
 
-// Breadcrumbs
+/**
+ * Generates breadcrumb navigation for the site.
+ *
+ * @return void
+ */
 function reign_breadcrumbs() {
 
 	$alter_reign_breadcrumbs = apply_filters( 'alter_reign_breadcrumbs', false );
 	if ( $alter_reign_breadcrumbs ) {
 		do_action( 'reign_breadcrumbs' );
 		return;
-	}
+	} 
 
 	$wpseo_titles = get_option( 'wpseo_titles' );
 	if ( function_exists( 'yoast_breadcrumb' ) && isset( $wpseo_titles['breadcrumbs-enable'] ) && $wpseo_titles['breadcrumbs-enable'] == 1 ) {
@@ -160,265 +204,116 @@ function reign_breadcrumbs() {
 
 	} else {
 
-		// Settings
-		$separator        = '&gt;';
-		$breadcrums_id    = 'breadcrumbs';
-		$breadcrums_class = 'breadcrumbs';
-		$home_title       = esc_html__( 'Homepage', 'reign' );
+		$separator  = apply_filters( 'reign_breadcrumbs_separator', '<i class="far fa-angle-double-right"></i>' );
+		$home_title = apply_filters( 'reign_breadcrumbs_home_title', esc_html__( 'Home', 'reign' ) );
 
-		/* managed */
-		$separator  = '<i class="far fa-angle-double-right"></i>';
-		$home_title = esc_html__( 'Home', 'reign' );
-		$prefix     = '';
-		/* managed */
+		// If you have any custom post types with custom taxonomies, put the taxonomy name below (e.g., product_cat).
+		$custom_taxonomy = apply_filters( 'reign_breadcrumbs_custom_taxonomy', 'product_cat' );
 
-		// If you have any custom post types with custom taxonomies, put the taxonomy name below (e.g. product_cat)
-		$custom_taxonomy = 'product_cat';
+		// Get the query & post information.
+		global $post;
 
-		// Get the query & post information
-		global $post, $wp_query;
-
-		// Do not display on the homepage
+		// Do not display on the homepage.
 		if ( ! is_front_page() ) {
 
-			// Build the breadcrums
-			echo '<ul id="' . $breadcrums_id . '" class="' . $breadcrums_class . '">';
+			echo '<ul id="breadcrumbs" class="breadcrumbs">';
 
-			// Home page
-			echo '<li class="item-home"><a class="bread-link bread-home" href="' . get_home_url() . '" title="' . $home_title . '">' . $home_title . '</a></li>';
-			echo '<li class="separator separator-home"> ' . $separator . ' </li>';
+			// Home page.
+			echo '<li class="item-home"><a class="bread-link bread-home" href="' . esc_url( get_home_url() ) . '" title="' . esc_attr( $home_title ) . '">' . esc_html( $home_title ) . '</a></li>';
+			echo '<li class="separator separator-home"> ' . wp_kses_post( $separator ) . ' </li>';
 
-			if ( is_archive() && ! is_tax() && ! is_category() && ! is_tag() ) {
+			// Handle archives, taxonomies, and other types.
+			if ( is_archive() ) {
+				if ( is_category() ) {
+					echo '<li class="item-current item-cat"><strong class="bread-current bread-cat">' . esc_html( single_cat_title( '', false ) ) . '</strong></li>';
+				} elseif ( is_tax() ) {
+					$taxonomy = get_queried_object();
+					echo '<li class="item-current item-taxonomy"><strong class="bread-current bread-taxonomy">' . esc_html( $taxonomy->name ) . '</strong></li>';
+				} elseif ( is_post_type_archive() ) {
+					echo '<li class="item-current item-post-type-archive"><strong class="bread-current bread-post-type-archive">' . esc_html( post_type_archive_title( '', false ) ) . '</strong></li>';
+				} elseif ( is_tag() ) {
+					echo '<li class="item-current item-tag"><strong class="bread-current bread-tag">' . esc_html( single_tag_title( '', false ) ) . '</strong></li>';
+				} elseif ( is_author() ) {
+					global $author;
+					$userdata = get_userdata( $author );
+					echo '<li class="item-current item-author"><strong class="bread-current bread-author">' . esc_html( $userdata->display_name ) . '</strong></li>';
+				} elseif ( is_day() ) {
+					echo '<li class="item-year item-year-' . esc_attr( get_the_time( 'Y' ) ) . '"><a class="bread-year" href="' . esc_url( get_year_link( get_the_time( 'Y' ) ) ) . '">' . esc_html( get_the_time( 'Y' ) ) . ' Archives</a></li>';
+					echo '<li class="separator"> ' . wp_kses_post( $separator ) . ' </li>';
+					echo '<li class="item-month item-month-' . esc_attr( get_the_time( 'm' ) ) . '"><a class="bread-month" href="' . esc_url( get_month_link( get_the_time( 'Y' ), get_the_time( 'm' ) ) ) . '">' . esc_html( get_the_time( 'F' ) ) . ' Archives</a></li>';
+					echo '<li class="separator"> ' . wp_kses_post( $separator ) . ' </li>';
+					echo '<li class="item-current item-day"><strong class="bread-current bread-day">' . esc_html( get_the_time( 'jS' ) ) . ' ' . esc_html( get_the_time( 'F' ) ) . ' Archives</strong></li>';
+				} elseif ( is_month() ) {
+					echo '<li class="item-year item-year-' . esc_attr( get_the_time( 'Y' ) ) . '"><a class="bread-year" href="' . esc_url( get_year_link( get_the_time( 'Y' ) ) ) . '">' . esc_html( get_the_time( 'Y' ) ) . ' Archives</a></li>';
+					echo '<li class="separator"> ' . wp_kses_post( $separator ) . ' </li>';
+					echo '<li class="item-current item-month"><strong class="bread-current bread-month">' . esc_html( get_the_time( 'F' ) ) . ' Archives</strong></li>';
+				} elseif ( is_year() ) {
+					echo '<li class="item-current item-year"><strong class="bread-current bread-year">' . esc_html( get_the_time( 'Y' ) ) . ' Archives</strong></li>';
+				}
+			}
 
-				echo '<li class="item-current item-archive"><strong class="bread-current bread-archive">' . post_type_archive_title( $prefix, false ) . '</strong></li>';
-			} elseif ( is_archive() && is_tax() && ! is_category() && ! is_tag() ) {
+			// Handle custom post types and taxonomies.
+			if ( is_singular() && ! is_page() ) {
 
-				// If post is a custom post type
 				$post_type = get_post_type();
 
-				// If it is a custom post type display name and link
+				// Custom post type handling.
 				if ( $post_type != 'post' ) {
 
 					$post_type_object  = get_post_type_object( $post_type );
 					$post_type_archive = get_post_type_archive_link( $post_type );
 
-					echo '<li class="item-cat item-custom-post-type-' . $post_type . '"><a class="bread-cat bread-custom-post-type-' . $post_type . '" href="' . $post_type_archive . '" title="' . $post_type_object->labels->name . '">' . $post_type_object->labels->name . '</a></li>';
-					echo '<li class="separator"> ' . $separator . ' </li>';
+					echo '<li class="item-cat item-custom-post-type-' . esc_attr( $post_type ) . '"><a class="bread-cat bread-custom-post-type-' . esc_attr( $post_type ) . '" href="' . esc_url( $post_type_archive ) . '" title="' . esc_attr( $post_type_object->labels->name ) . '">' . esc_html( $post_type_object->labels->name ) . '</a></li>';
+					echo '<li class="separator"> ' . wp_kses_post( $separator ) . ' </li>';
 				}
 
-				$custom_tax_name = get_queried_object()->name;
-				echo '<li class="item-current item-archive"><strong class="bread-current bread-archive">' . $custom_tax_name . '</strong></li>';
-			} elseif ( is_single() ) {
-
-				// If post is a custom post type
-				$post_type = get_post_type();
-
-				if ( $post_type == 'page' && get_query_var( 'post_type' ) ) {
-					$post_type = get_query_var( 'post_type' );
+				// Custom taxonomy handling.
+				$category = get_the_terms( get_the_ID(), $custom_taxonomy );
+				if ( ! empty( $category ) && ! is_wp_error( $category ) ) {
+					$category = current( $category );
+					echo '<li class="item-cat"><a class="bread-cat" href="' . esc_url( get_term_link( $category ) ) . '">' . esc_html( $category->name ) . '</a></li>';
+					echo '<li class="separator"> ' . wp_kses_post( $separator ) . ' </li>';
 				}
-
-				// If it is a custom post type display name and link
-				if ( $post_type != 'post' && ! is_author() ) {
-
-					$post_type_object  = get_post_type_object( $post_type );
-					$post_type_archive = get_post_type_archive_link( $post_type );
-
-					echo '<li class="item-cat item-custom-post-type-' . $post_type . '"><a class="bread-cat bread-custom-post-type-' . $post_type . '" href="' . $post_type_archive . '" title="' . $post_type_object->labels->name . '">' . $post_type_object->labels->name . '</a></li>';
-					echo '<li class="separator"> ' . $separator . ' </li>';
-				}
-
-				// Get post category info
-				$category = get_the_category();
-
-				if ( ! empty( $category ) ) {
-
-					// Get last category post is in
-					// $last_category = end(array_values($category));
-					/* managed */
-					$category_values = array_values( $category );
-					$category_values = end( $category_values );
-					$last_category   = $category_values;
-					/* managed */
-
-					// Get parent any categories and create array
-					$get_cat_parents = rtrim( get_category_parents( $last_category->term_id, true, ',' ), ',' );
-					$cat_parents     = explode( ',', $get_cat_parents );
-
-					// Loop through parent categories and store in variable $cat_display
-					$cat_display = '';
-					foreach ( $cat_parents as $parents ) {
-						$cat_display .= '<li class="item-cat">' . $parents . '</li>';
-						$cat_display .= '<li class="separator"> ' . $separator . ' </li>';
-					}
-				}
-
-				// If it's a custom post type within a custom taxonomy.
-				$taxonomy_exists = taxonomy_exists( $custom_taxonomy );
-				if ( empty( $last_category ) && ! empty( $custom_taxonomy ) && $taxonomy_exists ) {
-					$taxonomy_terms = get_the_terms( $post->ID, $custom_taxonomy );
-					if ( is_array( $taxonomy_terms ) ) {
-						if ( 'uncategorized' !== $taxonomy_terms[0]->slug ) {
-							$cat_id       = $taxonomy_terms[0]->term_id;
-							$cat_nicename = $taxonomy_terms[0]->slug;
-							$cat_link     = get_term_link( $taxonomy_terms[0]->term_id, $custom_taxonomy );
-							$cat_name     = $taxonomy_terms[0]->name;
-						} elseif ( isset( $taxonomy_terms[1] ) ) {
-							$cat_id       = $taxonomy_terms[1]->term_id;
-							$cat_nicename = $taxonomy_terms[1]->slug;
-							$cat_link     = get_term_link( $taxonomy_terms[1]->term_id, $custom_taxonomy );
-							$cat_name     = $taxonomy_terms[1]->name;
-						}
-					}
-				}
-
-				// Check if the post is in a category.
-				if ( ! empty( $last_category ) ) {
-					echo $cat_display;
-					echo '<li class="item-current item-' . $post->ID . '"><strong class="bread-current bread-' . $post->ID . '" title="' . get_the_title() . '">' . get_the_title() . '</strong></li>';
-
-					// Else if post is in a custom taxonomy.
-				} elseif ( ! empty( $cat_id ) ) {
-					// Display parent categories and current category.
-					$parents        = array();
-					$current_cat_id = $cat_id;
-					while ( $current_cat_id ) {
-						$category = get_term( $current_cat_id, $custom_taxonomy );
-						if ( $category ) {
-							$parents[]      = $category;
-							$current_cat_id = $category->parent;
-						} else {
-							$current_cat_id = 0;
-						}
-					}
-					$parents = array_reverse( $parents );
-					foreach ( $parents as $parent ) {
-						echo '<li class="item-cat item-cat-' . $parent->term_id . ' item-cat-' . $parent->slug . '"><a class="bread-cat bread-cat-' . $parent->term_id . ' bread-cat-' . $parent->slug . '" href="' . get_term_link( $parent->term_id, $custom_taxonomy ) . '" title="' . $parent->name . '">' . $parent->name . '</a></li>';
-						echo '<li class="separator"> ' . $separator . ' </li>';
-					}
-					echo '<li class="item-current item-' . $post->ID . '"><strong class="bread-current bread-' . $post->ID . '" title="' . get_the_title() . '">' . get_the_title() . '</strong></li>';
-				} else {
-					$post_title = get_the_title();
-					$post_title = strip_tags( $post_title );
-					echo '<li class="item-current item-' . $post->ID . '"><strong class="bread-current bread-' . $post->ID . '" title="' . $post_title . '">' . $post_title . '</strong></li>';
-				}
-			} elseif ( is_category() ) {
-
-				// Category page
-				echo '<li class="item-current item-cat"><strong class="bread-current bread-cat">' . single_cat_title( '', false ) . '</strong></li>';
-			} elseif ( is_page() ) {
-
-				// Standard page
-				if ( $post->post_parent ) {
-
-					// If child page, get parents
-					$anc = get_post_ancestors( $post->ID );
-
-					// Get parents in the right order
-					$anc = array_reverse( $anc );
-
-					// Parent page loop
-					if ( ! isset( $parents ) ) {
-						$parents = null;
-					}
-					foreach ( $anc as $ancestor ) {
-						$parents .= '<li class="item-parent item-parent-' . $ancestor . '"><a class="bread-parent bread-parent-' . $ancestor . '" href="' . get_permalink( $ancestor ) . '" title="' . get_the_title( $ancestor ) . '">' . get_the_title( $ancestor ) . '</a></li>';
-						$parents .= '<li class="separator separator-' . $ancestor . '"> ' . $separator . ' </li>';
-					}
-
-					// Display parent pages
-					echo $parents;
-
-					// Current page
-					echo '<li class="item-current item-' . $post->ID . '"><strong title="' . get_the_title() . '"> ' . get_the_title() . '</strong></li>';
-				} else {
-
-					// Just display current page if not parents
-					echo '<li class="item-current item-' . $post->ID . '"><strong class="bread-current bread-' . $post->ID . '"> ' . get_the_title() . '</strong></li>';
-				}
-			} elseif ( is_tag() ) {
-
-				// Tag page
-				// Get tag information
-				$term_id       = get_query_var( 'tag_id' );
-				$taxonomy      = 'post_tag';
-				$args          = 'include=' . $term_id;
-				$terms         = get_terms( $taxonomy, $args );
-				$get_term_id   = $terms[0]->term_id;
-				$get_term_slug = $terms[0]->slug;
-				$get_term_name = $terms[0]->name;
-
-				// Display the tag name
-				echo '<li class="item-current item-tag-' . $get_term_id . ' item-tag-' . $get_term_slug . '"><strong class="bread-current bread-tag-' . $get_term_id . ' bread-tag-' . $get_term_slug . '">' . $get_term_name . '</strong></li>';
-			} elseif ( is_day() ) {
-
-				// Day archive
-				// Year link
-				echo '<li class="item-year item-year-' . get_the_time( 'Y' ) . '"><a class="bread-year bread-year-' . get_the_time( 'Y' ) . '" href="' . get_year_link( get_the_time( 'Y' ) ) . '" title="' . get_the_time( 'Y' ) . '">' . get_the_time( 'Y' ) . ' Archives</a></li>';
-				echo '<li class="separator separator-' . get_the_time( 'Y' ) . '"> ' . $separator . ' </li>';
-
-				// Month link
-				echo '<li class="item-month item-month-' . get_the_time( 'm' ) . '"><a class="bread-month bread-month-' . get_the_time( 'm' ) . '" href="' . get_month_link( get_the_time( 'Y' ), get_the_time( 'm' ) ) . '" title="' . get_the_time( 'M' ) . '">' . get_the_time( 'M' ) . ' Archives</a></li>';
-				echo '<li class="separator separator-' . get_the_time( 'm' ) . '"> ' . $separator . ' </li>';
-
-				// Day display
-				echo '<li class="item-current item-' . get_the_time( 'j' ) . '"><strong class="bread-current bread-' . get_the_time( 'j' ) . '"> ' . get_the_time( 'jS' ) . ' ' . get_the_time( 'M' ) . ' Archives</strong></li>';
-			} elseif ( is_month() ) {
-
-				// Month Archive
-				// Year link
-				echo '<li class="item-year item-year-' . get_the_time( 'Y' ) . '"><a class="bread-year bread-year-' . get_the_time( 'Y' ) . '" href="' . get_year_link( get_the_time( 'Y' ) ) . '" title="' . get_the_time( 'Y' ) . '">' . get_the_time( 'Y' ) . ' Archives</a></li>';
-				echo '<li class="separator separator-' . get_the_time( 'Y' ) . '"> ' . $separator . ' </li>';
-
-				// Month display
-				echo '<li class="item-month item-month-' . get_the_time( 'm' ) . '"><strong class="bread-month bread-month-' . get_the_time( 'm' ) . '" title="' . get_the_time( 'M' ) . '">' . get_the_time( 'M' ) . ' Archives</strong></li>';
-			} elseif ( is_year() ) {
-
-				// Display year archive
-				echo '<li class="item-current item-current-' . get_the_time( 'Y' ) . '"><strong class="bread-current bread-current-' . get_the_time( 'Y' ) . '" title="' . get_the_time( 'Y' ) . '">' . get_the_time( 'Y' ) . ' Archives</strong></li>';
-			} elseif ( is_author() ) {
-
-				// Auhor archive
-				// Get the author information
-				global $author;
-				$userdata = get_userdata( $author );
-
-				// Display author name
-				echo '<li class="item-current item-current-' . $userdata->user_nicename . '"><strong class="bread-current bread-current-' . $userdata->user_nicename . '" title="' . $userdata->display_name . '">' . 'Author: ' . $userdata->display_name . '</strong></li>';
-			} elseif ( get_query_var( 'paged' ) ) {
-
-				// Paginated archives
-				echo '<li class="item-current item-current-' . get_query_var( 'paged' ) . '"><strong class="bread-current bread-current-' . get_query_var( 'paged' ) . '" title="Page ' . get_query_var( 'paged' ) . '">' . __( 'Page', 'reign' ) . ' ' . get_query_var( 'paged' ) . '</strong></li>';
-			} elseif ( is_search() ) {
-
-				// Search results page
-				echo '<li class="item-current item-current-' . get_search_query() . '"><strong class="bread-current bread-current-' . get_search_query() . '" title="Search results for: ' . get_search_query() . '">Search results for: ' . get_search_query() . '</strong></li>';
-			} elseif ( is_404() ) {
-
-				// 404 page
-				echo '<li>' . 'Error 404' . '</li>';
 			}
 
-			if ( is_author() ) {
-
-				$author_id = get_query_var( 'author' );
-				if ( $author_id ) {
-					$author = get_user_by( 'id', $author_id );
-					if ( ! empty( get_user_meta( $author_id, 'first_name', true ) ) ) {
-						$author_name = get_user_meta( $author_id, 'first_name', true ) . ' ' . get_user_meta( $author_id, 'last_name', true );
-					} else {
-						$author_info = get_userdata( $author_id );
-						$author_name = $author_info->data->user_login;
-					}
-
-					// Author page
-					echo '<li>' . $author_name . '</li>';
+			// Handle standard posts.
+			if ( is_single() ) {
+				$category = get_the_category();
+				if ( ! empty( $category ) ) {
+					$last_category = end( $category );
+					echo '<li class="item-cat">' . wp_kses_post( get_category_parents( $last_category, true, '</li><li class="separator"> ' . wp_kses_post( $separator ) . ' </li><li class="item-cat">' ) ) . '</li>';
 				}
+				echo '<li class="item-current item-' . esc_attr( get_the_ID() ) . '"><strong class="bread-current bread-' . esc_attr( get_the_ID() ) . '" title="' . esc_attr( get_the_title() ) . '">' . esc_html( get_the_title() ) . '</strong></li>';
+			}
+
+			// Handle pages.
+			if ( is_page() ) {
+				if ( $post->post_parent ) {
+					$ancestors = get_post_ancestors( $post->ID );
+					$ancestors = array_reverse( $ancestors );
+					foreach ( $ancestors as $ancestor ) {
+						echo '<li class="item-parent item-parent-' . esc_attr( $ancestor ) . '"><a class="bread-parent" href="' . esc_url( get_permalink( $ancestor ) ) . '" title="' . esc_attr( get_the_title( $ancestor ) ) . '">' . esc_html( get_the_title( $ancestor ) ) . '</a></li>';
+						echo '<li class="separator separator-' . esc_attr( $ancestor ) . '"> ' . wp_kses_post( $separator ) . ' </li>';
+					}
+				}
+				echo '<li class="item-current item-' . esc_attr( get_the_ID() ) . '"><strong class="bread-current bread-' . esc_attr( get_the_ID() ) . '">' . esc_html( get_the_title() ) . '</strong></li>';
+			}
+
+			// Handle search results page.
+			if ( is_search() ) {
+				echo '<li class="item-current item-current-' . get_search_query() . '"><strong class="bread-current bread-current-' . get_search_query() . '" title="Search results for: ' . get_search_query() . '">Search results for: ' . get_search_query() . '</strong></li>';
+			}
+
+			// Handle 404.
+			if ( is_404() ) {
+				echo '<li>' . esc_html__( 'Error 404', 'reign' ) . '</li>';
 			}
 
 			if ( is_home() && ! is_front_page() ) {
 				echo '<li>' . single_post_title( '', false ) . '</li>';
 			}
 
+			// Allow last element customization.
 			do_action( 'reign_breadcrumbs_last_element' );
 
 			echo '</ul>';
@@ -799,7 +694,6 @@ function render_theme_options_wbcom_dark_mode_settings() {
 add_action( 'render_theme_options_for_dark_image_settings', 'render_theme_options_for_dark_image_settings' );
 function render_theme_options_for_dark_image_settings() {
 	$reign_dark_mode_image_settings = get_option( 'reign_dark_mode_image_settings' );
-
 	?>
 	<table class="form-table">
 		<tr>
@@ -807,7 +701,7 @@ function render_theme_options_for_dark_image_settings() {
 				<?php esc_html_e( 'Light Mode Image', 'reign' ); ?>
 			</td>
 			<td colspan="2">
-					<?php esc_html_e( 'Dark Mode Image', 'reign' ); ?>
+				<?php esc_html_e( 'Dark Mode Image', 'reign' ); ?>
 			</td>
 			<td colspan="2">
 			</td>
@@ -821,33 +715,58 @@ function render_theme_options_for_dark_image_settings() {
 				?>
 			<tr>
 				<td colspan="2">
-					<img src="<?php echo $reign_dark_mode_image_settings['light_images'][ $i ]; ?>">
-					<input type="url" value="<?php echo $reign_dark_mode_image_settings['light_images'][ $i ]; ?>"
+					<img src="<?php echo esc_url( $reign_dark_mode_image_settings['light_images'][ $i ] ); ?>">
+					<input type="url" value="<?php echo esc_attr( $reign_dark_mode_image_settings['light_images'][ $i ] ); ?>"
 						name="reign_dark_mode_image_settings[light_images][]">
-					<button type="button" class="button button-primary reign_dark_mode_select_img"><i
-							class="dashicons dashicons-plus-alt"></i>
+					<button type="button" class="button button-primary reign_dark_mode_select_img">
+						<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<mask id="mask0_3_683" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
+						<rect width="20" height="20" fill="#D9D9D9"/>
+						</mask>
+						<g mask="url(#mask0_3_683)">
+						<path d="M9.37419 10.6213H4.58252V9.37128H9.37419V4.57961H10.6242V9.37128H15.4159V10.6213H10.6242V15.4129H9.37419V10.6213Z" fill="#1C1B1F"/>
+						</g>
+						</svg>
 					</button>
-					<button type="button"
-						class="button button-link-delete reign_dark_mode_delete_img <?php echo ! empty( $reign_dark_mode_image_settings['light_images'][ $i ] ) ? '' : 'hidden'; ?>">
-						<i class="dashicons dashicons-trash"></i>
+					<button type="button" class="button button-link-delete reign_dark_mode_delete_img <?php echo ! empty( $reign_dark_mode_image_settings['light_images'][ $i ] ) ? '' : 'hidden'; ?>">
+						<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<mask id="mask0_3_725" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
+						<rect width="20" height="20" fill="#D9D9D9"/>
+						</mask>
+						<g mask="url(#mask0_3_725)">
+						<path d="M6.08979 17.0801C5.67424 17.0801 5.31924 16.9329 5.02479 16.6386C4.73049 16.3442 4.58333 15.9892 4.58333 15.5736V4.99676H3.75V3.74676H7.5V3.00967H12.5V3.74676H16.25V4.99676H15.4167V15.5736C15.4167 15.9946 15.2708 16.3509 14.9792 16.6426C14.6875 16.9343 14.3312 17.0801 13.9102 17.0801H6.08979ZM14.1667 4.99676H5.83333V15.5736C5.83333 15.6485 5.85736 15.71 5.90542 15.758C5.95347 15.8061 6.01493 15.8301 6.08979 15.8301H13.9102C13.9744 15.8301 14.0331 15.8034 14.0865 15.7499C14.1399 15.6965 14.1667 15.6378 14.1667 15.5736V4.99676ZM7.83667 14.1634H9.08646V6.66342H7.83667V14.1634ZM10.9135 14.1634H12.1633V6.66342H10.9135V14.1634Z" fill="#EC5959"/>
+						</g>
+						</svg>
 					</button>
 				</td>
 				<td colspan="2">
-					<img src="<?php echo $reign_dark_mode_image_settings['dark_images'][ $i ]; ?>">
-					<input type="url" value="<?php echo $reign_dark_mode_image_settings['dark_images'][ $i ]; ?>"
+					<img src="<?php echo esc_url( $reign_dark_mode_image_settings['dark_images'][ $i ] ); ?>">
+					<input type="url" value="<?php echo esc_attr( $reign_dark_mode_image_settings['dark_images'][ $i ] ); ?>"
 						name="reign_dark_mode_image_settings[dark_images][]">
-					<button type="button" class="button button-primary reign_dark_mode_select_img"><i
-							class="dashicons dashicons-plus-alt"></i>
+					<button type="button" class="button button-primary reign_dark_mode_select_img">
+						<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<mask id="mask0_3_683" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
+						<rect width="20" height="20" fill="#D9D9D9"/>
+						</mask>
+						<g mask="url(#mask0_3_683)">
+						<path d="M9.37419 10.6213H4.58252V9.37128H9.37419V4.57961H10.6242V9.37128H15.4159V10.6213H10.6242V15.4129H9.37419V10.6213Z" fill="#1C1B1F"/>
+						</g>
+						</svg>
 					</button>
-					<button type="button"
-						class="button button-link-delete reign_dark_mode_delete_img <?php echo ! empty( $reign_dark_mode_image_settings['light_images'][ $i ] ) ? '' : 'hidden'; ?>">
-						<i class="dashicons dashicons-trash"></i>
+					<button type="button" class="button button-link-delete reign_dark_mode_delete_img <?php echo ! empty( $reign_dark_mode_image_settings['light_images'][ $i ] ) ? '' : 'hidden'; ?>">
+						<svg width="24" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<mask id="mask0_3_725" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
+						<rect width="20" height="20" fill="#D9D9D9"/>
+						</mask>
+						<g mask="url(#mask0_3_725)">
+						<path d="M6.08979 17.0801C5.67424 17.0801 5.31924 16.9329 5.02479 16.6386C4.73049 16.3442 4.58333 15.9892 4.58333 15.5736V4.99676H3.75V3.74676H7.5V3.00967H12.5V3.74676H16.25V4.99676H15.4167V15.5736C15.4167 15.9946 15.2708 16.3509 14.9792 16.6426C14.6875 16.9343 14.3312 17.0801 13.9102 17.0801H6.08979ZM14.1667 4.99676H5.83333V15.5736C5.83333 15.6485 5.85736 15.71 5.90542 15.758C5.95347 15.8061 6.01493 15.8301 6.08979 15.8301H13.9102C13.9744 15.8301 14.0331 15.8034 14.0865 15.7499C14.1399 15.6965 14.1667 15.6378 14.1667 15.5736V4.99676ZM7.83667 14.1634H9.08646V6.66342H7.83667V14.1634ZM10.9135 14.1634H12.1633V6.66342H10.9135V14.1634Z" fill="#EC5959"/>
+						</g>
+						</svg>
 					</button>
 				</td>
 				<td colspan="2">
 					<a href="#" class="reign_add_row_image button"><?php esc_html_e( 'Add', 'reign' ); ?></a>
-					<a href="#"
-						class="reign_remove_row_image button button-link-delete"><?php esc_html_e( 'Remove', 'reign' ); ?></a>
+					<a href="#" class="reign_remove_row_image button button-link-delete"><?php esc_html_e( 'Remove', 'reign' ); ?></a>
 				</td>
 			</tr>
 				<?php
@@ -858,27 +777,54 @@ function render_theme_options_for_dark_image_settings() {
 			<td colspan="2">
 				<img src="">
 				<input type="url" value="" name="reign_dark_mode_image_settings[light_images][]">
-				<button type="button" class="button button reign_dark_mode_select_img"><i
-						class="dashicons dashicons-plus-alt"></i>
+				<button type="button" class="button button reign_dark_mode_select_img">
+					<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<mask id="mask0_3_683" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
+						<rect width="20" height="20" fill="#D9D9D9"/>
+						</mask>
+						<g mask="url(#mask0_3_683)">
+						<path d="M9.37419 10.6213H4.58252V9.37128H9.37419V4.57961H10.6242V9.37128H15.4159V10.6213H10.6242V15.4129H9.37419V10.6213Z" fill="#1C1B1F"/>
+						</g>
+					</svg>
 				</button>
 				<button type="button" class="button button-link-delete reign_dark_mode_delete_img hidden">
-					<i class="dashicons dashicons-trash"></i>
+					<svg width="24" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<mask id="mask0_3_725" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
+						<rect width="20" height="20" fill="#D9D9D9"/>
+						</mask>
+						<g mask="url(#mask0_3_725)">
+						<path d="M6.08979 17.0801C5.67424 17.0801 5.31924 16.9329 5.02479 16.6386C4.73049 16.3442 4.58333 15.9892 4.58333 15.5736V4.99676H3.75V3.74676H7.5V3.00967H12.5V3.74676H16.25V4.99676H15.4167V15.5736C15.4167 15.9946 15.2708 16.3509 14.9792 16.6426C14.6875 16.9343 14.3312 17.0801 13.9102 17.0801H6.08979ZM14.1667 4.99676H5.83333V15.5736C5.83333 15.6485 5.85736 15.71 5.90542 15.758C5.95347 15.8061 6.01493 15.8301 6.08979 15.8301H13.9102C13.9744 15.8301 14.0331 15.8034 14.0865 15.7499C14.1399 15.6965 14.1667 15.6378 14.1667 15.5736V4.99676ZM7.83667 14.1634H9.08646V6.66342H7.83667V14.1634ZM10.9135 14.1634H12.1633V6.66342H10.9135V14.1634Z" fill="#EC5959"/>
+						</g>
+					</svg>
 				</button>
 			</td>
 			<td colspan="2">
 				<img src="">
 				<input type="url" value="" name="reign_dark_mode_image_settings[dark_images][]">
-				<button type="button" class="button button reign_dark_mode_select_img"><i
-						class="dashicons dashicons-plus-alt"></i>
+				<button type="button" class="button button reign_dark_mode_select_img">
+					<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<mask id="mask0_3_683" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
+						<rect width="20" height="20" fill="#D9D9D9"/>
+						</mask>
+						<g mask="url(#mask0_3_683)">
+						<path d="M9.37419 10.6213H4.58252V9.37128H9.37419V4.57961H10.6242V9.37128H15.4159V10.6213H10.6242V15.4129H9.37419V10.6213Z" fill="#1C1B1F"/>
+						</g>
+					</svg>
 				</button>
 				<button type="button" class="button button-link-delete reign_dark_mode_delete_img hidden">
-					<i class="dashicons dashicons-trash"></i>
+					<svg width="24" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<mask id="mask0_3_725" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
+						<rect width="20" height="20" fill="#D9D9D9"/>
+						</mask>
+						<g mask="url(#mask0_3_725)">
+						<path d="M6.08979 17.0801C5.67424 17.0801 5.31924 16.9329 5.02479 16.6386C4.73049 16.3442 4.58333 15.9892 4.58333 15.5736V4.99676H3.75V3.74676H7.5V3.00967H12.5V3.74676H16.25V4.99676H15.4167V15.5736C15.4167 15.9946 15.2708 16.3509 14.9792 16.6426C14.6875 16.9343 14.3312 17.0801 13.9102 17.0801H6.08979ZM14.1667 4.99676H5.83333V15.5736C5.83333 15.6485 5.85736 15.71 5.90542 15.758C5.95347 15.8061 6.01493 15.8301 6.08979 15.8301H13.9102C13.9744 15.8301 14.0331 15.8034 14.0865 15.7499C14.1399 15.6965 14.1667 15.6378 14.1667 15.5736V4.99676ZM7.83667 14.1634H9.08646V6.66342H7.83667V14.1634ZM10.9135 14.1634H12.1633V6.66342H10.9135V14.1634Z" fill="#EC5959"/>
+						</g>
+					</svg>
 				</button>
 			</td>
 			<td colspan="2">
 				<a href="#" class="reign_add_row_image button"><?php esc_html_e( 'Add', 'reign' ); ?></a>
-				<a href="#"
-					class="reign_remove_row_image button button-link-delete"><?php esc_html_e( 'Remove', 'reign' ); ?></a>
+				<a href="#" class="reign_remove_row_image button button-link-delete"><?php esc_html_e( 'Remove', 'reign' ); ?></a>
 			</td>
 		</tr>
 		<?php endif; ?>
@@ -926,12 +872,12 @@ function reign_post_comment_box() {
 
 		$query                = $wpdb->prepare( 'SELECT * FROM ' . $wpdb->prefix . 'bp_reactions_shortcodes WHERE post_type = %s and front_render=%s limit 1', $post_type, 1 );
 		$reactions_shortcodes = $wpdb->get_results( $query );
-		$bp_reactions         = $reactions_shortcodes[0];
-		$bp_shortcode_id      = $bp_reactions->id;
-		$bp_reactions         = json_decode( $bp_reactions->options, true );
-		$emojis               = $bp_reactions['emojis'];
-		$animation            = $bp_reactions['animation'];
-		$reacted_animation    = ( isset( $bp_reactions['react_icon_animation'] ) ) ? $bp_reactions['react_icon_animation'] : 'true';
+		$bp_reactions         = isset( $reactions_shortcodes[0] ) ? $reactions_shortcodes[0] : null;
+		$bp_shortcode_id      = $bp_reactions ? $bp_reactions->id : null;
+		$bp_reactions         = $bp_reactions ? json_decode( $bp_reactions->options, true ) : null;
+		$emojis               = $bp_reactions['emojis'] ?? array();
+		$animation            = $bp_reactions['animation'] ?? '';
+		$reacted_animation    = $bp_reactions['react_icon_animation'] ?? 'true';
 
 		$query            = $wpdb->prepare( 'SELECT emoji_id FROM ' . $wpdb->prefix . 'bp_reactions_reacted_emoji WHERE user_id = %s and post_id = %s and  post_type = %s and bprs_id=%s', $user_id, $post_id, $post_type, $bp_shortcode_id );
 		$reacted_emoji_id = $wpdb->get_var( $query );
@@ -1031,7 +977,7 @@ function reign_post_comment_box() {
 					</div>
 				<?php endif; ?>
 				
-				<div class="reign-post-option-wrap active">
+				<div class="reign-post-option-wrap active reign-post-comment">
 					<i class="far fa-comment-dots"></i><p class="post-option-text"><?php esc_html_e( 'Comment', 'reign' ); ?></p>
 				</div>
 				
@@ -1460,7 +1406,6 @@ if ( ! function_exists( 'reign_post_navigation' ) ) :
 	}
 endif;
 
-
 /**
  * Add a fallback for the primary menu if the logout menu does not exist.
  */
@@ -1550,4 +1495,61 @@ if ( ! function_exists( 'reign_add_elementor_content_class' ) ) {
 	}
 
 	add_action( 'reign_before_masthead', 'reign_add_elementor_content_class' );
+}
+
+/**
+ * Displays the site title and description.
+ *
+ * @return void
+ */
+function reign_display_site_title_description() {
+	if ( is_front_page() && is_home() ) {
+		?>
+		<h1 class="site-title">
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+		</h1>
+		<?php
+	} else {
+		?>
+		<p class="site-title">
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+		</p>
+		<?php
+	}
+
+	$reign_description = get_bloginfo( 'description', 'display' );
+	if ( $reign_description || is_customize_preview() ) {
+		?>
+		<p class="site-description"><?php echo esc_html( $reign_description ); ?></p>
+		<?php
+	}
+}
+
+/**
+ * Displays the primary navigation menu based on user login status.
+ *
+ * @return void
+ */
+function reign_display_primary_navigation() {
+	if ( is_user_logged_in() ) {
+		wp_nav_menu(
+			array(
+				'theme_location' => 'menu-1',
+				'menu_id'        => 'primary-menu',
+				'fallback_cb'    => '',
+				'container'      => false,
+				'menu_class'     => 'primary-menu',
+			)
+		);
+	} elseif ( has_nav_menu( 'menu-1' ) || has_nav_menu( 'menu-1-logout' ) ) {
+		wp_nav_menu(
+			array(
+				'theme_location' => 'menu-1-logout',
+				'menu_id'        => 'primary-menu',
+				'fallback_cb'    => 'fallback_primary_desktop_menu',
+				'container'      => false,
+				'menu_class'     => 'primary-menu',
+			)
+		);
+	}
 }

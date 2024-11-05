@@ -444,6 +444,11 @@ if ( ! function_exists( 'reign_scripts' ) ) {
 			wp_enqueue_style( 'reign_youzify', get_template_directory_uri() . '/assets/css' . $rtl_css . '/directorist-main.min.css', '', REIGN_THEME_VERSION );
 		}
 
+		// Site Directories CSS Enqueue.
+		if ( class_exists( 'WeDevs_Dokan' ) ) {
+			wp_enqueue_style( 'reign_dokan', get_template_directory_uri() . '/assets/css' . $rtl_css . '/dokan-main.min.css', '', REIGN_THEME_VERSION );
+		}
+
 		// Site Main CSS Enqueue.
 		wp_enqueue_style( 'reign_main_style', get_template_directory_uri() . '/assets/css' . $rtl_css . '/main.min.css', '', REIGN_THEME_VERSION );
 
@@ -637,7 +642,7 @@ if ( ! function_exists( 'reign_scripts' ) ) {
 		if ( ! is_admin() ) {
 			if ( function_exists( 'bp_is_activity_heartbeat_active' ) && bp_is_activity_heartbeat_active() ) {
 				// Heartbeat
-				wp_enqueue_script( 'heartbeat' );
+				// wp_enqueue_script( 'heartbeat' );
 			}
 		}
 
@@ -687,69 +692,6 @@ function my_remove_secondary_avatars( $bp_legacy ) {
 }
 
 add_action( 'bp_theme_compat_actions', 'my_remove_secondary_avatars' );
-
-/**
- * Heartbeat settings
- */
-function reign_heartbeat_settings( $settings ) {
-	$settings['interval'] = 5;
-	return $settings;
-}
-
-add_filter( 'heartbeat_settings', 'reign_heartbeat_settings' );
-
-/**
- * Sending a heartbeat for notification updates
- */
-function reign_notification_count_heartbeat( $response, $data, $screen_id ) {
-	$notifications = array();
-
-	if ( function_exists( 'bp_friend_get_total_requests_count' ) ) {
-		$friend_request_count = bp_friend_get_total_requests_count();
-	}
-	if ( function_exists( 'bp_notifications_get_all_notifications_for_user' ) ) {
-		$notifications = bp_notifications_get_all_notifications_for_user( get_current_user_id() );
-	}
-
-	$notification_count = count( $notifications );
-
-	if ( function_exists( 'bp_notifications_get_all_notifications_for_user' ) ) {
-		$notifications        = bp_notifications_get_notifications_for_user( bp_loggedin_user_id() );
-		$notification_content = array();
-		if ( ! empty( $notifications ) ) {
-			foreach ( (array) $notifications as $notification ) {
-				if ( is_array( $notification ) ) {
-					if ( isset( $notification['link'] ) && isset( $notification['text'] ) ) {
-						$notification_content[] = "<a href='" . esc_url( $notification['link'] ) . "'>{$notification[ 'text' ]}</a>";
-					}
-				} else {
-					$notification_content[] = $notification;
-				}
-			}
-		}
-
-		if ( empty( $notification_content ) ) {
-			$notification_content[] = '<a href="' . bp_loggedin_user_domain() . '' . bp_get_notifications_slug() . '/">' . __( 'No new notifications', 'buddypress' ) . '</a>';
-		}
-	}
-	if ( function_exists( 'messages_get_unread_count' ) ) {
-		$unread_message_count = messages_get_unread_count();
-	}
-
-	$response['reign_notification_count'] = array(
-		'friend_request'       => @intval( $friend_request_count ),
-		'notification'         => @intval( $notification_count ),
-		'notification_content' => @$notification_content,
-		'unread_message'       => @intval( $unread_message_count ),
-	);
-
-	return $response;
-}
-
-// Logged in users.
-if ( class_exists( 'BuddyPress' ) ) {
-	add_filter( 'heartbeat_received', 'reign_notification_count_heartbeat', 10, 3 );
-}
 
 /**
  * Set the global variable for activated color scheme.
@@ -994,142 +936,74 @@ function load_color_palette() {
 	$default_value_set_form = reign_forms_color_scheme_default_set();
 	$reign_color_scheme     = get_theme_mod( 'reign_color_scheme', 'reign_clean' );
 
-	$reign_header_topbar_bg_color             = get_theme_mod( $reign_color_scheme . '-' . 'reign_header_topbar_bg_color', $default_value_set[ $reign_color_scheme ]['reign_header_topbar_bg_color'] );
-	$reign_header_topbar_text_color           = get_theme_mod( $reign_color_scheme . '-' . 'reign_header_topbar_text_color', $default_value_set[ $reign_color_scheme ]['reign_header_topbar_text_color'] );
-	$reign_header_topbar_text_hover_color     = get_theme_mod( $reign_color_scheme . '-' . 'reign_header_topbar_text_hover_color', $default_value_set[ $reign_color_scheme ]['reign_header_topbar_text_hover_color'] );
-	$reign_header_bg_color                    = get_theme_mod( $reign_color_scheme . '-' . 'reign_header_bg_color', $default_value_set[ $reign_color_scheme ]['reign_header_bg_color'] );
-	$reign_header_nav_bg_color                = get_theme_mod( $reign_color_scheme . '-' . 'reign_header_nav_bg_color', $default_value_set[ $reign_color_scheme ]['reign_header_nav_bg_color'] );
-	$reign_title_tagline_typography           = get_theme_mod( $reign_color_scheme . '-' . 'reign_title_tagline_typography', $default_value_set[ $reign_color_scheme ]['reign_title_tagline_typography'] );
-	$reign_header_main_menu_font              = get_theme_mod( $reign_color_scheme . '-' . 'reign_header_main_menu_font', $default_value_set[ $reign_color_scheme ]['reign_header_main_menu_font'] );
-	$reign_header_main_menu_text_hover_color  = get_theme_mod( $reign_color_scheme . '-' . 'reign_header_main_menu_text_hover_color', $default_value_set[ $reign_color_scheme ]['reign_header_main_menu_text_hover_color'] );
-	$reign_header_main_menu_text_active_color = get_theme_mod( $reign_color_scheme . '-' . 'reign_header_main_menu_text_active_color', $default_value_set[ $reign_color_scheme ]['reign_header_main_menu_text_active_color'] );
-	$reign_header_main_menu_bg_hover_color    = get_theme_mod( $reign_color_scheme . '-' . 'reign_header_main_menu_bg_hover_color', $default_value_set[ $reign_color_scheme ]['reign_header_main_menu_bg_hover_color'] );
-	$reign_header_main_menu_bg_active_color   = get_theme_mod( $reign_color_scheme . '-' . 'reign_header_main_menu_bg_active_color', $default_value_set[ $reign_color_scheme ]['reign_header_main_menu_bg_active_color'] );
-	$reign_header_sub_menu_bg_color           = get_theme_mod( $reign_color_scheme . '-' . 'reign_header_sub_menu_bg_color', $default_value_set[ $reign_color_scheme ]['reign_header_sub_menu_bg_color'] );
-	$reign_header_sub_menu_font               = get_theme_mod( $reign_color_scheme . '-' . 'reign_header_sub_menu_font', $default_value_set[ $reign_color_scheme ]['reign_header_sub_menu_font'] );
-	$reign_header_sub_menu_text_hover_color   = get_theme_mod( $reign_color_scheme . '-' . 'reign_header_sub_menu_text_hover_color', $default_value_set[ $reign_color_scheme ]['reign_header_sub_menu_text_hover_color'] );
-	$reign_header_sub_menu_bg_hover_color     = get_theme_mod( $reign_color_scheme . '-' . 'reign_header_sub_menu_bg_hover_color', $default_value_set[ $reign_color_scheme ]['reign_header_sub_menu_bg_hover_color'] );
-	$reign_header_icon_color                  = get_theme_mod( $reign_color_scheme . '-' . 'reign_header_icon_color', $default_value_set[ $reign_color_scheme ]['reign_header_icon_color'] );
-	$reign_header_icon_hover_color            = get_theme_mod( $reign_color_scheme . '-' . 'reign_header_icon_hover_color', $default_value_set[ $reign_color_scheme ]['reign_header_icon_hover_color'] );
-	$reign_mobile_menu_bg_color               = get_theme_mod( $reign_color_scheme . '-' . 'reign_mobile_menu_bg_color', $default_value_set[ $reign_color_scheme ]['reign_mobile_menu_bg_color'] );
-	$reign_mobile_menu_color                  = get_theme_mod( $reign_color_scheme . '-' . 'reign_mobile_menu_color', $default_value_set[ $reign_color_scheme ]['reign_mobile_menu_color'] );
-	$reign_mobile_menu_hover_color            = get_theme_mod( $reign_color_scheme . '-' . 'reign_mobile_menu_hover_color', $default_value_set[ $reign_color_scheme ]['reign_mobile_menu_hover_color'] );
-	$reign_mobile_menu_active_color           = get_theme_mod( $reign_color_scheme . '-' . 'reign_mobile_menu_active_color', $default_value_set[ $reign_color_scheme ]['reign_mobile_menu_active_color'] );
-	$reign_mobile_menu_active_bg_color        = get_theme_mod( $reign_color_scheme . '-' . 'reign_mobile_menu_active_bg_color', $default_value_set[ $reign_color_scheme ]['reign_mobile_menu_active_bg_color'] );
-	$reign_left_panel_bg_color                = get_theme_mod( $reign_color_scheme . '-' . 'reign_left_panel_bg_color', $default_value_set[ $reign_color_scheme ]['reign_left_panel_bg_color'] );
-	$reign_left_panel_toggle_color            = get_theme_mod( $reign_color_scheme . '-' . 'reign_left_panel_toggle_color', $default_value_set[ $reign_color_scheme ]['reign_left_panel_toggle_color'] );
-	$reign_left_panel_menu_font_color         = get_theme_mod( $reign_color_scheme . '-' . 'reign_left_panel_menu_font_color', $default_value_set[ $reign_color_scheme ]['reign_left_panel_menu_font_color'] );
-	$reign_left_panel_menu_hover_color        = get_theme_mod( $reign_color_scheme . '-' . 'reign_left_panel_menu_hover_color', $default_value_set[ $reign_color_scheme ]['reign_left_panel_menu_hover_color'] );
-	$reign_left_panel_menu_active_color       = get_theme_mod( $reign_color_scheme . '-' . 'reign_left_panel_menu_active_color', $default_value_set[ $reign_color_scheme ]['reign_left_panel_menu_active_color'] );
-	$reign_left_panel_menu_bg_hover_color     = get_theme_mod( $reign_color_scheme . '-' . 'reign_left_panel_menu_bg_hover_color', $default_value_set[ $reign_color_scheme ]['reign_left_panel_menu_bg_hover_color'] );
-	$reign_left_panel_menu_bg_active_color    = get_theme_mod( $reign_color_scheme . '-' . 'reign_left_panel_menu_bg_active_color', $default_value_set[ $reign_color_scheme ]['reign_left_panel_menu_bg_active_color'] );
-	$reign_left_panel_menu_icon_active_color  = get_theme_mod( $reign_color_scheme . '-' . 'reign_left_panel_menu_icon_active_color', $default_value_set[ $reign_color_scheme ]['reign_left_panel_menu_icon_active_color'] );
-	$reign_left_panel_tooltip_bg_color        = get_theme_mod( $reign_color_scheme . '-' . 'reign_left_panel_tooltip_bg_color', $default_value_set[ $reign_color_scheme ]['reign_left_panel_tooltip_bg_color'] );
-	$reign_left_panel_tooltip_color           = get_theme_mod( $reign_color_scheme . '-' . 'reign_left_panel_tooltip_color', $default_value_set[ $reign_color_scheme ]['reign_left_panel_tooltip_color'] );
-	$reign_site_body_bg_color                 = get_theme_mod( $reign_color_scheme . '-' . 'reign_site_body_bg_color', $default_value_set[ $reign_color_scheme ]['reign_site_body_bg_color'] );
-	$reign_site_body_text_color               = get_theme_mod( $reign_color_scheme . '-' . 'reign_site_body_text_color', $default_value_set[ $reign_color_scheme ]['reign_site_body_text_color'] );
-	$reign_site_alternate_text_color          = get_theme_mod( $reign_color_scheme . '-' . 'reign_site_alternate_text_color', $default_value_set[ $reign_color_scheme ]['reign_site_alternate_text_color'] );
-	$reign_site_sections_bg_color             = get_theme_mod( $reign_color_scheme . '-' . 'reign_site_sections_bg_color', $default_value_set[ $reign_color_scheme ]['reign_site_sections_bg_color'] );
-	$reign_site_secondary_bg_color            = get_theme_mod( $reign_color_scheme . '-' . 'reign_site_secondary_bg_color', $default_value_set[ $reign_color_scheme ]['reign_site_secondary_bg_color'] );
-	$reign_colors_theme                       = get_theme_mod( $reign_color_scheme . '-' . 'reign_colors_theme', $default_value_set[ $reign_color_scheme ]['reign_colors_theme'] );
-	$reign_site_headings_color                = get_theme_mod( $reign_color_scheme . '-' . 'reign_site_headings_color', $default_value_set[ $reign_color_scheme ]['reign_site_headings_color'] );
-	$reign_site_link_color                    = get_theme_mod( $reign_color_scheme . '-' . 'reign_site_link_color', $default_value_set[ $reign_color_scheme ]['reign_site_link_color'] );
-	$reign_site_link_hover_color              = get_theme_mod( $reign_color_scheme . '-' . 'reign_site_link_hover_color', $default_value_set[ $reign_color_scheme ]['reign_site_link_hover_color'] );
-	$reign_accent_color                       = get_theme_mod( $reign_color_scheme . '-' . 'reign_accent_color', $default_value_set[ $reign_color_scheme ]['reign_accent_color'] );
-	$reign_accent_hover_color                 = get_theme_mod( $reign_color_scheme . '-' . 'reign_accent_hover_color', $default_value_set[ $reign_color_scheme ]['reign_accent_hover_color'] );
-	$reign_site_button_text_color             = get_theme_mod( $reign_color_scheme . '-' . 'reign_site_button_text_color', $default_value_set[ $reign_color_scheme ]['reign_site_button_text_color'] );
-	$reign_site_button_text_hover_color       = get_theme_mod( $reign_color_scheme . '-' . 'reign_site_button_text_hover_color', $default_value_set[ $reign_color_scheme ]['reign_site_button_text_hover_color'] );
-	$reign_site_button_bg_color               = get_theme_mod( $reign_color_scheme . '-' . 'reign_site_button_bg_color', $default_value_set[ $reign_color_scheme ]['reign_site_button_bg_color'] );
-	$reign_site_button_bg_hover_color         = get_theme_mod( $reign_color_scheme . '-' . 'reign_site_button_bg_hover_color', $default_value_set[ $reign_color_scheme ]['reign_site_button_bg_hover_color'] );
-	$reign_site_border_color                  = get_theme_mod( $reign_color_scheme . '-' . 'reign_site_border_color', $default_value_set[ $reign_color_scheme ]['reign_site_border_color'] );
-	$reign_site_hr_color                      = get_theme_mod( $reign_color_scheme . '-' . 'reign_site_hr_color', $default_value_set[ $reign_color_scheme ]['reign_site_hr_color'] );
-	$reign_footer_widget_area_bg_color        = get_theme_mod( $reign_color_scheme . '-' . 'reign_footer_widget_area_bg_color', $default_value_set[ $reign_color_scheme ]['reign_footer_widget_area_bg_color'] );
-	$reign_footer_widget_title_color          = get_theme_mod( $reign_color_scheme . '-' . 'reign_footer_widget_title_color', $default_value_set[ $reign_color_scheme ]['reign_footer_widget_title_color'] );
-	$reign_footer_widget_text_color           = get_theme_mod( $reign_color_scheme . '-' . 'reign_footer_widget_text_color', $default_value_set[ $reign_color_scheme ]['reign_footer_widget_text_color'] );
-	$reign_footer_widget_link_color           = get_theme_mod( $reign_color_scheme . '-' . 'reign_footer_widget_link_color', $default_value_set[ $reign_color_scheme ]['reign_footer_widget_link_color'] );
-	$reign_footer_widget_link_hover_color     = get_theme_mod( $reign_color_scheme . '-' . 'reign_footer_widget_link_hover_color', $default_value_set[ $reign_color_scheme ]['reign_footer_widget_link_hover_color'] );
-	$reign_footer_copyright_bg_color          = get_theme_mod( $reign_color_scheme . '-' . 'reign_footer_copyright_bg_color', $default_value_set[ $reign_color_scheme ]['reign_footer_copyright_bg_color'] );
-	$reign_footer_copyright_text_color        = get_theme_mod( $reign_color_scheme . '-' . 'reign_footer_copyright_text_color', $default_value_set[ $reign_color_scheme ]['reign_footer_copyright_text_color'] );
-	$reign_footer_copyright_link_color        = get_theme_mod( $reign_color_scheme . '-' . 'reign_footer_copyright_link_color', $default_value_set[ $reign_color_scheme ]['reign_footer_copyright_link_color'] );
-	$reign_footer_copyright_link_hover_color  = get_theme_mod( $reign_color_scheme . '-' . 'reign_footer_copyright_link_hover_color', $default_value_set[ $reign_color_scheme ]['reign_footer_copyright_link_hover_color'] );
-
-	$reign_form_text_color              = get_theme_mod( $reign_color_scheme . '-' . 'reign_form_text_color', $default_value_set_form[ $reign_color_scheme ]['reign_form_text_color'] );
-	$reign_form_background_color        = get_theme_mod( $reign_color_scheme . '-' . 'reign_form_background_color', $default_value_set_form[ $reign_color_scheme ]['reign_form_background_color'] );
-	$reign_form_border_color            = get_theme_mod( $reign_color_scheme . '-' . 'reign_form_border_color', $default_value_set_form[ $reign_color_scheme ]['reign_form_border_color'] );
-	$reign_form_placeholder_color       = get_theme_mod( $reign_color_scheme . '-' . 'reign_form_placeholder_color', $default_value_set_form[ $reign_color_scheme ]['reign_form_placeholder_color'] );
-	$reign_form_focus_text_color        = get_theme_mod( $reign_color_scheme . '-' . 'reign_form_focus_text_color', $default_value_set_form[ $reign_color_scheme ]['reign_form_focus_text_color'] );
-	$reign_form_focus_background_color  = get_theme_mod( $reign_color_scheme . '-' . 'reign_form_focus_background_color', $default_value_set_form[ $reign_color_scheme ]['reign_form_focus_background_color'] );
-	$reign_form_focus_border_color      = get_theme_mod( $reign_color_scheme . '-' . 'reign_form_focus_border_color', $default_value_set_form[ $reign_color_scheme ]['reign_form_focus_border_color'] );
-	$reign_form_focus_placeholder_color = get_theme_mod( $reign_color_scheme . '-' . 'reign_form_focus_placeholder_color', $default_value_set_form[ $reign_color_scheme ]['reign_form_focus_placeholder_color'] );
-
 	$admin_colors = array(
-		'--reign-header-topbar-bg-color'             => $reign_header_topbar_bg_color,
-		'--reign-header-topbar-text-color'           => $reign_header_topbar_text_color,
-		'--reign-header-topbar-text-hover-color'     => $reign_header_topbar_text_hover_color,
-		'--reign-header-bg-color'                    => $reign_header_bg_color,
-		'--reign-header-nav-bg-color'                => $reign_header_nav_bg_color,
-		'--reign-title-tagline-typography'           => $reign_title_tagline_typography,
-		'--reign-header-main-menu-font'              => $reign_header_main_menu_font,
-		'--reign-header-main-menu-text-hover-color'  => $reign_header_main_menu_text_hover_color,
-		'--reign-header-main-menu-text-active-color' => $reign_header_main_menu_text_active_color,
-		'--reign-header-main-menu-bg-hover-color'    => $reign_header_main_menu_bg_hover_color,
-		'--reign-header-main-menu-bg-active-color'   => $reign_header_main_menu_bg_active_color,
-		'--reign-header-sub-menu-bg-color'           => $reign_header_sub_menu_bg_color,
-		'--reign-header-sub-menu-font'               => $reign_header_sub_menu_font,
-		'--reign-header-sub-menu-text-hover-color'   => $reign_header_sub_menu_text_hover_color,
-		'--reign-header-sub-menu-bg-hover-color'     => $reign_header_sub_menu_bg_hover_color,
-		'--reign-header-icon-color'                  => $reign_header_icon_color,
-		'--reign-header-icon-hover-color'            => $reign_header_icon_hover_color,
-		'--reign-mobile-menu-bg-color'               => $reign_mobile_menu_bg_color,
-		'--reign-mobile-menu-color'                  => $reign_mobile_menu_color,
-		'--reign-mobile-menu-hover-color'            => $reign_mobile_menu_hover_color,
-		'--reign-mobile-menu-active-color'           => $reign_mobile_menu_active_color,
-		'--reign-mobile-menu-active-bg-color'        => $reign_mobile_menu_active_bg_color,
-		'--reign-left-panel-bg-color'                => $reign_left_panel_bg_color,
-		'--reign-left-panel-toggle-color'            => $reign_left_panel_toggle_color,
-		'--reign-left-panel-menu-font-color'         => $reign_left_panel_menu_font_color,
-		'--reign-left-panel-menu-hover-color'        => $reign_left_panel_menu_hover_color,
-		'--reign-left-panel-menu-active-color'       => $reign_left_panel_menu_active_color,
-		'--reign-left-panel-menu-bg-hover-color'     => $reign_left_panel_menu_bg_hover_color,
-		'--reign-left-panel-menu-bg-active-color'    => $reign_left_panel_menu_bg_active_color,
-		'--reign-left-panel-menu-icon-active-color'  => $reign_left_panel_menu_icon_active_color,
-		'--reign-left-panel-tooltip-bg-color'        => $reign_left_panel_tooltip_bg_color,
-		'--reign-left-panel-tooltip-color'           => $reign_left_panel_tooltip_color,
-		'--reign-site-body-bg-color'                 => $reign_site_body_bg_color,
-		'--reign-site-body-text-color'               => $reign_site_body_text_color,
-		'--reign-site-alternate-text-color'          => $reign_site_alternate_text_color,
-		'--reign-site-sections-bg-color'             => $reign_site_sections_bg_color,
-		'--reign-site-secondary-bg-color'            => $reign_site_secondary_bg_color,
-		'--reign-colors-theme'                       => $reign_colors_theme,
-		'--reign-site-headings-color'                => $reign_site_headings_color,
-		'--reign-site-link-color'                    => $reign_site_link_color,
-		'--reign-site-link-hover-color'              => $reign_site_link_hover_color,
-		'--reign-accent-color'                       => $reign_accent_color,
-		'--reign-accent-hover-color'                 => $reign_accent_hover_color,
-		'--reign-site-button-text-color'             => $reign_site_button_text_color,
-		'--reign-site-button-text-hover-color'       => $reign_site_button_text_hover_color,
-		'--reign-site-button-bg-color'               => $reign_site_button_bg_color,
-		'--reign-site-button-bg-hover-color'         => $reign_site_button_bg_hover_color,
-		'--reign-site-border-color'                  => $reign_site_border_color,
-		'--reign-site-hr-color'                      => $reign_site_hr_color,
-		'--reign-footer-widget-area-bg-color'        => $reign_footer_widget_area_bg_color,
-		'--reign-footer-widget-title-color'          => $reign_footer_widget_title_color,
-		'--reign-footer-widget-text-color'           => $reign_footer_widget_text_color,
-		'--reign-footer-widget-link-color'           => $reign_footer_widget_link_color,
-		'--reign-footer-widget-link-hover-color'     => $reign_footer_widget_link_hover_color,
-		'--reign-footer-copyright-bg-color'          => $reign_footer_copyright_bg_color,
-		'--reign-footer-copyright-text-color'        => $reign_footer_copyright_text_color,
-		'--reign-footer-copyright-link-color'        => $reign_footer_copyright_link_color,
-		'--reign-footer-copyright-link-hover-color'  => $reign_footer_copyright_link_hover_color,
+		'--reign-header-topbar-bg-color'             => get_theme_mod( "{$reign_color_scheme}-reign_header_topbar_bg_color", $default_value_set[ $reign_color_scheme ]['reign_header_topbar_bg_color'] ),
+		'--reign-header-topbar-text-color'           => get_theme_mod( "{$reign_color_scheme}-reign_header_topbar_text_color", $default_value_set[ $reign_color_scheme ]['reign_header_topbar_text_color'] ),
+		'--reign-header-topbar-text-hover-color'     => get_theme_mod( "{$reign_color_scheme}-reign_header_topbar_text_hover_color", $default_value_set[ $reign_color_scheme ]['reign_header_topbar_text_hover_color'] ),
+		'--reign-header-bg-color'                    => get_theme_mod( "{$reign_color_scheme}-reign_header_bg_color", $default_value_set[ $reign_color_scheme ]['reign_header_bg_color'] ),
+		'--reign-header-nav-bg-color'                => get_theme_mod( "{$reign_color_scheme}-reign_header_nav_bg_color", $default_value_set[ $reign_color_scheme ]['reign_header_nav_bg_color'] ),
+		'--reign-title-tagline-typography'           => get_theme_mod( "{$reign_color_scheme}-reign_title_tagline_typography", $default_value_set[ $reign_color_scheme ]['reign_title_tagline_typography'] ),
+		'--reign-header-main-menu-font'              => get_theme_mod( "{$reign_color_scheme}-reign_header_main_menu_font", $default_value_set[ $reign_color_scheme ]['reign_header_main_menu_font'] ),
+		'--reign-header-main-menu-text-hover-color'  => get_theme_mod( "{$reign_color_scheme}-reign_header_main_menu_text_hover_color", $default_value_set[ $reign_color_scheme ]['reign_header_main_menu_text_hover_color'] ),
+		'--reign-header-main-menu-text-active-color' => get_theme_mod( "{$reign_color_scheme}-reign_header_main_menu_text_active_color", $default_value_set[ $reign_color_scheme ]['reign_header_main_menu_text_active_color'] ),
+		'--reign-header-main-menu-bg-hover-color'    => get_theme_mod( "{$reign_color_scheme}-reign_header_main_menu_bg_hover_color", $default_value_set[ $reign_color_scheme ]['reign_header_main_menu_bg_hover_color'] ),
+		'--reign-header-main-menu-bg-active-color'   => get_theme_mod( "{$reign_color_scheme}-reign_header_main_menu_bg_active_color", $default_value_set[ $reign_color_scheme ]['reign_header_main_menu_bg_active_color'] ),
+		'--reign-header-sub-menu-bg-color'           => get_theme_mod( "{$reign_color_scheme}-reign_header_sub_menu_bg_color", $default_value_set[ $reign_color_scheme ]['reign_header_sub_menu_bg_color'] ),
+		'--reign-header-sub-menu-font'               => get_theme_mod( "{$reign_color_scheme}-reign_header_sub_menu_font", $default_value_set[ $reign_color_scheme ]['reign_header_sub_menu_font'] ),
+		'--reign-header-sub-menu-text-hover-color'   => get_theme_mod( "{$reign_color_scheme}-reign_header_sub_menu_text_hover_color", $default_value_set[ $reign_color_scheme ]['reign_header_sub_menu_text_hover_color'] ),
+		'--reign-header-sub-menu-bg-hover-color'     => get_theme_mod( "{$reign_color_scheme}-reign_header_sub_menu_bg_hover_color", $default_value_set[ $reign_color_scheme ]['reign_header_sub_menu_bg_hover_color'] ),
+		'--reign-header-icon-color'                  => get_theme_mod( "{$reign_color_scheme}-reign_header_icon_color", $default_value_set[ $reign_color_scheme ]['reign_header_icon_color'] ),
+		'--reign-header-icon-hover-color'            => get_theme_mod( "{$reign_color_scheme}-reign_header_icon_hover_color", $default_value_set[ $reign_color_scheme ]['reign_header_icon_hover_color'] ),
+		'--reign-mobile-menu-bg-color'               => get_theme_mod( "{$reign_color_scheme}-reign_mobile_menu_bg_color", $default_value_set[ $reign_color_scheme ]['reign_mobile_menu_bg_color'] ),
+		'--reign-mobile-menu-color'                  => get_theme_mod( "{$reign_color_scheme}-reign_mobile_menu_color", $default_value_set[ $reign_color_scheme ]['reign_mobile_menu_color'] ),
+		'--reign-mobile-menu-hover-color'            => get_theme_mod( "{$reign_color_scheme}-reign_mobile_menu_hover_color", $default_value_set[ $reign_color_scheme ]['reign_mobile_menu_hover_color'] ),
+		'--reign-mobile-menu-active-color'           => get_theme_mod( "{$reign_color_scheme}-reign_mobile_menu_active_color", $default_value_set[ $reign_color_scheme ]['reign_mobile_menu_active_color'] ),
+		'--reign-mobile-menu-active-bg-color'        => get_theme_mod( "{$reign_color_scheme}-reign_mobile_menu_active_bg_color", $default_value_set[ $reign_color_scheme ]['reign_mobile_menu_active_bg_color'] ),
+		'--reign-left-panel-bg-color'                => get_theme_mod( "{$reign_color_scheme}-reign_left_panel_bg_color", $default_value_set[ $reign_color_scheme ]['reign_left_panel_bg_color'] ),
+		'--reign-left-panel-toggle-color'            => get_theme_mod( "{$reign_color_scheme}-reign_left_panel_toggle_color", $default_value_set[ $reign_color_scheme ]['reign_left_panel_toggle_color'] ),
+		'--reign-left-panel-menu-font-color'         => get_theme_mod( "{$reign_color_scheme}-reign_left_panel_menu_font_color", $default_value_set[ $reign_color_scheme ]['reign_left_panel_menu_font_color'] ),
+		'--reign-left-panel-menu-hover-color'        => get_theme_mod( "{$reign_color_scheme}-reign_left_panel_menu_hover_color", $default_value_set[ $reign_color_scheme ]['reign_left_panel_menu_hover_color'] ),
+		'--reign-left-panel-menu-active-color'       => get_theme_mod( "{$reign_color_scheme}-reign_left_panel_menu_active_color", $default_value_set[ $reign_color_scheme ]['reign_left_panel_menu_active_color'] ),
+		'--reign-left-panel-menu-bg-hover-color'     => get_theme_mod( "{$reign_color_scheme}-reign_left_panel_menu_bg_hover_color", $default_value_set[ $reign_color_scheme ]['reign_left_panel_menu_bg_hover_color'] ),
+		'--reign-left-panel-menu-bg-active-color'    => get_theme_mod( "{$reign_color_scheme}-reign_left_panel_menu_bg_active_color", $default_value_set[ $reign_color_scheme ]['reign_left_panel_menu_bg_active_color'] ),
+		'--reign-left-panel-menu-icon-active-color'  => get_theme_mod( "{$reign_color_scheme}-reign_left_panel_menu_icon_active_color", $default_value_set[ $reign_color_scheme ]['reign_left_panel_menu_icon_active_color'] ),
+		'--reign-left-panel-tooltip-bg-color'        => get_theme_mod( "{$reign_color_scheme}-reign_left_panel_tooltip_bg_color", $default_value_set[ $reign_color_scheme ]['reign_left_panel_tooltip_bg_color'] ),
+		'--reign-left-panel-tooltip-color'           => get_theme_mod( "{$reign_color_scheme}-reign_left_panel_tooltip_color", $default_value_set[ $reign_color_scheme ]['reign_left_panel_tooltip_color'] ),
+		'--reign-site-body-bg-color'                 => get_theme_mod( "{$reign_color_scheme}-reign_site_body_bg_color", $default_value_set[ $reign_color_scheme ]['reign_site_body_bg_color'] ),
+		'--reign-site-body-text-color'               => get_theme_mod( "{$reign_color_scheme}-reign_site_body_text_color", $default_value_set[ $reign_color_scheme ]['reign_site_body_text_color'] ),
+		'--reign-site-alternate-text-color'          => get_theme_mod( "{$reign_color_scheme}-reign_site_alternate_text_color", $default_value_set[ $reign_color_scheme ]['reign_site_alternate_text_color'] ),
+		'--reign-site-sections-bg-color'             => get_theme_mod( "{$reign_color_scheme}-reign_site_sections_bg_color", $default_value_set[ $reign_color_scheme ]['reign_site_sections_bg_color'] ),
+		'--reign-site-secondary-bg-color'            => get_theme_mod( "{$reign_color_scheme}-reign_site_secondary_bg_color", $default_value_set[ $reign_color_scheme ]['reign_site_secondary_bg_color'] ),
+		'--reign-colors-theme'                       => get_theme_mod( "{$reign_color_scheme}-reign_colors_theme", $default_value_set[ $reign_color_scheme ]['reign_colors_theme'] ),
+		'--reign-site-headings-color'                => get_theme_mod( "{$reign_color_scheme}-reign_site_headings_color", $default_value_set[ $reign_color_scheme ]['reign_site_headings_color'] ),
+		'--reign-site-link-color'                    => get_theme_mod( "{$reign_color_scheme}-reign_site_link_color", $default_value_set[ $reign_color_scheme ]['reign_site_link_color'] ),
+		'--reign-site-link-hover-color'              => get_theme_mod( "{$reign_color_scheme}-reign_site_link_hover_color", $default_value_set[ $reign_color_scheme ]['reign_site_link_hover_color'] ),
+		'--reign-accent-color'                       => get_theme_mod( "{$reign_color_scheme}-reign_accent_color", $default_value_set[ $reign_color_scheme ]['reign_accent_color'] ),
+		'--reign-accent-hover-color'                 => get_theme_mod( "{$reign_color_scheme}-reign_accent_hover_color", $default_value_set[ $reign_color_scheme ]['reign_accent_hover_color'] ),
+		'--reign-site-button-text-color'             => get_theme_mod( "{$reign_color_scheme}-reign_site_button_text_color", $default_value_set[ $reign_color_scheme ]['reign_site_button_text_color'] ),
+		'--reign-site-button-text-hover-color'       => get_theme_mod( "{$reign_color_scheme}-reign_site_button_text_hover_color", $default_value_set[ $reign_color_scheme ]['reign_site_button_text_hover_color'] ),
+		'--reign-site-button-bg-color'               => get_theme_mod( "{$reign_color_scheme}-reign_site_button_bg_color", $default_value_set[ $reign_color_scheme ]['reign_site_button_bg_color'] ),
+		'--reign-site-button-bg-hover-color'         => get_theme_mod( "{$reign_color_scheme}-reign_site_button_bg_hover_color", $default_value_set[ $reign_color_scheme ]['reign_site_button_bg_hover_color'] ),
+		'--reign-site-border-color'                  => get_theme_mod( "{$reign_color_scheme}-reign_site_border_color", $default_value_set[ $reign_color_scheme ]['reign_site_border_color'] ),
+		'--reign-site-hr-color'                      => get_theme_mod( "{$reign_color_scheme}-reign_site_hr_color", $default_value_set[ $reign_color_scheme ]['reign_site_hr_color'] ),
+		'--reign-footer-widget-area-bg-color'        => get_theme_mod( "{$reign_color_scheme}-reign_footer_widget_area_bg_color", $default_value_set[ $reign_color_scheme ]['reign_footer_widget_area_bg_color'] ),
+		'--reign-footer-widget-title-color'          => get_theme_mod( "{$reign_color_scheme}-reign_footer_widget_title_color", $default_value_set[ $reign_color_scheme ]['reign_footer_widget_title_color'] ),
+		'--reign-footer-widget-text-color'           => get_theme_mod( "{$reign_color_scheme}-reign_footer_widget_text_color", $default_value_set[ $reign_color_scheme ]['reign_footer_widget_text_color'] ),
+		'--reign-footer-widget-link-color'           => get_theme_mod( "{$reign_color_scheme}-reign_footer_widget_link_color", $default_value_set[ $reign_color_scheme ]['reign_footer_widget_link_color'] ),
+		'--reign-footer-widget-link-hover-color'     => get_theme_mod( "{$reign_color_scheme}-reign_footer_widget_link_hover_color", $default_value_set[ $reign_color_scheme ]['reign_footer_widget_link_hover_color'] ),
+		'--reign-footer-copyright-bg-color'          => get_theme_mod( "{$reign_color_scheme}-reign_footer_copyright_bg_color", $default_value_set[ $reign_color_scheme ]['reign_footer_copyright_bg_color'] ),
+		'--reign-footer-copyright-text-color'        => get_theme_mod( "{$reign_color_scheme}-reign_footer_copyright_text_color", $default_value_set[ $reign_color_scheme ]['reign_footer_copyright_text_color'] ),
+		'--reign-footer-copyright-link-color'        => get_theme_mod( "{$reign_color_scheme}-reign_footer_copyright_link_color", $default_value_set[ $reign_color_scheme ]['reign_footer_copyright_link_color'] ),
+		'--reign-footer-copyright-link-hover-color'  => get_theme_mod( "{$reign_color_scheme}-reign_footer_copyright_link_hover_color", $default_value_set[ $reign_color_scheme ]['reign_footer_copyright_link_hover_color'] ),
 
-		'--reign-form-text-color'                    => $reign_form_text_color,
-		'--reign-form-background-color'              => $reign_form_background_color,
-		'--reign-form-border-color'                  => $reign_form_border_color,
-		'--reign-form-placeholder-color'             => $reign_form_placeholder_color,
-		'--reign-form-focus-text-color'              => $reign_form_focus_text_color,
-		'--reign-form-focus-background-color'        => $reign_form_focus_background_color,
-		'--reign-form-focus-border-color'            => $reign_form_focus_border_color,
-		'--reign-form-focus-placeholder-color'       => $reign_form_focus_placeholder_color,
+		'--reign-form-text-color'                    => get_theme_mod( "{$reign_color_scheme}-reign_form_text_color", $default_value_set_form[ $reign_color_scheme ]['reign_form_text_color'] ),
+		'--reign-form-background-color'              => get_theme_mod( "{$reign_color_scheme}-reign_form_background_color", $default_value_set_form[ $reign_color_scheme ]['reign_form_background_color'] ),
+		'--reign-form-border-color'                  => get_theme_mod( "{$reign_color_scheme}-reign_form_border_color", $default_value_set_form[ $reign_color_scheme ]['reign_form_border_color'] ),
+		'--reign-form-placeholder-color'             => get_theme_mod( "{$reign_color_scheme}-reign_form_placeholder_color", $default_value_set_form[ $reign_color_scheme ]['reign_form_placeholder_color'] ),
+		'--reign-form-focus-text-color'              => get_theme_mod( "{$reign_color_scheme}-reign_form_focus_text_color", $default_value_set_form[ $reign_color_scheme ]['reign_form_focus_text_color'] ),
+		'--reign-form-focus-background-color'        => get_theme_mod( "{$reign_color_scheme}-reign_form_focus_background_color", $default_value_set_form[ $reign_color_scheme ]['reign_form_focus_background_color'] ),
+		'--reign-form-focus-border-color'            => get_theme_mod( "{$reign_color_scheme}-reign_form_focus_border_color", $default_value_set_form[ $reign_color_scheme ]['reign_form_focus_border_color'] ),
+		'--reign-form-focus-placeholder-color'       => get_theme_mod( "{$reign_color_scheme}-reign_form_focus_placeholder_color", $default_value_set_form[ $reign_color_scheme ]['reign_form_focus_placeholder_color'] ),
 	);
 
 	$fallback_colors = reign_color_scheme_set();
@@ -1239,142 +1113,74 @@ function load_color_dark_palette() {
 			'reign_form_focus_placeholder_color'       => '--reign-form-focus-placeholder-color',
 		);
 
-		$reign_header_topbar_bg_color             = get_theme_mod( 'reign_dark-reign_header_topbar_bg_color' );
-		$reign_header_topbar_text_color           = get_theme_mod( 'reign_dark-reign_header_topbar_text_color' );
-		$reign_header_topbar_text_hover_color     = get_theme_mod( 'reign_dark-reign_header_topbar_text_hover_color' );
-		$reign_header_bg_color                    = get_theme_mod( 'reign_dark-reign_header_bg_color' );
-		$reign_header_nav_bg_color                = get_theme_mod( 'reign_dark-reign_header_nav_bg_color' );
-		$reign_title_tagline_typography           = get_theme_mod( 'reign_dark-reign_title_tagline_typography' );
-		$reign_header_main_menu_font              = get_theme_mod( 'reign_dark-reign_header_main_menu_font' );
-		$reign_header_main_menu_text_hover_color  = get_theme_mod( 'reign_dark-reign_header_main_menu_text_hover_color' );
-		$reign_header_main_menu_text_active_color = get_theme_mod( 'reign_dark-reign_header_main_menu_text_active_color' );
-		$reign_header_main_menu_bg_hover_color    = get_theme_mod( 'reign_dark-reign_header_main_menu_bg_hover_color' );
-		$reign_header_main_menu_bg_active_color   = get_theme_mod( 'reign_dark-reign_header_main_menu_bg_active_color' );
-		$reign_header_sub_menu_bg_color           = get_theme_mod( 'reign_dark-reign_header_sub_menu_bg_color' );
-		$reign_header_sub_menu_font               = get_theme_mod( 'reign_dark-reign_header_sub_menu_font' );
-		$reign_header_sub_menu_text_hover_color   = get_theme_mod( 'reign_dark-reign_header_sub_menu_text_hover_color' );
-		$reign_header_sub_menu_bg_hover_color     = get_theme_mod( 'reign_dark-reign_header_sub_menu_bg_hover_color' );
-		$reign_header_icon_color                  = get_theme_mod( 'reign_dark-reign_header_icon_color' );
-		$reign_header_icon_hover_color            = get_theme_mod( 'reign_dark-reign_header_icon_hover_color' );
-		$reign_mobile_menu_bg_color               = get_theme_mod( 'reign_dark-reign_mobile_menu_bg_color' );
-		$reign_mobile_menu_color                  = get_theme_mod( 'reign_dark-reign_mobile_menu_color' );
-		$reign_mobile_menu_hover_color            = get_theme_mod( 'reign_dark-reign_mobile_menu_hover_color' );
-		$reign_mobile_menu_active_color           = get_theme_mod( 'reign_dark-reign_mobile_menu_active_color' );
-		$reign_mobile_menu_active_bg_color        = get_theme_mod( 'reign_dark-reign_mobile_menu_active_bg_color' );
-		$reign_left_panel_bg_color                = get_theme_mod( 'reign_dark-reign_left_panel_bg_color' );
-		$reign_left_panel_toggle_color            = get_theme_mod( 'reign_dark-reign_left_panel_toggle_color' );
-		$reign_left_panel_menu_font_color         = get_theme_mod( 'reign_dark-reign_left_panel_menu_font_color' );
-		$reign_left_panel_menu_hover_color        = get_theme_mod( 'reign_dark-reign_left_panel_menu_hover_color' );
-		$reign_left_panel_menu_active_color       = get_theme_mod( 'reign_dark-reign_left_panel_menu_active_color' );
-		$reign_left_panel_menu_bg_hover_color     = get_theme_mod( 'reign_dark-reign_left_panel_menu_bg_hover_color' );
-		$reign_left_panel_menu_bg_active_color    = get_theme_mod( 'reign_dark-reign_left_panel_menu_bg_active_color' );
-		$reign_left_panel_menu_icon_active_color  = get_theme_mod( 'reign_dark-reign_left_panel_menu_icon_active_color' );
-		$reign_left_panel_tooltip_bg_color        = get_theme_mod( 'reign_dark-reign_left_panel_tooltip_bg_color' );
-		$reign_left_panel_tooltip_color           = get_theme_mod( 'reign_dark-reign_left_panel_tooltip_color' );
-		$reign_site_body_bg_color                 = get_theme_mod( 'reign_dark-reign_site_body_bg_color' );
-		$reign_site_body_text_color               = get_theme_mod( 'reign_dark-reign_site_body_text_color' );
-		$reign_site_alternate_text_color          = get_theme_mod( 'reign_dark-reign_site_alternate_text_color' );
-		$reign_site_sections_bg_color             = get_theme_mod( 'reign_dark-reign_site_sections_bg_color' );
-		$reign_site_secondary_bg_color            = get_theme_mod( 'reign_dark-reign_site_secondary_bg_color' );
-		$reign_colors_theme                       = get_theme_mod( 'reign_dark-reign_colors_theme' );
-		$reign_site_headings_color                = get_theme_mod( 'reign_dark-reign_site_headings_color' );
-		$reign_site_link_color                    = get_theme_mod( 'reign_dark-reign_site_link_color' );
-		$reign_site_link_hover_color              = get_theme_mod( 'reign_dark-reign_site_link_hover_color' );
-		$reign_accent_color                       = get_theme_mod( 'reign_dark-reign_accent_color' );
-		$reign_accent_hover_color                 = get_theme_mod( 'reign_dark-reign_accent_hover_color' );
-		$reign_site_button_text_color             = get_theme_mod( 'reign_dark-reign_site_button_text_color' );
-		$reign_site_button_text_hover_color       = get_theme_mod( 'reign_dark-reign_site_button_text_hover_color' );
-		$reign_site_button_bg_color               = get_theme_mod( 'reign_dark-reign_site_button_bg_color' );
-		$reign_site_button_bg_hover_color         = get_theme_mod( 'reign_dark-reign_site_button_bg_hover_color' );
-		$reign_site_border_color                  = get_theme_mod( 'reign_dark-reign_site_border_color' );
-		$reign_site_hr_color                      = get_theme_mod( 'reign_dark-reign_site_hr_color' );
-		$reign_footer_widget_area_bg_color        = get_theme_mod( 'reign_dark-reign_footer_widget_area_bg_color' );
-		$reign_footer_widget_title_color          = get_theme_mod( 'reign_dark-reign_footer_widget_title_color' );
-		$reign_footer_widget_text_color           = get_theme_mod( 'reign_dark-reign_footer_widget_text_color' );
-		$reign_footer_widget_link_color           = get_theme_mod( 'reign_dark-reign_footer_widget_link_color' );
-		$reign_footer_widget_link_hover_color     = get_theme_mod( 'reign_dark-reign_footer_widget_link_hover_color' );
-		$reign_footer_copyright_bg_color          = get_theme_mod( 'reign_dark-reign_footer_copyright_bg_color' );
-		$reign_footer_copyright_text_color        = get_theme_mod( 'reign_dark-reign_footer_copyright_text_color' );
-		$reign_footer_copyright_link_color        = get_theme_mod( 'reign_dark-reign_footer_copyright_link_color' );
-		$reign_footer_copyright_link_hover_color  = get_theme_mod( 'reign_dark-reign_footer_copyright_link_hover_color' );
-
-		$reign_form_text_color              = get_theme_mod( 'reign_dark-reign_form_text_color' );
-		$reign_form_background_color        = get_theme_mod( 'reign_dark-reign_form_background_color' );
-		$reign_form_border_color            = get_theme_mod( 'reign_dark-reign_form_border_color' );
-		$reign_form_placeholder_color       = get_theme_mod( 'reign_dark-reign_form_placeholder_color' );
-		$reign_form_focus_text_color        = get_theme_mod( 'reign_dark-reign_form_focus_text_color' );
-		$reign_form_focus_background_color  = get_theme_mod( 'reign_dark-reign_form_focus_background_color' );
-		$reign_form_focus_border_color      = get_theme_mod( 'reign_dark-reign_form_focus_border_color' );
-		$reign_form_focus_placeholder_color = get_theme_mod( 'reign_dark-reign_form_focus_placeholder_color' );
-
 		$admin_colors = array(
-			'--reign-header-topbar-bg-color'             => $reign_header_topbar_bg_color,
-			'--reign-header-topbar-text-color'           => $reign_header_topbar_text_color,
-			'--reign-header-topbar-text-hover-color'     => $reign_header_topbar_text_hover_color,
-			'--reign-header-bg-color'                    => $reign_header_bg_color,
-			'--reign-header-nav-bg-color'                => $reign_header_nav_bg_color,
-			'--reign-title-tagline-typography'           => $reign_title_tagline_typography,
-			'--reign-header-main-menu-font'              => $reign_header_main_menu_font,
-			'--reign-header-main-menu-text-hover-color'  => $reign_header_main_menu_text_hover_color,
-			'--reign-header-main-menu-text-active-color' => $reign_header_main_menu_text_active_color,
-			'--reign-header-main-menu-bg-hover-color'    => $reign_header_main_menu_bg_hover_color,
-			'--reign-header-main-menu-bg-active-color'   => $reign_header_main_menu_bg_active_color,
-			'--reign-header-sub-menu-bg-color'           => $reign_header_sub_menu_bg_color,
-			'--reign-header-sub-menu-font'               => $reign_header_sub_menu_font,
-			'--reign-header-sub-menu-text-hover-color'   => $reign_header_sub_menu_text_hover_color,
-			'--reign-header-sub-menu-bg-hover-color'     => $reign_header_sub_menu_bg_hover_color,
-			'--reign-header-icon-color'                  => $reign_header_icon_color,
-			'--reign-header-icon-hover-color'            => $reign_header_icon_hover_color,
-			'--reign-mobile-menu-bg-color'               => $reign_mobile_menu_bg_color,
-			'--reign-mobile-menu-color'                  => $reign_mobile_menu_color,
-			'--reign-mobile-menu-hover-color'            => $reign_mobile_menu_hover_color,
-			'--reign-mobile-menu-active-color'           => $reign_mobile_menu_active_color,
-			'--reign-mobile-menu-active-bg-color'        => $reign_mobile_menu_active_bg_color,
-			'--reign-left-panel-bg-color'                => $reign_left_panel_bg_color,
-			'--reign-left-panel-toggle-color'            => $reign_left_panel_toggle_color,
-			'--reign-left-panel-menu-font-color'         => $reign_left_panel_menu_font_color,
-			'--reign-left-panel-menu-hover-color'        => $reign_left_panel_menu_hover_color,
-			'--reign-left-panel-menu-active-color'       => $reign_left_panel_menu_active_color,
-			'--reign-left-panel-menu-bg-hover-color'     => $reign_left_panel_menu_bg_hover_color,
-			'--reign-left-panel-menu-bg-active-color'    => $reign_left_panel_menu_bg_active_color,
-			'--reign-left-panel-menu-icon-active-color'  => $reign_left_panel_menu_icon_active_color,
-			'--reign-left-panel-tooltip-bg-color'        => $reign_left_panel_tooltip_bg_color,
-			'--reign-left-panel-tooltip-color'           => $reign_left_panel_tooltip_color,
-			'--reign-site-body-bg-color'                 => $reign_site_body_bg_color,
-			'--reign-site-body-text-color'               => $reign_site_body_text_color,
-			'--reign-site-alternate-text-color'          => $reign_site_alternate_text_color,
-			'--reign-site-sections-bg-color'             => $reign_site_sections_bg_color,
-			'--reign-site-secondary-bg-color'            => $reign_site_secondary_bg_color,
-			'--reign-colors-theme'                       => $reign_colors_theme,
-			'--reign-site-headings-color'                => $reign_site_headings_color,
-			'--reign-site-link-color'                    => $reign_site_link_color,
-			'--reign-site-link-hover-color'              => $reign_site_link_hover_color,
-			'--reign-accent-color'                       => $reign_accent_color,
-			'--reign-accent-hover-color'                 => $reign_accent_hover_color,
-			'--reign-site-button-text-color'             => $reign_site_button_text_color,
-			'--reign-site-button-text-hover-color'       => $reign_site_button_text_hover_color,
-			'--reign-site-button-bg-color'               => $reign_site_button_bg_color,
-			'--reign-site-button-bg-hover-color'         => $reign_site_button_bg_hover_color,
-			'--reign-site-border-color'                  => $reign_site_border_color,
-			'--reign-site-hr-color'                      => $reign_site_hr_color,
-			'--reign-footer-widget-area-bg-color'        => $reign_footer_widget_area_bg_color,
-			'--reign-footer-widget-title-color'          => $reign_footer_widget_title_color,
-			'--reign-footer-widget-text-color'           => $reign_footer_widget_text_color,
-			'--reign-footer-widget-link-color'           => $reign_footer_widget_link_color,
-			'--reign-footer-widget-link-hover-color'     => $reign_footer_widget_link_hover_color,
-			'--reign-footer-copyright-bg-color'          => $reign_footer_copyright_bg_color,
-			'--reign-footer-copyright-text-color'        => $reign_footer_copyright_text_color,
-			'--reign-footer-copyright-link-color'        => $reign_footer_copyright_link_color,
-			'--reign-footer-copyright-link-hover-color'  => $reign_footer_copyright_link_hover_color,
+			'--reign-header-topbar-bg-color'             => get_theme_mod( 'reign_dark-reign_header_topbar_bg_color' ),
+			'--reign-header-topbar-text-color'           => get_theme_mod( 'reign_dark-reign_header_topbar_text_color' ),
+			'--reign-header-topbar-text-hover-color'     => get_theme_mod( 'reign_dark-reign_header_topbar_text_hover_color' ),
+			'--reign-header-bg-color'                    => get_theme_mod( 'reign_dark-reign_header_bg_color' ),
+			'--reign-header-nav-bg-color'                => get_theme_mod( 'reign_dark-reign_header_nav_bg_color' ),
+			'--reign-title-tagline-typography'           => get_theme_mod( 'reign_dark-reign_title_tagline_typography' ),
+			'--reign-header-main-menu-font'              => get_theme_mod( 'reign_dark-reign_header_main_menu_font' ),
+			'--reign-header-main-menu-text-hover-color'  => get_theme_mod( 'reign_dark-reign_header_main_menu_text_hover_color' ),
+			'--reign-header-main-menu-text-active-color' => get_theme_mod( 'reign_dark-reign_header_main_menu_text_active_color' ),
+			'--reign-header-main-menu-bg-hover-color'    => get_theme_mod( 'reign_dark-reign_header_main_menu_bg_hover_color' ),
+			'--reign-header-main-menu-bg-active-color'   => get_theme_mod( 'reign_dark-reign_header_main_menu_bg_active_color' ),
+			'--reign-header-sub-menu-bg-color'           => get_theme_mod( 'reign_dark-reign_header_sub_menu_bg_color' ),
+			'--reign-header-sub-menu-font'               => get_theme_mod( 'reign_dark-reign_header_sub_menu_font' ),
+			'--reign-header-sub-menu-text-hover-color'   => get_theme_mod( 'reign_dark-reign_header_sub_menu_text_hover_color' ),
+			'--reign-header-sub-menu-bg-hover-color'     => get_theme_mod( 'reign_dark-reign_header_sub_menu_bg_hover_color' ),
+			'--reign-header-icon-color'                  => get_theme_mod( 'reign_dark-reign_header_icon_color' ),
+			'--reign-header-icon-hover-color'            => get_theme_mod( 'reign_dark-reign_header_icon_hover_color' ),
+			'--reign-mobile-menu-bg-color'               => get_theme_mod( 'reign_dark-reign_mobile_menu_bg_color' ),
+			'--reign-mobile-menu-color'                  => get_theme_mod( 'reign_dark-reign_mobile_menu_color' ),
+			'--reign-mobile-menu-hover-color'            => get_theme_mod( 'reign_dark-reign_mobile_menu_hover_color' ),
+			'--reign-mobile-menu-active-color'           => get_theme_mod( 'reign_dark-reign_mobile_menu_active_color' ),
+			'--reign-mobile-menu-active-bg-color'        => get_theme_mod( 'reign_dark-reign_mobile_menu_active_bg_color' ),
+			'--reign-left-panel-bg-color'                => get_theme_mod( 'reign_dark-reign_left_panel_bg_color' ),
+			'--reign-left-panel-toggle-color'            => get_theme_mod( 'reign_dark-reign_left_panel_toggle_color' ),
+			'--reign-left-panel-menu-font-color'         => get_theme_mod( 'reign_dark-reign_left_panel_menu_font_color' ),
+			'--reign-left-panel-menu-hover-color'        => get_theme_mod( 'reign_dark-reign_left_panel_menu_hover_color' ),
+			'--reign-left-panel-menu-active-color'       => get_theme_mod( 'reign_dark-reign_left_panel_menu_active_color' ),
+			'--reign-left-panel-menu-bg-hover-color'     => get_theme_mod( 'reign_dark-reign_left_panel_menu_bg_hover_color' ),
+			'--reign-left-panel-menu-bg-active-color'    => get_theme_mod( 'reign_dark-reign_left_panel_menu_bg_active_color' ),
+			'--reign-left-panel-menu-icon-active-color'  => get_theme_mod( 'reign_dark-reign_left_panel_menu_icon_active_color' ),
+			'--reign-left-panel-tooltip-bg-color'        => get_theme_mod( 'reign_dark-reign_left_panel_tooltip_bg_color' ),
+			'--reign-left-panel-tooltip-color'           => get_theme_mod( 'reign_dark-reign_left_panel_tooltip_color' ),
+			'--reign-site-body-bg-color'                 => get_theme_mod( 'reign_dark-reign_site_body_bg_color' ),
+			'--reign-site-body-text-color'               => get_theme_mod( 'reign_dark-reign_site_body_text_color' ),
+			'--reign-site-alternate-text-color'          => get_theme_mod( 'reign_dark-reign_site_alternate_text_color' ),
+			'--reign-site-sections-bg-color'             => get_theme_mod( 'reign_dark-reign_site_sections_bg_color' ),
+			'--reign-site-secondary-bg-color'            => get_theme_mod( 'reign_dark-reign_site_secondary_bg_color' ),
+			'--reign-colors-theme'                       => get_theme_mod( 'reign_dark-reign_colors_theme' ),
+			'--reign-site-headings-color'                => get_theme_mod( 'reign_dark-reign_site_headings_color' ),
+			'--reign-site-link-color'                    => get_theme_mod( 'reign_dark-reign_site_link_color' ),
+			'--reign-site-link-hover-color'              => get_theme_mod( 'reign_dark-reign_site_link_hover_color' ),
+			'--reign-accent-color'                       => get_theme_mod( 'reign_dark-reign_accent_color' ),
+			'--reign-accent-hover-color'                 => get_theme_mod( 'reign_dark-reign_accent_hover_color' ),
+			'--reign-site-button-text-color'             => get_theme_mod( 'reign_dark-reign_site_button_text_color' ),
+			'--reign-site-button-text-hover-color'       => get_theme_mod( 'reign_dark-reign_site_button_text_hover_color' ),
+			'--reign-site-button-bg-color'               => get_theme_mod( 'reign_dark-reign_site_button_bg_color' ),
+			'--reign-site-button-bg-hover-color'         => get_theme_mod( 'reign_dark-reign_site_button_bg_hover_color' ),
+			'--reign-site-border-color'                  => get_theme_mod( 'reign_dark-reign_site_border_color' ),
+			'--reign-site-hr-color'                      => get_theme_mod( 'reign_dark-reign_site_hr_color' ),
+			'--reign-footer-widget-area-bg-color'        => get_theme_mod( 'reign_dark-reign_footer_widget_area_bg_color' ),
+			'--reign-footer-widget-title-color'          => get_theme_mod( 'reign_dark-reign_footer_widget_title_color' ),
+			'--reign-footer-widget-text-color'           => get_theme_mod( 'reign_dark-reign_footer_widget_text_color' ),
+			'--reign-footer-widget-link-color'           => get_theme_mod( 'reign_dark-reign_footer_widget_link_color' ),
+			'--reign-footer-widget-link-hover-color'     => get_theme_mod( 'reign_dark-reign_footer_widget_link_hover_color' ),
+			'--reign-footer-copyright-bg-color'          => get_theme_mod( 'reign_dark-reign_footer_copyright_bg_color' ),
+			'--reign-footer-copyright-text-color'        => get_theme_mod( 'reign_dark-reign_footer_copyright_text_color' ),
+			'--reign-footer-copyright-link-color'        => get_theme_mod( 'reign_dark-reign_footer_copyright_link_color' ),
+			'--reign-footer-copyright-link-hover-color'  => get_theme_mod( 'reign_dark-reign_footer_copyright_link_hover_color' ),
 
-			'--reign-form-text-color'                    => $reign_form_text_color,
-			'--reign-form-background-color'              => $reign_form_background_color,
-			'--reign-form-border-color'                  => $reign_form_border_color,
-			'--reign-form-placeholder-color'             => $reign_form_placeholder_color,
-			'--reign-form-focus-text-color'              => $reign_form_focus_text_color,
-			'--reign-form-focus-background-color'        => $reign_form_focus_background_color,
-			'--reign-form-focus-border-color'            => $reign_form_focus_border_color,
-			'--reign-form-focus-placeholder-color'       => $reign_form_focus_placeholder_color,
+			'--reign-form-text-color'                    => get_theme_mod( 'reign_dark-reign_form_text_color' ),
+			'--reign-form-background-color'              => get_theme_mod( 'reign_dark-reign_form_background_color' ),
+			'--reign-form-border-color'                  => get_theme_mod( 'reign_dark-reign_form_border_color' ),
+			'--reign-form-placeholder-color'             => get_theme_mod( 'reign_dark-reign_form_placeholder_color' ),
+			'--reign-form-focus-text-color'              => get_theme_mod( 'reign_dark-reign_form_focus_text_color' ),
+			'--reign-form-focus-background-color'        => get_theme_mod( 'reign_dark-reign_form_focus_background_color' ),
+			'--reign-form-focus-border-color'            => get_theme_mod( 'reign_dark-reign_form_focus_border_color' ),
+			'--reign-form-focus-placeholder-color'       => get_theme_mod( 'reign_dark-reign_form_focus_placeholder_color' ),
 		);
 
 		$fallback_colors = reign_color_scheme_set();

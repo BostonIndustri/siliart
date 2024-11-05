@@ -7,11 +7,7 @@
  */
 
 $bp_nav_style = get_theme_mod( 'buddypress_single_group_nav_style', 'iconic' );
-if ( $bp_nav_style == 'iconic' ) {
-	$class = 'reign-nav-iconic';
-} else {
-	$class = 'reign-default';
-}
+$class        = ( $bp_nav_style == 'iconic' ) ? 'reign-nav-iconic' : 'reign-default';
 
 $bp_nav_view_style = get_theme_mod( 'buddypress_main_nav_view_style', 'text_icon' );
 if ( $bp_nav_view_style == 'swipe' ) {
@@ -54,9 +50,6 @@ if ( bp_has_groups() ) :
 				if ( ! bp_nouveau_is_object_nav_in_sidebar() ) {
 					?>
 					<div class="rg-nouveau-sidebar-menu">
-						<div class="rg-nouveau-sidebar-head">
-							<h4 class="widget-title"><span class="custom-name"><?php echo esc_html( the_title() ); ?></span><span class="rg-toggle ico-plus far fa-plus-circle"></span></h4>
-						</div>
 						<?php bp_get_template_part( 'groups/single/parts/item-nav' ); ?>
 					</div>
 					<?php
@@ -86,9 +79,6 @@ if ( bp_has_groups() ) :
 								if ( ! bp_nouveau_is_object_nav_in_sidebar() ) {
 									?>
 									<div class="rg-nouveau-sidebar-menu <?php echo esc_attr( $nav_view_style ); ?>">
-										<div class="rg-nouveau-sidebar-head">
-											<h4 class="widget-title"><span class="custom-name"><?php echo the_title(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span><span class="rg-toggle ico-plus far fa-plus-circle"></span></h4>
-										</div>
 										<?php bp_get_template_part( 'groups/single/parts/item-nav' ); ?>
 									</div>
 									<?php
@@ -101,7 +91,19 @@ if ( bp_has_groups() ) :
 						</div>
 					</div>
 
-					<?php echo get_sidebar( 'buddypress' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					<?php
+					if ( is_active_sidebar( 'group-single' ) && bp_is_group() ) {
+						?>
+						<aside id="secondary" class="widget-area member-profile-widget-area sm-wb-grid-1-1 md-wb-grid-1-1 lg-wb-grid-1-3" role="complementary">
+							<div class="widget-area-inner">
+								<?php do_action( 'reign_begin_member_profile_sidebar' ); ?>
+								<?php dynamic_sidebar( 'group-single' ); ?>
+								<?php do_action( 'reign_end_member_profile_sidebar' ); ?>
+							</div>
+						</aside>
+						<?php
+					}
+					?>
 
 				</div>
 

@@ -25,13 +25,13 @@ do_action( 'bbp_template_before_user_details' );
 
 	<div id="bbp-user-navigation">
 		<ul>
-                        <?php if ( ! class_exists( 'WBPBI_PeepSo_BbPress_Integration' ) ) : ?>
+			<?php if ( ! class_exists( 'WBPBI_PeepSo_BbPress_Integration' ) ) : ?>
 			<li class="<?php if ( bbp_is_single_user_profile() ) : ?>current<?php endif; ?>">
 				<span class="vcard bbp-user-profile-link">
 					<a class="url fn n" href="<?php bbp_user_profile_url(); ?>" title="<?php printf( esc_attr__( "%s's Profile", 'reign' ), bbp_get_displayed_user_field( 'display_name' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>" rel="me"><?php esc_html_e( 'Profile', 'reign' ); ?></a>
 				</span>
 			</li
-                        <?php endif; ?>
+			<?php endif; ?>
 
 			<li class="<?php if ( bbp_is_single_user_topics() ) : ?>current<?php endif; ?>">
 				<span class='bbp-user-topics-created-link'>

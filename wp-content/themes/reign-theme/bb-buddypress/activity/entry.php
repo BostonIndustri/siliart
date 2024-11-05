@@ -76,7 +76,7 @@ $activity_popup_title = sprintf( esc_html__( '%s\'s Post', 'reign' ), bp_core_ge
 			<div class="bp-activity-head-group">
 				<div class="activity-group-avatar">
 					<div class="group-avatar">
-						<a class="group-avatar-wrap mobile-center" href="<?php echo $group_permalink; ?>">
+						<a class="group-avatar-wrap mobile-center" href="<?php echo esc_url( $group_permalink ); ?>">
 							<?php
 							echo bp_core_fetch_avatar(
 								array(
@@ -135,7 +135,9 @@ $activity_popup_title = sprintf( esc_html__( '%s\'s Post', 'reign' ), bp_core_ge
 				<?php bp_activity_action(); ?>
 
 				<p class="activity-date">
-					<a href="<?php echo esc_url( bp_activity_get_permalink( bp_get_activity_id() ) ); ?>"><?php echo bp_core_time_since( bp_get_activity_date_recorded() ); ?></a>
+					<a href="<?php echo esc_url( bp_activity_get_permalink( bp_get_activity_id() ) ); ?>">
+						<?php echo esc_html( bp_core_time_since( bp_get_activity_date_recorded() ) ); ?>
+					</a>
 					<?php bp_nouveau_activity_is_edited(); ?>
 				</p>
 

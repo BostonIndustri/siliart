@@ -1,8 +1,8 @@
 === Reign ===
 
 Requires at least: 4.5
-Tested up to: 6.6.1
-Version: 7.5.6
+Tested up to: 6.6.2
+Version: 7.6.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -39,6 +39,65 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see < http://www.gnu.org/licenses/ >
 
 == Changelog ==
+= 7.6.1 =
+* Fix: Message icon issue with BP Better Messages.
+* Fixed: Removed custom script when sticky sidebar is enabled.
+
+= 7.6.0 =
+* Managed visibility of icons for children menu items.  
+* Removed unwanted CSS related to the Wbcom notification area.  
+* Improved UI with the Member Review plugin integration.  
+* Updated BuddyPress Newsfeed plugin tab icons.  
+* Updated `pmpro.scss` with latest enhancements.  
+* Applied UI fixes and removed override files for PMPro update.  
+* Added BuddyVendor preferences icon.  
+* Introduced forum archive listing per row setting and fixed escaping functions.  
+* Improved UI for the store coming soon screen.  
+* Updated single member and group sidebar calls for BuddyPress legacy.  
+* Fixed sidebar issues and applied template overrides for rtMedia.  
+* Fixed escaping functions in `single-event.php`.  
+* Updated PeepSo override files with escaping function fixes.  
+* Removed deprecated `reign_comment_form_defaults` function.  
+* Removed unnecessary EDD override files.  
+* Fixed single group sidebar and improved escaping functions.  
+* Managed breadcrumbs on search result pages.  
+* Updated and optimized `content-audio.php`.  
+* Enhanced `activity-widgets.php` performance.  
+* Improved `rg-woo-product-category.php` with optimizations.  
+* Improved PeepSo templates including `focus.php`, `navbar.php`, and `group-header.php`.  
+* Enhanced `user-menu.php`, `search.php`, and `register-menu.php`.  
+* Improved `notification.php`, `message.php`, and `login.php`.  
+* Applied UI improvements for `friends-request.php` and `reign-panel.php`.  
+* Updated mobile header templates and managed site title/description.  
+* Updated video location and removed target="_blank" from Customizer links.  
+
+= 7.5.8 =
+* Update: WooCommerce tabs tooltip direction in mobile view.
+* Update: Script and style enqueue handle for optimization.
+* Fix: Warnings related to WooCommerce tabs.
+* Enhancement: Managed WooCommerce tabs UI in mobile view for improved user experience.
+* Enhancement: Breadcrumbs for posts page.
+* Update: Backend settings logo, display name, and general fixes.
+* Enhancement: Added Sensei backend option menu icon.
+* Fix: Managed PeepSo profile/group cover settings and backend UI improvements.
+* Update: Reign theme setting backend UI updates.
+* New Feature: Dokan support for better multi-vendor functionality.
+* Update: Improved message UI for BuddyBoss platform integration.
+* Enhancement: Improved EDD download layouts.
+* Enhancement: Improved reign_breadcrumbs() function for better navigation control.
+* Enhancement: Improved header icon management functions (reign_mobile_header_default_icons_set() and reign_header_default_icons()).
+* Enhancement: Improved top bar default social links and info links for better customization options.
+* Optimization: Removed reign_heartbeat_settings() and optimized notification count heartbeat.
+* Fix: Resolved single activity call being triggered multiple times.
+* Fix: Managed swipe navigation for selected menu location.
+* Enhancement: Improved group invites search submit button UI.
+* Optimization: Improved functionality of Reign_Shortcodes class and various theme functions.
+* Fix: Improved and reverted theme settings functionality where necessary.
+* Update: Managed outdated WooCommerce template files for compatibility.
+* UI Fix: Removed post comment title cursor pointer for improved UI consistency.
+* Enhancement: Managed blog activity integration with BP Activity Share Pro.
+* Update: Set max height on blog activity images for consistent layout.
+
 = 7.5.7 =
 * Enhancement: Managed widget title UI with link title and updated forum statistics widget UI.
 * Enhancement: Managed video visibility for LearnDash and Tutor LMS.

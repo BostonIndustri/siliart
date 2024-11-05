@@ -432,6 +432,8 @@
 
             $('.rg-nouveau-sidebar-menu.reign-nav-more .main-navs:not(.vertical) ul').BuddyPressMenu(35);
 
+            var slickGoTo = $('.rg-nouveau-sidebar-menu.reign-nav-swipe .main-navs:not(.vertical) ul li.selected').index();
+
             $('.rg-nouveau-sidebar-menu.reign-nav-swipe .main-navs:not(.vertical) ul').slick({
                 slidesToScroll: 1,
                 nextArrow: '<button class="slick-next slick-arrow reign-nav-swipe-arrow"><i class="far fa-angle-right"></i></button>',
@@ -439,8 +441,15 @@
                 infinite: false,
                 swipeToSlide: true,
                 variableWidth: true,
-                rtl: rt
+                rtl: rt,
+                dots: false,
+                touchMove: true,
             });
+            if (slickGoTo !== 0) {
+                slickGoTo = slickGoTo - 0;
+            }
+            $('.rg-nouveau-sidebar-menu.reign-nav-swipe .main-navs:not(.vertical) ul').slick('slickGoTo', slickGoTo);
+            
 
             $(document).on('click', '.rg-nouveau-sidebar-menu .more-button', function(e) {
                 e.preventDefault();

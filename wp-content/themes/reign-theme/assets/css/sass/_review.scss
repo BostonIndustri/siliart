@@ -1,23 +1,4 @@
 /*
-BuddyPress Member Reviews
-*/
-.bupr-col-2.bupr-members-profiles .item-avatar img {
-    max-width: 50px;
-    border-radius: 100%;
-}
-
-.reviewer h4 {
-    font-size: $font__size_18;
-}
-
-@media(min-width: 768px) {
-    .bupr-row {
-        display: flex;
-        align-items: center;
-    }
-}
-
-/*
 Review BuddyPress Groups
 */
 .group-request-list .avatar {

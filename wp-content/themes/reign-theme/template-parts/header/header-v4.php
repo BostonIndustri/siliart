@@ -20,37 +20,10 @@
 					 *
 					 * @package reign
 					 */
-
 					if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) {
 						the_custom_logo();
 					} else {
-						if ( is_front_page() && is_home() ) :
-							?>
-							<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-							<?php
-							$reign_description = get_bloginfo( 'description', 'display' );
-							if ( $reign_description || is_customize_preview() ) {
-								?>
-								<p class="site-description">
-									<?php echo esc_html( $reign_description ); ?>
-								</p>
-								<?php
-							}
-							?>
-						<?php else : ?>
-							<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-							<?php
-							$reign_description = get_bloginfo( 'description', 'display' );
-							if ( $reign_description || is_customize_preview() ) {
-								?>
-								<p class="site-description">
-									<?php echo esc_html( $reign_description ); ?>
-								</p>
-								<?php
-							}
-							?>
-							<?php
-					endif;
+						reign_display_site_title_description();
 					}
 
 					$reign_header_sticky_menu_enable              = get_theme_mod( 'reign_header_sticky_menu_enable', true );
@@ -59,8 +32,8 @@
 
 					if ( $reign_header_sticky_menu_enable && $reign_header_sticky_menu_custom_style_enable && $sticky_menu_logo ) {
 						?>
-						<a href="<?php echo get_home_url(); /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */ ?>" class="sticky-menu-logo custom-logo-link" rel="home" itemprop="url">
-						<img src="<?php echo $sticky_menu_logo; /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */ ?>" class="custom-logo" alt="<?php bloginfo( 'name' ); ?>" itemprop="logo">
+						<a href="<?php echo esc_url( get_home_url() ); ?>" class="sticky-menu-logo custom-logo-link" rel="home" itemprop="url">
+							<img src="<?php echo esc_url( $sticky_menu_logo ); ?>" class="custom-logo" alt="<?php bloginfo( 'name' ); ?>" itemprop="logo">
 						</a>
 						<?php
 					}
@@ -100,27 +73,8 @@
 				<div class="header-right no-gutter wb-grid-flex wb-grid-center">
 					<nav id="site-navigation" class="main-navigation" role="navigation">
 						<?php
-						if ( is_user_logged_in() ) {
-							wp_nav_menu(
-								array(
-									'theme_location' => 'menu-1',
-									'menu_id'        => 'primary-menu',
-									'fallback_cb'    => '',
-									'container'      => false,
-									'menu_class'     => 'primary-menu',
-								)
-							);
-						} elseif ( has_nav_menu( 'menu-1' ) || has_nav_menu( 'menu-1-logout' ) ) {
-							wp_nav_menu(
-								array(
-									'theme_location' => 'menu-1-logout',
-									'menu_id'        => 'primary-menu',
-									'fallback_cb'    => 'fallback_primary_desktop_menu',
-									'container'      => false,
-									'menu_class'     => 'primary-menu',
-								)
-							);
-						}
+						// Display the primary navigation.
+						reign_display_primary_navigation();
 						?>
 					</nav>
 					<div class="rg-version-four-menu-top-icon">
