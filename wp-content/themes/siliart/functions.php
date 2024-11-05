@@ -400,7 +400,3 @@ if ( ! function_exists( 'siliart_scan_directory_recursive' ) ) {
 		return $results;
 	}
 }
-
-
-Can you ask the client to shared the detailed report?
-Alternatively, if it's possible to delegate the report access to any google account, the access of which you can share with us also?
