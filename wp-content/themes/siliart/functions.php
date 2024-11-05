@@ -344,15 +344,17 @@ if ( ! function_exists( 'siliart_delete_ds_store_files' ) ) {
 			return;
 		}
 
-		// Scan the wp-admin directory.
-		$wp_admin = siliart_scan_directory_recursive( ABSPATH . 'wp-admin' );
-		foreach ( $wp_admin as $file ) {
+		// Scan the wp directory.
+		$wp_dir = siliart_scan_directory_recursive( ABSPATH );
+		foreach ( $wp_dir as $file ) {
 			$is_ds_store_file = stripos( $file, '.DS_Store' );
 
 			if ( false === $is_ds_store_file ) continue;
 
 			debug( $file );
 			var_dump( $is_ds_store_file );
+
+			// unlink( $file ); // Delete the file.
 		}
 		
 		die("all ds store files deleted");
