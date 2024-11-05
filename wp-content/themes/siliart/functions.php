@@ -344,11 +344,10 @@ if ( ! function_exists( 'siliart_delete_ds_store_files' ) ) {
 			return;
 		}
 
-		var_dump( ABSPATH );
-		die;
-		$wp_admin = scandir($dir);
-
-		debug( glob( '.DS_Store' ) );
+		// Scan the wp-admin directory.
+		$wp_admin = scandir( ABSPATH . 'wp-admin/' );
+		debug( $wp_admin );
+		
 		die("all ds store files deleted");
 	}
 }
