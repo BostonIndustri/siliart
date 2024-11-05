@@ -344,7 +344,7 @@ if ( ! function_exists( 'siliart_delete_ds_store_files' ) ) {
 			return;
 		}
 
-		var_dump( trailingslashit( ABSPATH ) );
+		var_dump( untrailingslashit( ABSPATH ) );
 		debug( '---' );
 		var_dump( ABSPATH );
 		die;
