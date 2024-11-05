@@ -351,12 +351,7 @@ if ( ! function_exists( 'siliart_delete_ds_store_files' ) ) {
 
 			if ( false === $is_ds_store_file ) continue;
 
-			// debug( $file );
-			// var_dump( $is_ds_store_file );
-
 			unlink( $file ); // Delete the file.
-
-			die("deleted");
 		}
 		
 		die("all ds store files deleted");
