@@ -43,7 +43,7 @@ class ShippingRate implements Hookable {
 	}
 
 	public function hooks() {
-		add_filter( 'woocommerce_shipping_method_add_rate', [ $this, 'add_table_rate_shipping_rate' ], 10, 3 );
+		add_filter( 'woocommerce_shipping_method_add_rate_args', [ $this, 'add_table_rate_shipping_rate' ], 10, 3 );
 		add_action( 'woocommerce_before_get_rates_for_package', [ $this, 'save_package' ], 10 );
 		add_filter( 'woocommerce_package_rates', [ $this, 'remove_canceled_rates' ] );
 	}
@@ -71,32 +71,34 @@ class ShippingRate implements Hookable {
 	}
 
 	/**
-	 * @param \WC_Shipping_Rate   $rate
 	 * @param array               $args
 	 * @param \WC_Shipping_Method $shipping_method
 	 *
-	 * @return \WC_Shipping_Rate
+	 * @return array
 	 */
-	public function add_table_rate_shipping_rate( $rate, $args, $shipping_method ) {
-		if ( $shipping_method->get_option( SettingsFields::FS_CALCULATION_ENABLED, 'no' ) === 'no' ) {
-			return $rate;
+	public function add_table_rate_shipping_rate( $args, $shipping_method ) {
+		if ( ! is_array( $args ) || $shipping_method->get_option( SettingsFields::FS_CALCULATION_ENABLED, 'no' ) === 'no' ) {
+			return $args;
 		}
 		$cost_calculator = $this->prepare_cost_calculator( $shipping_method, $this->package );
 		$cost_calculator->process_rules();
+		if ( ! is_array( $args['meta_data'] ) ) {
+			$args['meta_data'] = [];
+		}
 		if ( $cost_calculator->is_cancel() ) {
-			$rate->add_meta_data( self::FS_CANCEL, true );
+			$args['meta_data'][ self::FS_CANCEL ] = true;
 		} else {
-			$rate->add_meta_data(
-				OrderMetaData::META_KEY,
-				OrderMetaData::prepare_meta_value(
-					(float) $rate->get_cost(),
-					$cost_calculator->get_calculated_cost()
-				)
+			if ( ! is_array( $args['cost'] ) ) {
+				$args['cost'] = [ $args['cost'] ];
+			}
+			$args['meta_data'][ OrderMetaData::META_KEY ] = OrderMetaData::prepare_meta_value(
+				(float) array_sum( $args['cost'] ),
+				$cost_calculator->get_calculated_cost()
 			);
-			$rate->set_cost( (float) $rate->get_cost() + $cost_calculator->get_calculated_cost() );
+			$args['cost'][]                               = $cost_calculator->get_calculated_cost();
 		}
 
-		return $rate;
+		return $args;
 	}
 
 	private function prepare_cost_calculator( $shipping_method, $package ): CostsCalculator {
