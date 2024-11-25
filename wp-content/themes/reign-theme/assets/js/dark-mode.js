@@ -1,6 +1,13 @@
 jQuery( document ).ready(function( $ ) {
 	
 	var html = $( "html" );
+
+	// Check default mode on load
+	if (defaultMode === "dark" && !html.hasClass("dark-mode") && !$.cookie("reign_dark_mode")) {
+		html.addClass("dark-mode");
+		$.cookie("reign_dark_mode", "true", { path: '/', expires: 7 }); // Default to dark mode with a 7-day cookie
+	}
+
 	$( ".rg-dark__scheme-toggle" ).on( "click", function () {
 		if ( html.hasClass( "dark-mode" ) ) {
 			html.removeClass( "dark-mode" );

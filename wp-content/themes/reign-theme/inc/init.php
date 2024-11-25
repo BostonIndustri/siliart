@@ -444,9 +444,19 @@ if ( ! function_exists( 'reign_scripts' ) ) {
 			wp_enqueue_style( 'reign_youzify', get_template_directory_uri() . '/assets/css' . $rtl_css . '/directorist-main.min.css', '', REIGN_THEME_VERSION );
 		}
 
-		// Site Directories CSS Enqueue.
+		// Site Dokan CSS Enqueue.
 		if ( class_exists( 'WeDevs_Dokan' ) ) {
 			wp_enqueue_style( 'reign_dokan', get_template_directory_uri() . '/assets/css' . $rtl_css . '/dokan-main.min.css', '', REIGN_THEME_VERSION );
+		}
+
+		// Site LearnDash CSS Enqueue.
+		if ( class_exists( 'SFWD_LMS' ) && ! class_exists( 'LearnMate_LearnDash_Addon' ) ) {
+			wp_enqueue_style( 'reign_learndash', get_template_directory_uri() . '/assets/css' . $rtl_css . '/learndash-main.min.css', '', REIGN_THEME_VERSION );
+		}
+
+		// Site Sensei LMS CSS Enqueue.
+		if ( class_exists( 'Sensei_Main' ) && ! class_exists( 'Reign_Sensei_Addon' ) ) {
+			wp_enqueue_style( 'reign_sensei', get_template_directory_uri() . '/assets/css' . $rtl_css . '/sensei-main.min.css', '', REIGN_THEME_VERSION );
 		}
 
 		// Site Main CSS Enqueue.
@@ -476,7 +486,14 @@ if ( ! function_exists( 'reign_scripts' ) ) {
 		$reign_dark_mode_option = get_theme_mod( 'reign_dark_mode_option' );
 
 		if ( $reign_dark_mode_option === true ) {
+			// Get the default mode setting from the theme options.
+			$default_mode = get_theme_mod( 'reign_default_mode', 'light' );
+
+			// Enqueue the main dark mode JavaScript file.
 			wp_enqueue_script( 'wp-dark-mode', get_template_directory_uri() . '/assets/js/dark-mode.js', array( 'jquery' ), REIGN_THEME_VERSION, true );
+
+			// Add inline script to define the defaultMode variable.
+			wp_add_inline_script( 'wp-dark-mode', 'var defaultMode = "' . esc_js( $default_mode ) . '";' );
 		}
 
 		// Load GamiPress JS File.

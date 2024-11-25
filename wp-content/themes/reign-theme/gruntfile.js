@@ -39,7 +39,9 @@ module.exports = function(grunt) {
                     'assets/css/youzify-main.css': 'assets/css/sass/youzify-main.scss',
                     'assets/css/directorist-main.css': 'assets/css/sass/directorist-main.scss',
                     'assets/css/wpforo-main.css': 'assets/css/sass/wpforo-main.scss',
-                    'assets/css/dokan-main.css': 'assets/css/sass/dokan-main.scss'
+                    'assets/css/dokan-main.css': 'assets/css/sass/dokan-main.scss',
+                    'assets/css/learndash-main.css': 'assets/css/sass/learndash-main.scss',
+                    'assets/css/sensei-main.css': 'assets/css/sass/sensei-main.scss'
                 }
             }
         },

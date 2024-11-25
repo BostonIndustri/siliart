@@ -41,24 +41,20 @@
             });
         },
         WooProductsSwipe: function() {
-            if (wp_main_js_obj.reign_rtl) {
-                var rt = true;
-            } else {
-                var rt = false;
-            }
+            var rt = wp_main_js_obj.reign_rtl ? true : false;
 
             $(".wc-tabs-wrapper .wc-tabs").slick({
-                arrows: false,
+                arrows: true,
                 dots: false,
                 slidesToShow: 3,
                 slidesToScroll: 1,
                 variableWidth: true,
                 infinite: false,
                 swipeToSlide: true,
-                rtl: rt
+                rtl: rt,
+                nextArrow: '<button class="slick-next slick-arrow"><i class="far fa-angle-right"></i></button>',
+                prevArrow: '<button class="slick-prev slick-arrow"><i class="far fa-angle-left"></i></button>',
             });
-
-            $("table.my_account_bookings").wrap('<div class="touch-scroll-table"/>');
         },
         wooOffCanvas: function() {
             var widget = $('.reign-woo-canvas-filter'),
@@ -223,13 +219,12 @@
             }
         },
         wooShopLoader: function() {
-            $(window).load(function() {
-                if ('ul.products') {
-                    setTimeout(function() {
-                        $('.rg-woocommerce-loading-overlay').addClass('loaded');
-                    }, 300);
-                }
-            });
+            // Check if .rg-woocommerce-loading-overlay and ul.products exist in the DOM
+            if ($('.rg-woocommerce-loading-overlay').length && $('ul.products').length) {                    
+                setTimeout(function() {
+                    $('.rg-woocommerce-loading-overlay').addClass('loaded');
+                }, 300);
+            }
         },      
         wooSingleGallerySlider: function() {
             $(document).on('wc-product-gallery-after-init', '.woocommerce-product-gallery', function(event, gallery) {

@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: REIGN 7.6.0\n"
+"Project-Id-Version: REIGN 7.6.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-24 05:58:20+00:00\n"
+"POT-Creation-Date: 2024-11-18 12:14:38+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -98,15 +98,29 @@ msgstr ""
 #: amp/single.php:24 inc/extras.php:191
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/foundation-icons.php:914
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/genericon.php:182
-#: inc/theme-functions.php:1379 single.php:27
+#: inc/theme-functions.php:1392 single-sfwd-courses.php:26 single.php:27
 msgid "Previous"
 msgstr ""
 
 #: amp/single.php:25 inc/extras.php:192
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/foundation-icons.php:929
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/genericon.php:187
-#: inc/theme-functions.php:1391 single.php:28
+#: inc/theme-functions.php:1404 single-sfwd-courses.php:27 single.php:28
 msgid "Next"
+msgstr ""
+
+#: archive-sfwd-courses.php:53
+msgid "<i class=\"far fa-angle-double-left\"></i>"
+msgstr ""
+
+#: archive-sfwd-courses.php:54
+msgid "<i class=\"far fa-angle-double-right\"></i>"
+msgstr ""
+
+#: archive-sfwd-courses.php:55
+#: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/dashicons.php:219
+#: lib/kirki-addon/options/post-types/class-reign-kirki-post-types.php:71
+msgid "Page"
 msgstr ""
 
 #: bb-buddypress/activity/entry.php:33
@@ -299,8 +313,8 @@ msgid "Edit Profile"
 msgstr ""
 
 #: bb-buddypress/members/single/settings.php:13
-#: bp-nouveau/members/single/settings.php:13 inc/theme-functions.php:1151
-#: inc/theme-functions.php:1157
+#: bp-nouveau/members/single/settings.php:13 inc/theme-functions.php:1164
+#: inc/theme-functions.php:1170
 msgid "Account Settings"
 msgstr ""
 
@@ -488,6 +502,8 @@ msgid "Last Post"
 msgstr ""
 
 #: bbpress/loop-search-forum.php:15
+#: inc/plugins-support/learndash/reign-learndash-functions.php:270
+#: inc/plugins-support/sensei/reign-sensei-functions.php:78
 msgid "Last updated %s"
 msgstr ""
 
@@ -673,7 +689,7 @@ msgstr ""
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/foundation-icons.php:614
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/genericon.php:352
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/reign.php:2241
-#: inc/theme-functions.php:981
+#: inc/theme-functions.php:994
 #. translators: accessibility text
 msgid "Comment"
 msgstr ""
@@ -842,6 +858,8 @@ msgid ""
 msgstr ""
 
 #: buddypress.php:32 inc/login.php:173 inc/login.php:252
+#: learndash/ld30/course-list.php:90 learndash/ld30/course-list.php:114
+#. translators: %s: Course label.
 msgid "%s"
 msgstr ""
 
@@ -855,11 +873,95 @@ msgstr ""
 msgid "%1$s at %2$s"
 msgstr ""
 
+#: dokan/store-header.php:17
+msgid "Store Open"
+msgstr ""
+
+#: dokan/store-header.php:18
+msgid "Store Closed"
+msgstr ""
+
+#: dokan/store-header.php:126
+msgid "Weekly Store Timing"
+msgstr ""
+
+#: dokan/store-header.php:127
+msgid "CLOSED"
+msgstr ""
+
+#: dokan/store-lists-loop.php:44
+msgid "Featured"
+msgstr ""
+
+#: dokan/store-lists-loop.php:51
+msgid "Store is Open"
+msgstr ""
+
+#: dokan/store-lists-loop.php:51
+#: lib/kirki-addon/options/header/class-reign-kirki-left-panel.php:157
+msgid "Open"
+msgstr ""
+
+#: dokan/store-lists-loop.php:53
+msgid "Store is Closed"
+msgstr ""
+
+#: dokan/store-lists-loop.php:53
+#: lib/kirki-addon/options/header/class-reign-kirki-left-panel.php:158
+msgid "Closed"
+msgstr ""
+
+#: dokan/store-lists-loop.php:78
+#. translators: %s:
+msgid "Rated %s out of 5"
+msgstr ""
+
+#: dokan/store-lists-loop.php:85
+msgid "No Rating Yet"
+msgstr ""
+
+#: dokan/store-lists-loop.php:101 dokan/store-lists-loop.php:150
+msgid "Recent Products"
+msgstr ""
+
+#: dokan/store-lists-loop.php:108
+msgid "Visit Store"
+msgstr ""
+
+#: dokan/store-lists-loop.php:176
+msgid "&larr; Previous"
+msgstr ""
+
+#: dokan/store-lists-loop.php:177
+msgid "Next &rarr;"
+msgstr ""
+
+#: dokan/store-lists-loop.php:203
+msgid "No vendor found!"
+msgstr ""
+
+#: dokan/store-reviews.php:58
+msgid "Vendor Review"
+msgstr ""
+
+#: dokan/store-toc.php:48
+msgid "Terms And Conditions"
+msgstr ""
+
+#: dokan/store.php:76
+msgid "No products were found of this vendor!"
+msgstr ""
+
+#: dokan/vendor-biography.php:47
+msgid "Vendor Biography"
+msgstr ""
+
 #: edd_templates/shortcode-download.php:9
 #: template-parts/edd/download-layout-1.php:19
 #: template-parts/edd/download-layout-2.php:19
 #: template-parts/edd/download-layout-3.php:19
 #: template-parts/edd/download-layout-default.php:19
+#: woocommerce/checkout/form-checkout.php:34
 msgid "Checkout"
 msgstr ""
 
@@ -1417,10 +1519,12 @@ msgstr ""
 
 #: inc/extras.php:646
 #: lib/kirki-addon/options/colors/class-reign-kirki-colors.php:99
+#: lib/kirki-addon/options/general/class-reign-kirki-dark-mode.php:159
 msgid "Dark"
 msgstr ""
 
 #: inc/extras.php:647
+#: lib/kirki-addon/options/general/class-reign-kirki-dark-mode.php:158
 msgid "Light"
 msgstr ""
 
@@ -1644,11 +1748,11 @@ msgstr ""
 msgid "Header Widget Area"
 msgstr ""
 
-#: inc/init.php:591
+#: inc/init.php:608
 msgid "[Read more]"
 msgstr ""
 
-#: inc/init.php:677 inc/init.php:680
+#: inc/init.php:694 inc/init.php:697
 #: inc/reign-settings/reign-theme-options-manager.php:101
 #: inc/reign-settings/reign-theme-options-manager.php:102
 msgid "Reign Settings"
@@ -1696,7 +1800,7 @@ msgstr ""
 #: inc/plugins-support/class-reign-walker-nav-menu-checklist.php:201
 #: inc/plugins-support/class-reign-walker-nav-menu-checklist.php:258
 #: inc/plugins-support/class-reign-walker-nav-menu-checklist.php:288
-#: inc/theme-functions.php:1240 inc/theme-functions.php:1251
+#: inc/theme-functions.php:1253 inc/theme-functions.php:1264
 #: peepso/widgets/me.tpl.php:132
 msgid "Log Out"
 msgstr ""
@@ -1750,6 +1854,9 @@ msgid "Tag"
 msgstr ""
 
 #: inc/plugins-support/class-rtm-edd-customization.php:262
+#: learndash/ld30/course-list.php:102
+#: learndash/ld30/ld_course_list_template.php:75
+#: learndash/ld30/ld_course_list_template.php:100
 msgid "Free"
 msgstr ""
 
@@ -1821,6 +1928,87 @@ msgstr ""
 msgid "Product Categories"
 msgstr ""
 
+#: inc/plugins-support/learndash/reign-learndash-functions.php:93
+msgid "Default Course Image"
+msgstr ""
+
+#: inc/plugins-support/learndash/reign-learndash-functions.php:364
+msgid "users"
+msgstr ""
+
+#: inc/plugins-support/learndash/reign-learndash-functions.php:364
+msgid "user"
+msgstr ""
+
+#: inc/plugins-support/learndash/reign-learndash-functions.php:475
+msgid "Courses"
+msgstr ""
+
+#: inc/plugins-support/learndash/reign-learndash-functions.php:480
+msgid "Course Lessons"
+msgstr ""
+
+#: inc/plugins-support/learndash/reign-learndash-functions.php:484
+msgid "Course Topics"
+msgstr ""
+
+#: inc/plugins-support/sensei/reign-sensei-functions.php:121
+#: inc/reign-menu-icons/includes/settings.php:543
+#: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/dashicons.php:794
+#: inc/wbcom-postmeta-mgmt/sections/class-layout-section.php:103
+#: lib/kirki-addon/options/buddypress/class-reign-kirki-buddypress.php:159
+#: lib/kirki-addon/options/footer/class-reign-kirki-footer.php:268
+#: single-sfwd-courses.php:77 single-sfwd-courses.php:93
+#: single-sfwd-groups.php:59 widgets/sidewide-activity-widget.php:192
+#: widgets/sidewide-activity-widget.php:199
+#: widgets/sidewide-activity-widget.php:207
+#: widgets/sidewide-activity-widget.php:213
+#: widgets/sidewide-activity-widget.php:219
+#: widgets/sidewide-activity-widget.php:250
+msgid "Yes"
+msgstr ""
+
+#: inc/plugins-support/sensei/reign-sensei-functions.php:123
+#: inc/reign-menu-icons/includes/settings.php:539
+#: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/dashicons.php:799
+#: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/dashicons.php:804
+#: inc/wbcom-postmeta-mgmt/sections/class-layout-section.php:102
+#: lib/kirki-addon/options/buddypress/class-reign-kirki-buddypress.php:160
+#: lib/kirki-addon/options/footer/class-reign-kirki-footer.php:269
+#: single-sfwd-courses.php:79 single-sfwd-courses.php:88
+#: single-sfwd-groups.php:61 widgets/sidewide-activity-widget.php:193
+#: widgets/sidewide-activity-widget.php:200
+#: widgets/sidewide-activity-widget.php:208
+#: widgets/sidewide-activity-widget.php:214
+#: widgets/sidewide-activity-widget.php:220
+#: widgets/sidewide-activity-widget.php:251
+msgid "No"
+msgstr ""
+
+#: inc/plugins-support/sensei/reign-sensei-functions.php:130
+msgid "Lessons"
+msgstr ""
+
+#: inc/plugins-support/sensei/reign-sensei-functions.php:136
+msgid "Quizzes"
+msgstr ""
+
+#: inc/plugins-support/sensei/reign-sensei-functions.php:142
+#: single-sfwd-courses.php:184
+msgid "Students"
+msgstr ""
+
+#: inc/plugins-support/sensei/reign-sensei-functions.php:148
+#: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/elusive.php:750
+#: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/reign.php:2186
+#: single-sfwd-courses.php:196 single-sfwd-groups.php:98
+msgid "Certificate"
+msgstr ""
+
+#: inc/plugins-support/sensei/reign-sensei-functions.php:173
+msgid "Course Features"
+msgstr ""
+
 #: inc/reign-menu-icons/includes/library/form-fields.php:160
 msgid "%1$s: Type %2$s is not supported, reverting to text."
 msgstr ""
@@ -1866,7 +2054,7 @@ msgstr ""
 #: inc/reign-menu-icons/includes/settings.php:743
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/fields/base.php:68
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/elusive.php:465
-#: inc/theme-functions.php:769 inc/theme-functions.php:827
+#: inc/theme-functions.php:782 inc/theme-functions.php:840
 #: lib/kirki/kirki-packages/control-image/src/Control/Image.php:85
 #: lib/kirki/kirki-packages/control-image/src/Field/Image.php:114
 #: lib/kirki/kirki-packages/control-repeater/src/Control/Repeater.php:453
@@ -1936,35 +2124,6 @@ msgstr ""
 
 #: inc/reign-menu-icons/includes/settings.php:534
 msgid "Hide Label"
-msgstr ""
-
-#: inc/reign-menu-icons/includes/settings.php:539
-#: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/dashicons.php:799
-#: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/dashicons.php:804
-#: inc/wbcom-postmeta-mgmt/sections/class-layout-section.php:102
-#: lib/kirki-addon/options/buddypress/class-reign-kirki-buddypress.php:160
-#: lib/kirki-addon/options/footer/class-reign-kirki-footer.php:269
-#: widgets/sidewide-activity-widget.php:193
-#: widgets/sidewide-activity-widget.php:200
-#: widgets/sidewide-activity-widget.php:208
-#: widgets/sidewide-activity-widget.php:214
-#: widgets/sidewide-activity-widget.php:220
-#: widgets/sidewide-activity-widget.php:251
-msgid "No"
-msgstr ""
-
-#: inc/reign-menu-icons/includes/settings.php:543
-#: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/dashicons.php:794
-#: inc/wbcom-postmeta-mgmt/sections/class-layout-section.php:103
-#: lib/kirki-addon/options/buddypress/class-reign-kirki-buddypress.php:159
-#: lib/kirki-addon/options/footer/class-reign-kirki-footer.php:268
-#: widgets/sidewide-activity-widget.php:192
-#: widgets/sidewide-activity-widget.php:199
-#: widgets/sidewide-activity-widget.php:207
-#: widgets/sidewide-activity-widget.php:213
-#: widgets/sidewide-activity-widget.php:219
-#: widgets/sidewide-activity-widget.php:250
-msgid "Yes"
 msgstr ""
 
 #: inc/reign-menu-icons/includes/settings.php:550
@@ -2223,11 +2382,6 @@ msgstr ""
 msgid "Network"
 msgstr ""
 
-#: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/dashicons.php:219
-#: lib/kirki-addon/options/post-types/class-reign-kirki-post-types.php:71
-msgid "Page"
-msgstr ""
-
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/dashicons.php:224
 msgid "Plugins"
 msgstr ""
@@ -2250,6 +2404,7 @@ msgstr ""
 
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/dashicons.php:244
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/reign.php:3131
+#: single-sfwd-groups.php:86
 msgid "Users"
 msgstr ""
 
@@ -2619,7 +2774,7 @@ msgstr ""
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/reign.php:2851
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/reign.php:2856
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/reign.php:2861
-#: inc/theme-functions.php:1003
+#: inc/theme-functions.php:1016
 msgid "Share"
 msgstr ""
 
@@ -3549,11 +3704,6 @@ msgstr ""
 
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/elusive.php:745
 msgid "CC"
-msgstr ""
-
-#: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/elusive.php:750
-#: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/reign.php:2186
-msgid "Certificate"
 msgstr ""
 
 #: inc/reign-menu-icons/vendor/kucrut/icon-picker/includes/types/elusive.php:755
@@ -6885,73 +7035,73 @@ msgid_plural "Recently earned badges"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/theme-functions.php:680
+#: inc/theme-functions.php:693
 msgid "Dark Mode Image Settings"
 msgstr ""
 
-#: inc/theme-functions.php:687
+#: inc/theme-functions.php:700
 msgid "Image Settings"
 msgstr ""
 
-#: inc/theme-functions.php:701
+#: inc/theme-functions.php:714
 msgid "Light Mode Image"
 msgstr ""
 
-#: inc/theme-functions.php:704
+#: inc/theme-functions.php:717
 msgid "Dark Mode Image"
 msgstr ""
 
-#: inc/theme-functions.php:768 inc/theme-functions.php:826
+#: inc/theme-functions.php:781 inc/theme-functions.php:839
 #: lib/kirki-addon/options/header/class-reign-kirki-header-topbar.php:206
 #: lib/kirki-addon/options/header/class-reign-kirki-header-topbar.php:254
 msgid "Add"
 msgstr ""
 
-#: inc/theme-functions.php:888 inc/theme-functions.php:1042
+#: inc/theme-functions.php:901 inc/theme-functions.php:1055
 msgid "React"
 msgstr ""
 
-#: inc/theme-functions.php:935
+#: inc/theme-functions.php:948
 msgid "Shares"
 msgstr ""
 
-#: inc/theme-functions.php:1168 inc/theme-functions.php:1174
+#: inc/theme-functions.php:1181 inc/theme-functions.php:1187
 msgid "Profile Settings"
 msgstr ""
 
-#: inc/theme-functions.php:1185 inc/theme-functions.php:1191
+#: inc/theme-functions.php:1198 inc/theme-functions.php:1204
 msgid "Change Avatar"
 msgstr ""
 
-#: inc/theme-functions.php:1204 inc/theme-functions.php:1210
+#: inc/theme-functions.php:1217 inc/theme-functions.php:1223
 msgid "Change Password"
 msgstr ""
 
-#: inc/theme-functions.php:1228
+#: inc/theme-functions.php:1241
 msgid "Profile Info"
 msgstr ""
 
-#: inc/theme-functions.php:1269
+#: inc/theme-functions.php:1282
 msgid "Something went wrong. Please try again."
 msgstr ""
 
-#: inc/theme-functions.php:1292
+#: inc/theme-functions.php:1305
 msgid "No member found by that ID."
 msgstr ""
 
-#: inc/theme-functions.php:1306
+#: inc/theme-functions.php:1319
 msgid "There was a problem accepting that request. Please try again."
 msgstr ""
 
-#: inc/theme-functions.php:1315
+#: inc/theme-functions.php:1328
 msgid "Friendship accepted."
 msgstr ""
 
-#: inc/theme-functions.php:1330
+#: inc/theme-functions.php:1343
 msgid "There was a problem rejecting that request. Please try again."
 msgstr ""
 
-#: inc/theme-functions.php:1339
+#: inc/theme-functions.php:1352
 msgid "Friendship rejected."
 msgstr ""
 
@@ -6964,7 +7114,7 @@ msgstr ""
 #: inc/wbcom-postmeta-mgmt/sections/class-header-footer-section.php:152
 #: lib/kirki-addon/options/footer/class-reign-kirki-footer.php:117
 #: lib/kirki-addon/options/general/class-reign-kirki-dark-mode.php:86
-#: lib/kirki-addon/options/general/class-reign-kirki-dark-mode.php:160
+#: lib/kirki-addon/options/general/class-reign-kirki-dark-mode.php:198
 #: lib/kirki-addon/options/general/class-reign-kirki-login-popup.php:86
 #: lib/kirki-addon/options/general/class-reign-kirki-site-layout.php:87
 #: lib/kirki-addon/options/general/class-reign-kirki-site-layout.php:157
@@ -7285,6 +7435,47 @@ msgid "(%s)"
 msgid_plural "(%s)"
 msgstr[0] ""
 msgstr[1] ""
+
+#: learndash/ld30/course-list.php:87 learndash/ld30/course-list.php:111
+msgid "Start "
+msgstr ""
+
+#: learndash/ld30/course-list.php:106
+msgid "Not Enrolled"
+msgstr ""
+
+#: learndash/ld30/course-list.php:140 learndash/ld30/course-list.php:146
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+msgid "%1$s %2$s"
+msgstr ""
+
+#: learndash/ld30/course-list.php:158
+#. translators: %s: Lesson label.
+msgid "0 %s"
+msgstr ""
+
+#: learndash/ld30/ld_course_list_template.php:47
+msgid "See more..."
+msgstr ""
+
+#: learndash/ld30/ld_course_list_template.php:110
+#: learndash/ld30/ld_course_list_template.php:117
+msgid "Enrolled"
+msgstr ""
+
+#: learndash/ld30/ld_course_list_template.php:113
+#: learndash/ld30/ld_course_list_template.php:120
+msgid "Completed"
+msgstr ""
+
+#: learndash/ld30/ld_course_list_template.php:193
+#: learndash/ld30/ld_course_list_template.php:203
+#: template-parts/content-audio.php:96 template-parts/content-gallery.php:95
+#: template-parts/content-link.php:102 template-parts/content-quote.php:103
+#: template-parts/content-search.php:46 template-parts/content-video.php:103
+#: template-parts/content.php:87
+msgid "Read More"
+msgstr ""
 
 #: lib/kirki/kirki-packages/compatibility/src/Field.php:267
 #. translators: %s represents the field ID where the error occurs.
@@ -8621,7 +8812,7 @@ msgstr ""
 
 #: lib/kirki-addon/options/footer/class-reign-kirki-footer.php:116
 #: lib/kirki-addon/options/general/class-reign-kirki-dark-mode.php:85
-#: lib/kirki-addon/options/general/class-reign-kirki-dark-mode.php:159
+#: lib/kirki-addon/options/general/class-reign-kirki-dark-mode.php:197
 #: lib/kirki-addon/options/general/class-reign-kirki-login-popup.php:85
 #: lib/kirki-addon/options/general/class-reign-kirki-site-layout.php:86
 #: lib/kirki-addon/options/general/class-reign-kirki-site-layout.php:156
@@ -8865,20 +9056,30 @@ msgid "Style 4"
 msgstr ""
 
 #: lib/kirki-addon/options/general/class-reign-kirki-dark-mode.php:153
+msgid "Select Default Mode"
+msgstr ""
+
+#: lib/kirki-addon/options/general/class-reign-kirki-dark-mode.php:156
+msgid ""
+"Please choose the default mode for your website. (Note: This option will "
+"not work with the dark mode scheme activated in the color scheme settings.)"
+msgstr ""
+
+#: lib/kirki-addon/options/general/class-reign-kirki-dark-mode.php:191
 msgid "Custom Dark Mode Colors"
 msgstr ""
 
-#: lib/kirki-addon/options/general/class-reign-kirki-dark-mode.php:154
+#: lib/kirki-addon/options/general/class-reign-kirki-dark-mode.php:192
 msgid ""
 "If enable this option, you can set custom colors from Customizer Setting > "
 "Colors > Color Scheme > Dark."
 msgstr ""
 
-#: lib/kirki-addon/options/general/class-reign-kirki-dark-mode.php:192
+#: lib/kirki-addon/options/general/class-reign-kirki-dark-mode.php:230
 msgid "Dark Mode Logo"
 msgstr ""
 
-#: lib/kirki-addon/options/general/class-reign-kirki-dark-mode.php:193
+#: lib/kirki-addon/options/general/class-reign-kirki-dark-mode.php:231
 msgid "Set dark mode logo (Note: First set theme logo from Site Identity > Logo)"
 msgstr ""
 
@@ -9559,14 +9760,6 @@ msgstr ""
 
 #: lib/kirki-addon/options/header/class-reign-kirki-left-panel.php:152
 msgid "Left Panel - Default State"
-msgstr ""
-
-#: lib/kirki-addon/options/header/class-reign-kirki-left-panel.php:157
-msgid "Open"
-msgstr ""
-
-#: lib/kirki-addon/options/header/class-reign-kirki-left-panel.php:158
-msgid "Closed"
 msgstr ""
 
 #: lib/kirki-addon/options/header/class-reign-kirki-left-panel.php:176
@@ -10636,6 +10829,22 @@ msgid_plural "%d Jobs Available"
 msgstr[0] ""
 msgstr[1] ""
 
+#: single-sfwd-courses.php:129
+msgid "enrolled"
+msgstr ""
+
+#: single-sfwd-courses.php:152
+msgid "Continue"
+msgstr ""
+
+#: single-sfwd-courses.php:202
+msgid "Assignment"
+msgstr ""
+
+#: single-sfwd-groups.php:92
+msgid "Leaders"
+msgstr ""
+
 #: template-parts/activity-widgets.php:15
 msgid "Sitewide activities navigation"
 msgstr ""
@@ -10692,13 +10901,6 @@ msgstr ""
 #: template-parts/content-search.php:39 template-parts/content-video.php:96
 #: template-parts/content.php:80
 msgid "Pages:"
-msgstr ""
-
-#: template-parts/content-audio.php:96 template-parts/content-gallery.php:95
-#: template-parts/content-link.php:102 template-parts/content-quote.php:103
-#: template-parts/content-search.php:46 template-parts/content-video.php:103
-#: template-parts/content.php:87
-msgid "Read More"
 msgstr ""
 
 #: template-parts/content-buddypress.php:49
@@ -11328,12 +11530,12 @@ msgstr ""
 msgid "Update cart"
 msgstr ""
 
-#: woocommerce/checkout/form-checkout.php:27
+#: woocommerce/checkout/form-checkout.php:28
 msgid "You must be logged in to checkout."
 msgstr ""
 
-#: woocommerce/checkout/form-checkout.php:55
-#: woocommerce/checkout/form-checkout.php:89
+#: woocommerce/checkout/form-checkout.php:56
+#: woocommerce/checkout/form-checkout.php:90
 msgid "Your order"
 msgstr ""
 
@@ -11434,12 +11636,27 @@ msgctxt "as in: \"version nr unknown\""
 msgid "unknown"
 msgstr ""
 
-#: inc/theme-functions.php:919
+#: inc/theme-functions.php:932
 msgctxt "Comment Count"
 msgid "%s Comment"
 msgid_plural "%s Comments"
 msgstr[0] ""
 msgstr[1] ""
+
+#: learndash/ld30/course-list.php:81
+msgctxt "Start ribbon"
+msgid "%s"
+msgstr ""
+
+#: single-sfwd-courses.php:155
+msgctxt "Course Features  Label"
+msgid "%s Features"
+msgstr ""
+
+#: single-sfwd-groups.php:72
+msgctxt "Group Features  Label"
+msgid "%s Features"
+msgstr ""
 
 #: template-parts/activity-widgets.php:67
 msgctxt "Number of new activity mentions"

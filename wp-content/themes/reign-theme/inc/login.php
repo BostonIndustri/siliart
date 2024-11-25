@@ -274,17 +274,20 @@ if ( ! function_exists( 'login_custom_head' ) ) {
 		}
 
 		?>
-		.login h1 a {
-			background-image: url(<?php echo $rg_login_logo; ?>);
+		.login h1 a,
+		.login .wp-login-logo a {
+			background-image: url(<?php echo esc_url( $rg_login_logo ); ?>);
 			background-size: contain;
+			background-repeat: no-repeat;
+			display: block;
 			height: auto;
 			margin-bottom: 15px;
 			<?php
 			if ( ! empty( $rg_logowidth ) ) {
-				echo 'width:' . $rg_logowidth . 'px ! important;';
+				echo 'width:' . esc_attr( $rg_logowidth ) . 'px ! important;';
 			}
 			if ( ! empty( $admin_logo_spacing ) ) {
-				echo 'margin-bottom:' . $admin_logo_spacing . 'px;';
+				echo 'margin-bottom:' . esc_attr( $admin_logo_spacing ) . 'px;';
 			}
 			?>
 		}
@@ -292,7 +295,7 @@ if ( ! function_exists( 'login_custom_head' ) ) {
 		.login #login h1 img.bs-cs-login-logo.private-on {
 			<?php
 			if ( $rg_logowidth ) {
-				echo 'width:' . $rg_logowidth . 'px ! important;';
+				echo 'width:' . esc_attr( $rg_logowidth ) . 'px ! important;';
 			}
 			?>
 		}	
@@ -317,7 +320,7 @@ if ( ! function_exists( 'login_custom_head' ) ) {
 		if ( $rg_admin_login_background_switch && $rg_login_background_media ) {
 			?>
 			.login-split {
-				background-image: url(<?php echo $rg_login_background_media; ?>);
+				background-image: url(<?php echo esc_url( $rg_login_background_media ); ?>);
 				background-size: cover;
 				background-position: 50% 50%;
 			}	
@@ -328,7 +331,7 @@ if ( ! function_exists( 'login_custom_head' ) ) {
 			?>
 			@media( min-width: 992px ) {
 				body.login.login-split-page .login-split .split-overlay {
-					opacity: <?php echo $rg_admin_login_overlay_opacity / 100; ?>;
+					opacity: <?php echo esc_attr( $rg_admin_login_overlay_opacity / 100 ); ?>;
 				}
 			}
 			<?php
@@ -337,7 +340,7 @@ if ( ! function_exists( 'login_custom_head' ) ) {
 			?>
 			@media( min-width: 992px ) {
 				body.login.login-split-page .login-split div {
-					color: <?php echo $rg_admin_login_heading_color; ?>;
+					color: <?php echo esc_attr( $rg_admin_login_heading_color ); ?>;
 				}
 			}	
 			<?php
@@ -379,7 +382,7 @@ if ( ! function_exists( 'login_custom_head' ) ) {
 			?>
 			@media( min-width: 992px ) {
 				.login.rg-login.login-modern .login-split .split-overlay {
-					opacity: <?php echo $login_modern_overlay_opacity / 100; ?>;
+					opacity: <?php echo esc_attr( $login_modern_overlay_opacity / 100 ); ?>;
 				}
 			}
 			<?php
@@ -388,7 +391,7 @@ if ( ! function_exists( 'login_custom_head' ) ) {
 			?>
 			@media( min-width: 992px ) {
 				.login.rg-login.login-modern .login-split div {
-					color: <?php echo $login_modern_heading_color; ?>;
+					color: <?php echo esc_attr( $login_modern_heading_color ); ?>;
 				}
 			}	
 			<?php

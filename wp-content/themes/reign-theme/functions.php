@@ -343,7 +343,7 @@ class REIGN_Theme_Class {
 		require_once REIGN_INC_DIR . 'extra-plugins-support.php';
 
 		/* Load required plugins library */
-		require_once REIGN_INC_DIR . '/reign-menu-icons/menu-icons.php';
+		require_once REIGN_INC_DIR . 'reign-menu-icons/menu-icons.php';
 		require_once REIGN_INC_DIR . 'reign-settings/class-left-menu-section.php';
 
 		/* Custom Widgets */
@@ -357,8 +357,23 @@ class REIGN_Theme_Class {
 
 		/* Added WooCommerce Support Files */
 		if ( class_exists( 'WooCommerce' ) ) {
-			require_once REIGN_INC_DIR . '/woocommerce/woocommerce-functions.php';
+			require_once REIGN_INC_DIR . 'woocommerce/woocommerce-functions.php';
 			require REIGN_THEME_DIR . '/widgets/woocommerce/class-reign-woo-widget-product-categories.php';
+		}
+
+		/* Added LearnDash Support Files */
+		if ( class_exists( 'SFWD_LMS' ) && ! class_exists( 'LearnMate_LearnDash_Addon' ) ) {
+			require_once REIGN_INC_DIR . 'plugins-support/learndash/reign-learndash-functions.php';
+		}
+
+		/* Added Dokan Support Files */
+		if ( class_exists( 'WeDevs_Dokan' ) && ! class_exists( 'Reign_Dokan_Addon' ) ) {
+			require_once REIGN_INC_DIR . 'plugins-support/dokan/reign-dokan-functions.php';
+		}
+
+		/* Added Sensei LMS Support Files */
+		if ( class_exists( 'Sensei_Main' ) && ! class_exists( 'Reign_Sensei_Addon' ) ) {
+			require_once REIGN_INC_DIR . 'plugins-support/sensei/reign-sensei-functions.php';
 		}
 
 		if ( class_exists( 'PeepSo' ) ) {

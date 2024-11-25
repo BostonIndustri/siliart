@@ -1,8 +1,8 @@
 === Reign ===
 
 Requires at least: 4.5
-Tested up to: 6.6.2
-Version: 7.6.1
+Tested up to: 6.7.0
+Version: 7.6.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -39,6 +39,32 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see < http://www.gnu.org/licenses/ >
 
 == Changelog ==
+= 7.6.3 =
+* Updated `edd.scss` for improved styling and compatibility.
+* Enhanced dark mode support for "Who Viewed My Profile" tab.
+* Improved dark mode compatibility with BP Statistics tab content.
+* Managed button UI improvements for BP Moderation Pro.
+* Fixed issue where custom login page logo did not display with WordPress 6.7 compatibility.
+
+= 7.6.2 =
+* Fixed WooCommerce preloader issue to prevent endless loading.
+* Resolved outdated copies of WooCommerce template files.
+* Added light/dark default mode setting for better theme customization.
+* Loaded dark mode class based on apply filters for enhanced flexibility.
+* Removed custom font size settings for Font Awesome icons.
+* Added support for Sensei LMS integration.
+* Managed Dokan single store profile frame border radius for improved appearance.
+* Improved layouts for Dokan single store pages.
+* Updated WooCommerce tabs slider arrow for better navigation.
+* Reverted support for WP Job Manager in specific scenarios.
+* Managed visibility of the course progress bar for better user experience.
+* Added support for Dokan marketplace integration.
+* Updated plugin support file call paths for better compatibility.
+* Added support for LearnDash LMS Integration.
+* Managed existing layout setup compatibility with the Reign Addon.
+* Removed duplicate sections when the Reign Addon is activated.
+* Added WP Job Manager support for enhanced job listing functionality.
+
 = 7.6.1 =
 * Fix: Message icon issue with BP Better Messages.
 * Fixed: Removed custom script when sticky sidebar is enabled.

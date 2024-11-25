@@ -800,11 +800,8 @@ body.buddypress .buddypress-wrap h6 {
 
 
 /* to-do plugin */
-
-.bp-nouveau .buddypress-wrap .bptodo-form-add select,
-.bp-nouveau .buddypress-wrap select {
-    font-size: $font__size-smallest;
-    height: 30px;
+.buddypress-wrap select {
+    height: 42px;
 }
 
 .bp-nouveau .buddypress-wrap .bptodo-form-add select {

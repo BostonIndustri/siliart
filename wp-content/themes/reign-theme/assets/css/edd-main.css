@@ -1309,9 +1309,9 @@ ul.fes-category-checklist {
 .fes-ajax-form div.fes-form .fes-submit input[type=submit] {
   display: inline-block;
   margin-right: 10px;
-  padding: 6px 12px;
+  padding: 10px 20px;
   height: auto;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 400;
   background-image: none;
   text-align: center;

@@ -1831,6 +1831,17 @@ body.groups.group-invites #send_group_invite_form .select2-container--default .s
     margin-left: 10px;
 }
 
+.bp-nouveau #buddypress div#item-header .wbtm-group-cover-image-container #item-header-cover-image #item-header-content .wbtm-item-buttons-wrapper {
+    display: flex;
+    flex-flow: wrap;
+    gap: 10px;
+
+    .action .button {
+        margin-right: 0;
+    }
+}
+
+
 @media screen and (max-width: 782px) {
     #buddypress .wbtm-cover-header-type-2 .bb_more_options .bb_more_options_action i {
         color: #fff;
@@ -1844,6 +1855,10 @@ body.groups.group-invites #send_group_invite_form .select2-container--default .s
 @media screen and (max-width: 782px) {
     #buddypress #item-header-cover-image #item-buttons {
         margin: 0;
+
+        .member-header-actions {
+            display: flex;
+        }
     }
 
     .bp-nouveau #buddypress div#item-header.single-headers #cover-image-container #item-header-cover-image .wbtm-item-buttons-wrapper {
@@ -1965,6 +1980,12 @@ div#bb-messages-thread-list-nav {
 
 .member-header-actions-wrap {
     display: flex;
+
+    .member-header-actions {
+        display: flex;
+        flex-flow: wrap;
+        gap: 10px;
+    }
 }
 
 .item-body-inner-wrapper {
@@ -2348,6 +2369,18 @@ table.main-notification-settings {
         content: attr(data-title) !important;
         font-size: $font__size-smaller;
     }
+}
+
+.groups-header #cover-image-container #item-header-content .group-actions-absolute .groups-meta .generic-button>*,
+.groups-header #cover-image-container #item-header-content .wbtm-item-buttons-wrapper .generic-button>* {
+    display: block;
+    font-size: 13px;
+    width: 100%;
+    height: auto;
+    line-height: 1.5;
+    padding: 10px 20px;
+    text-align: center;
+    border: none;
 }
 
 .groups-header #cover-image-container #item-header-content .group-actions-absolute .groups-meta {

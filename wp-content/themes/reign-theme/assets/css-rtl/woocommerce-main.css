@@ -765,7 +765,7 @@ h1.lm-header-title:after,
   transition: all 0.3s ease 0s;
 }
 .rg-wc-view-switcher a svg rect {
-  fill: var(--reign-site-border-color);
+  fill: var(--reign-site-alternate-text-color);
 }
 .rg-wc-view-switcher a.active svg rect {
   fill: var(--reign-colors-theme);
@@ -3317,7 +3317,7 @@ a i.yith-wcwl-icon.fa.fa-heart-o:before {
   }
 }
 .woocommerce div.product .woocommerce-tabs ul.tabs {
-  padding: 0;
+  padding: 0 10px;
   margin: 0;
   background: var(--reign-site-sections-bg-color);
   border: 1px solid var(--reign-site-border-color);
@@ -3352,6 +3352,34 @@ a i.yith-wcwl-icon.fa.fa-heart-o:before {
   box-shadow: none;
   border: 0;
   border-radius: 0;
+  display: block;
+}
+.woocommerce div.product .woocommerce-tabs ul.tabs button.slick-next,
+.woocommerce div.product .woocommerce-tabs ul.tabs button.slick-prev {
+  top: 50%;
+  background-color: transparent;
+  color: var(--reign-site-body-text-color);
+  border: 0;
+}
+.woocommerce div.product .woocommerce-tabs ul.tabs button.slick-next i,
+.woocommerce div.product .woocommerce-tabs ul.tabs button.slick-prev i {
+  display: none;
+}
+.woocommerce div.product .woocommerce-tabs ul.tabs button.slick-next:hover,
+.woocommerce div.product .woocommerce-tabs ul.tabs button.slick-prev:hover {
+  background-color: transparent;
+  color: var(--reign-site-body-text-color);
+  border: 0;
+}
+.woocommerce div.product .woocommerce-tabs ul.tabs button.slick-next.slick-disabled,
+.woocommerce div.product .woocommerce-tabs ul.tabs button.slick-prev.slick-disabled {
+  display: none;
+}
+.woocommerce div.product .woocommerce-tabs ul.tabs .slick-next:before,
+.woocommerce div.product .woocommerce-tabs ul.tabs .slick-prev:before {
+  content: none;
+}
+.woocommerce div.product .woocommerce-tabs ul.tabs:hover button i {
   display: block;
 }
 .woocommerce div.product .woocommerce-tabs ul.tabs:after,

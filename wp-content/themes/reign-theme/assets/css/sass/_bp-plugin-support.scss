@@ -17,6 +17,8 @@
 # BuddyPress Resume Manager
 # BuddyPress Contact Me
 # BuddyPress Member Review
+# BuddyPress Stats
+# Who Viewed My Profile
 --------------------------------------------------------------*/
 
 
@@ -1263,7 +1265,8 @@ body.wbcom-bp-contact .bp-contact-me-popup-message li:nth-child(2n+2) {
     max-height: 80px;
 }
 
-.bupr-bp-member-review-no-popup-add-block #review_desc, #review_desc {
+.bupr-bp-member-review-no-popup-add-block #review_desc,
+#review_desc {
     margin-top: 10px;
 }
 
@@ -1325,4 +1328,50 @@ body.wbcom-bp-contact .bp-contact-me-popup-message li:nth-child(2n+2) {
 
 .multi-review {
     background: var(--reign-site-secondary-bg-color);
+}
+
+/*--------------------------------------------------------------
+# BuddyPress Stats
+--------------------------------------------------------------*/
+div#bp_stats_user_message_statistics,
+div#bp_stats_engagement_statistics,
+div#bp_stats_activity_statistics {
+    background: var(--reign-site-sections-bg-color);
+    border-color: var(--reign-site-border-color);
+}
+
+.bp-stats-report-section {
+    border-color: var(--reign-site-border-color);
+}
+
+.dark-mode,
+.dark-scheme {
+    .bp-stats-report-section canvas {
+        filter: invert(1);
+    }
+
+    .bp-stats-container input[type="date"]::-webkit-calendar-picker-indicator {
+        filter: invert(1)
+    }
+}
+
+/*--------------------------------------------------------------
+# Who Viewed My Profile
+--------------------------------------------------------------*/
+.recent-visitors,
+#buddypress div.widget-member-container.viewed-members li.item-entry .list-wrap {
+    background: var(--reign-site-sections-bg-color);
+    border-radius: var(--reign-global-border-radius);
+}
+
+.dark-mode,
+.dark-scheme {
+    .profile-views .widget-chart-content-container .widget-chart-content {
+        background: transparent;
+        border-color: var(--reign-site-border-color);
+    }
+    
+    .profile-views .widget-chart-content-container .widget-chart-content canvas {
+        filter: invert(1);
+    }
 }

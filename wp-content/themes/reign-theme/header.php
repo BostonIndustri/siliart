@@ -9,14 +9,10 @@
  * @package Reign
  */
 
-$html_class = '';
-if ( isset( $_COOKIE['reign_dark_mode'] ) && $_COOKIE['reign_dark_mode'] == 'true' ) {
-	$html_class = 'dark-mode';
-}
 ?>
 <!DOCTYPE html>
 <?php do_action( 'reign_html_before' ); ?>
-<html <?php language_attributes(); ?> class="<?php echo esc_attr( $html_class ); ?>">
+<html <?php language_attributes(); ?> class="<?php echo esc_attr( join( ' ', apply_filters( 'reign_html_class', array() ) ) ); ?>">
 	<head>
 		<?php do_action( 'reign_head_top' ); ?>
 		<meta charset="<?php bloginfo( 'charset' ); ?>">

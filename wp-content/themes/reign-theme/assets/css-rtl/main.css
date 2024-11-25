@@ -169,15 +169,6 @@ dd, h6, h5, h4, h3, h2, h1 {
   padding: 0;
 }
 
-.fa,
-.fas,
-.far,
-.fal,
-.fad,
-.fab {
-  font-size: 16px;
-}
-
 .site .far {
   font-family: "Font Awesome 6 Pro", "reign-icons";
 }
@@ -8792,7 +8783,7 @@ body:not(.single) .rg-post-thumbnail:not(.rg-audio-block):not(.rg-link-block) {
   border-radius: 100%;
   vertical-align: middle;
   float: right;
-  box-shadow: 0 0 0 6px #f5f6f7;
+  box-shadow: 0 0 0 6px var(--reign-site-secondary-bg-color);
 }
 .entry-meta span.byline {
   min-width: 200px;
@@ -12069,7 +12060,7 @@ ul.reign-sign-form-messages:empty {
 
 hr.wp-block-separator {
   border: none;
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--reign-site-border-color);
   margin: 1.65em auto;
 }
 

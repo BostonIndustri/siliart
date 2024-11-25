@@ -147,6 +147,44 @@ if ( ! class_exists( 'Reign_Kirki_Dark_Mode' ) ) :
 				)
 			);
 
+			new \Kirki\Field\Radio_Buttonset(
+				array(
+					'settings'        => 'reign_default_mode',
+					'label'           => esc_html__( 'Select Default Mode', 'reign' ),
+					'section'         => 'reign_dark_mode_options',
+					'default'         => 'light',
+					'tooltip'         => esc_html__( 'Please choose the default mode for your website. (Note: This option will not work with the dark mode scheme activated in the color scheme settings.)', 'reign' ),
+					'choices'         => array(
+						'light' => esc_html__( 'Light', 'reign' ),
+						'dark'  => esc_html__( 'Dark', 'reign' ),
+					),
+					'active_callback' => array(
+						array(
+							'setting'  => 'reign_dark_mode_option',
+							'operator' => '===',
+							'value'    => true,
+						),
+					),
+				)
+			);
+
+			new \Kirki\Pro\Field\Divider(
+				array(
+					'settings'        => 'reign_dark_mode_default_state_divider',
+					'section'         => 'reign_dark_mode_options',
+					'choices'         => array(
+						'color' => '#dcdcde',
+					),
+					'active_callback' => array(
+						array(
+							'setting'  => 'reign_dark_mode_option',
+							'operator' => '===',
+							'value'    => true,
+						),
+					),
+				)
+			);
+
 			new \Kirki\Field\Checkbox_Switch(
 				array(
 					'settings'        => 'reign_custom_dark_mode_option',

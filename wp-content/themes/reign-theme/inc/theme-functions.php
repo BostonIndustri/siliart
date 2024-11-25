@@ -195,7 +195,7 @@ function reign_breadcrumbs() {
 	if ( $alter_reign_breadcrumbs ) {
 		do_action( 'reign_breadcrumbs' );
 		return;
-	} 
+	}
 
 	$wpseo_titles = get_option( 'wpseo_titles' );
 	if ( function_exists( 'yoast_breadcrumb' ) && isset( $wpseo_titles['breadcrumbs-enable'] ) && $wpseo_titles['breadcrumbs-enable'] == 1 ) {
@@ -649,6 +649,19 @@ if ( ! function_exists( 'reign_css_compress' ) ) {
 	}
 }
 
+/**
+ * Adds a 'dark-mode' class to the HTML element when dark mode is enabled.
+ *
+ * @param array $classes Array of existing classes for the HTML element.
+ * @return array Modified array of classes with 'dark-mode' added if applicable.
+ */
+function reign_add_dark_mode_html_class( $classes ) {
+	if ( isset( $_COOKIE['reign_dark_mode'] ) && $_COOKIE['reign_dark_mode'] === 'true' ) {
+		$classes[] = 'dark-mode';
+	}
+	return $classes;
+}
+add_filter( 'reign_html_class', 'reign_add_dark_mode_html_class' );
 
 /**
  *
