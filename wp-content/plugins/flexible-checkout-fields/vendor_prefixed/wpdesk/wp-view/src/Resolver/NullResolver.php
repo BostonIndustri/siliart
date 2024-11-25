@@ -9,10 +9,10 @@ use FcfVendor\WPDesk\View\Resolver\Exception\CanNotResolve;
  *
  * @package WPDesk\View\Resolver
  */
-class NullResolver implements \FcfVendor\WPDesk\View\Resolver\Resolver
+class NullResolver implements Resolver
 {
-    public function resolve($name, \FcfVendor\WPDesk\View\Renderer\Renderer $renderer = null)
+    public function resolve($name, Renderer $renderer = null)
     {
-        throw new \FcfVendor\WPDesk\View\Resolver\Exception\CanNotResolve('Null Cannot resolve');
+        throw new CanNotResolve('Null Cannot resolve');
     }
 }

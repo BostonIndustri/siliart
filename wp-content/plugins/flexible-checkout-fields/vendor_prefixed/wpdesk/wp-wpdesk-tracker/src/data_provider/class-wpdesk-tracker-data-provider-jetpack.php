@@ -14,7 +14,7 @@ namespace FcfVendor;
 if (!\defined('ABSPATH')) {
     exit;
 }
-if (!\class_exists('FcfVendor\\WPDesk_Tracker_Data_Provider_Jetpack')) {
+if (!\class_exists('FcfVendor\WPDesk_Tracker_Data_Provider_Jetpack')) {
     /**
      * Class WPDesk_Tracker_Data_Provider_Jetpack
      */
@@ -28,11 +28,11 @@ if (!\class_exists('FcfVendor\\WPDesk_Tracker_Data_Provider_Jetpack')) {
         public function get_data()
         {
             $data = [];
-            $data['jetpack_version'] = \defined('FcfVendor\\JETPACK__VERSION') ? \FcfVendor\JETPACK__VERSION : 'none';
-            $data['jetpack_connected'] = \class_exists('FcfVendor\\Jetpack') && \is_callable('Jetpack::is_active') && \FcfVendor\Jetpack::is_active() ? 'yes' : 'no';
-            $data['jetpack_is_staging'] = \class_exists('FcfVendor\\Jetpack') && \is_callable('Jetpack::is_staging_site') && \FcfVendor\Jetpack::is_staging_site() ? 'yes' : 'no';
-            $data['connect_installed'] = \class_exists('FcfVendor\\WC_Connect_Loader') ? 'yes' : 'no';
-            $data['connect_active'] = \class_exists('FcfVendor\\WC_Connect_Loader') && \wp_next_scheduled('wc_connect_fetch_service_schemas') ? 'yes' : 'no';
+            $data['jetpack_version'] = \defined('FcfVendor\JETPACK__VERSION') ? \FcfVendor\JETPACK__VERSION : 'none';
+            $data['jetpack_connected'] = \class_exists('FcfVendor\Jetpack') && \is_callable('FcfVendor\Jetpack::is_active') && Jetpack::is_active() ? 'yes' : 'no';
+            $data['jetpack_is_staging'] = \class_exists('FcfVendor\Jetpack') && \is_callable('FcfVendor\Jetpack::is_staging_site') && Jetpack::is_staging_site() ? 'yes' : 'no';
+            $data['connect_installed'] = \class_exists('FcfVendor\WC_Connect_Loader') ? 'yes' : 'no';
+            $data['connect_active'] = \class_exists('FcfVendor\WC_Connect_Loader') && \wp_next_scheduled('wc_connect_fetch_service_schemas') ? 'yes' : 'no';
             return $data;
         }
     }

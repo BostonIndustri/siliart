@@ -14,7 +14,7 @@ namespace FcfVendor;
 if (!\defined('ABSPATH')) {
     exit;
 }
-if (!\class_exists('FcfVendor\\WPDesk_Tracker_Data_Provider_Orders_Month')) {
+if (!\class_exists('FcfVendor\WPDesk_Tracker_Data_Provider_Orders_Month')) {
     /**
      * Class WPDesk_Tracker_Data_Provider_Orders_Month
      */

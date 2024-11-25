@@ -3,8 +3,8 @@ Contributors: octolize,grola,sebastianpisula
 Donate link: https://octol.io/fs-repo-up
 Tags: woocommerce shipping, table rate shipping, woocommerce table rate shipping, advanced shipping, flexible shipping woocommerce
 Requires at least: 5.8
-Tested up to: 6.6
-Stable tag: 5.0.4
+Tested up to: 6.7
+Stable tag: 5.0.9
 Requires PHP: 7.4
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -237,6 +237,21 @@ We provide a limited support for the free version of our Flexible Shipping plugi
 If you are upgrading from the old Flexible Shipping version (1.3.2, woo-flexible-shipping) make sure to completely delete the old version first. If you install the new version without deleting the old one it may break your WordPress installation.
 
 == Changelog ==
+
+= 5.0.9 - 2024-11-20 =
+* Fixed fatal error on order meta data
+
+= 5.0.8 - 2024-11-19 =
+* Fixed upgrade info popup
+
+= 5.0.7 - 2024-11-19 =
+* Fixed support for WooCommerce 9.5
+
+= 5.0.6 - 2024-11-18 =
+* Added support for WooCommerce 9.5
+
+= 5.0.5 - 2024-11-13 =
+* Added rules table information in modal shipping method settings
 
 = 5.0.4 - 2024-11-07 =
 * Fixed tax calculation for shipping methods with rules table

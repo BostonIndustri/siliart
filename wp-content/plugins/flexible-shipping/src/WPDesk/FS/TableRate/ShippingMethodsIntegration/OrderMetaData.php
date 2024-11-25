@@ -49,6 +49,9 @@ class OrderMetaData implements Hookable {
 	 * @return string
 	 */
 	public function get_meta_key_display_value( $display_value, $meta, $item ): string {
+		if ( ! $meta instanceof \WC_Meta_Data ) {
+			return $display_value;
+		}
 		$data = $meta->get_data();
 		if ( self::META_KEY === ( $data['key'] ?? '' ) ) {
 			$meta_value = json_decode( $display_value, true );

@@ -42,6 +42,15 @@ class Flexible_Checkout_Fields_Myaccount_Field_Processor {
 	 * Hooks.
 	 */
 	public function hooks() {
+		add_action( 'wp_loaded', [ $this, 'process_fields' ] );
+	}
+
+	/**
+	 * Add sanitization to custom fields when woocommerce saves address.
+	 *
+	 * @return void
+	 */
+	public function process_fields() {
 		$settings = $this->plugin->get_settings();
 		foreach ( $settings as $section ) {
 			if ( is_array( $section ) ) {

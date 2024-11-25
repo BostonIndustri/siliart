@@ -128,7 +128,7 @@ class Flexible_Checkout_Fields_Plugin extends \FcfVendor\WPDesk\PluginBuilder\Pl
 
 		$this->settings = new Flexible_Checkout_Fields_Settings( $this, self::FIELDS_REQUIREMENT_CONTROLLED_BY_WOOCOMMERCE );
 
-		add_action( 'plugins_loaded', [ $this, 'plugins_loaded' ], 100 );
+		add_action( 'init', [ $this, 'init_settings' ], 100 );
 
 		add_action( 'woocommerce_checkout_fields', [ $this, 'changeCheckoutFields' ], 9999 );
 		add_action( 'woocommerce_checkout_create_order', [ $this, 'updateCheckoutFields' ], 9, 2 );
@@ -227,13 +227,18 @@ class Flexible_Checkout_Fields_Plugin extends \FcfVendor\WPDesk\PluginBuilder\Pl
 
 	/**
 	 * Load plugin textdomain
+	 *
+	 * @return void
 	 */
 	public function load_plugin_text_domain() {
 		load_plugin_textdomain( 'wpdesk-plugin', false, $this->get_text_domain() . '/classes/wpdesk/lang/' );
 		load_plugin_textdomain( $this->get_text_domain(), false, $this->get_text_domain() . '/lang/' );
 	}
 
-	public function plugins_loaded() {
+	/**
+	 * @return void
+	 */
+	public function init_settings() {
 		$this->init_fields();
 		// do użycia dla pola miasto, kod pocztowy i stan
 		$this->init_sections();

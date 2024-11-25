@@ -23,9 +23,9 @@ use FcfVendor\Monolog\Logger;
  * @link https://github.com/aws/aws-sdk-php/
  * @author Andrew Lawson <adlawson@gmail.com>
  */
-class DynamoDbHandler extends \FcfVendor\Monolog\Handler\AbstractProcessingHandler
+class DynamoDbHandler extends AbstractProcessingHandler
 {
-    public const DATE_FORMAT = 'Y-m-d\\TH:i:s.uO';
+    public const DATE_FORMAT = 'Y-m-d\TH:i:s.uO';
     /**
      * @var DynamoDbClient
      */
@@ -42,12 +42,12 @@ class DynamoDbHandler extends \FcfVendor\Monolog\Handler\AbstractProcessingHandl
      * @var Marshaler
      */
     protected $marshaler;
-    public function __construct(\FcfVendor\Aws\DynamoDb\DynamoDbClient $client, string $table, $level = \FcfVendor\Monolog\Logger::DEBUG, bool $bubble = \true)
+    public function __construct(DynamoDbClient $client, string $table, $level = Logger::DEBUG, bool $bubble = \true)
     {
         /** @phpstan-ignore-next-line */
-        if (\defined('Aws\\Sdk::VERSION') && \version_compare(\FcfVendor\Aws\Sdk::VERSION, '3.0', '>=')) {
+        if (defined('FcfVendor\Aws\Sdk::VERSION') && version_compare(Sdk::VERSION, '3.0', '>=')) {
             $this->version = 3;
-            $this->marshaler = new \FcfVendor\Aws\DynamoDb\Marshaler();
+            $this->marshaler = new Marshaler();
         } else {
             $this->version = 2;
         }
@@ -58,7 +58,7 @@ class DynamoDbHandler extends \FcfVendor\Monolog\Handler\AbstractProcessingHandl
     /**
      * {@inheritDoc}
      */
-    protected function write(array $record) : void
+    protected function write(array $record): void
     {
         $filtered = $this->filterEmptyFields($record['formatted']);
         if ($this->version === 3) {
@@ -73,17 +73,17 @@ class DynamoDbHandler extends \FcfVendor\Monolog\Handler\AbstractProcessingHandl
      * @param  mixed[] $record
      * @return mixed[]
      */
-    protected function filterEmptyFields(array $record) : array
+    protected function filterEmptyFields(array $record): array
     {
-        return \array_filter($record, function ($value) {
+        return array_filter($record, function ($value) {
             return !empty($value) || \false === $value || 0 === $value;
         });
     }
     /**
      * {@inheritDoc}
      */
-    protected function getDefaultFormatter() : \FcfVendor\Monolog\Formatter\FormatterInterface
+    protected function getDefaultFormatter(): FormatterInterface
     {
-        return new \FcfVendor\Monolog\Formatter\ScalarFormatter(self::DATE_FORMAT);
+        return new ScalarFormatter(self::DATE_FORMAT);
     }
 }

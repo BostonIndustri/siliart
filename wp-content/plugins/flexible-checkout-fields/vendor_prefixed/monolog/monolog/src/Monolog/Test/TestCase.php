@@ -26,7 +26,7 @@ use FcfVendor\Monolog\Formatter\FormatterInterface;
  */
 class TestCase extends \FcfVendor\PHPUnit\Framework\TestCase
 {
-    public function tearDown() : void
+    public function tearDown(): void
     {
         parent::tearDown();
         if (isset($this->handler)) {
@@ -41,20 +41,20 @@ class TestCase extends \FcfVendor\PHPUnit\Framework\TestCase
      * @phpstan-param  Level $level
      * @phpstan-return Record
      */
-    protected function getRecord(int $level = \FcfVendor\Monolog\Logger::WARNING, string $message = 'test', array $context = []) : array
+    protected function getRecord(int $level = Logger::WARNING, string $message = 'test', array $context = []): array
     {
-        return ['message' => (string) $message, 'context' => $context, 'level' => $level, 'level_name' => \FcfVendor\Monolog\Logger::getLevelName($level), 'channel' => 'test', 'datetime' => new \FcfVendor\Monolog\DateTimeImmutable(\true), 'extra' => []];
+        return ['message' => (string) $message, 'context' => $context, 'level' => $level, 'level_name' => Logger::getLevelName($level), 'channel' => 'test', 'datetime' => new DateTimeImmutable(\true), 'extra' => []];
     }
     /**
      * @phpstan-return Record[]
      */
-    protected function getMultipleRecords() : array
+    protected function getMultipleRecords(): array
     {
-        return [$this->getRecord(\FcfVendor\Monolog\Logger::DEBUG, 'debug message 1'), $this->getRecord(\FcfVendor\Monolog\Logger::DEBUG, 'debug message 2'), $this->getRecord(\FcfVendor\Monolog\Logger::INFO, 'information'), $this->getRecord(\FcfVendor\Monolog\Logger::WARNING, 'warning'), $this->getRecord(\FcfVendor\Monolog\Logger::ERROR, 'error')];
+        return [$this->getRecord(Logger::DEBUG, 'debug message 1'), $this->getRecord(Logger::DEBUG, 'debug message 2'), $this->getRecord(Logger::INFO, 'information'), $this->getRecord(Logger::WARNING, 'warning'), $this->getRecord(Logger::ERROR, 'error')];
     }
-    protected function getIdentityFormatter() : \FcfVendor\Monolog\Formatter\FormatterInterface
+    protected function getIdentityFormatter(): FormatterInterface
     {
-        $formatter = $this->createMock(\FcfVendor\Monolog\Formatter\FormatterInterface::class);
+        $formatter = $this->createMock(FormatterInterface::class);
         $formatter->expects($this->any())->method('format')->will($this->returnCallback(function ($record) {
             return $record['message'];
         }));

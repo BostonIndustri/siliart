@@ -14,7 +14,7 @@ namespace FcfVendor;
 if (!\defined('ABSPATH')) {
     exit;
 }
-if (!\class_exists('FcfVendor\\WPDesk_Tracker_Data_Provider_Identification_Gdpr')) {
+if (!\class_exists('FcfVendor\WPDesk_Tracker_Data_Provider_Identification_Gdpr')) {
     /**
      * Class WPDesk_Tracker_Data_Provider_Identification_Gdpr
      */

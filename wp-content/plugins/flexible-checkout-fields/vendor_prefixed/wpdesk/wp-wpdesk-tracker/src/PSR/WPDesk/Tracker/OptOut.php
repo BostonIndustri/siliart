@@ -4,7 +4,7 @@ namespace FcfVendor\WPDesk\Tracker;
 
 use FcfVendor\WPDesk\Notice\Notice;
 use FcfVendor\WPDesk\PluginBuilder\Plugin\Hookable;
-class OptOut implements \FcfVendor\WPDesk\PluginBuilder\Plugin\Hookable
+class OptOut implements Hookable
 {
     /**
      * @var string
@@ -25,20 +25,20 @@ class OptOut implements \FcfVendor\WPDesk\PluginBuilder\Plugin\Hookable
     }
     public function hooks()
     {
-        \add_action('admin_notices', [$this, 'handle_opt_out']);
+        add_action('admin_notices', [$this, 'handle_opt_out']);
     }
     /**
      * @internal
      */
     public function handle_opt_out()
     {
-        $screen = \get_current_screen();
+        $screen = get_current_screen();
         if ('plugins' === $screen->id) {
-            if (isset($_GET['wpdesk_tracker_opt_out_' . $this->plugin_slug]) && isset($_GET['security']) && \wp_verify_nonce($_GET['security'], $this->plugin_slug)) {
+            if (isset($_GET['wpdesk_tracker_opt_out_' . $this->plugin_slug]) && isset($_GET['security']) && wp_verify_nonce($_GET['security'], $this->plugin_slug)) {
                 $persistence = new \FcfVendor\WPDesk_Tracker_Persistence_Consent();
                 $persistence->set_active(\false);
-                \delete_option('wpdesk_tracker_notice');
-                new \FcfVendor\WPDesk\Notice\Notice(\sprintf(\esc_html__('You successfully opted out of collecting usage data by %1$s. If you change your mind, you can always opt in later in the plugin\'s quick links.', 'flexible-checkout-fields'), \esc_html($this->plugin_name)));
+                delete_option('wpdesk_tracker_notice');
+                new Notice(sprintf(esc_html__('You successfully opted out of collecting usage data by %1$s. If you change your mind, you can always opt in later in the plugin\'s quick links.', 'flexible-checkout-fields'), esc_html($this->plugin_name)));
             }
         }
     }

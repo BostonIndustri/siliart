@@ -32,11 +32,11 @@ $rule_table_settings = [
 ?>
 <tr valign="top" class="flexible_shipping_method_rules">
 	<th class="forminp" colspan="2">
-		<label for="<?php echo esc_attr( $settings_field_name ); ?>"><?php echo wp_kses_post( $settings_field_title ); ?></label>
+		<label class="flexible-shipping-method-rules-settings-label" for="<?php echo esc_attr( $settings_field_name ); ?>"><?php echo wp_kses_post( $settings_field_title ); ?></label>
 	</th>
 </tr>
 <tr valign="top" class="flexible-shipping-method-rules-settings">
-	<td colspan="2" style="padding:0;">
+	<td colspan="2" style="padding:0;"><div class="flexible-shipping-method-rules-settings">
 		<?php do_action( 'flexible-shipping/method-rules-settings/table/before' ); ?>
 
 		<p><a href="#0" class="button-hints js--button-hints"
@@ -111,5 +111,16 @@ $rule_table_settings = [
 		</div>
 
 		<?php do_action( 'flexible-shipping/method-rules-settings/table/after' ); ?>
-	</td>
+		</div><div class="flexible-shipping-method-rules-settings-modal" style="display:none;">
+			<div class="notice notice-error inline">
+				<?php echo wp_kses_post( wpautop(
+					sprintf(
+						// Translators: open tag, close tag.
+						__( 'To use Flexible Shipping Rules Table you need to switch to non-modal mode. %1$sClick here%2$s to edit this shipping method with Rules Table.', 'flexible-shipping' ),
+						'<a class="fs-non-modal-method-edit" href="' . esc_url( admin_url( 'admin.php?page=wc-settings&tab=shipping' ) ) . '">',
+						'</a>'
+					)
+				) ); ?>
+			</div>
+		</div></td>
 </tr>

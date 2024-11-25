@@ -14,7 +14,7 @@ namespace FcfVendor;
 if (!\defined('ABSPATH')) {
     exit;
 }
-if (!\class_exists('FcfVendor\\WPDesk_Tracker_Data_Provider_Wordpress')) {
+if (!\class_exists('FcfVendor\WPDesk_Tracker_Data_Provider_Wordpress')) {
     /**
      * Class WPDesk_Tracker_Data_Provider_Wordpress
      */

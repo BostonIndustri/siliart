@@ -2,16 +2,16 @@
 # This file is distributed under the same license as the Flexible Checkout Fields plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Flexible Checkout Fields 4.1.14\n"
+"Project-Id-Version: Flexible Checkout Fields 4.1.15\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/flexible-checkout-fields\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-09-07T01:19:42+00:00\n"
+"POT-Creation-Date: 2024-11-21T15:07:03+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.10.0\n"
+"X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: flexible-checkout-fields\n"
 
 #. Plugin Name of the plugin
@@ -78,41 +78,41 @@ msgstr ""
 msgid "Postcode"
 msgstr ""
 
-#: classes/plugin.php:335
+#: classes/plugin.php:340
 #: src/Settings/Menu.php:70
 msgid "Billing"
 msgstr ""
 
-#: classes/plugin.php:342
+#: classes/plugin.php:347
 #: src/Settings/Menu.php:71
 msgid "Shipping"
 msgstr ""
 
-#: classes/plugin.php:349
+#: classes/plugin.php:354
 #: src/Settings/Menu.php:72
 msgid "Order"
 msgstr ""
 
-#: classes/plugin.php:918
+#: classes/plugin.php:923
 msgid "Uploading file..."
 msgstr ""
 
-#: classes/plugin.php:993
+#: classes/plugin.php:998
 msgid "Start here"
 msgstr ""
 
-#: classes/plugin.php:994
+#: classes/plugin.php:999
 #: src/Settings/Menu.php:35
-#: vendor_prefixed/wpdesk/wp-builder/src/Plugin/AbstractPlugin.php:198
+#: vendor_prefixed/wpdesk/wp-builder/src/Plugin/AbstractPlugin.php:188
 msgid "Settings"
 msgstr ""
 
-#: classes/plugin.php:995
-#: vendor_prefixed/wpdesk/wp-builder/src/Plugin/AbstractPlugin.php:194
+#: classes/plugin.php:1000
+#: vendor_prefixed/wpdesk/wp-builder/src/Plugin/AbstractPlugin.php:184
 msgid "Docs"
 msgstr ""
 
-#: classes/plugin.php:999
+#: classes/plugin.php:1004
 #: src/Settings/Option/LogicAdvOption.php:58
 #: src/Settings/Option/SettingSectionsAdvOption.php:37
 msgid "Upgrade to PRO"
@@ -754,27 +754,27 @@ msgstr ""
 msgid "Created with %1$s by Sailors from %2$sWP Desk%3$s - if you like FCF %4$srate us%5$s"
 msgstr ""
 
-#: vendor_prefixed/wpdesk/ltv-dashboard-widget/src/DashboardWidget.php:59
+#: vendor_prefixed/wpdesk/ltv-dashboard-widget/src/DashboardWidget.php:65
 msgid "Grow your business with WP Desk"
 msgstr ""
 
-#: vendor_prefixed/wpdesk/ltv-dashboard-widget/src/DashboardWidget.php:286
+#: vendor_prefixed/wpdesk/ltv-dashboard-widget/src/DashboardWidget.php:291
 msgid "Buy now"
 msgstr ""
 
-#: vendor_prefixed/wpdesk/ltv-dashboard-widget/src/DashboardWidget.php:288
+#: vendor_prefixed/wpdesk/ltv-dashboard-widget/src/DashboardWidget.php:293
 msgid "Learn more"
 msgstr ""
 
-#: vendor_prefixed/wpdesk/ltv-dashboard-widget/src/DashboardWidget.php:292
+#: vendor_prefixed/wpdesk/ltv-dashboard-widget/src/DashboardWidget.php:296
 msgid "Download"
 msgstr ""
 
-#: vendor_prefixed/wpdesk/ltv-dashboard-widget/src/DashboardWidget.php:304
+#: vendor_prefixed/wpdesk/ltv-dashboard-widget/src/DashboardWidget.php:307
 msgid "More info"
 msgstr ""
 
-#: vendor_prefixed/wpdesk/wp-builder/src/Plugin/AbstractPlugin.php:191
+#: vendor_prefixed/wpdesk/wp-builder/src/Plugin/AbstractPlugin.php:181
 msgid "Support"
 msgstr ""
 
@@ -855,11 +855,11 @@ msgid "Kindly tell us the reason so we can improve"
 msgstr ""
 
 #. translators: %1$s: plugin name
-#: vendor_prefixed/wpdesk/wp-wpdesk-deactivation-modal/src/Model/FormTemplate.php:25
+#: vendor_prefixed/wpdesk/wp-wpdesk-deactivation-modal/src/Model/FormTemplate.php:38
 msgid "You are deactivating %1$s plugin"
 msgstr ""
 
-#: vendor_prefixed/wpdesk/wp-wpdesk-deactivation-modal/src/Model/FormTemplate.php:28
+#: vendor_prefixed/wpdesk/wp-wpdesk-deactivation-modal/src/Model/FormTemplate.php:49
 msgid "If you have a moment, please let us know why you are deactivating plugin (anonymous feedback):"
 msgstr ""
 
@@ -875,12 +875,12 @@ msgstr ""
 msgid "You successfully opted out of collecting usage data by %1$s. If you change your mind, you can always opt in later in the plugin's quick links."
 msgstr ""
 
-#: vendor_prefixed/wpdesk/wp-wpdesk-tracker/src/PSR/WPDesk/Tracker/PluginActionLinks.php:96
+#: vendor_prefixed/wpdesk/wp-wpdesk-tracker/src/PSR/WPDesk/Tracker/PluginActionLinks.php:70
 #: vendor_prefixed/wpdesk/wp-wpdesk-tracker/src/views/tracker-notice.php:41
 msgid "Enable usage tracking"
 msgstr ""
 
-#: vendor_prefixed/wpdesk/wp-wpdesk-tracker/src/PSR/WPDesk/Tracker/PluginActionLinks.php:101
+#: vendor_prefixed/wpdesk/wp-wpdesk-tracker/src/PSR/WPDesk/Tracker/PluginActionLinks.php:75
 msgid "Disable usage tracking"
 msgstr ""
 

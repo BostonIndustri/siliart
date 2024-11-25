@@ -21,19 +21,17 @@ class SettingsFields implements Hookable {
 	}
 
 	/**
-	 * @param array $supports
+	 * @param bool $supports
 	 * @param string $feature
 	 * @param \WC_Shipping_Method $shipping_method
 	 *
-	 * @return array
+	 * @return bool
 	 */
 	public function remove_modal_settings_from_shipping_methods( $supports, $feature, $shipping_method ) {
-		if ( in_array( $shipping_method->id ?? '', $this->get_not_allowed_shipping_methods_instance_settings(), true ) ) {
-
-			return $supports;
-		}
-		if ( $feature === 'instance-settings-modal' ) {
-			return false;
+		if ( in_array( $shipping_method->id ?? '', $this->get_allowed_shipping_methods_instance_settings(), true ) ) {
+			if ( $feature === 'instance-settings-modal' ) {
+				return false;
+			}
 		}
 
 		return $supports;
@@ -47,10 +45,10 @@ class SettingsFields implements Hookable {
 	public function add_fields( $methods ) {
 		foreach ( $methods as $shipping_method => $class ) {
 			if ( ! in_array( $shipping_method, $this->get_not_allowed_shipping_methods_instance_settings(), true ) ) {
-				add_filter( 'woocommerce_shipping_instance_form_fields_' . $shipping_method, [ $this, 'add_table_rate_fields' ], 10 );
+				add_filter( 'woocommerce_shipping_instance_form_fields_' . $shipping_method, [ $this, 'add_table_rate_fields' ], PHP_INT_MAX );
 			}
 			if ( in_array( $shipping_method, $this->get_allowed_shipping_methods_global_settings(), true ) ) {
-				add_filter( 'woocommerce_settings_api_form_fields_' . $shipping_method, [ $this, 'add_table_rate_fields' ], 10, 1 );
+				add_filter( 'woocommerce_settings_api_form_fields_' . $shipping_method, [ $this, 'add_table_rate_fields' ], PHP_INT_MAX );
 			}
 		}
 
@@ -65,6 +63,15 @@ class SettingsFields implements Hookable {
 				'free_shipping',
 				'box_now_delivery',
 				'mondialrelay_official_shipping',
+			]
+		);
+	}
+
+	private function get_allowed_shipping_methods_instance_settings() {
+		return apply_filters(
+			'flexible-shipping/integration/allowed-shipping-methods-instance-settings',
+			[
+				'flat_rate',
 			]
 		);
 	}
@@ -104,6 +111,10 @@ class SettingsFields implements Hookable {
 	 * @return array
 	 */
 	public function add_table_rate_fields( $fields ) {
+		if ( ! is_array( $fields ) || empty( $fields ) ) {
+
+			return $fields;
+		}
 		$fields['fs_method_rules_title']        = [
 			'type'    => 'title',
 			'title'   => __( 'Additional costs by Flexible Shipping Table Rate', 'flexible-shipping' ),

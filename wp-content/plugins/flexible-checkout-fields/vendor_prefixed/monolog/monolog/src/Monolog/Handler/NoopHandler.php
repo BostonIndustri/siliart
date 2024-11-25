@@ -20,19 +20,19 @@ namespace FcfVendor\Monolog\Handler;
  *
  * @author Roel Harbers <roelharbers@gmail.com>
  */
-class NoopHandler extends \FcfVendor\Monolog\Handler\Handler
+class NoopHandler extends Handler
 {
     /**
      * {@inheritDoc}
      */
-    public function isHandling(array $record) : bool
+    public function isHandling(array $record): bool
     {
         return \true;
     }
     /**
      * {@inheritDoc}
      */
-    public function handle(array $record) : bool
+    public function handle(array $record): bool
     {
         return \false;
     }
